@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/goosetrack/static/css/main.7acaea2f.css",
-    "main.js": "/goosetrack/static/js/main.525f48f9.js",
-    "index.html": "/goosetrack/index.html",
-    "main.7acaea2f.css.map": "/goosetrack/static/css/main.7acaea2f.css.map",
-    "main.525f48f9.js.map": "/goosetrack/static/js/main.525f48f9.js.map"
+    "main.css": "/GooseTrack/static/css/main.7acaea2f.css",
+    "main.js": "/GooseTrack/static/js/main.525f48f9.js",
+    "index.html": "/GooseTrack/index.html",
+    "main.7acaea2f.css.map": "/GooseTrack/static/css/main.7acaea2f.css.map",
+    "main.525f48f9.js.map": "/GooseTrack/static/js/main.525f48f9.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
