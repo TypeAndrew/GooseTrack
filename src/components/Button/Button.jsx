@@ -1,9 +1,9 @@
-import classNames from 'classnames';
+import { ButtonComponent} from "./Button_css";
 
-export const Button = ({ type = 'button', className = 'btn-primary', isLoading, children, disabled, ...props }) => {
+export const Button = ({ type = 'button', isLoading, children, disabled, ...props }) => {
   return (
     // eslint-disable-next-line react/button-has-type
-    <button type={type} className={classNames('btn', className)} {...props} disabled={isLoading || disabled}>
+    <ButtonComponent type={type} {...props} disabled={isLoading || disabled}>
       {isLoading ? (
         <>
           <span className="spinner-grow spinner-grow-sm" role="status" aria-hidden="true" />
@@ -12,6 +12,6 @@ export const Button = ({ type = 'button', className = 'btn-primary', isLoading, 
       ) : (
         children
       )}
-    </button>
+    </ButtonComponent>
   );
 };
