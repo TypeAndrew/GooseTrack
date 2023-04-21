@@ -37,7 +37,7 @@ export const App = () => {
             <Routes>
               <Route path="" element={<PublicRoute />}>
                 <Route index element={<Navigate to="/login" />} />
-                  <Route path="/register" element={<RegisterPage />} />
+                <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/users" element={<ColumnsTasksList />} />
                 </Route > 

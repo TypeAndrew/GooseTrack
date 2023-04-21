@@ -28,7 +28,7 @@ export function Tasks()  {
   }*/
   
   return (
-    users.map(element => 
+    users?.map(element => 
    // getFilterValueOn(element) && replace funcion on selector
     <li key={element.id}><div>{element.email}</div><div> {element.subscription}</div>
     <button onClick={handleDelete} id={element.id} type="button" >delete </button></li>
