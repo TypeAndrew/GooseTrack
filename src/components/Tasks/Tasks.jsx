@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useCallback, useEffect} from 'react';
 import { useSelector,useDispatch  } from 'react-redux';
 import { getTasksThunk, deleteTasksThunk } from 'Redux/tasks/tasks.thunk';
-import {  selectFilteredTasks, getTasks } from 'Redux/tasks/tasks.selectors';
+import {   getTasks } from 'Redux/tasks/tasks.selectors';
 
 export function Tasks()  {
 
