@@ -13,3 +13,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+ul {
+  list-style-type: none;
+
+}
+
+form {
+
+  font-size: 20px;
+}
+
+
+li>div {
+  width: 300px
+}
+
+li {
+  display: flex;
+  justify-content: center;
+}
+
+.tab-pane {
+  border: solid;
+  padding: 10px 10px;
+}
+
+.Toastify {
+  margin-top: 40px;
+
+}

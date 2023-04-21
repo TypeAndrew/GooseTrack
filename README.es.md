@@ -98,8 +98,8 @@ principio y al final de la cadena son obligatorias.
 
 1. Después de cada push a la rama `main` del repositorio GitHub, se ejecuta un
    script especial (GitHub Action) del archivo `.github/workflows/deploy.yml`.
-2. Todos los archivos del repositorio se copian en el servidor, donde el
+2. Tasks los archivos del repositorio se copian en el servidor, donde el
    proyecto se inicializa, se verifica y se compila antes de ser implementado.
-3. Si todos los pasos tienen éxito, la versión de producción compilada de los
+3. Si tasks los pasos tienen éxito, la versión de producción compilada de los
    archivos del proyecto se envía a la rama `gh-pages`. De lo contrario, el
    registro de ejecución del script indicará cuál es el problema.
