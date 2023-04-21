@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { selectAuthToken } from 'Redux/auth/auth.selector';
 import { getTasks } from 'Redux/tasks/tasks.selectors';
-import { privateApi, token } from '../../http/http';
+import { publicApi, privateApi, token } from '../../http/http';
 
 
 
 export const getTasksThunk = createAsyncThunk('GET tasks', async (_, {getState}) => {
     const stateTocken = selectAuthToken(getState())
-    token.set(stateTocken);
-    const { data } = await privateApi.get('tasks');
+    //token.set(stateTocken);
+    const { data } = await publicApi.get('');
     return data;
 });
 

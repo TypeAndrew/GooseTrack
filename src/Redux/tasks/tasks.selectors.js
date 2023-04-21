@@ -13,9 +13,9 @@ export const selectFilteredTasks = createSelector(
 
     switch (filter) {
       case (filter !== "") :
-        return tasks.filter(tasks => tasks.name.toLowerCase().includes(filter.toLowerCase()));
+        return tasks.filter(tasks => tasks.email.toLowerCase().includes(filter.toLowerCase()));
       default:
-        return tasks.filter(tasks => tasks.name.toLowerCase().includes(filter.toLowerCase()));
+        return tasks.filter(tasks => tasks.email.toLowerCase().includes(filter.toLowerCase()));
     }
   }
 );

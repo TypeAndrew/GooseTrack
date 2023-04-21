@@ -44,7 +44,10 @@ export const Navigation = () => {
             <NavLink to="join" className={getActiveClassName}>
               Join
             </NavLink>
-                        
+            <NavLink to="users" end className={getActiveClassName}>
+              Users
+            </NavLink> 
+              
           </>
         )}
       </div>

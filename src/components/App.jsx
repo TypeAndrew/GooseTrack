@@ -1,15 +1,15 @@
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 
-import { Layout } from './Layout/Layout';
+import { Layout } from './Layout/MainLayout';
 import { lazy, Suspense } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-const JoinPage = lazy(() => import('../pages/JonPage/JoinPage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
-const TasksPage = lazy(() => import('../pages/TasksPage/TasksPage'));
+const ColumnsTasksList = lazy(() => import('../pages/TasksPage/TasksPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage/CalendarPage'));
 
 export const App = () => {
@@ -37,13 +37,14 @@ export const App = () => {
             <Routes>
               <Route path="" element={<PublicRoute />}>
                 <Route index element={<Navigate to="/login" />} />
-                  <Route path="/join" element={<JoinPage />} />
-                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/users" element={<ColumnsTasksList />} />
                 </Route > 
                 <Route path="" element={<PrivateRoute />}>
                   
                 <Route path="/calendar" element={<CalendarPage />} />
-                <Route path="/tasks" element={<TasksPage />} />
+                <Route path="/calendar/day/:currentDay" element={<ColumnsTasksList />} />
               </Route>    
             </Routes>
                 

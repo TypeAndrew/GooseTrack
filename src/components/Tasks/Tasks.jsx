@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { useCallback, useEffect} from 'react';
 import { useSelector,useDispatch  } from 'react-redux';
 import { getTasksThunk, deleteTasksThunk } from 'Redux/tasks/tasks.thunk';
-import {  selectFilteredTasks } from 'Redux/tasks/tasks.selectors';
+import {  selectFilteredTasks, getTasks } from 'Redux/tasks/tasks.selectors';
 
 export function Tasks()  {
 
   const dispatch = useDispatch();
  
-  const contacts = useSelector(selectFilteredTasks);
+  const {users} = useSelector(getTasks);
   
   
 
@@ -28,9 +28,9 @@ export function Tasks()  {
   }*/
   
   return (
-    contacts.map(element => 
+    users.map(element => 
    // getFilterValueOn(element) && replace funcion on selector
-    <li key={element.id}><div>{element.name}</div><div> {element.number}</div>
+    <li key={element.id}><div>{element.email}</div><div> {element.subscription}</div>
     <button onClick={handleDelete} id={element.id} type="button" >delete </button></li>
     )
   )
