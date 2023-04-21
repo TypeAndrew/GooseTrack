@@ -6,7 +6,7 @@ import { publicApi, privateApi, token } from '../../http/http';
 
 
 export const getTasksThunk = createAsyncThunk('GET tasks', async (_, {getState}) => {
-    const stateTocken = selectAuthToken(getState())
+   // const stateTocken = selectAuthToken(getState())
     //token.set(stateTocken);
     const { data } = await publicApi.get('');
     return data;
