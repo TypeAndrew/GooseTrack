@@ -2,34 +2,35 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { authLoginThunk } from 'Redux/auth/auth.thunk';
 
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { publicApi } from '../../http/http';
 
-const year = new Date().getFullYear();
+import {ArrowSvg} from '../../images/arrowSvg';
+import { Container } from 'components/Container/Container';
+import { Form } from 'components/Form/Form';
+import { Label } from 'components/Label/Label';
+import { Input } from 'components/Input/Input';
+import { Button } from 'components/Button/Button';
+import { NavigateUnauthorized } from 'components/NavigateUnauthorized/NavigateUnauthorized';
+
 const initialState = {
   email: '',
-  first_name: '',
-  last_name: '',
+  name: '',
   password: '',
-  name:'',
   authType: 'signUp'
 };
 
-const JoinPage = () => {
+const RegisterPage = () => {
 
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const [values, setValues] = useState(initialState);
 
-  const [isPass, setIsPass] = useState(true);
-
 useEffect(()=>
 {  
-    //console.log('jfhjfjf')
-    setValues(prev => ({ ...prev, name: values.first_name+ ' '+ values.last_name }));
-    },[values.first_name, values.last_name])
+    setValues(prev => ({ ...prev, name: values.name }));
+    },[values.name])
 
 const handleChange = event => {
     const { value, name } = event.target;
@@ -55,76 +56,55 @@ const handleChange = event => {
     <>
       {isLoading && <p>Loading ...</p>}
 
-      <form action="#" className="mt-5 mx-auto p-0" style={{ width: '450px' }} onSubmit={handleSubmit}>
-        <h1 className="h3 mb-3 fw-normal">Please Sign In</h1>
-
-        <div className="form-floating my-4">
-          <input
+      <Container>
+        
+        <Form title="Sign Up" action="#" onSubmit={handleSubmit}>
+             
+          <Label>Name<Input
+            id="name"
+            name="name"
+            type="name"
+            autoComplete="off"
+            value={values.name}
+            onChange={handleChange}
+            placeholder='Enter your name'
+            required
+          /></Label>
+          
+          <Label>Email<Input
             id="email"
             name="email"
             type="email"
             autoComplete="username"
             value={values.email}
             onChange={handleChange}
-            className="form-control"
-          />
-          <label htmlFor="email">Email address</label>
-        </div>
-
-        <div className="form-floating my-4">
-          <input
-            id="first_name"
-            name="first_name"
-            type="first_name"
-            autoComplete="off"
-            value={values.first_name}
-            onChange={handleChange}
-            className="form-control"
-          />
-          <label htmlFor="first_name">First Name</label>
-        </div>
-
-        <div className="form-floating my-4">
-          <input
-            id="last_name"
-            name="last_name"
-            type="last_name"
-            autoComplete="off"
-            value={values.last_name}
-            onChange={handleChange}
-            className="form-control"
-          />
-          <label htmlFor="last_name">Last Name</label>
-        </div>
-
-        <div className="form-floating my-4">
-          <input
+            placeholder='Enter email'
+            required
+          /></Label>
+          
+          <Label>Password<Input
             id="password"
             name="password"
-            type={isPass ? 'password' : 'text'}
+            type={'password'}
             autoComplete="current-password"
             value={values.password}
             onChange={handleChange}
-            className="form-control"
-          />
-          <label htmlFor="password">Password</label>
-        </div>
+            placeholder='Enter password'
+            required
+          /></Label>
 
-        <button type="button" onClick={() => setIsPass(prev => !prev)}>
-          toggle
-        </button>
+        <Button type="submit">
+          Sign Up <ArrowSvg/>
+        </Button>
+        <ArrowSvg/>
 
-        <Link to="/login" className="d-block my-4">
-          Already has account?
-        </Link>
+      </Form>
 
-        <button className="w-100 mt-2 btn btn-lg btn-primary" type="submit">
-          Sign In
-        </button>
-        <p className="mt-5 mb-3 text-muted">© {year}</p>
-      </form>
+      <NavigateUnauthorized to="/login" title='Log In'/>
+
+      </Container>
     </>
   );
 };
 
-export default JoinPage;
+export default RegisterPage;

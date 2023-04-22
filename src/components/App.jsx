@@ -15,24 +15,24 @@ const CalendarPage = lazy(() => import('../pages/CalendarPage/CalendarPage'));
 export const App = () => {
   
   return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-         // justifyContent: 'center',
-          alignItems: 'stretch',
-          flexDirection: 'row',
-          fontSize: 20,
-          //color: '#010101',
-          listStyleType: 'none',
+      // <div
+        // style={{
+        //   height: '100vh',
+        //   display: 'flex',
+        //  // justifyContent: 'center',
+        //   alignItems: 'stretch',
+        //   flexDirection: 'row',
+        //   fontSize: 20,
+        //   //color: '#010101',
+        //   listStyleType: 'none',
           
           //alignItems: 'stretch',
           //padding: '10px 10px',
-        }}
-    >
+          // }}
+    // >
   
     <BrowserRouter basename="GooseTrack">
-      <Layout>
+      
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route path="" element={<PublicRoute />}>
@@ -51,9 +51,9 @@ export const App = () => {
               
 
           </Suspense>
-      </Layout>
+      
     </BrowserRouter>
-    </div>
+    /* </div> */
   );
 
 };
