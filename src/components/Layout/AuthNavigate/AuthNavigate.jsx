@@ -36,7 +36,10 @@ export const Navigation = () => {
             <Button className="btn-danger mt-5" onClick={() => dispatch(logoutAction())}>Log Out</Button>
           </>
         ) : (
-          <>
+            <>
+            <NavLink to="home" className={getActiveClassName}>
+              Home
+            </NavLink>
             <NavLink to="login" className={getActiveClassName}>
               Login
             </NavLink>
