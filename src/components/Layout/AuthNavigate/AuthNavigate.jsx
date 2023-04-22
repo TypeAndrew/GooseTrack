@@ -43,6 +43,13 @@ export const Navigation = () => {
 
             <NavLink to="join" className={getActiveClassName}>
               Join
+              </NavLink>
+            <NavLink to="account" className={getActiveClassName}>
+              My account
+            </NavLink>
+
+            <NavLink to="calendar" className={getActiveClassName}>
+              Calendar
             </NavLink>
             <NavLink to="users" end className={getActiveClassName}>
               Users

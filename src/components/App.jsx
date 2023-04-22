@@ -1,3 +1,4 @@
+import HomePage from 'pages/HomePage/HomePage';
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 
@@ -8,7 +9,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
-
+const AccountPage = lazy(() => import('../pages/AccountPage/AccountPage'));
 const ColumnsTasksList = lazy(() => import('../pages/TasksPage/TasksPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage/CalendarPage'));
 
@@ -32,14 +33,18 @@ export const App = () => {
     // >
   
     <BrowserRouter basename="GooseTrack">
-      
+        <Layout>
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route path="" element={<PublicRoute />}>
-                <Route index element={<Navigate to="/login" />} />
+              <Route index element={<Navigate to="/login" />} />
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
+                <Route path="/account" element={<AccountPage />} />
+                <Route path="/calendar" element={<CalendarPage />} />
                 <Route path="/users" element={<ColumnsTasksList />} />
+              
                 </Route > 
                 <Route path="" element={<PrivateRoute />}>
                   
@@ -47,11 +52,11 @@ export const App = () => {
                 <Route path="/calendar/day/:currentDay" element={<ColumnsTasksList />} />
               </Route>    
             </Routes>
-                
+            
               
 
           </Suspense>
-      
+        </Layout>
     </BrowserRouter>
     /* </div> */
   );
