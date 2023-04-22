@@ -7,6 +7,7 @@ export const LinkComponent = styled(NavLink)`
   margin-top: 18px;
   font-size: 12px;
   line-height: 1.17;
+  width: 100%;
 
   text-decoration-line: underline;
 

@@ -5,7 +5,7 @@ export const FormComponent = styled.form`
   background: #ffffff;
   border-radius: 8px;
   width: 100%;
-  margin: auto;
+  /* margin: auto; */
   padding: 40px 24px;
 
   font-weight: 600;
@@ -19,8 +19,11 @@ export const FormComponent = styled.form`
   }
   @media screen and (min-width: 768px) {
     width: 480px;
-    margin: auto;
+    /* margin-top:227px; */
     padding: 40px;
+  }
+  @media screen and (min-width: 1280px) {
+    /* margin-top:124px; */
   }
 `;
 export const Title = styled.h2`
