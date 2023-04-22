@@ -41,9 +41,9 @@ export const Navigation = () => {
               Login
             </NavLink>
 
-            <NavLink to="join" className={getActiveClassName}>
-              Join
-              </NavLink>
+            <NavLink to="register" className={getActiveClassName}>
+              Register
+            </NavLink>
             <NavLink to="account" className={getActiveClassName}>
               My account
             </NavLink>
