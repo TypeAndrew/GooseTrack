@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 
 export const FormComponent = styled(Form)`
-  min-height: 469px;
+  min-height: 376px;
   border-radius: 8px;
   width: 100%;
   padding: 40px 24px;

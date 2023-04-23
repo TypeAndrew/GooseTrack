@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 axios.defaults.baseURL = "https://goose-track-back.onrender.com";
 
@@ -19,6 +21,9 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.newUser.verificationToken); //ЗАМІНИТИ НА ТОКЕН ПІСЛЯ ЗМІН БЕКЕНДУ
       return res.data.newUser;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_LEFT
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -31,6 +36,9 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error(error.message, {
+        position: toast.POSITION.TOP_LEFT
+      });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

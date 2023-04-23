@@ -33,7 +33,7 @@ export const App = () => {
     // >
   
     <BrowserRouter basename="GooseTrack">
-        
+        <Layout>
           <Suspense fallback={<p>Loading...</p>}>
             <Routes>
               <Route path="" element={<PublicRoute />}>
@@ -56,7 +56,7 @@ export const App = () => {
               
 
           </Suspense>
-        
+          </Layout>
     </BrowserRouter>
     /* </div> */
   );

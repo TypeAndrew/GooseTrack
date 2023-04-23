@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { logIn } from '../../Redux/auth/authOperations';
+
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-import { register } from 'Redux/auth/authOperations';
-
 import { Form } from 'components/Form/Form';
 import { Label } from 'components/Label/Label';
 import { Button } from 'components/Button/Button';
-import {ErrorDiv} from './RegisterForm_css'
+import {ErrorDiv} from '../RegisterForm/RegisterForm_css'
 
-const RegisterForm = () => {
-
+const LoginForm = () => {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
 
   const SignupSchema = Yup.object().shape({
-    name: Yup.string()
-      .required('Required')
-      .min(3, 'Name must be 3 characters or more')
-      .max(16, 'Name must be 16 characters or less'),
     email: Yup.string().required('Required').email('Invalid email'),
 
     password: Yup.string()
@@ -40,13 +35,13 @@ const RegisterForm = () => {
   return (
     <>
       {isLoading && <p>Loading ...</p>}
+
       <Formik
         validationSchema={SignupSchema}
         validateOnBlur={false}
         validateOnChange={false}
         initialValues={{
           email: '',
-          name: '',
           password: '',
         }}
         onSubmit={async (values, actions) => {
@@ -54,8 +49,7 @@ const RegisterForm = () => {
           console.log('submit', values);
           try {
             setIsLoading(true);
-            dispatch(register({
-                name: values.name,
+            dispatch(logIn({
                 email: values.email,
                 password: values.password,
               }));
@@ -69,27 +63,13 @@ const RegisterForm = () => {
           actions.resetForm({
             values: {
               email: '',
-              name: '',
               password: '',
             },
           });
         }}
       >
         {({ errors, touched, handleReset }) => (
-          <Form title="Sign Up" noValidate="noValidate">
-            <Label>
-              Name
-              <Field
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="off"
-                placeholder="Enter your name"
-                
-              />
-            </Label>
-            <ErrorMessage component={ErrorDiv} name="name" />
-
+          <Form title="Log In" noValidate="noValidate">
             <Label>
               Email
               <Field
@@ -102,6 +82,7 @@ const RegisterForm = () => {
               />
             </Label>
             <ErrorMessage component={ErrorDiv} name="email" />
+
             <Label>
               Password
               <Field
@@ -114,7 +95,7 @@ const RegisterForm = () => {
               />
             </Label>
             <ErrorMessage component={ErrorDiv} name="password" />
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">Log in</Button>
           </Form>
         )}
       </Formik>
@@ -123,4 +104,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

@@ -6,7 +6,7 @@ import RegisterForm from 'components/RegisterForm/RegisterForm';
 const RegisterPage = () => {
 
   return (
-      <Container>
+      <Container page='register'>
         <RegisterForm/>
         <AuthNavigate to="/login" title="Log In" />
       </Container>

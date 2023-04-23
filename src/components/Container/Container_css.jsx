@@ -60,3 +60,46 @@ export const ImgBg = styled.img`
     z-index: -1;
   }
 `;
+
+export const ImgTextLogin = styled.div`
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    width: 177px;
+    transform: rotate(18deg);
+    display: block;
+    position: absolute;
+    bottom: 420px;
+    right: 117px;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 22px;
+    z-index: 1;
+  }
+`;
+
+export const ImgBgLogin = styled.img`
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    width: 177px;
+    display: block;
+    position: absolute;
+    transform: rotate(+27deg);
+    bottom: -29px;
+    left: -3px;
+    z-index: -1;
+  }
+`;
+
+export const ImgLogin = styled.img`
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    width: 379px;
+    display: block;
+    position: absolute;
+    bottom: 18px;
+    right: 16px;
+  }
+`;
