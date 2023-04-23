@@ -1,6 +1,9 @@
 import React from 'react';
-import { useFormik } from 'formik';
-import { useState, useEffect } from 'react';
+
+import { Formik, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authLoginThunk } from 'Redux/auth/auth.thunk';
 
@@ -10,174 +13,116 @@ import { publicApi } from '../../http/http';
 
 import { Form } from 'components/Form/Form';
 import { Label } from 'components/Label/Label';
-import { Input } from 'components/Input/Input';
 import { Button } from 'components/Button/Button';
 
-// const initialState = {
-//   email: '',
-//   name: '',
-//   password: '',
-// //   authType: 'signUp',
-// };
+import {ErrorDiv} from './RegisterForm_css'
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
 
-//   const [values, setValues] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
 
-//   useEffect(() => {
-//     setValues(prev => ({ ...prev, name: values.name }));
-//   }, [values.name]);
+  const SignupSchema = Yup.object().shape({
+    name: Yup.string()
+      .required('Required')
+      .min(3, 'Name must be 3 characters or more')
+      .max(16, 'Name must be 16 characters or less'),
+    email: Yup.string().required('Required').email('Invalid email'),
 
-//   const handleChange = event => {
-//     const { value, name } = event.target;
-//     setValues(prev => ({ ...prev, [name]: value }));
-//   };
+    password: Yup.string()
+      .required('Required')
+      .min(6, 'Password must be 6 characters or more')
+      .max(60, 'Password must be 60 characters or less')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{6,60})/,
+        'Password must contain a number, an uppercase and lowercase letter, and a special character'
+      ),
+  });
 
-//   const handleSubmit = async event => {
-//     event.preventDefault();
-
-//     try {
-//       setIsLoading(true);
-//       await publicApi.post('/signUp', values);
-//       dispatch(authLoginThunk(...values));
-//       setIsLoading(false);
-//       //toast.success('Success!');
-//     } catch (e) {
-//       console.log(e);
-//       toast.error('Some error');
-//     }
-//   };
-
-//   return (
-//     <>
-//       {isLoading && <p>Loading ...</p>}
-
-//       <Form title="Sign Up" action="#" onSubmit={handleSubmit}>
-//         <Label>
-//           Name
-//           <Input
-//             id="name"
-//             name="name"
-//             type="name"
-//             autoComplete="off"
-//             value={values.name}
-//             onChange={handleChange}
-//             placeholder="Enter your name"
-//             required
-//           />
-//         </Label>
-
-//         <Label>
-//           Email
-//           <Input
-//             id="email"
-//             name="email"
-//             type="email"
-//             autoComplete="username"
-//             value={values.email}
-//             onChange={handleChange}
-//             placeholder="Enter email"
-//             required
-//           />
-//         </Label>
-
-//         <Label>
-//           Password
-//           <Input
-//             id="password"
-//             name="password"
-//             type={'password'}
-//             autoComplete="current-password"
-//             value={values.password}
-//             onChange={handleChange}
-//             placeholder="Enter password"
-//             required
-//           />
-//         </Label>
-
-//         <Button type="submit">Sign Up</Button>
-//       </Form>
-//     </>
-//   );
-
-
-
-  // Note that we have to initialize ALL of fields with values. These
-  // could come from props, but since we don’t want to prefill this form,
-  // we just use an empty string. If we don’t do this, React will yell
-  // at us.
-  const formik = useFormik({
-    initialValues: {
-        email: '',
-        name: '',
-        password: '',
-    },
-    onSubmit: async values => {
-            // event.preventDefault();
-        
-            try {
-              setIsLoading(true);
-              await publicApi.post('/signUp', values);
-              dispatch(authLoginThunk(...values));
-              setIsLoading(false);
-              //toast.success('Success!');
-            } catch (e) {
-              console.log(e);
-              toast.error('Some error');
-            }
-          }
-    },
-  );
   return (
-    <Form title="Sign Up" onSubmit={formik.handleSubmit}>
-       <Label>
-          Name
-          <Input
-            id="name"
-            name="name"
-            type="name"
-            autoComplete="off"
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            placeholder="Enter your name"
-            required
-          />
-        </Label>
+    <>
+      {isLoading && <p>Loading ...</p>}
+      <Formik
+        validationSchema={SignupSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          email: '',
+          name: '',
+          password: '',
+          authType: 'signUp',
+        }}
+        onSubmit={async (values, actions) => {
+          // event.preventDefault();
 
-        <Label>
-          Email
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="username"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            placeholder="Enter email"
-            required
-          />
-        </Label>
+          console.log('submit', values);
+          try {
+            setIsLoading(true);
+            publicApi.post('/auth/register', values);
+            dispatch(authLoginThunk(...values));
+            setIsLoading(false);
 
-        <Label>
-          Password
-          <Input
-            id="password"
-            name="password"
-            type='password'
-            autoComplete="current-password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            placeholder="Enter password"
-            required
-          />
-        </Label>
+            //   toast.success('Success!');
+          } catch (e) {
+            console.log(e);
+            toast.error('Some error');
+            setIsLoading(false);
+          }
+          actions.resetForm({
+            values: {
+              email: '',
+              name: '',
+              password: '',
+              authType: 'signUp',
+            },
+          });
+        }}
+      >
+        {({ errors, touched, handleReset }) => (
+          <Form title="Sign Up" novalidate="novalidate">
+            <Label>
+              Name
+              <Field
+                id="name"
+                name="name"
+                type="text"
+                autoComplete="off"
+                placeholder="Enter your name"
+                
+              />
+            </Label>
+            <ErrorMessage component={ErrorDiv} name="name" />
 
-        <Button type="submit">Sign Up</Button>
-      </Form>
+            <Label>
+              Email
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="username"
+                placeholder="Enter email"
+                
+              />
+            </Label>
+            <ErrorMessage component={ErrorDiv} name="email" />
+            <Label>
+              Password
+              <Field
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                placeholder="Enter password"
+                
+              />
+            </Label>
+            <ErrorMessage component={ErrorDiv} name="password" />
+            <Button type="submit">Sign Up</Button>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
-
 
 export default RegisterForm;
