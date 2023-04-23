@@ -2,9 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from 'redux'
 import { tasksReduser } from "./tasks/tasks.slice";
 import { filterReduser } from "./filter/filter.slice";
-import { authReducer } from "./auth/auth.slice";
+import { authReducer } from "./auth/authSlice";
+import storage from 'redux-persist/lib/storage';
+
 import {
   persistStore,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -12,16 +15,22 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
 // Редюсер слайсу
 export const rootReducer = combineReducers({
     taskbook: tasksReduser,
     filter: filterReduser,
-    auth: authReducer,  
+    auth: persistReducer(authPersistConfig, authReducer),  
 })
 
 //[...getGetDefaultMiddleware(), logger]
 export const store = configureStore({
-    devtools: true,
+  devtools: true,
   reducer: rootReducer,  
     
   middleware: getDefaultMiddleware =>

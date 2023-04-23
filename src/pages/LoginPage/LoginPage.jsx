@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { STATUS } from '../../constants/status.constants';
-import { selectAuthStatus } from '../../Redux/auth/auth.selector';
-import { authLoginThunk } from '../../Redux/auth/auth.thunk';
+import { selectUser } from '../../Redux/selectors';
+import { register } from '../../Redux/auth/authOperations';
 
 const initialState = {
   email: '',
@@ -16,7 +16,7 @@ const initialState = {
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const status = useSelector(selectAuthStatus);
+  const status = useSelector(selectUser);
 
   const [values, setValues] = useState(initialState);
 
@@ -29,7 +29,7 @@ const LoginPage = () => {
     event.preventDefault();
 
     try {
-      await dispatch(authLoginThunk(values)).unwrap();
+      await dispatch(register(values)).unwrap();
       
       //toast.success('Success!', {duration: 3000,close: true,}).showToast();
     } catch {

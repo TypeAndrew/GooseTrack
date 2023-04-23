@@ -5,16 +5,13 @@ import * as Yup from 'yup';
 
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authLoginThunk } from 'Redux/auth/auth.thunk';
+import { register } from 'Redux/auth/authOperations';
 
 import { toast } from 'react-toastify';
-
-import { publicApi } from '../../http/http';
 
 import { Form } from 'components/Form/Form';
 import { Label } from 'components/Label/Label';
 import { Button } from 'components/Button/Button';
-
 import {ErrorDiv} from './RegisterForm_css'
 
 const RegisterForm = () => {
@@ -50,36 +47,33 @@ const RegisterForm = () => {
           email: '',
           name: '',
           password: '',
-          authType: 'signUp',
         }}
         onSubmit={async (values, actions) => {
-          // event.preventDefault();
 
           console.log('submit', values);
           try {
             setIsLoading(true);
-            publicApi.post('/auth/register', values);
-            dispatch(authLoginThunk(...values));
+            dispatch(register({
+                name: values.name,
+                email: values.email,
+                password: values.password,
+              }));
             setIsLoading(false);
-
-            //   toast.success('Success!');
           } catch (e) {
-            console.log(e);
             toast.error('Some error');
             setIsLoading(false);
           }
-          actions.resetForm({
-            values: {
-              email: '',
-              name: '',
-              password: '',
-              authType: 'signUp',
-            },
-          });
+        //   actions.resetForm({
+        //     values: {
+        //       email: '',
+        //       name: '',
+        //       password: '',
+        //     },
+        //   });
         }}
       >
         {({ errors, touched, handleReset }) => (
-          <Form title="Sign Up" novalidate="novalidate">
+          <Form title="Sign Up" noValidate="noValidate">
             <Label>
               Name
               <Field
