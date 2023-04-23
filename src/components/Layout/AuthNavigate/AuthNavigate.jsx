@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import styles from './AuthNavigate.module.css';
  
 const getActiveClassName = ({ isActive }) => {
-  // return isActive ? ' nav-btn btn-light active' : ' nav-btn btn-light';
+
    return isActive ? styles.navButtonActive : styles.navButton;
 };
 
@@ -21,7 +21,7 @@ export const Navigation = () => {
   return (
     <div >
       <div className={classNames(styles.navigation)}>
-        {!token && <h2 className="h3 mb-4">Please log in!</h2>}
+        {!token && <h2>Please log in!</h2>}
         <div>{token?.user.email}</div>
         <div>{token?.user.name}</div>
 
