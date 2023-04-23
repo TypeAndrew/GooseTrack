@@ -1,14 +1,15 @@
-//import { useEffect } from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import { selectAuthToken } from '../../../Redux/auth/auth.selector';
 import { logoutAction } from '../../../Redux/auth/auth.slice';
 import { Button } from '../../Button/Button';
-
+import classNames from 'classnames';
+import styles from './AuthNavigate.module.css';
+ 
 const getActiveClassName = ({ isActive }) => {
-  return isActive ? 'btn nav-btn btn-light active' : 'btn nav-btn btn-light';
+  // return isActive ? ' nav-btn btn-light active' : ' nav-btn btn-light';
+   return isActive ? styles.navButtonActive : styles.navButton;
 };
 
 export const Navigation = () => {
@@ -18,19 +19,19 @@ export const Navigation = () => {
 
 
   return (
-    <div className="d-flex flex-column justify-content-between h-100">
-      <div className="d-flex flex-column justify-content-between">
+    <div >
+      <div className={classNames(styles.navigation)}>
         {!token && <h2 className="h3 mb-4">Please log in!</h2>}
         <div>{token?.user.email}</div>
         <div>{token?.user.name}</div>
-
-    
 
         {token ? (
           <>
          
             <NavLink to="contacts" end className={getActiveClassName}>
-              Contacts
+       
+                Contacts
+           
             </NavLink>
 
             <Button className="btn-danger mt-5" onClick={() => dispatch(logoutAction())}>Log Out</Button>
@@ -38,24 +39,37 @@ export const Navigation = () => {
         ) : (
             <>
             <NavLink to="home" className={getActiveClassName}>
-              Home
+
+                  Home
+      
             </NavLink>
             <NavLink to="login" className={getActiveClassName}>
-              Login
+              
+                Login
+        
             </NavLink>
 
             <NavLink to="register" className={getActiveClassName}>
-              Register
-            </NavLink>
+       
+                Register
+          
+              </NavLink>
+              
             <NavLink to="account" className={getActiveClassName}>
-              My account
+           
+                  My account
+      
             </NavLink>
 
             <NavLink to="calendar" className={getActiveClassName}>
-              Calendar
+            
+                Calendar
+  
             </NavLink>
             <NavLink to="users" end className={getActiveClassName}>
-              Users
+     
+                  Users
+        
             </NavLink> 
               
           </>
