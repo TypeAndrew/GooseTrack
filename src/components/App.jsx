@@ -56,7 +56,7 @@ export const App = () => {
               
 
           </Suspense>
-        </Layout>
+          </Layout>
     </BrowserRouter>
     /* </div> */
   );

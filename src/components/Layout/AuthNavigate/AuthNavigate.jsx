@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { selectAuthToken } from '../../../Redux/auth/auth.selector';
-import { logoutAction } from '../../../Redux/auth/auth.slice';
+import { selectToken } from '../../../Redux/selectors';
+import { logOut } from '../../../Redux/auth/authOperations';
 import { Button } from '../../Button/Button';
 import classNames from 'classnames';
 import styles from './AuthNavigate.module.css';
@@ -15,7 +15,7 @@ const getActiveClassName = ({ isActive }) => {
 export const Navigation = () => {
   const dispatch = useDispatch();
 
-  const token = useSelector(selectAuthToken);
+  const token = useSelector(selectToken);
 
 
   return (
@@ -34,7 +34,7 @@ export const Navigation = () => {
            
             </NavLink>
 
-            <Button className="btn-danger mt-5" onClick={() => dispatch(logoutAction())}>Log Out</Button>
+            <Button className="btn-danger mt-5" onClick={() => dispatch(logOut())}>Log Out</Button>
           </>
         ) : (
             <>

@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
-import { selectAuthToken } from '../../Redux/auth/auth.selector';
+import { selectToken } from '../../Redux/selectors';
 
 export const PublicRoute = () => {
-  const token = useSelector(selectAuthToken);
+  const token = useSelector(selectToken);
   const location = useLocation();
 
-  return token ? <Navigate to={location?.state?.from ?? '/tasks'} replace /> : <Outlet />;
+  return token ? <Navigate to={location?.state?.from ?? '/calendar/month'} replace /> : <Outlet />;
 };

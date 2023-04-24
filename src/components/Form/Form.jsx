@@ -1,8 +1,8 @@
 import { Title,  FormComponent} from "./Form_css";
 
-export const Form = ({ title, children }) => {
+export const Form = ({ title, noValidate, children }) => {
     return (
-        <FormComponent>
+        <FormComponent noValidate={noValidate}>
             <Title>{title}</Title>
             {children}
         </FormComponent>
