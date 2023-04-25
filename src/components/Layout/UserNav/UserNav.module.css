@@ -1,0 +1,76 @@
+.userNav {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #7E7D82;
+    
+}
+
+.userTitle {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #7E7D82;
+}
+
+
+
+.navLink {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #7E7D82;
+
+    padding: 12px;
+    gap: 8px;
+}
+
+.activeLink {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-decoration: none;
+  
+    padding: 12px;
+    gap: 8px;
+    color: #3E85F3;
+
+
+    background: #E3F3FF;
+    border-radius: 8px;
+}
+
+.iconlog {
+    margin-right: 10px;
+    color: red;
+}
+
+.activeIcon {
+
+    margin-right: 10px;
+    color: #3E85F3;
+}
