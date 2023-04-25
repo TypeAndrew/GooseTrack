@@ -6,5 +6,5 @@ import { selectToken } from '../../Redux/selectors';
 export const PrivateRoute = () => {
   const token = useSelector(selectToken);
 
-  return token ? <Outlet /> : <Navigate to="/" replace />;
+  return token ? <Outlet /> : <Navigate to="/login" replace />;
 };

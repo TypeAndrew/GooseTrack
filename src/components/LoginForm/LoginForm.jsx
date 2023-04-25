@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { logIn } from '../../Redux/auth/authOperations';
 
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 import { Formik, Field, ErrorMessage } from 'formik';
@@ -47,19 +47,13 @@ const LoginForm = () => {
         onSubmit={async (values, actions) => {
 
           console.log('submit', values);
-          try {
+          // try {
             setIsLoading(true);
-            dispatch(logIn({
+          await  dispatch(logIn({
                 email: values.email,
                 password: values.password,
               }));
             setIsLoading(false);
-          } catch (e) {
-            toast.error(e, {
-                position: toast.POSITION.TOP_LEFT
-              });
-            setIsLoading(false);
-          }
           actions.resetForm({
             values: {
               email: '',

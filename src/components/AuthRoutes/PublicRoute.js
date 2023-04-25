@@ -7,5 +7,5 @@ export const PublicRoute = () => {
   const token = useSelector(selectToken);
   const location = useLocation();
 
-  return token ? <Navigate to={location?.state?.from ?? '/calendar/month'} replace /> : <Outlet />;
+  return !token ? <Outlet /> : <Navigate to={location?.state?.from ?? '/account'} replace />;
 };
