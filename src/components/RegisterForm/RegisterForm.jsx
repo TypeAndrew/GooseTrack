@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { toast, ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -12,10 +12,9 @@ import { register } from 'Redux/auth/authOperations';
 import { Form } from 'components/Form/Form';
 import { Label } from 'components/Label/Label';
 import { Button } from 'components/Button/Button';
-import {ErrorDiv} from './RegisterForm_css'
+import { ErrorDiv } from './RegisterForm_css';
 
 const RegisterForm = () => {
-
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -50,22 +49,20 @@ const RegisterForm = () => {
           password: '',
         }}
         onSubmit={async (values, actions) => {
-
           console.log('submit', values);
-          try {
-            setIsLoading(true);
-            dispatch(register({
-                name: values.name,
-                email: values.email,
-                password: values.password,
-              }));
-            setIsLoading(false);
-          } catch (e) {
-            toast.error(e, {
-                position: toast.POSITION.TOP_LEFT
-              });
-            setIsLoading(false);
-          }
+
+          setIsLoading(true);
+
+          await dispatch(
+            register({
+              name: values.name,
+              email: values.email,
+              password: values.password,
+            })
+          );
+
+          setIsLoading(false);
+
           actions.resetForm({
             values: {
               email: '',
@@ -85,7 +82,6 @@ const RegisterForm = () => {
                 type="text"
                 autoComplete="off"
                 placeholder="Enter your name"
-                
               />
             </Label>
             <ErrorMessage component={ErrorDiv} name="name" />
@@ -98,7 +94,6 @@ const RegisterForm = () => {
                 type="email"
                 autoComplete="username"
                 placeholder="Enter email"
-                
               />
             </Label>
             <ErrorMessage component={ErrorDiv} name="email" />
@@ -110,7 +105,6 @@ const RegisterForm = () => {
                 type="password"
                 autoComplete="current-password"
                 placeholder="Enter password"
-                
               />
             </Label>
             <ErrorMessage component={ErrorDiv} name="password" />
@@ -118,7 +112,7 @@ const RegisterForm = () => {
           </Form>
         )}
       </Formik>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 };
