@@ -25,7 +25,9 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (isRefreshing ? <div>Loading...</div> :
+  return isRefreshing ? (
+    <div>Loading...</div>
+  ) : (
     // <div
     // style={{
     //   height: '100vh',
@@ -42,40 +44,37 @@ export const App = () => {
     // }}
     // >
 
-
     <BrowserRouter basename="GooseTrack">
-      
-        <Suspense fallback={<p>Loading...</p>}>
-          <Routes>
-            <Route path="" element={<PublicRoute />}>
-              <Route index element={<Navigate to="/login" />} />
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/register" element={<RegisterPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              {/* <Route path="/account" element={<AccountPage />} />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Routes>
+          <Route path="" element={<PublicRoute />}>
+            <Route index element={<Navigate to="/login" />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            {/* <Route path="/account" element={<AccountPage />} />
               <Route path="/calendar" element={<CalendarPage />}>
                 <Route index element={<Navigate to="/calendar/month" />} />
                 <Route path="/calendar/month/:currentDate" element={<ChooseMonth />} />
                 <Route path="/calendar/day/:currentDay" element={<ChooseDay />} */}
-                {/* /> */}
-              {/* </Route> */}
-              {/* <Route path="/users" element={<ColumnsTasksList />} /> */}
-            </Route>
-            <Route path="" element={<PrivateRoute/>} >
-              <Route index element={<Navigate to="/account" />} />
-              <Route path="/account" element={<AccountPage />} />
-              <Route path="/calendar" element={<CalendarPage />} />
-              <Route path="/calendar/month/:currentDate" element={<ChooseMonth />} />
+            {/* /> */}
+            {/* </Route> */}
+            {/* <Route path="/users" element={<ColumnsTasksList />} /> */}
+          </Route>
+          <Route path="" element={<PrivateRoute />}>
+            <Route index element={<Navigate to="/account" />} />
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/calendar" element={<CalendarPage />}>
               <Route
-                path="/calendar/day/:currentDay"
-                element={<ChooseDay />}
-                
+                path="/calendar/month/:currentDate"
+                element={<ChooseMonth />}
               />
+              <Route path="/calendar/day/:currentDay" element={<ChooseDay />} />
             </Route>
-          </Routes>
-        </Suspense>
-        
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
-    /* </div> */
   );
+  /* </div> */
 };
