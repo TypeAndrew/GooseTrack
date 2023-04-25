@@ -2,10 +2,13 @@ import HomePage from 'pages/HomePage/HomePage';
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 
-// import { Layout } from './Layout/MainLayout';
-import { lazy, Suspense } from 'react';
+import { Layout } from './Layout/MainLayout';
+import { lazy, Suspense, useEffect } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useAuth } from 'Redux/auth/useAuth';
+import { refreshUser } from 'Redux/auth/authOperations';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -15,7 +18,14 @@ const ChooseMonth = lazy(() => import('../components/ChooseMonth/ChooseMonth'));
 const ChooseDay = lazy(() => import('../components/ChooseDay/ChooseDay'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return (isRefreshing ? <div>Loading...</div> :
     // <div
     // style={{
     //   height: '100vh',
@@ -34,7 +44,7 @@ export const App = () => {
 
 
     <BrowserRouter basename="GooseTrack">
-
+      
         <Suspense fallback={<p>Loading...</p>}>
           <Routes>
             <Route path="" element={<PublicRoute />}>
@@ -51,7 +61,8 @@ export const App = () => {
               {/* </Route> */}
               {/* <Route path="/users" element={<ColumnsTasksList />} /> */}
             </Route>
-            <Route path="" element={<PrivateRoute />}>
+            <Route path="" element={<PrivateRoute/>} >
+              <Route index element={<Navigate to="/account" />} />
               <Route path="/account" element={<AccountPage />} />
               <Route path="/calendar" element={<CalendarPage />} />
               <Route path="/calendar/month/:currentDate" element={<ChooseMonth />} />
@@ -63,7 +74,7 @@ export const App = () => {
             </Route>
           </Routes>
         </Suspense>
-
+        
     </BrowserRouter>
     /* </div> */
   );
