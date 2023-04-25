@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { selectToken } from '../../../Redux/selectors';
 import { logOut } from '../../../Redux/auth/authOperations';
 import { Button } from '../../Button/Button';
 import classNames from 'classnames';
@@ -22,8 +21,6 @@ export const Navigation = () => {
     <div >
       <div className={classNames(styles.navigation)}>
         {!token && <h2>Please log in!</h2>}
-        <div>{token?.user.email}</div>
-        <div>{token?.user.name}</div>
 
         {token ? (
           <>
