@@ -2,7 +2,7 @@ import HomePage from 'pages/HomePage/HomePage';
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 
-import { Layout } from './Layout/MainLayout';
+// import { Layout } from './Layout/MainLayout';
 import { lazy, Suspense, useEffect } from 'react';
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
