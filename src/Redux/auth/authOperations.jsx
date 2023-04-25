@@ -67,7 +67,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/user/current');
+      const res = await axios.post('/user/current');
       return res.data;
     } catch (error) {
       toast.error(`${error.response.status} ${error.response.data.message}`, {
