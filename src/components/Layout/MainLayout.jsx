@@ -1,15 +1,34 @@
 import { ToastContainer } from 'react-toastify';
 import classNames from 'classnames';
 import styles from './MainLayout.module.css';
-import { Sidebar } from './SlideBar/SlideBar';
+
+import { SideBar } from './SideBar/SideBar';
+import { Header } from './Header/Header';
+import { useState} from "react";
 import { Outlet } from 'react-router-dom';
 
-export const Layout = ({ children }) => {
-  return (
-    <>
-      <div className={classNames(styles.mainlayout)} > 
-        <Sidebar />
 
+export const Layout = ({ children }) => {
+  const [isActivPage,setisActivPage]=useState(true)
+  
+  const changePageFalse =()=>{ 
+    setisActivPage(false)
+  }
+  const changePageTrue =()=>{ 
+    setisActivPage(true)
+  }
+
+  const activePage=[
+    changePageFalse,
+    changePageTrue
+  ]   
+
+  return (
+      <div className={classNames(styles.mainlayout)} > 
+      <SideBar  activePage={activePage}/>
+      <div>
+        <Header isActivPage={isActivPage}/> 
+        
         <main
         >
           <div><Outlet /></div>
@@ -17,7 +36,6 @@ export const Layout = ({ children }) => {
       </div>
 
       <ToastContainer />
-
-    </>
+      </div>
   );
 };
