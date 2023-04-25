@@ -1,0 +1,81 @@
+.calendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.monht {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 131px;
+  height: 34px;
+
+  background: #3e85f3;
+  border-radius: 8px;
+
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+.selector {
+  display: flex;
+  align-items: center;
+}
+.monhtchang {
+  display: flex;
+}
+.btn_left {
+  width: 38px;
+  height: 34px;
+  background: #ffffff;
+  border: solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px 0 0 8px;
+}
+.btn_ringt {
+  width: 38px;
+  height: 34px;
+  background: #ffffff;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 0 8px 8px 0;
+}
+.viue {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+.btn_changL {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+
+  width: 82px;
+  height: 34px;
+  margin: 0;
+  background: #e3f3ff;
+  border-color: transparent;
+  border-radius: 8px 0px 0px 8px;
+}
+.btn_changR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 82px;
+  height: 34px;
+  margin: 0;
+  background: #e3f3ff;
+  border-color: transparent;
+  border-radius: 0px 8px 8px 0px;
+}
+.selected_limit {
+  background: #cae8ff;
+}
+.isActive{
+  background-color: #CAE8FF;
+}

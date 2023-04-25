@@ -1,9 +1,12 @@
 import { ToastContainer } from 'react-toastify';
 import classNames from 'classnames';
 import styles from './MainLayout.module.css';
+
 import { SideBar } from './SideBar/SideBar';
 import { Header } from './Header/Header';
 import { useState} from "react";
+import { Outlet } from 'react-router-dom';
+
 
 export const Layout = ({ children }) => {
   const [isActivPage,setisActivPage]=useState(true)
@@ -28,7 +31,7 @@ export const Layout = ({ children }) => {
         
         <main
         >
-          <div>{children}</div>
+          <div><Outlet /></div>
         </main>
       </div>
 

@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { selectAuthToken } from 'Redux/auth/auth.selector';
+import { selectToken } from 'Redux/selectors';
 import { getTasks } from 'Redux/tasks/tasks.selectors';
 import { publicApi, privateApi, token } from '../../http/http';
 
@@ -13,7 +13,7 @@ export const getTasksThunk = createAsyncThunk('GET tasks', async (_, {getState})
 });
 
 export const postTasksThunk = createAsyncThunk('POST tasks', async(values, {getState}, rejectWithValue) => {
-    const stateTocken = selectAuthToken(getState())
+    const stateTocken = selectToken(getState())
     const stateTasks = getTasks(getState())
     const userExist = stateTasks.find(element => element.name === values.name);
             if (userExist !== undefined) {
@@ -29,7 +29,7 @@ export const postTasksThunk = createAsyncThunk('POST tasks', async(values, {getS
 export const deleteTasksThunk = createAsyncThunk('DELETE tasks', async ({ id }, { getState }) => {
             
              
-    const stateTocken = selectAuthToken(getState())
+    const stateTocken = selectToken(getState())
     token.set(stateTocken);
     const { data } = await privateApi.delete(`tasks/${id}`);
     return data;

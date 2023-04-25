@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const publicApi = axios.create({
-  baseURL: 'http://localhost:3001/api/users/',
+  baseURL: 'https://goose-track-back.onrender.com/',
 });
 
 export const privateApi = axios.create({
