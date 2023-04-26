@@ -7,7 +7,7 @@ import {
   ImgTextLogin,
   ImgBgLogin,
   ImgLogin,
-} from './Container_css';
+} from './Container.styled';
 import geese from '../../images/bg-images/geese_that_register.png';
 import geese2x from '../../images/bg-images/geese_that_register@2x.png';
 import flyGeese from '../../images/bg-images/geese_that_fly_on_rocket.png';
