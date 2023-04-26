@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useAuth } from 'Redux/auth/useAuth';
 import { refreshUser } from 'Redux/auth/authOperations';
+import { SpinnerGrid } from './Spinner/Grid';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -25,11 +26,11 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <div>Loading...</div>
+    <SpinnerGrid/>
   ) : (
 
     <BrowserRouter basename="GooseTrack">
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<SpinnerGrid/>}>
         <Routes>
           <Route path="" element={<PublicRoute />}>
             <Route index element={<Navigate to="/login" />} />

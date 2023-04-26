@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ReactComponent as IconEye } from '../images/icons/eye.svg';
 import { ReactComponent as IconEyeHidden } from '../images/icons/hide-eye.svg';
 
