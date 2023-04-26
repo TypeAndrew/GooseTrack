@@ -12,9 +12,24 @@ import { register } from 'Redux/auth/authOperations';
 import { Form } from 'components/Form/Form';
 import { Label } from 'components/Label/Label';
 import { Button } from 'components/Button/Button';
-import { ErrorDiv } from './RegisterForm_css';
+import { ErrorDiv, ButtonToggleIcon, DivWrap } from './RegisterForm_css';
+import { ReactComponent as IconEye } from '../../images/icons/eye.svg';
+import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
+import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
 
 const RegisterForm = () => {
+  const [toggleIcon, setToggleIcon] = useState(<IconEyeHidden/>);
+  const [typeInput, setTypeInput] = useState('password');
+
+  const togglePasswordView = () => {
+    if (typeInput === 'password') {
+      setTypeInput('text');
+      setToggleIcon(<IconEye/>);
+    } else {
+      setTypeInput('password');
+      setToggleIcon(<IconEyeHidden/>);
+    }
+  };
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -99,16 +114,17 @@ const RegisterForm = () => {
             <ErrorMessage component={ErrorDiv} name="email" />
             <Label>
               Password
-              <Field
+              <DivWrap><Field
                 id="password"
                 name="password"
-                type="password"
+                type={typeInput}
                 autoComplete="current-password"
                 placeholder="Enter password"
               />
+              <ButtonToggleIcon type='button' onClick={togglePasswordView}>{toggleIcon}</ButtonToggleIcon></DivWrap>
             </Label>
             <ErrorMessage component={ErrorDiv} name="password" />
-            <Button type="submit">Sign Up</Button>
+            <Button type="submit">Sign Up<IconLogout/></Button>
           </Form>
         )}
       </Formik>
