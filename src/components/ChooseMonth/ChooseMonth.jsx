@@ -8,24 +8,24 @@ const formatofWeek = 'EEEE';
 const formatOfDay = 'd';
 
 const ChooseMonth = () => {
-  const [currentDate, setCurrentDate] = useState(Date.now());
+  const [currentDateStart, setCurrentDateStart] = useState(Date.now());
 
-  const { time } = useParams();
-
+  const  {currentDate}  = useParams();
+console.log(currentDate)
   useEffect(() => {
-    if (!time.includes(':')) {
-      const result = time.split('.');
+    if (!currentDate.includes(':')) {
+      const result = currentDate.split('.');
       const date = { years: result[0] - 1970, months: result[1] };
 
-      setCurrentDate(prev => {
+      setCurrentDateStart(prev => {
         return dateFns.milliseconds(date);
       });
     }
-  },[currentDate, time]);
+  },[currentDateStart, currentDate]);
   //Find the first day of current Date
-  const firstDay = dateFns.startOfMonth(currentDate);
+  const firstDay = dateFns.startOfMonth(currentDateStart);
   //Find the last day of current Date
-  const lastDay = dateFns.lastDayOfMonth(currentDate);
+  const lastDay = dateFns.lastDayOfMonth(currentDateStart);
   ////Ein Find the first day of week of firstDay
   const startDate = dateFns.startOfWeek(firstDay);
   //Find the last day of week of lastDay

@@ -25,15 +25,20 @@ const CalendarPage = () => {
     } else {
       setBtnBack(false);
     }
-  }, [month, navigate, time, year]);
+  // navigate(`month/${year}.${month}`)
+
+  }, [month, time, year]);
+  
+  // useEffect(()=>{
+  // })
 
   const handleChangMonthBack = () => {
     setTime(addMonths(time, -1));
-    navigate(`${year}.${month}`);
+    navigate(`month/${year}.${month}`);
   };
   const handleChangMonthForward = () => {
     setTime(addMonths(time, 1));
-    navigate(`${year}.${month}`);
+    navigate(`month/${year}.${month}`);
   };
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
