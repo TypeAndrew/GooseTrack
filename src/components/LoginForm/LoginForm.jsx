@@ -19,7 +19,7 @@ import {
 } from '../RegisterForm/RegisterForm.styled';
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
-import { togglePasswordView } from 'helpers/togglePasswordView';
+import { togglePasswordView } from 'helpers/togglePasswordView/togglePasswordView';
 import { SpinnerGrid } from 'components/Spinner/Grid';
 
 const LoginForm = () => {
@@ -64,8 +64,6 @@ const LoginForm = () => {
               password: '',
             }}
             onSubmit={async (values, actions) => {
-              console.log('submit', values);
-              // try {
               setIsLoading(true);
               await dispatch(
                 logIn({
