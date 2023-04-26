@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const ButtonComponent = styled.button`
+  display: flex;
+  justify-content: center;
+  gap: 14px;
   align-items: center;
   width: 100%;
   height: 46px;
@@ -14,6 +17,7 @@ export const ButtonComponent = styled.button`
   font-weight: 600;
   font-size: 14px;
   line-height: 1.29;
+ 
 
   letter-spacing: -0.02em;
 

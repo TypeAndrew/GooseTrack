@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/register', credentials);
-      setAuthHeader(res.data.newUser.verificationToken); //ЗАМІНИТИ НА ТОКЕН ПІСЛЯ ЗМІН БЕКЕНДУ
+      setAuthHeader(res.data.newUser.token); 
       return res.data.newUser;
     } catch (error) {
       toast.error(`${error.response.status} ${error.response.data.message}`, {

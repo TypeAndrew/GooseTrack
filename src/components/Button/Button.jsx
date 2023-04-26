@@ -1,4 +1,4 @@
-import { ButtonComponent} from "./Button_css";
+import { ButtonComponent} from "./Button.styled";
 
 export const Button = ({ type = 'button', isLoading, children, disabled, ...props }) => {
   return (
