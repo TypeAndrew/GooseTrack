@@ -44,6 +44,10 @@ export const App = () => {
             <Route path="/account" element={<AccountPage />} />
             <Route path="/calendar" element={<CalendarPage />}>
               <Route
+                index
+                element={<Navigate to="/calendar/month/:currentDate" />}
+              />
+              <Route
                 path="/calendar/month/:currentDate"
                 element={<ChooseMonth />}
               />
