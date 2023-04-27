@@ -7,7 +7,7 @@ import {
   mainTextFontFamily,
   primaryAccentColor,
   primaryBackgroundColor,
-} from '../../Helpers/variables/globalStyles.styled';
+} from '../../helpers/variables/globalStyles.styled';
 
 export const FlexHeader = styled.div`
   display: flex;

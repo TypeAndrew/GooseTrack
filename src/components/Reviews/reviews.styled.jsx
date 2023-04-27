@@ -4,7 +4,7 @@ import {
   primaryAccentColor,
   secondaryAccentColor,
   ReviewTextColor,
-} from "../../Helpers/variables/globalStyles.styled";
+} from "../../helpers/variables/globalStyles.styled";
 
 export const ReviewsTitle = styled.h2`
   width: 129px;
