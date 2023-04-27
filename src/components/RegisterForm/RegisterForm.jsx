@@ -15,7 +15,7 @@ import { Button } from 'components/Button/Button';
 import { ErrorDiv, ButtonToggleIcon, DivWrap } from './RegisterForm.styled';
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
-import { togglePasswordView } from 'helpers/togglePasswordView/togglePasswordView';
+import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
 import { SpinnerGrid } from 'components/Spinner/Grid';
 // import styled from 'styled-components';
 
