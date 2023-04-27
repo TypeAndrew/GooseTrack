@@ -4,7 +4,7 @@ import {
   primaryAccentColor,
   secondaryAccentColor,
   primaryTextColor,
-} from '../../Helpers/variables/globalStyles.styled';
+} from '../../helpers/variables/globalStyles.styled';
 
 export const FlexedCalendar = styled.div`
   display: flex;
