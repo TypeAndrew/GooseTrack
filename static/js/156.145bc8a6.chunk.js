@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkreact_goose_track=self.webpackChunkreact_goose_track||[]).push([[156],{6156:function(e,r,a){a.r(r);var t=a(7689),c=a(184),s={0:"January",1:"February",2:"March",3:"April",4:"May",5:"June",6:"July",7:"August",8:"September",9:"October",10:"November",11:"December"};r.default=function(){var e=(0,t.UO)().currentDay.split(".");return(0,c.jsxs)(c.Fragment,{children:[(0,c.jsx)("div",{children:"ChoseDay"}),(0,c.jsxs)("div",{children:[" years:",e[0]," monht:",s[e[1]]," day",e[2]," "]})]})}}}]);
-//# sourceMappingURL=156.145bc8a6.chunk.js.map
