@@ -21,6 +21,11 @@
     color: #FFFFFF;
 }
 
+.logButton:disabled {
+    background: #DCEBF7;
+
+}
+
 .logButton_icon {
     margin-left: 10px;
 }

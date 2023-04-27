@@ -1,7 +1,6 @@
-@import-normalize; /* bring in normalize.css styles */
+@import "~normalize.css/normalize.css";
 
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -17,11 +16,9 @@ code {
 
 ul {
   list-style-type: none;
-
 }
 
 form {
-
   font-size: 20px;
 }
 
@@ -71,5 +68,15 @@ input {
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
-  }}
+  }
 
+  
+}
+/* input:invalid{
+  color: #E74A3B;
+  border-color: #E74A3B;
+}
+input:isValid{
+  color: #3CBC81;
+  border-color: #3CBC81;
+} */
