@@ -1,26 +1,66 @@
 .logButton {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
-    width: 134px;
-    padding: 14px;
+  width: 134px;
+  padding: 14px;
 
-    border: none;
-    background: #3E85F3;
-    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
-    border-radius: 16px;
+  border: none;
+  background: #3e85f3;
+  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  border-radius: 16px;
 
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    
-    color: #FFFFFF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.logButton:disabled {
+  background: #dcebf7;
 }
 
 .logButton_icon {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.modalWrapper {
+  background-color: #3e85f3;
+  text-align: center;
+  padding: 16px;
+  border-radius: 18px;
+  color: #ffffff;
+}
+
+.btnWrapper {
+  display: flex;
+  gap: 26px;
+}
+
+.modalBtn {
+  display: block;
+  background-color: #61a0ffa6;
+  color: #ffffff;
+  border: none;
+  width: 100px;
+  height: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.modalBtn:hover {
+  background-color: #61a0ffa6;
+  box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
+}
+
+.modalText {
+  margin: 10px 0px;
 }

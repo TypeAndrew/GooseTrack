@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post('/auth/register', credentials);
-      setAuthHeader(res.data.newUser.verificationToken); //ЗАМІНИТИ НА ТОКЕН ПІСЛЯ ЗМІН БЕКЕНДУ
+      setAuthHeader(res.data.newUser.token); 
       return res.data.newUser;
     } catch (error) {
       toast.error(`${error.response.status} ${error.response.data.message}`, {
@@ -28,6 +28,7 @@ export const register = createAsyncThunk(
     }
   }
 );
+
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
@@ -43,9 +44,10 @@ export const logIn = createAsyncThunk(
     }
   }
 );
+
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
-    await axios.post('/auth/logout');
+    await axios.post('/user/logout');
     clearAuthHeader();
   } catch (error) {
     toast.error(`${error.response.status} ${error.response.data.message}`, {
@@ -73,6 +75,18 @@ export const refreshUser = createAsyncThunk(
       toast.error(`${error.response.status} ${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT
       });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateInfo = createAsyncThunk(
+  'auth/update',
+ async (user, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/user/info', user);
+      return data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
