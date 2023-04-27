@@ -8,10 +8,12 @@ const formatofWeek = 'EEEE';
 const formatOfDay = 'd';
 
 const ChooseMonth = () => {
+  
   const [currentDateStart, setCurrentDateStart] = useState(Date.now());
 
   const  {currentDate}  = useParams();
 console.log(currentDate)
+
   useEffect(() => {
     if (!currentDate.includes(':')) {
       const result = currentDate.split('.');
