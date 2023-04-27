@@ -4,3 +4,7 @@ export const primaryAccentColor = "#3E85F3";
 export const secondaryAccentColor = "#DCEBF7";
 export const primaryBackgroundColor = "#FFFFFF";
 export const primaryTextColor = "#13151A";
+export const lowPriorityColor = " #72C2F8";
+export const MediumPriorityColor = " #F3B249";
+export const HighPriorityColor = "#EA3D65";
+export const ReviewTextColor = "rgba(17, 17, 17, 0.7)";
