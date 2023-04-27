@@ -1,4 +1,4 @@
-import { Title,  FormComponent} from "./Form_css";
+import { Title,  FormComponent} from "./Form.styled";
 
 export const Form = ({ title, noValidate, children }) => {
     return (

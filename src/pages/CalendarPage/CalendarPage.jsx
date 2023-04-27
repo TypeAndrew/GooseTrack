@@ -9,7 +9,7 @@ console.log(currentDay)
 const CalendarPage = () => {
   const [time, setTime] = useState(Date.now());
   const [day, setDay] = useState('');
-  const [monht, setMonht] = useState('');
+  const [month, setMonth] = useState('');
   const [year, setYear] = useState('');
   const [btnBack, setBtnBack] = useState(false);
   const navigate = useNavigate();
@@ -17,23 +17,28 @@ const CalendarPage = () => {
   console.log(day)
   useEffect(() => {
     setDay(getDate(time));
-    setMonht(getMonth(time));
+    setMonth(getMonth(time));
     setYear(getYear(time));
 
-    if (getMonth(Date.now()) >= monht && getYear(Date.now()) >= year) {
+    if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       setBtnBack(true);
     } else {
       setBtnBack(false);
     }
-  }, [monht, navigate, time, year]);
+  // navigate(`month/${year}.${month}`)
+
+  }, [month, time, year]);
+  
+  // useEffect(()=>{
+  // })
 
   const handleChangMonthBack = () => {
     setTime(addMonths(time, -1));
-    navigate(`${year}.${monht}`);
+    navigate(`month/${year}.${month}`);
   };
   const handleChangMonthForward = () => {
     setTime(addMonths(time, 1));
-    navigate(`${year}.${monht}`);
+    navigate(`month/${year}.${month}`);
   };
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
@@ -41,13 +46,12 @@ const CalendarPage = () => {
 
   return (
     <>
-      <h1>SSSss </h1>
       <div className={css.calendar}>
         <div className={css.selector}>
-          <span className={css.monht}>
-            {MONTNKEY[monht]} {year}
+          <span className={css.month}>
+            {MONTNKEY[month]} {year}
           </span>
-          <div className={css.monhtchang}>
+          <div className={css.monthchang}>
             <button
               onClick={handleChangMonthBack}
               type="button"
@@ -68,11 +72,11 @@ const CalendarPage = () => {
         <ul className={css.viue}>
           <li>
             <NavLink
-              to={`${year}.${monht}`}
+              to={`month/${year}.${month}`}
               className={data => handleCurrentPage(data) + ' ' + css.btn_changL}
             >
               {' '}
-              Monht
+              Month
             </NavLink>
           </li>
           <li>

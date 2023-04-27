@@ -1,0 +1,31 @@
+.logButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 134px;
+    padding: 14px;
+
+    border: none;
+    background: #3E85F3;
+    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+    border-radius: 16px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    
+    color: #FFFFFF;
+}
+
+.logButton:disabled {
+    background: #DCEBF7;
+
+}
+
+.logButton_icon {
+    margin-left: 10px;
+}
