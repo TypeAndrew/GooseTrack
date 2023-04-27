@@ -1,0 +1,123 @@
+.week {
+  height: 68px;
+  margin-left: 32px;
+  margin-right: 32px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+}
+
+.calendar {
+  padding-left: 32px;
+  padding-right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nameAndAdd{
+  height: 38px;
+  margin-top: 18px;
+  margin-left: 20px;
+  margin-right: 23px;
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.columnName {
+  /* margin-top: 18px;
+  margin-left: 20px; */
+}
+
+.addTask:hover {
+  color: #3E85F3;
+  transition: 200ms;
+}
+
+.toDoList {
+  width: 344px;
+  max-height: 568px;
+  background: #FFFFFF;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task{
+  width: 300px;
+  height: 112px;
+  margin-left: 20px;
+  margin-bottom: 18px;
+
+  background: #F7F6F9;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+}
+
+.taskName{
+  margin-top: 14px;
+  margin-left: 14px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.taskContent{
+  margin-top: 32px;
+  margin-bottom: 18px;
+  margin-left: 14px;
+  margin-right: 14px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.avatarInTask {
+  width: 32px;
+  height: 32px;
+  border: 1.8px solid #3E85F3;
+  border-radius: 32px;
+}
+
+.taskToolsList{
+  display: flex;
+}
+
+.taskTool:not(:last-child){
+  margin-right: 10px;
+}
+
+
+.addTaskButton{
+  width: 304px;
+  height: 52px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 14px;
+  margin-bottom: 28px;
+  background: #E3F3FF;
+  border: 1px dashed #3E85F3;
+  border-radius: 8px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.addTaskButton:hover{
+  color:#FFFFFF;
+  background: #3E85F3;
+  transition: 200ms;
+}
