@@ -1,4 +1,3 @@
-import HomePage from 'pages/HomePage/HomePage';
 import { PrivateRoute } from './AuthRoutes/PrivateRoute';
 import { PublicRoute } from './AuthRoutes/PublicRoute';
 
@@ -16,6 +15,7 @@ const AccountPage = lazy(() => import('../pages/AccountPage/AccountPage'));
 const CalendarPage = lazy(() => import('../pages/CalendarPage/CalendarPage'));
 const ChooseMonth = lazy(() => import('../components/ChooseMonth/ChooseMonth'));
 const ChooseDay = lazy(() => import('../components/ChooseDay/ChooseDay'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const App = () => {
       <Suspense fallback={<SpinnerGrid/>}>
         <Routes>
           <Route path="" element={<PublicRoute />}>
-            <Route index element={<Navigate to="/login" />} />
+            <Route index element={<Navigate to="/home" />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
