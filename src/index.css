@@ -68,5 +68,15 @@ input {
 
   @media screen and (min-width: 768px) {
     margin-bottom: 18px;
-  }}
+  }
 
+  
+}
+/* input:invalid{
+  color: #E74A3B;
+  border-color: #E74A3B;
+}
+input:isValid{
+  color: #3CBC81;
+  border-color: #3CBC81;
+} */

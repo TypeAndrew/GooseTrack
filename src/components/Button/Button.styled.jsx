@@ -7,6 +7,7 @@ export const ButtonComponent = styled.button`
   align-items: center;
   width: 100%;
   height: 46px;
+  cursor: pointer;
 
   background-color: #3e85f3;
   color: #ffffff;
@@ -24,5 +25,12 @@ export const ButtonComponent = styled.button`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
+  }
+
+  :disabled {
+    background: #DCEBF7;
+}
+  :hover {
+    background: #2B78EF;
   }
 `;

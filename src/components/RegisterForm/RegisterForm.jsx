@@ -15,8 +15,9 @@ import { Button } from 'components/Button/Button';
 import { ErrorDiv, ButtonToggleIcon, DivWrap } from './RegisterForm.styled';
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
-import { togglePasswordView } from 'helpers/togglePasswordView';
+import { togglePasswordView } from 'helpers/togglePasswordView/togglePasswordView';
 import { SpinnerGrid } from 'components/Spinner/Grid';
+import styled from 'styled-components';
 
 const RegisterForm = () => {
   const [toggleButton, setToggleButton] = useState({
@@ -65,7 +66,6 @@ const RegisterForm = () => {
               password: '',
             }}
             onSubmit={async (values, actions) => {
-              console.log('submit', values);
 
               setIsLoading(true);
 
@@ -98,9 +98,10 @@ const RegisterForm = () => {
                     type="text"
                     autoComplete="off"
                     placeholder="Enter your name"
+                    
                   />
                 </Label>
-                <ErrorMessage component={ErrorDiv} name="name" />
+                <ErrorMessage component={ErrorDiv} name="name" /> 
 
                 <Label>
                   Email
@@ -110,6 +111,7 @@ const RegisterForm = () => {
                     type="email"
                     autoComplete="username"
                     placeholder="Enter email"
+                    isValid
                   />
                 </Label>
                 <ErrorMessage component={ErrorDiv} name="email" />
@@ -122,6 +124,7 @@ const RegisterForm = () => {
                       type={toggleButton.typeInput}
                       autoComplete="current-password"
                       placeholder="Enter password"
+                      isValid
                     />
                     <ButtonToggleIcon type="button" onClick={onClick}>
                       {toggleButton.toggleIcon}

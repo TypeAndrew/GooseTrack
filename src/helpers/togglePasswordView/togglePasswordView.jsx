@@ -1,5 +1,5 @@
-import { ReactComponent as IconEye } from '../images/icons/eye.svg';
-import { ReactComponent as IconEyeHidden } from '../images/icons/hide-eye.svg';
+import { ReactComponent as IconEye } from '../../images/icons/eye.svg';
+import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 
 export const togglePasswordView = (typeInput ) => {
     if (typeInput === 'password') {
