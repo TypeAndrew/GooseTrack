@@ -1,3 +1,4 @@
+import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import styles  from './Header.module.css';
 
 export const Header = ({isActivPage}) => {
@@ -11,7 +12,8 @@ export const Header = ({isActivPage}) => {
         </div>                
         :<p className={styles.titel}>User Profile</p>}          
       </div>       
-      <div className={styles.headerPage}>          
+      <div className={styles.headerPage}> 
+        <ThemeToggler/>         
       </div>                      
     </div>
   );     

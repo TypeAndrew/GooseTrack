@@ -1,4 +1,9 @@
 .mainlayout {
     display: flex;
     flex-direction: row;
+   
+}
+
+.header {
+    background-color: var(--secondary-bgc-color) ;
 }
