@@ -67,12 +67,24 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const res = await axios.get('/user/current');
+      const res = await axios.post('/user/current');
       return res.data;
     } catch (error) {
       toast.error(`${error.response.status} ${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT
       });
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateInfo = createAsyncThunk(
+  'auth/update',
+ async (user, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/user/info', user);
+      return data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
