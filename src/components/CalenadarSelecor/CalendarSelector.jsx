@@ -12,8 +12,8 @@ const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
 const CalendarSelector = (props) => {
   const [time, setTime] = useState(Date.now());
   const [day, setDay] = useState('');
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+  const [month, setMonth] = useState(getMonth(Date.now()));
+  const [year, setYear] = useState(getYear(Date.now()));
   const [btnBack, setBtnBack] = useState(false);
   const navigate = useNavigate();
  
@@ -39,8 +39,7 @@ const CalendarSelector = (props) => {
   };
   const handleChangMonthForward = () => {
 
-    const newDate = addMonths(time, 1);
-    setTime(newDate);
+    setTime(addMonths(time, 1));
     
   };
   const handleCurrentPage = ({ isActive }) => {
@@ -61,14 +60,14 @@ const CalendarSelector = (props) => {
               disabled={btnBack}
               className={css.btn_left}
             >
-              <img src="./left.svg" alt="L" />
+              <img widt='10px' src="./left.svg" alt="L" />
             </button>
             <button
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
             >
-              <img src="./ringt.svg" alt="R" />
+              <img widt='10px' src="./ringt.svg" alt="R" />
             </button>
           </div>
         </div>

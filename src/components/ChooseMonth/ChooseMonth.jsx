@@ -4,7 +4,7 @@ import * as dateFns from 'date-fns';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
-const formatofWeek = 'EEEE';
+const formatofWeek = 'eeee';
 const formatOfDay = 'd';
 
 const ChooseMonth = () => {
