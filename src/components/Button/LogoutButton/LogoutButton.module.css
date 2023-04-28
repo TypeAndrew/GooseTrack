@@ -24,6 +24,11 @@
 
 .logButton:disabled {
   background: #dcebf7;
+
+}
+
+.logButton:hover {
+  background-color: #2B78EF;
 }
 
 .logButton_icon {

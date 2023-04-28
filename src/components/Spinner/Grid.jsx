@@ -6,7 +6,7 @@ export const SpinnerGrid = ({ children }) => {
     <Container><Grid
     height="80"
     width="80"
-    color="#3E85F3"
+    color="var(--accent-btn-background)"
     ariaLabel="grid-loading"
     radius="12.5"
     wrapperStyle={{}}
