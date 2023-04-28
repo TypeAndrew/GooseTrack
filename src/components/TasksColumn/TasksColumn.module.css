@@ -1,0 +1,96 @@
+.nameAndAdd {
+    height: 38px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.columnName {
+    color: var(--primary-text-color);
+}
+
+.addTask:hover {
+    color: var(--accent-bgc-color);
+    transition: 200ms;
+}
+
+.toDoList {
+    padding: 18px 20px 28px;
+    max-height: 568px;
+    background: var(--primary-bgc-color);
+    border: 1px solid var(--auth-placeholder-color);
+    border-radius: 8px;
+
+    display: block;
+}
+
+.taskList {
+    padding: 0px;
+    gap: 18px;
+    margin-bottom: 32px;
+}
+
+.task {
+    padding: 14px 14px 18px;
+
+    background: var(--secondary-bgc-color);
+    border: 1px solid var(--auth-placeholder-color);
+    border-radius: 8px;
+}
+
+.taskName {
+    margin-bottom: 32px;
+
+    color: var(--primary-text-color);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.taskContent {
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.avatarInTask {
+    width: 32px;
+    height: 32px;
+    border: 1.8px solid #3E85F3;
+    border-radius: 32px;
+    gap: 8px;
+}
+
+.taskToolsList {
+    padding: 0px;
+    display: flex;
+    gap: 10px;
+}
+
+.addTaskButton {
+    width: 304px;
+    height: 52px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 14px;
+    margin-bottom: 28px;
+    background: #E3F3FF;
+    border: 1px dashed #3E85F3;
+    border-radius: 8px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.addTaskButton:hover {
+    color: #FFFFFF;
+    background: #3E85F3;
+    transition: 200ms;
+}
