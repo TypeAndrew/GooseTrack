@@ -12,35 +12,45 @@ const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
 const CalendarSelector = (props) => {
   const [time, setTime] = useState(Date.now());
   const [day, setDay] = useState('');
-  const [month, setMonth] = useState(getMonth(Date.now()));
+  const [month, setMonth] = useState(getMonth(Date.now()+1));
   const [year, setYear] = useState(getYear(Date.now()));
   const [btnBack, setBtnBack] = useState(false);
   const navigate = useNavigate();
  
   console.log(day);
-  
   useEffect(() => {
+  setDay(getDate(time));
+  setYear(getYear(time));  
+  navigate(`month/${year}.${month+1}`);  
+  }, [month, time, year,navigate]);
+
+  const handleChangMonthBack = () => {
+
     
-    setDay(getDate(time));
+    setMonth(getMonth(time)-1);
+    
+    if (getMonth(Date.now()) >= month-1 && getYear(Date.now()) >= year) {
+      setBtnBack(true);
+    } else {
+      setBtnBack(false);
+    }
+    setTime(addMonths(time, -1));
+    
+    navigate(`month/${year}.${month}`);
+  };
+  const handleChangMonthForward = () => {
+
+     
     setMonth(getMonth(time));
-    setYear(getYear(time));
+  
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       setBtnBack(true);
     } else {
       setBtnBack(false);
     }
-    navigate(`month/${year}.${month}`);
-  }, [month, time, year,navigate]);
-
-  const handleChangMonthBack = () => {
-
-    setTime(addMonths(time, -1));
-
-  };
-  const handleChangMonthForward = () => {
-
     setTime(addMonths(time, 1));
     
+    navigate(`month/${year}.${month}`);
   };
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
@@ -51,7 +61,7 @@ const CalendarSelector = (props) => {
       <div className={css.calendar}>
         <div className={css.selector}>
           <span className={css.month}>
-            {MONTNKEY[month-1]} {year}
+            {MONTNKEY[month]} {year}
           </span>
           <div className={css.monthchang}>
             <button

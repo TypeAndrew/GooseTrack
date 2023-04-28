@@ -17,7 +17,7 @@ console.log(currentDate)
   useEffect(() => {
     if (!currentDate.includes(':')) {
       const result = currentDate.split('.');
-      const date = { years: result[0] - 1970, months: result[1] };
+      const date = { years: result[0] - 1970, months: result[1]-1 };
 
       setCurrentDateStart(prev => {
         return dateFns.milliseconds(date);
@@ -29,9 +29,9 @@ console.log(currentDate)
   //Find the last day of current Date
   const lastDay = dateFns.lastDayOfMonth(currentDateStart);
   ////Ein Find the first day of week of firstDay
-  const startDate = dateFns.startOfWeek(firstDay);
+  const startDate = dateFns.startOfWeek(firstDay,{ weekStartsOn: 1 });
   //Find the last day of week of lastDay
-  const endDate = dateFns.lastDayOfWeek(lastDay);
+  const endDate = dateFns.lastDayOfWeek(lastDay,{ weekStartsOn: 1 });
   //render all days
 
   const totalDate = dateFns.eachDayOfInterval({
@@ -40,7 +40,7 @@ console.log(currentDate)
   });
   const weeks = (date => {
     const weeks = [];
-    for (let day = 1; day <= 7; day++) {
+    for (let day = 0; day <= 6; day++) {
       weeks.push(totalDate[day]);
     }
     return weeks;
