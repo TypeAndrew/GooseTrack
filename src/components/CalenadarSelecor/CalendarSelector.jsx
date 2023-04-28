@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MONTNKEY } from 'constants/MONTNKEY';
 
+
 const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
   Date.now()
 )}`;
@@ -28,15 +29,19 @@ const CalendarSelector = (props) => {
     } else {
       setBtnBack(false);
     }
-  }, [month, time, year]);
+    navigate(`month/${year}.${month}`);
+  }, [month, time, year,navigate]);
 
   const handleChangMonthBack = () => {
+
     setTime(addMonths(time, -1));
-    navigate(`month/${year}.${month}`);
+
   };
   const handleChangMonthForward = () => {
-    setTime(addMonths(time, 1));
-    navigate(`month/${year}.${month}`);
+
+    const newDate = addMonths(time, 1);
+    setTime(newDate);
+    
   };
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
@@ -47,7 +52,7 @@ const CalendarSelector = (props) => {
       <div className={css.calendar}>
         <div className={css.selector}>
           <span className={css.month}>
-            {MONTNKEY[month]} {year}
+            {MONTNKEY[month-1]} {year}
           </span>
           <div className={css.monthchang}>
             <button
