@@ -31,11 +31,11 @@
 }
 
 .modalWrapper {
-  background-color: #3e85f3;
+  background-color: #ffffff;
   text-align: center;
-  padding: 16px;
-  border-radius: 18px;
-  color: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
 }
 
 .btnWrapper {
@@ -45,7 +45,7 @@
 
 .modalBtn {
   display: block;
-  background-color: #61a0ffa6;
+  background-color: #3e85f3;
   color: #ffffff;
   border: none;
   width: 100px;
@@ -62,5 +62,5 @@
 }
 
 .modalText {
-  margin: 10px 0px;
+  margin: 12px 0px;
 }
