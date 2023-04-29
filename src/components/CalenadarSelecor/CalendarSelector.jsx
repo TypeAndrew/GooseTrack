@@ -29,27 +29,31 @@ const CalendarSelector = (props) => {
   }, [time,month,year,navigate]);
 
   const handleChangMonthBack = () => {
-
-    if (curMonth >= month && curYear >= year) {
+     console.log(" " +curMonth +" MONTH "+ month) 
+    if (curMonth > month && curYear >= year) {
         setBtnBack(true);
-        setTime(addMonths(time, -1));
+        
     } else {
       setBtnBack(false);
     }
+
     setDay(getDay(time));
-    setTime(addMonths(time, -1));
-    (month === 0) ? setMonth(11) : setMonth(getMonth(time) - 1);
-    (month) === 0 ? setYear(getYear(time)-1) : setYear(getYear(time));
+    if (curMonth !== month) {
+        setTime(addMonths(time, -1))
+    } ;
+    month === 0 ? setMonth(11) : setMonth(getMonth(time) - 1);
+    month === 0 ? setYear(getYear(time)-1) : setYear(getYear(time));
     navigate(`month/${year}.${month}`);  
     debugger
   };
+  
   const handleChangMonthForward = () => {
 
     setBtnBack(false);
     setTime(addMonths(time, 1));
     setDay(getDay(time));
-    month === 11 ? setMonth(0) : setMonth(getMonth(time)+1);
-    setYear(getYear(time)); 
+    month === 11 ? setMonth(0) : setMonth(getMonth(time) + 1);
+    month === 11 ? setYear(getYear(time)+1) : setYear(getYear(time));
     navigate(`month/${year}.${month}`);  
       debugger
   };
