@@ -1,10 +1,11 @@
 import { NavLink, useParams } from 'react-router-dom';
 
 import * as dateFns from 'date-fns';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import css from './ChooseMonth.module.css';
-
+import { useEffect } from 'react';
+import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
@@ -21,6 +22,11 @@ const ChooseMonth = () => {
   const { currentDate } = useParams();
   console.log(currentDate);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTasksThunk(month));
+  }, [dispatch, month]);
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);
@@ -79,9 +85,9 @@ const ChooseMonth = () => {
                   formatOfDay
                 )}`}
               >
-               <span className={css.date}>
-                {dateFns.format(date, formatOfDay)}
-                </span> 
+                <span className={css.date}>
+                  {dateFns.format(date, formatOfDay)}
+                </span>
               </NavLink>
             ) : (
               <span className={css.link}></span>
