@@ -13,7 +13,7 @@ export const Header = ({isActivPage}) => {
         :<p className={styles.titel}>User Profile</p>}          
       </div>       
       <div className={styles.headerPage}> 
-        <ThemeToggler/>         
+        <ThemeToggler/>       
       </div>                      
     </div>
   );     

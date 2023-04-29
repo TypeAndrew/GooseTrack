@@ -1,8 +1,8 @@
 import { LabelComponent} from "./Label.styled";
 
-export const Label = ({ children }) => {
+export const Label = ({ children, color }) => {
     return (
-        <LabelComponent>
+        <LabelComponent color={color}>
             { children }
         </LabelComponent>     
     );

@@ -24,6 +24,7 @@ html{
   --disabled-btn-background: #DCEBF7;
   --error-validation-color: #DA1414;
   --correct-validation-color: #3CBC81;
+  --form-text-color: #111111;
 
 
   /* Background colors */
@@ -34,6 +35,7 @@ html{
   --accent-bgc-color: #3e85f3;
   --active-item-sidebar-background: #e3f3ff;
   --unlogined-background: #dcebf7;
+  --form-bgc-color: #FFFFFF;
 
   /* Shadow colors */
 

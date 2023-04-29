@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ErrorDiv = styled.div`
   margin-bottom: 18px;
-  color: var(--error-color);
+  color: var(--error-validation-color);
 `;
 
 export const ButtonToggleIcon = styled.button`
