@@ -10,7 +10,7 @@ export const LinkComponent = styled(NavLink)`
 
   text-decoration-line: underline;
 
-  color: #3e85f3;
+  color: var(--accent-text-color);
 
   @media screen and (min-width: 768px) {
     margin-top: 24px;

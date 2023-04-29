@@ -1,5 +1,12 @@
 @import "~normalize.css/normalize.css";
 
+html{
+  box-sizing: border-box;
+}
+*, *:after, *:before {
+  box-sizing: inherit ;
+}
+
 :root {
   /* Fonts */
   --primary-font: 'Inter', sans-serif;
@@ -13,16 +20,24 @@
   --btn-text-color: #FFFFFF;
   --not-active-item-sidebar-text-color: #84828a;
   --auth-placeholder-color: #dce3e5;
+  --hover-btn-background: #2B78EF;
+  --disabled-btn-background: #DCEBF7;
+  --error-validation-color: #DA1414;
+  --correct-validation-color: #3CBC81;
+
 
   /* Background colors */
 
   --primary-bgc-color: #FFFFFF;
   --secondary-bgc-color: #F7F6F9;
-  --sidebar-bg-color: #FFFFFF;
+  --sidebar-bgc-color: #FFFFFF;
   --accent-bgc-color: #3e85f3;
   --active-item-sidebar-background: #e3f3ff;
+  --unlogined-background: #dcebf7;
 
+  /* Shadow colors */
 
+  --btn-shadow-color: rgba(136, 165, 191, 0.48);
 }
 
 .dark-theme {
@@ -32,6 +47,7 @@
   --accent-text-color: #FFFFFF;
   --not-active-item-sidebar-text-color: #FFFFFF;
   --active-item-sidebar-background: #3e85f3;
+  --auth-placeholder-color: #fafafa4d;
   
   /* background-colors */
   --secondary-bgc-color: #171820;
@@ -47,6 +63,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 
@@ -79,10 +96,10 @@ li {
   padding: 10px 10px;
 }
 
-.Toastify {
+/* .Toastify {
   margin-top: 40px;
 
-}
+} */
 
 h1,
 h2,

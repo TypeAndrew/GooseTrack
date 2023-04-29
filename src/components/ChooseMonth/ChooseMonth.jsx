@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import css from './ChooseMonth.module.css';
 
+
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
 const formatofWeek = 'eeee';
@@ -19,6 +20,7 @@ const ChooseMonth = () => {
 
   const { currentDate } = useParams();
   console.log(currentDate);
+
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);

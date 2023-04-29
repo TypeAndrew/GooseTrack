@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 
 import { logIn } from '../../Redux/auth/authOperations';
 
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik, Field, ErrorMessage } from 'formik';
@@ -20,9 +19,8 @@ import {
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
 import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
-import { SpinnerGrid } from 'components/Spinner/Grid';
 
-const LoginForm = () => {
+const LoginForm = ({setIsLoading}) => {
   const [toggleButton, setToggleButton] = useState({
     typeInput: 'password',
     toggleIcon: <IconEyeHidden />,
@@ -33,8 +31,6 @@ const LoginForm = () => {
   };
 
   const dispatch = useDispatch();
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const SignupSchema = Yup.object().shape({
     email: Yup.string().required('Required').email('Invalid email'),
@@ -48,12 +44,7 @@ const LoginForm = () => {
         'Password must contain a number, an uppercase and lowercase letter, and a special character'
       ),
   });
-
   return (
-    <>
-      {isLoading ? (
-        <SpinnerGrid />
-      ) : (
         <>
           <Formik
             validationSchema={SignupSchema}
@@ -72,6 +63,7 @@ const LoginForm = () => {
                 })
               );
               setIsLoading(false);
+
               actions.resetForm({
                 values: {
                   email: '',
@@ -116,10 +108,9 @@ const LoginForm = () => {
               </Form>
             )}
           </Formik>
-          <ToastContainer />
+          
         </>
-      )}
-    </>
+ 
   );
 };
 

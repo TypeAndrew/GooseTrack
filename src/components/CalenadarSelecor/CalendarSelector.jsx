@@ -1,5 +1,6 @@
 import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
+
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { MONTNKEY } from 'constants/MONTNKEY';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,11 +12,14 @@ import {
 } from 'Redux/calendar/calendar.slice';
 
 
+
 const currentStartDay = `${getYear(Date.now())}.${getMonth(
   Date.now()
 )}.${getDate(Date.now())}`;
 
+
 const CalendarSelector = props => {
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const day = useSelector(state => state.calendar.day);
@@ -23,6 +27,7 @@ const CalendarSelector = props => {
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time) ?? Date.now();
  
+
   let stopUpdateParamas = true
   let btnBack= getYear(Date.now()) >= year && getMonth(Date.now()) >= month;
 
@@ -57,9 +62,11 @@ const CalendarSelector = props => {
 
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       btnBack = true;
+
     } else {
       btnBack = false;
     }
+
   };
 
   const handleChangMonthForward = () => {
@@ -70,6 +77,7 @@ const CalendarSelector = props => {
     navigate(
       `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
     );
+
   };
   
   const handleCurrentPage = ({ isActive }) => {
