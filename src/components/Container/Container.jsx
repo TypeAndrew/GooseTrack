@@ -14,8 +14,10 @@ import flyGeese from '../../images/bg-images/geese_that_fly_on_rocket.png';
 import flyGeese2x from '../../images/bg-images/geese_that_fly_on_rocket@2x.png';
 import cloud from '../../images/bg-images/call_for_registration.png';
 import cloud2x from '../../images/bg-images/call_for_registration@2x.png';
+import { ToastContainer } from 'react-toastify';
 
 export const Container = ({ children, page }) => {
+
   return (
     <>
       <Div>{children}
@@ -54,7 +56,10 @@ export const Container = ({ children, page }) => {
             alt="geese that fly on rocket"
           />
         </>
-      )}</Div>
+      )}
+      
+      </Div>
+      <ToastContainer />
     </>
   );
 };

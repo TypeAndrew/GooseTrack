@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+  import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -16,10 +15,8 @@ import { ErrorDiv, ButtonToggleIcon, DivWrap } from './RegisterForm.styled';
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
 import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
-import { SpinnerGrid } from 'components/Spinner/Grid';
-// import styled from 'styled-components';
 
-const RegisterForm = () => {
+const RegisterForm = ({setIsLoading}) => {
   const [toggleButton, setToggleButton] = useState({
     typeInput: 'password',
     toggleIcon: <IconEyeHidden />,
@@ -30,8 +27,6 @@ const RegisterForm = () => {
   };
 
   const dispatch = useDispatch();
-
-  const [isLoading, setIsLoading] = useState(false);
 
   const SignupSchema = Yup.object().shape({
     name: Yup.string()
@@ -51,10 +46,6 @@ const RegisterForm = () => {
   });
 
   return (
-    <>
-      {isLoading ? (
-        <SpinnerGrid />
-      ) : (
         <>
           <Formik
             validationSchema={SignupSchema}
@@ -111,7 +102,7 @@ const RegisterForm = () => {
                     type="email"
                     autoComplete="username"
                     placeholder="Enter email"
-                    isValid
+                    
                   />
                 </Label>
                 <ErrorMessage component={ErrorDiv} name="email" />
@@ -124,7 +115,7 @@ const RegisterForm = () => {
                       type={toggleButton.typeInput}
                       autoComplete="current-password"
                       placeholder="Enter password"
-                      isValid
+                      
                     />
                     <ButtonToggleIcon type="button" onClick={onClick}>
                       {toggleButton.toggleIcon}
@@ -139,11 +130,9 @@ const RegisterForm = () => {
               </Form>
             )}
           </Formik>
-          <ToastContainer />{' '}
         </>
-      )}
-    </>
-  );
+      )
+
 };
 
 export default RegisterForm;

@@ -20,10 +20,14 @@ import {
   LabelBtn,
   Btn,
 } from './UserForm.styled';
+import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const UserForm = () => {
+
+    const [isLoading, setIsLoading] = useState(false);
+
   const { user } = useAuth();
-  const [birthday, setBirthday] = useState(user.birthday ?? '');
+  const [birthday, setBirthday] = useState(user.birthday ?? '');  
   const [avatarURL, setAvatarURL] = useState('');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
@@ -57,7 +61,10 @@ import {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
     const newUser = {
       name,
       email,
@@ -66,12 +73,18 @@ import {
       birthday,
       avatarURL,
     };
-    dispatch(updateInfo(newUser));
+    
+    setIsLoading(true);
+
+    await dispatch(updateInfo(newUser));
+
+    setIsLoading(false);
   };
 
   return (
-    <Wrapper>
-      <Forms autoComplete="off" onSubmit={handleSubmit}>
+     <>{ isLoading ? <SpinnerGrid /> :
+      (<Wrapper>
+        <Forms autoComplete="off" onSubmit={handleSubmit}>
         <Container>
           <ImgAvatar src={user.avatarURL ?? avatarDefault} alt="avatar" />
         </Container>
@@ -102,7 +115,6 @@ import {
               onChange={handleChange}
             />
           </LabelBtn>
-
           <LabelBtn htmlFor="phone">
             Phone
             <Input
@@ -121,7 +133,7 @@ import {
               id="date"
               type="date"
               input={true}
-              selected={birthday}
+              selected={birthday.toDate} // ДОДАЛА toDate - бо не рендерило, помилка, що неможна рядок встановлювати
               onChange={data => setBirthday(data)}
               dateFormat="dd/MM/yyyy"
             />
@@ -152,7 +164,8 @@ import {
 
         <Btn type="submit"> Save changes </Btn>
       </Forms>
-    </Wrapper>
+      </Wrapper>)}
+      </>
   );
 };
 

@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import { Form } from 'formik';
 
 export const FormComponent = styled(Form)`
-  min-height: 376px;
+  /* min-height: 376px; */
   border-radius: 8px;
+  min-width: 280px;
   width: 100%;
   padding: 40px 24px;
   
-  background: #ffffff;
-  color: #111111;
+  background: var(--primary-bgc-color);
+  color: var(--primary-text-color);
   
   font-weight: 600;
   font-size: 14px;
@@ -24,7 +25,7 @@ export const FormComponent = styled(Form)`
 export const Title = styled.h2`
   margin-bottom: 32px;
   
-  color: #3e85f3;
+  color: var(--accent-text-color);
   
   font-weight: 600;
   font-size: 18px;

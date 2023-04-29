@@ -9,9 +9,9 @@ export const ButtonComponent = styled.button`
   height: 46px;
   cursor: pointer;
 
-  background-color: #3e85f3;
-  color: #ffffff;
-  box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  background-color: var(--accent-btn-background);
+  color: var(--btn-text-color);
+  box-shadow: 4px 2px 16px var(--btn-shadow-color);
   border-radius: 16px;
   border: none;
   font-style: normal;
@@ -28,9 +28,8 @@ export const ButtonComponent = styled.button`
   }
 
   :disabled {
-    background: #DCEBF7;
+    background: var(--disabled-btn-background);
 }
   :hover {
-    background: #2B78EF;
-  }
+    background: var(--hover-btn-background);}
 `;

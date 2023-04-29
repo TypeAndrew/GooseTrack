@@ -21,7 +21,7 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.newUser.token); 
       return res.data.newUser;
     } catch (error) {
-      toast.error(`${error.response.status} ${error.response.data.message}`, {
+      toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT
       });
       return thunkAPI.rejectWithValue(error.message);
@@ -37,7 +37,7 @@ export const logIn = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
-      toast.error(`${error.response.status} ${error.response.data.message}`, {
+      toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT
       });
       return thunkAPI.rejectWithValue(error.message);
@@ -50,7 +50,7 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('/user/logout');
     clearAuthHeader();
   } catch (error) {
-    toast.error(`${error.response.status} ${error.response.data.message}`, {
+    toast.error(`${error.response.data.message}`, {
       position: toast.POSITION.TOP_RIGHT
     });
     return thunkAPI.rejectWithValue(error.message);
@@ -72,7 +72,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/user/current');
       return res.data;
     } catch (error) {
-      toast.error(`${error.response.status} ${error.response.data.message}`, {
+      toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT
       });
       return thunkAPI.rejectWithValue(error.message);

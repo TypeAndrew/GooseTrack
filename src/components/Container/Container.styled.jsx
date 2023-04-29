@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 export const Div = styled.div`
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  width: 100vw;
+  padding: 0 20px;
+  /* width: 100vw; */
   height: 100vh;
-  background: #dcebf7;
+  background: var(--unlogined-background);
 
   @media screen and (min-width: 1280px) {
     position: relative;
@@ -44,7 +45,7 @@ export const ImgText = styled.div`
   }
 `;
 export const Span = styled.span`
-  color: #3e85f3;
+  color: var(--accent-btn-background);
   font-style: italic;
 `;
 export const ImgBg = styled.img`
