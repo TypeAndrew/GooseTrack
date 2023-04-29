@@ -2,7 +2,7 @@ import { addMonths, getDate, getMonth, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { MONTNKEY } from 'constants/MONTNKEY';
+import { MONTNKEY } from '../constants/MONTNKEY';
 
 
 const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
