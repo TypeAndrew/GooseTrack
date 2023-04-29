@@ -1,3 +1,6 @@
+import useSound from 'use-sound';
+import boopSfx from '../../Wellboy.mp3'
+import { useEffect } from 'react';
 import {
   FlexHeader,
   MainLogo,
@@ -11,6 +14,15 @@ import {
 } from './header.styled';
 
 export const Header = () => {
+  const [play, { stop }] = useSound(boopSfx);
+  useEffect(()=> {
+  
+    play();
+     return () => {
+      stop();
+    };
+  }, )
+  
   return (
     <>
       <FlexHeader>

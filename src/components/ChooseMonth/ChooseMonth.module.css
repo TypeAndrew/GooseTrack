@@ -1,0 +1,66 @@
+.container {
+  margin: 0 20px 0 20px;
+  padding: 16 px;
+}
+.div_grid_weeks {
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  height: 50px;
+  margin-top: 24px;
+  margin-bottom: 32px;
+
+  @media screen and (min-width: 768px) {
+    height: 46px;
+  }
+  @media screen and(min-width:1440px) {
+  }
+}
+.div_grid_day {
+  background: #ffffff;
+  border: 0.5px solid rgba(220, 227, 229, 0.8);
+  border-radius: 8px;
+}
+.weeks_iteam {
+  padding-left: auto;
+  padding-right: auto;
+  margin-top: 14px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  background: #ffffff;
+}
+.link {
+  display: block;
+  text-decoration: none;
+  height: 125px;
+}
+.container_link {
+  height: 125px;
+  color: #343434;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+}
+.date {
+  margin: 18px 0 0 23px;
+  display: inline-block;
+  @media screen and min-width:768px {
+    margin: 18px 0 0 67px;
+  }
+  @media screen and(min-width:1440px) {
+    margin: 18px 0 0 117px;
+  }
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #343434;
+
+  line-height: 18px;
+}

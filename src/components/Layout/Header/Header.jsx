@@ -1,20 +1,28 @@
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
-import styles  from './Header.module.css';
+import { UserInfo } from 'components/Layout/UserInfo/UserInfo'
+import { HeaderPage, Wrapper, Overlay, MenuOpen } from './Header.styled';
+import { ReactComponent as Burger } from '../../../images/icons/menu.svg';
 
-export const Header = ({isActivPage}) => {
 
+export const Header = ({isActivPage, openMenu}) => {
   return (
-    <div className={styles.header}> 
-      <div className={styles.headerPage}>         
+    <HeaderPage> 
+      <Overlay>
+      <div>         
         {isActivPage===false
-        ? <div className={styles.headerPage}>
+        ? <div>
             <p>Calendar</p>       
         </div>                
-        :<p className={styles.titel}>User Profile</p>}          
-      </div>       
-      <div className={styles.headerPage}> 
-        <ThemeToggler/>       
-      </div>                      
-    </div>
+        :<p >User Profile</p>}          
+      </div> 
+      </Overlay>
+          <MenuOpen onClick={() => openMenu(true)}>
+            <Burger />
+          </MenuOpen>  
+      <Wrapper> 
+        <ThemeToggler/> 
+        <UserInfo/>        
+      </Wrapper>                      
+    </HeaderPage>
   );     
 };

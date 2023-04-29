@@ -15,6 +15,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { calendarReduser } from "./calendar/calendar.slice";
 
 const authPersistConfig = {
   key: 'auth',
@@ -25,7 +26,8 @@ const authPersistConfig = {
 export const rootReducer = combineReducers({
     taskbook: tasksReduser,
     filter: filterReduser,
-    auth: persistReducer(authPersistConfig, authReducer),  
+    auth: persistReducer(authPersistConfig, authReducer),
+    calendar: calendarReduser
 })
 
 //[...getGetDefaultMiddleware(), logger]

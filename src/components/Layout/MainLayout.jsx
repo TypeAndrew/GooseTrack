@@ -1,5 +1,5 @@
 import { ToastContainer } from 'react-toastify';
-import styles from './MainLayout.module.css';
+import { Container, Wrapper } from './MainLayout.styled';
 
 import { SideBar } from './SideBar/SideBar';
 import { Header } from './Header/Header';
@@ -9,6 +9,7 @@ import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   const [isActivPage,setisActivPage]=useState(false)
+  const [isMobalMenuOpen, setIsMobalMenuOpen] = useState(false);
   
   const changePageFalse =()=>{ 
     setisActivPage(false)
@@ -23,17 +24,19 @@ export const Layout = () => {
   ]   
 
   return (
-      <div className={styles.mainlayout} > 
-        <SideBar  activePage={activePage}/>
-        <div className={styles.header}>
-          <Header isActivPage={isActivPage}/> 
-           <main>
-            <div>
-              <Outlet />
-            </div>
-          </main>
-        </div>
-        <ToastContainer />
-      </div>
+      <>
+        <Container>
+          <SideBar  activePage={activePage} isMobalMenuOpen={isMobalMenuOpen}
+            closeMobalMenu={setIsMobalMenuOpen}/>
+          <Wrapper>
+            <Header isActivPage={isActivPage} openMenu={setIsMobalMenuOpen}/> 
+            <main>
+                <Outlet />
+            </main>
+          </Wrapper>
+          <ToastContainer />
+
+        </Container>
+      </>
   );
 };
