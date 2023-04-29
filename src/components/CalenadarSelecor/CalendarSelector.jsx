@@ -3,6 +3,7 @@ import css from './CalendarSelector.module.css';
 import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MONTNKEY } from '../constants/MONTNKEY';
+import { getDay } from 'date-fns/esm';
 
 
 const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
@@ -10,47 +11,47 @@ const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
 )}`;
 
 const CalendarSelector = (props) => {
-  const [time, setTime] = useState(Date.now());
+  const curDate = Date.now();
+  const curMonth = getMonth(curDate)+1;
+  const curYear= getYear(curDate);
+  const [time, setTime] = useState(curDate);
   const [day, setDay] = useState('');
-  const [month, setMonth] = useState(getMonth(Date.now()+1));
-  const [year, setYear] = useState(getYear(Date.now()));
+  const [month, setMonth] = useState(getMonth(curDate));
+  const [year, setYear] = useState(getYear(curDate));
   const [btnBack, setBtnBack] = useState(false);
   const navigate = useNavigate();
  
   console.log(day);
   useEffect(() => {
-  setDay(getDate(time));
-  setYear(getYear(time));  
-  navigate(`month/${year}.${month+1}`);  
-  }, [month, time, year,navigate]);
+
+    navigate(`month/${year}.${month + 1}`);  
+    debugger
+  }, [time,month,year,navigate]);
 
   const handleChangMonthBack = () => {
 
-    
-    setMonth(getMonth(time)-1);
-    
-    if (getMonth(Date.now()) >= month-1 && getYear(Date.now()) >= year) {
-      setBtnBack(true);
+    if (curMonth >= month && curYear >= year) {
+        setBtnBack(true);
+        setTime(addMonths(time, -1));
     } else {
       setBtnBack(false);
     }
+    setDay(getDay(time));
     setTime(addMonths(time, -1));
-    
-    navigate(`month/${year}.${month}`);
+    (month === 0) ? setMonth(11) : setMonth(getMonth(time) - 1);
+    (month) === 0 ? setYear(getYear(time)-1) : setYear(getYear(time));
+    navigate(`month/${year}.${month}`);  
+    debugger
   };
   const handleChangMonthForward = () => {
 
-     
-    setMonth(getMonth(time));
-  
-    if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
-      setBtnBack(true);
-    } else {
-      setBtnBack(false);
-    }
+    setBtnBack(false);
     setTime(addMonths(time, 1));
-    
-    navigate(`month/${year}.${month}`);
+    setDay(getDay(time));
+    month === 11 ? setMonth(0) : setMonth(getMonth(time)+1);
+    setYear(getYear(time)); 
+    navigate(`month/${year}.${month}`);  
+      debugger
   };
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';

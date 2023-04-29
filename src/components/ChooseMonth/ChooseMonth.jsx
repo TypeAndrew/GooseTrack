@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import * as dateFns from 'date-fns';
 
+
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
 const formatofWeek = 'eeee';
@@ -17,8 +18,8 @@ console.log(currentDate)
   useEffect(() => {
     if (!currentDate.includes(':')) {
       const result = currentDate.split('.');
-      const date = { years: result[0] - 1970, months: result[1]-1 };
-
+      const date = { years: result[0] - 1970, months: result[1]-1};
+    
       setCurrentDateStart(prev => {
         return dateFns.milliseconds(date);
       });
