@@ -1,6 +1,6 @@
 import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
-
+// import React, { useRef } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { MONTNKEY } from '../constants/MONTNKEY';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import {
   currentTime,
   currentYear,
 } from 'Redux/calendar/calendar.slice';
+ import { useEffect } from 'react';
 
 
 
@@ -23,10 +24,19 @@ const CalendarSelector = props => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const day = useSelector(state => state.calendar.day);
+  //const currentDay1 = Date.now();
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time) ?? Date.now();
- 
+  
+  useEffect(() => {
+    const date = new Date(time); // дата, для которой нужно получить начало месяца
+    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+    const formattedDate = startOfMonth.toISOString().slice(0,10);
+       navigate(`/calendar/month/${formattedDate}`)
+       
+  },[time,navigate])
+
 
   let stopUpdateParamas = true
   let btnBack= getYear(Date.now()) >= year && getMonth(Date.now()) >= month;
@@ -41,7 +51,8 @@ const CalendarSelector = props => {
       stopUpdateParamas = false
       dispatch(currentMonth(Number(result[1])));
       dispatch(currentYear(Number(result[0])));
-      navigate(`month/${result[0]}.${Number(result[1])}`)  }
+    //  navigate(`month/${result[0]}.${Number(result[1])}`)
+    }
   }
 
   if (year === null) {
@@ -56,9 +67,9 @@ const CalendarSelector = props => {
     dispatch(currentMonth(getMonth(addMonths(time, -1))));
     dispatch(currentYear(getYear(addMonths(time, -1))));
    stopUpdateParamas = false
-    navigate(
-      `month/${getYear(addMonths(time, -1))}.${getMonth(addMonths(time, -1))}`
-    );
+  //  navigate(
+   //   `month/${getYear(addMonths(time, -1))}.${getMonth(addMonths(time, -1))}`
+   // );
 
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       btnBack = true;
@@ -74,9 +85,9 @@ const CalendarSelector = props => {
     dispatch(currentMonth(getMonth(addMonths(time, 1))));
     dispatch(currentYear(getYear(addMonths(time, 1))));
     stopUpdateParamas = false
-    navigate(
-      `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
-    );
+    // navigate(
+    //  `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
+   // );
 
   };
   
@@ -98,14 +109,14 @@ const CalendarSelector = props => {
               disabled={btnBack}
               className={css.btn_left}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} stroke-linecap="round" stroke-linejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
             </button>
             <button
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke="#616161" stroke-linecap="round" stroke-linejoin="round" stroke-Width="1.5" d="m1 9 4-4-4-4"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke="#616161" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m1 9 4-4-4-4"/></svg>
             </button>
           </div>
         </div>
