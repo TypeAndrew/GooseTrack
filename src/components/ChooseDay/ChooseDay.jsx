@@ -1,84 +1,199 @@
-import { useParams } from "react-router-dom"
+import { useParams } from 'react-router-dom';
 import css from './ChooseDay.module.css';
-import { ColumnTasksList } from "components/TasksColumn/TasksColumn";
+import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
 // розшиврофка місяців щоб число місяця перевести в текст
 const MONHTKEY = {
-    0:'January',
-    1:"February",
-    2:'March',
-    3:'April',
-    4:'May',
-    5:'June',
-    6:'July',
-    7:'August',
-    8:'September',
-    9:'October',
-    10:'November',
-    11:"December",
-}
+  0: 'January',
+  1: 'February',
+  2: 'March',
+  3: 'April',
+  4: 'May',
+  5: 'June',
+  6: 'July',
+  7: 'August',
+  8: 'September',
+  9: 'October',
+  10: 'November',
+  11: 'December',
+};
 
-const ChooseDay = ()=>{
-  const {currentDay}= useParams()
-  const currentDays = currentDay.split(".")
+const ChooseDay = () => {
+// не з того компонента
 
+  const { currentDay } = useParams();
+  const currentDays = currentDay.split('.');
   // const handleCurrentPage = ({ isActive }) => {
   //   return isActive ? css.isActive : '';
   // };
+
+
+// вірно
+
+
+const tasks = [
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test1',
+    priority: 'Low',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-30',
+    category: 'To do',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test2',
+    priority: 'Medium',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-30',
+    category: 'To do',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test3',
+    priority: 'Low',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-29',
+    category: 'To do',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test4',
+    priority: 'High',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-30',
+    category: 'Done',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test5',
+    priority: 'Low',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-29',
+    category: 'Done',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+  {
+    _id: '644ac5a7c3856b23c8b1b54e',
+    title: 'Test6',
+    priority: 'Low',
+    start: '09:00',
+    end: '09:30',
+    date: '2023-04-29',
+    category: 'In progress',
+    owner: '644797791e794314754f77ae',
+    __v: 0,
+  },
+];
+
+  // const { currentDay } = useParams();
+  
+  // const dispatch = useDispatch();
+  
+  //   const {tasks} = useSelector(getTasks);
+
+  // dispatch(changeFilter(currentDay));
+
+
+  const toFiltredContacts = () => {
+    const currentDayArray = currentDay.split('.');
+
+    const month = Number(currentDayArray[1]) + 1;
+
+    let normalMonth = `${month}`;
+    if (month < 10) {
+      normalMonth = `0${month}`;
+    }
+
+    const normalizeDay =
+      `${currentDayArray[0]}-${normalMonth}-${currentDayArray[2]}`;
+
+    return tasks.filter(task => task.date === normalizeDay);
+  };
+
+  const filtredTasks = toFiltredContacts();
+
+  const toDoTasks = filtredTasks.filter(task => task.category === "To do");
+  const inProgressTasks = filtredTasks.filter(task => task.category === "In progress");
+  const doneTasks = filtredTasks.filter(task => task.category === "Done");
+
+    // useEffect(() => {
+    //   dispatch(getTasksThunk());
+    // }, [dispatch]);
+
+    // const handleDelete = useCallback((evt) => {
+
+    //   dispatch(deleteTasksThunk({ id:evt.target.id } ))
+
+    // }, [dispatch]);
 
   return (
     <>
       <div>
         <div className={css.selector}>
-          <span className={css.dateToday}>
-            {currentDays[2]} {MONHTKEY[currentDays[1]]} {currentDays[0]}
-          </span>
-          <div className={css.dayChange}>
-            <button
-              // onClick={handleChangMonthBack}
-              type="button"
-              // disabled={btnBack}
-              className={css.btn_left}
-            >
-              <img widt='10px' src="./left.svg" alt="<" />
-            </button>
-            <button
-              // onClick={handleChangMonthForward}
-              type="button"
-              className={css.btn_ringt}
-            >
-              <img widt='10px' src="./ringt.svg" alt=">" />
-            </button>
+          <div className={css.periodPaginator}>
+            {' '}
+            <span className={css.dateToday}>
+              {currentDays[2]} {MONHTKEY[currentDays[1]]} {currentDays[0]}
+            </span>
+            <div className={css.dayChange}>
+              <button
+                // onClick={handleChangMonthBack}
+                type="button"
+                // disabled={btnBack}
+                className={css.btn_left}
+              >
+                <img widt="10px" src="./left.svg" alt="<" />
+              </button>
+              <button
+                // onClick={handleChangMonthForward}
+                type="button"
+                className={css.btn_ringt}
+              >
+                <img widt="10px" src="./ringt.svg" alt=">" />
+              </button>
+            </div>
           </div>
-            <ul className={css.viue}>
-            <li>
+          <ul className={css.viue}>
+            <li className={css.viueLink}>
               {/* <NavLink */}
-                {/* // to={`month/${year}.${month}`} */}
-                {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changL} */}
+              {/* // to={`month/${year}.${month}`} */}
+              {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changL} */}
               {/* > */}
-                Month
+              Month
               {/* </NavLink> */}
             </li>
-            <li>
+            <li className={css.viueLink}>
               {/* <NavLink */}
-                {/* // to={`day/${currentDay}`} */}
-                {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changR} */}
+              {/* // to={`day/${currentDay}`} */}
+              {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changR} */}
               {/* > */}
-                Day
+              Day
               {/* </NavLink> */}
             </li>
           </ul>
         </div>
-      <div className={css.week}>
+
+        <DayCalendarHead/>
+        <TaskColumnsList toDoTasks={toDoTasks} inProgressTasks={inProgressTasks} doneTasks={doneTasks}/>
         
       </div>
-        <ul className={css.calendar}>
-          <ColumnTasksList/>
-          <ColumnTasksList />
-          <ColumnTasksList />
-        </ul>
-      </div>
     </>
-  )
-}
+  );
+};
 
-export default ChooseDay
+export default ChooseDay;
