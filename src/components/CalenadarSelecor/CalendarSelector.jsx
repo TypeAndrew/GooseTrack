@@ -1,61 +1,81 @@
-import { addMonths, getDate, getMonth, getYear } from 'date-fns';
+import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
-import { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 import { MONTNKEY } from 'constants/MONTNKEY';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  currentDay,
+  currentMonth,
+  currentTime,
+  currentYear,
+} from 'Redux/calendar/calendar.slice';
 
 
-const currentDay = `${getYear(Date.now())}.${getMonth(Date.now())}.${getDate(
+const currentStartDay = `${getYear(Date.now())}.${getMonth(
   Date.now()
-)}`;
+)}.${getDate(Date.now())}`;
 
-const CalendarSelector = (props) => {
-  const [time, setTime] = useState(Date.now());
-  const [day, setDay] = useState('');
-  const [month, setMonth] = useState(getMonth(Date.now()+1));
-  const [year, setYear] = useState(getYear(Date.now()));
-  const [btnBack, setBtnBack] = useState(false);
+const CalendarSelector = props => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const day = useSelector(state => state.calendar.day);
+  const month = useSelector(state => state.calendar.month);
+  const year = useSelector(state => state.calendar.year);
+  const time = useSelector(state => state.calendar.time) ?? Date.now();
  
-  console.log(day);
-  useEffect(() => {
-  setDay(getDate(time));
-  setYear(getYear(time));  
-  navigate(`month/${year}.${month+1}`);  
-  }, [month, time, year,navigate]);
+  let stopUpdateParamas = true
+  let btnBack= getYear(Date.now()) >= year && getMonth(Date.now()) >= month;
+
+  const params = useParams();
+
+
+  if (params.currentDate?.includes('.')) {
+    const result = params.currentDate.split('.');
+    const asd =  Number(result[0]) === year && Number(result[1]) === month;
+    if (!asd&&stopUpdateParamas) {
+      stopUpdateParamas = false
+      dispatch(currentMonth(Number(result[1])));
+      dispatch(currentYear(Number(result[0])));
+      navigate(`month/${result[0]}.${Number(result[1])}`)  }
+  }
+
+  if (year === null) {
+    dispatch(currentTime(time));
+    dispatch(currentDay(getDate(time)));
+    dispatch(currentMonth(getMonth(time)));
+    dispatch(currentYear(getYear(time)));
+  }
 
   const handleChangMonthBack = () => {
+    dispatch(currentTime(getTime(addMonths(time, -1))));
+    dispatch(currentMonth(getMonth(addMonths(time, -1))));
+    dispatch(currentYear(getYear(addMonths(time, -1))));
+   stopUpdateParamas = false
+    navigate(
+      `month/${getYear(addMonths(time, -1))}.${getMonth(addMonths(time, -1))}`
+    );
 
-    
-    setMonth(getMonth(time)-1);
-    
-    if (getMonth(Date.now()) >= month-1 && getYear(Date.now()) >= year) {
-      setBtnBack(true);
-    } else {
-      setBtnBack(false);
-    }
-    setTime(addMonths(time, -1));
-    
-    navigate(`month/${year}.${month}`);
-  };
-  const handleChangMonthForward = () => {
-
-     
-    setMonth(getMonth(time));
-  
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
-      setBtnBack(true);
+      btnBack = true;
     } else {
-      setBtnBack(false);
+      btnBack = false;
     }
-    setTime(addMonths(time, 1));
-    
-    navigate(`month/${year}.${month}`);
   };
+
+  const handleChangMonthForward = () => {
+    dispatch(currentTime(getTime(addMonths(time, 1))));
+    dispatch(currentMonth(getMonth(addMonths(time, 1))));
+    dispatch(currentYear(getYear(addMonths(time, 1))));
+    stopUpdateParamas = false
+    navigate(
+      `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
+    );
+  };
+
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
   };
-
+  
   return (
     <>
       <div className={css.calendar}>
@@ -70,14 +90,14 @@ const CalendarSelector = (props) => {
               disabled={btnBack}
               className={css.btn_left}
             >
-              <img widt='10px' src="./left.svg" alt="L" />
+              <img widt="10px" src="./left.svg" alt="L" />
             </button>
             <button
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
             >
-              <img widt='10px' src="./ringt.svg" alt="R" />
+              <img widt="10px" src="./ringt.svg" alt="R" />
             </button>
           </div>
         </div>
@@ -92,7 +112,7 @@ const CalendarSelector = (props) => {
           </li>
           <li>
             <NavLink
-              to={`day/${currentDay}`}
+              to={`day/${currentStartDay}`}
               className={data => handleCurrentPage(data) + ' ' + css.btn_changR}
             >
               Day
