@@ -1,7 +1,9 @@
-import {NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 import * as dateFns from 'date-fns';
 import { useSelector } from 'react-redux';
+
+import css from './ChooseMonth.module.css';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
@@ -41,28 +43,46 @@ const ChooseMonth = () => {
   })(currentDate);
 
   return (
-    <div>
+    <div className={css.container}>
+      <div className={css.div_grid_weeks}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(7, 1fr)',
+          }}
+        >
+          {' '}
+          {weeks.map(week => (
+            <div className={css.weeks_iteam} key={week}>
+              {dateFns.format(week, formatofWeek).substring(0, 3)}
+            </div>
+          ))}{' '}
+        </div>
+      </div>
+
       <div
+        className={css.div_grid}
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(7, 1fr)',
-          gap: '1rem',
         }}
       >
-        {weeks.map(week => (
-          <div key={week}>{dateFns.format(week, formatofWeek)}</div>
-        ))}
         {totalDate.map(date => (
-          <div key={date}>
+          <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
-                to={`/calendar/day//${year}.${month}.${dateFns.format(date, formatOfDay)}`}
+                className={css.link}
+                to={`/calendar/day//${year}.${month}.${dateFns.format(
+                  date,
+                  formatOfDay
+                )}`}
               >
-                
-                {dateFns.format(date, formatOfDay)}{' '}
+               <span className={css.date}>
+                {dateFns.format(date, formatOfDay)}
+                </span> 
               </NavLink>
             ) : (
-              'BaD'
+              <span className={css.link}></span>
             )}
           </div>
         ))}

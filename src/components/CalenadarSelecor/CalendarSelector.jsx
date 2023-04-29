@@ -71,11 +71,11 @@ const CalendarSelector = props => {
       `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
     );
   };
-
+  
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
   };
-  
+  const colordisable = btnBack?"#DCE3E5":"#616161"
   return (
     <>
       <div className={css.calendar}>
@@ -90,14 +90,14 @@ const CalendarSelector = props => {
               disabled={btnBack}
               className={css.btn_left}
             >
-              <img widt="10px" src="./left.svg" alt="L" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} stroke-linecap="round" stroke-linejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
             </button>
             <button
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
             >
-              <img widt="10px" src="./ringt.svg" alt="R" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke="#616161" stroke-linecap="round" stroke-linejoin="round" stroke-Width="1.5" d="m1 9 4-4-4-4"/></svg>
             </button>
           </div>
         </div>
