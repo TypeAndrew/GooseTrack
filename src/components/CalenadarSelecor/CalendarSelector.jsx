@@ -2,7 +2,7 @@ import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
 
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import { MONTNKEY } from 'constants/MONTNKEY';
+import { MONTNKEY } from '../constants/MONTNKEY';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   currentDay,
