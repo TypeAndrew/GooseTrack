@@ -1,9 +1,15 @@
 .selector {
-  display: flex;
+  display: block;
   align-items: center;
 
-  padding-left: 32px;
-  padding-right: 32px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 .dateToday{
@@ -11,8 +17,8 @@
   align-items: center;
   justify-content: center;
 
-  min-width: 131px;
-  height: 34px;
+  min-width: 130px;
+  height: 30px;
   
   color: var(--btn-text-color);
   background: var(--accent-bgc-color);
@@ -21,28 +27,33 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    height: 34px;
+    font-size: 16px;
+  }
   
 }
 
-.week {
-  height: 68px;
-  margin-left: 32px;
-  margin-right: 32px;
-  margin-top: 32px;
-  margin-bottom: 16px;
-
-  background: var(--primary-bgc-color);
-  border: 1px solid var(--auth-placeholder-color);
-  border-radius: 8px;
-}
-
-.calendar {
-  padding-left: 32px;
-  padding-right: 32px;
+.periodPaginator{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.viue {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.viueLink {
+  align-items: center;
+  flex-basis: 76px;
+  height: 34px;
+  background-color: #E3F3FF;
+  color: #3E85F3;
 }
