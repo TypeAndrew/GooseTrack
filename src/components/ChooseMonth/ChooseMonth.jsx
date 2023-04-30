@@ -65,8 +65,10 @@ const ChooseMonth = () => {
           <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
-                className={css.link}
-                to={`/calendar/day/${year}-${month}-${dateFns.format(
+
+              className={css.link}
+                to={`/calendar/month/${year}-${month}-${dateFns.format(
+
                   date,
                   formatOfDay
                 )}`}
