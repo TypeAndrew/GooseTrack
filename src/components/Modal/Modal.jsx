@@ -1,37 +1,51 @@
-import { PropTypes } from 'prop-types';
-import { useEffect } from 'react';
-import { Backdrop, Overlay, Inner } from './Modal.styled'
+import { useCallback, useEffect } from 'react';
+import { ReactComponent as IconClose } from '../../images/icons/icon-close.svg';
+import PropTypes from 'prop-types';
 
-export const Modal = ({ onClose,children }) => {
-  useEffect(()=>{
-    const handleKeyClose = event => {   
-      if (event.code === 'Escape') {
-      onClose();
-      }
+import { CloseBtn, ModalContainer, Overlay } from './Modal.styled';
+
+export const Modal = ({ children, onClose }) => {
+  const memoKeyClose = useCallback(handleKeyClose, [handleKeyClose]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', memoKeyClose);
+
+    return () => {
+      window.removeEventListener('keydown', memoKeyClose);
     };
-    window.addEventListener('keydown', handleKeyClose);
-    return ()=>{
-      window.removeEventListener('keydown', handleKeyClose);
-    }
-  }, [onClose]) 
+  }, [memoKeyClose]);
 
-  const handleClose = event => {
-    if (event.target === event.currentTarget) {
+  function handleKeyClose(evt) {
+    if (evt.code === 'Escape') {
       onClose();
     }
-  };
-    
-  return (
-    <Backdrop>     
-      <Overlay onClick={handleClose}>
-        <Inner>                  
-          <p>{children}</p>
-        </Inner>
-      </Overlay>      
-    </Backdrop>                      
-  );  
-}
+  }
 
-Modal.propTypes = {   
-  onClose:PropTypes.func.isRequired,    
-}
+  function handleClose(evt) {
+    const { target, currentTarget } = evt;
+
+    if (target === currentTarget) {
+      onClose();
+    }
+  }
+
+  function handleCloseBtn() {
+    onClose();
+  }
+
+  return (
+    <Overlay onClick={handleClose}>
+      <ModalContainer>
+        <CloseBtn onClick={handleCloseBtn}>
+          <IconClose/>
+        </CloseBtn>
+        {children}
+      </ModalContainer>
+    </Overlay>
+  );
+};
+
+Modal.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func,
+};
