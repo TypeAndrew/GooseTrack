@@ -1,0 +1,28 @@
+.weeks_iteam {
+    padding-left: auto;
+    padding-right: auto;
+    margin-top: 14px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    background: #ffffff;
+}
+
+.div_grid_weeks {
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(220, 227, 229, 0.8);
+    height: 50px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+
+    @media screen and (min-width: 768px) {
+        height: 46px;
+    }
+
+    @media screen and(min-width:1440px) {}
+}
