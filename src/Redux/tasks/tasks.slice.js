@@ -26,7 +26,7 @@ const tasksSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.tasks = taskList.filter(
-          task => task.date.slice(5, 7) === addFirstZero(dateMonth)
+          task => task.date.slice(0, 7) === timeNormalize(dateMonth)
         );
       })
       .addCase(getTasksThunk.rejected, state => {
@@ -50,8 +50,12 @@ const tasksSlice = createSlice({
 
 //export const { setContacts, deleteContacts } = contactsSlice.actions;
 
-function addFirstZero(value) {
-  return String(value).padStart(2, '0');
+function timeNormalize(value) {
+  const date = new Date(value);
+  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+  const currentDateTime = startOfMonth.toISOString().slice(0, 7);
+
+  return String(currentDateTime);
 }
 
 export const tasksReduser = tasksSlice.reducer;
