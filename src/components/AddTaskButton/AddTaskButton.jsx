@@ -1,21 +1,30 @@
-import { useState } from "react";
+import { Button, AddTask, Plus } from './AddTaskButton.styled';
+import { TaskModal } from '../TaskModal/TaskModal';
+import { useState } from 'react';
 
-import { ReactComponent as Plus } from '../../images/icons/plus.svg';
-import { AddButton } from './AddTaskButton.styled';
-import { TaskModal } from "../TaskModal/TaskModal";
+export const AddTaskBtn = ({ status }) => {
+  const [showModal, setShowModal] = useState(false);
 
-const AddTaskBtn = ({ onClick }) => {
-  const [isOpen, setIsModalOpen] = useState(false);  
-  
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  console.log('status ', status);
+
   return (
-    <AddButton onClick={() => setIsModalOpen(true)}>
-      <Plus/>
-      Add task
-      {isOpen && (<TaskModal onClose={() => setIsModalOpen(false)} data={"Hello"}/>)}         
-    </AddButton>
-  );
-}
+    <>
+      <Button type="button" onClick={handleShowModal}>
+        <Plus>+</Plus>
+        <AddTask>Add task</AddTask>
+      </Button>
 
-export {
-  AddTaskBtn
-}
+      {showModal && (
+        <TaskModal handleCloseModal={handleCloseModal} status={status} />
+      )}
+    </>
+  );
+};

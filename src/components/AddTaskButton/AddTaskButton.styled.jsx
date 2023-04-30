@@ -1,29 +1,33 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const AddButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+export const Button = styled.button`
+display: flex;
+justify-content: center;
+align-items: center;
+padding-top: 16px;
+padding-bottom: 16px;
+gap: 8px;
+isolation: isolate;
 
-  width: 100%;
-  height: 52px;
-  gap: 8px;  
-  margin-top: auto;
+width: 100%;
+height: 48px;
 
-  color: var(--primary-text-color);
-  background: var(--active-item-sidebar-background);
-  border: 1px dashed #3E85F3;
-  border-radius: 8px;
+background: var(--active-item-sidebar-background);
+border: 1px dashed var(--accent-text-color);
+border-radius: 8px;
+`;
+ export const AddTask = styled.span`
+ font-family: var(--primary-font);
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 1.29;
 
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18px; 
+color: var(--primary-text-color);
+ `;
+ export const Plus = styled(AddTask)`
+ margin-bottom: 4px;
 
-  :hover{
-    background: #c6e6ff;
-    transition: 200ms;
-  }
-`
+font-weight: 300;
+font-size: 32px;
+ `;
