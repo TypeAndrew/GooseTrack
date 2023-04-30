@@ -106,8 +106,8 @@ const RegisterForm = ({setIsLoading}) => {
                   />
                 </Label>
                 <ErrorMessage component={ErrorDiv} name="email" />
-                <Label>
-                  Password
+                <Label name="password" color={(touched && errors && `var(--error-validation-color)`) || (touched && !errors && `var(--correct-validation-color)`)}>
+                  Password 
                   <DivWrap>
                     <Field
                       id="password"
@@ -115,7 +115,7 @@ const RegisterForm = ({setIsLoading}) => {
                       type={toggleButton.typeInput}
                       autoComplete="current-password"
                       placeholder="Enter password"
-                      
+                      border={errors && '1px solid red'}
                     />
                     <ButtonToggleIcon type="button" onClick={onClick}>
                       {toggleButton.toggleIcon}

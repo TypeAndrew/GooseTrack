@@ -40,7 +40,7 @@ export const App = () => {
           </Route>
 
           <Route path="" element={<PrivateRoute />}>
-            <Route index element={<Navigate to="/account" />} />
+            <Route index element={<Navigate to="/calendar/month/:currentDate" />} />
             <Route path="/account" element={<AccountPage />} />
             <Route path="/calendar" element={<CalendarPage />}>
               <Route
