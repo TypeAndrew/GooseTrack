@@ -38,11 +38,11 @@ export const ReviewContainer = styled.div`
   align-items: flex-start;
   margin: 20px;
   max-width: 335px;
-  height: 150px;
+  height: auto;
   text-align: center;
   border: 1px solid var(--disabled-btn-background);
   border-radius: 10px;
-  padding: 20px;
+  padding: 25px;
 
   @media (min-width: 768px) {
     max-width: 604px;
@@ -86,7 +86,8 @@ export const ReviewText = styled.p`
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  color: var(--accent-text-color);
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
 `;
 
 export const ButtonContainer = styled.div`
