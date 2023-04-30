@@ -1,4 +1,5 @@
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink,  useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import css from './ChooseDay.module.css';
 import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
@@ -20,16 +21,20 @@ const MONHTKEY = {
 
 const ChooseDay = () => {
 // не з того компонента
-
+  const navigate = useNavigate();
   const { currentDay } = useParams();
   const currentDays = currentDay.split('.');
-  // const handleCurrentPage = ({ isActive }) => {
-  //   return isActive ? css.isActive : '';
-  // };
+   const handleCurrentPage = ({ isActive }) => {
+     return isActive ? css.isActive : '';
+   };
 
-
+    useEffect(() => {
+    
+       navigate(`/calendar/day/${currentDay}`)
+       
+     },[currentDay,navigate])
 // вірно
-
+  let btnBack= true;
 
 const tasks = [
   {
@@ -114,6 +119,8 @@ const tasks = [
 
     const month = Number(currentDayArray[1]) + 1;
 
+     
+
     let normalMonth = `${month}`;
     if (month < 10) {
       normalMonth = `0${month}`;
@@ -140,7 +147,7 @@ const tasks = [
     //   dispatch(deleteTasksThunk({ id:evt.target.id } ))
 
     // }, [dispatch]);
-
+  const colordisable = btnBack?"#DCE3E5":"#616161"
   return (
     <>
       <div>
@@ -157,33 +164,33 @@ const tasks = [
                 // disabled={btnBack}
                 className={css.btn_left}
               >
-                <img widt="10px" src="./left.svg" alt="<" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
               </button>
               <button
                 // onClick={handleChangMonthForward}
                 type="button"
                 className={css.btn_ringt}
               >
-                <img widt="10px" src="./ringt.svg" alt=">" />
+                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke="#616161" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m1 9 4-4-4-4"/></svg>
               </button>
             </div>
           </div>
           <ul className={css.viue}>
             <li className={css.viueLink}>
-              {/* <NavLink */}
-              {/* // to={`month/${year}.${month}`} */}
-              {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changL} */}
-              {/* > */}
+               <NavLink 
+               to={``}
+               className={data => handleCurrentPage(data) + ' ' + css.btn_changL} 
+               > 
               Month
-              {/* </NavLink> */}
+               </NavLink> 
             </li>
             <li className={css.viueLink}>
-              {/* <NavLink */}
-              {/* // to={`day/${currentDay}`} */}
-              {/* // className={data => handleCurrentPage(data) + ' ' + css.btn_changR} */}
-              {/* > */}
+               <NavLink 
+            
+               className={data => handleCurrentPage(data) + ' ' + css.btn_changR} 
+               > 
               Day
-              {/* </NavLink> */}
+               </NavLink> 
             </li>
           </ul>
         </div>
