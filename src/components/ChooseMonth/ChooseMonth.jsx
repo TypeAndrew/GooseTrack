@@ -55,6 +55,7 @@ const ChooseMonth = () => {
 
   return (
     <div className={css.container}>
+
       
       <WeeksHeader CalendarDate={firstDay} />
     <div
@@ -63,27 +64,31 @@ const ChooseMonth = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(7, 1fr)',
         }}
+
       >
         {totalDate.map(date => (
           <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
-                className={css.link}
-                to={`/calendar/day/${year}.${month}.${dateFns.format(
+              className={css.link}
+                to={`/calendar/day/${year}-${month}-${dateFns.format(
                   date,
                   formatOfDay
                 )}`}
-              >
+                >
                 <span className={css.date}>
                   {dateFns.format(date, formatOfDay)}
                 </span>
               </NavLink>
             ) : (
               <span className={css.link}></span>
-            )}
+              )}
           </div>
         ))}
       </div>
+
+        
+
     </div>
   );
 };
