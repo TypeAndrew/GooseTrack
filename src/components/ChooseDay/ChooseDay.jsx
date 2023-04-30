@@ -5,7 +5,7 @@ import css from './ChooseDay.module.css';
 //import { addDays, getDate, getTime } from 'date-fns';
 import * as dateFns from 'date-fns';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
-import { WeeksHeader } from '../CalenadarSelecor/WeeksHeader/WeeksHeader';
+import { WeeksHeader } from './WeeksHeader/WeeksHeader';
 
 // розшиврофка місяців щоб число місяця перевести в текст
 const MONHTKEY = {
@@ -26,23 +26,23 @@ const MONHTKEY = {
 const ChooseDay = () => {
 // не з того компонента
   const navigate = useNavigate();
-  const { navigationDay } = useParams();
+  const { currentDay } = useParams();
   const time = useSelector(state => state.calendar.time);
   
   const firstDay = dateFns.startOfWeek(time+1);
 
 
   
-  const currentDays = navigationDay.split('.');
+  const currentDays = currentDay.split('.');
    const handleCurrentPage = ({ isActive }) => {
      return isActive ? css.isActive : '';
    };
 
     useEffect(() => {
     
-       navigate(`/calendar/day/${navigationDay}`)
+       navigate(`/calendar/day/${currentDay}`)
        
-     },[navigationDay,navigate])
+     },[currentDay,navigate])
 // вірно
   let btnBack= true;
 
@@ -125,7 +125,7 @@ const tasks = [
 
 
   const toFiltredContacts = () => {
-    const currentDayArray = navigationDay.split('.');
+    const currentDayArray = currentDay.split('.');
 
     const month = Number(currentDayArray[1]) + 1;
 
@@ -159,20 +159,20 @@ const tasks = [
     // }, [dispatch]);
   // const dispatch = useDispatch();
   
-   const handleChangMonthBack = () => {
+  // const handleChangMonthBack = () => {
     // dispatch(currentTime(getTime(addDays(time, -1))));
   //   dispatch(currentDay(getDate(addDays(time, -1))));
 
    
 
-  };
+ // };
 
-  const handleChangMonthForward = () => {
+  //const handleChangMonthForward = () => {
   //  dispatch(currentTime(getTime(addDays(time, 1))));
   //  dispatch(currentDay(getDate(addDays(time, 1))));
   
 
-  };
+  //};
   const colordisable = btnBack?"#DCE3E5":"#616161"
   return (
     <>
@@ -187,7 +187,7 @@ const tasks = [
             </span>
             <div className={css.dayChange}>
               <button
-                 onClick={handleChangMonthBack}
+                // onClick={handleChangMonthBack}
                 type="button"
                 // disabled={btnBack}
                 className={css.btn_left}
@@ -195,7 +195,7 @@ const tasks = [
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
               </button>
               <button
-                 onClick={handleChangMonthForward}
+                // onClick={handleChangMonthForward}
                 type="button"
                 className={css.btn_ringt}
               >

@@ -31,9 +31,7 @@ return (
             <div>
               {dateFns.format(week, formatofWeek).substring(0, 3)}
             </div>
-            <div>
-            {week.getDate()}
-            </div>
+           
           </div>
         ))} 
          </div>

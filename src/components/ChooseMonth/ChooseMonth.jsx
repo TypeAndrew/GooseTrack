@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './ChooseMonth.module.css';
 import { useEffect } from 'react';
 import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
-import { WeeksHeader } from '../CalenadarSelecor/WeeksHeader/WeeksHeader';
+import { WeeksHeader } from './WeeksHeader/WeeksHeader';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
