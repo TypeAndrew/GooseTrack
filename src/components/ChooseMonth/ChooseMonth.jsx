@@ -20,7 +20,7 @@ const ChooseMonth = () => {
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
 
-//
+
 
   // const { currentDate } = useParams();
   // console.log(currentDate);
@@ -28,8 +28,10 @@ const ChooseMonth = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getTasksThunk(month + 1));
-  }, [dispatch, month]);
+
+    dispatch(getTasksThunk(time));
+  }, [dispatch, time]);
+
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);
@@ -55,40 +57,36 @@ const ChooseMonth = () => {
 
   return (
     <div className={css.container}>
-
-      
       <WeeksHeader CalendarDate={firstDay} />
-    <div
+      <div
         className={css.div_grid}
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(7, 1fr)',
         }}
-
       >
         {totalDate.map(date => (
           <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
+
               className={css.link}
-                to={`/calendar/day/${year}-${month}-${dateFns.format(
+                to={`/calendar/month/${year}-${month}-${dateFns.format(
+
                   date,
                   formatOfDay
                 )}`}
-                >
+              >
                 <span className={css.date}>
                   {dateFns.format(date, formatOfDay)}
                 </span>
               </NavLink>
             ) : (
               <span className={css.link}></span>
-              )}
+            )}
           </div>
         ))}
       </div>
-
-        
-
     </div>
   );
 };

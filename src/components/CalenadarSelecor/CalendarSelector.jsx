@@ -2,7 +2,7 @@ import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
 // import React, { useRef } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
-import { MONTNKEY } from '../constants/MONTNKEY';
+import { MONTHKEY } from '../constants/MONTHKEY';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   currentDay,
@@ -57,7 +57,7 @@ const CalendarSelector = props => {
       stopUpdateParamas = false
       dispatch(currentMonth(Number(result[1])));
       dispatch(currentYear(Number(result[0])));
-    //  navigate(`month/${result[0]}.${Number(result[1])}`)
+
     }
   }
 
@@ -72,10 +72,7 @@ const CalendarSelector = props => {
     dispatch(currentTime(getTime(addMonths(time, -1))));
     dispatch(currentMonth(getMonth(addMonths(time, -1))));
     dispatch(currentYear(getYear(addMonths(time, -1))));
-   stopUpdateParamas = false
-  //  navigate(
-   //   `month/${getYear(addMonths(time, -1))}.${getMonth(addMonths(time, -1))}`
-   // );
+    stopUpdateParamas = false;
 
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       btnBack = true;
@@ -90,10 +87,7 @@ const CalendarSelector = props => {
     dispatch(currentTime(getTime(addMonths(time, 1))));
     dispatch(currentMonth(getMonth(addMonths(time, 1))));
     dispatch(currentYear(getYear(addMonths(time, 1))));
-    stopUpdateParamas = false
-    // navigate(
-    //  `month/${getYear(addMonths(time, 1))}.${getMonth(addMonths(time, 1))}`
-   // );
+    stopUpdateParamas = false;
 
   };
   
@@ -106,7 +100,7 @@ const CalendarSelector = props => {
       <div className={css.calendar}>
         <div className={css.selector}>
           <span className={css.month}>
-            {MONTNKEY[month]} {year}
+            {MONTHKEY[month]} {year}
           </span>
           <div className={css.monthchang}>
             <button
