@@ -6,10 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './ChooseMonth.module.css';
 import { useEffect } from 'react';
 import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
+import { WeeksHeader } from '../CalenadarSelecor/WeeksHeader/WeeksHeader';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
-const formatofWeek = 'eeee';
+//const formatofWeek = 'eeee';
 const formatOfDay = 'dd';
 
 const ChooseMonth = () => {
@@ -18,6 +19,8 @@ const ChooseMonth = () => {
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
+
+//
 
   const { currentDate } = useParams();
   console.log(currentDate);
@@ -42,33 +45,19 @@ const ChooseMonth = () => {
     start: startDate,
     end: endDate,
   });
-  const weeks = (date => {
+  /*const weeks = (date => {
     const weeks = [];
     for (let day = 0; day <= 6; day++) {
       weeks.push(totalDate[day]);
     }
     return weeks;
-  })(currentDate);
+  })(currentDate);*/
 
   return (
     <div className={css.container}>
-      <div className={css.div_grid_weeks}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(7, 1fr)',
-          }}
-        >
-          {' '}
-          {weeks.map(week => (
-            <div className={css.weeks_iteam} key={week}>
-              {dateFns.format(week, formatofWeek).substring(0, 3)}
-            </div>
-          ))}{' '}
-        </div>
-      </div>
-
-      <div
+      
+      <WeeksHeader CalendarDate={firstDay} />
+    <div
         className={css.div_grid}
         style={{
           display: 'grid',
