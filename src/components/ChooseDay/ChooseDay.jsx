@@ -1,48 +1,40 @@
 import { useParams, NavLink,  useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux';
 import css from './ChooseDay.module.css';
 //import { addDays, getDate, getTime } from 'date-fns';
 import * as dateFns from 'date-fns';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
-
+ //import { useEffect } from 'react';
+import {
+  currentDay,
+  currentTime,
+  currentMonth,
+  currentYear
+} from 'Redux/calendar/calendar.slice';
 // розшиврофка місяців щоб число місяця перевести в текст
-const MONHTKEY = {
-  0: 'January',
-  1: 'February',
-  2: 'March',
-  3: 'April',
-  4: 'May',
-  5: 'June',
-  6: 'July',
-  7: 'August',
-  8: 'September',
-  9: 'October',
-  10: 'November',
-  11: 'December',
-};
+import { MONTHKEY } from '../constants/MONTHKEY';
 
 const ChooseDay = () => {
 // не з того компонента
   const navigate = useNavigate();
-  const { currentDay } = useParams();
+  const dispatch = useDispatch();
+  const paramsDay = useParams().currentDay;
+  const startTime = new Date(Date.parse(paramsDay));
   const time = useSelector(state => state.calendar.time);
+  const month = useSelector(state => state.calendar.month);
+  const year = useSelector(state => state.calendar.year);
   
-  const firstDay = dateFns.startOfWeek(time+1);
-
+    // get start date of mounth
 
   
-  const currentDays = currentDay.split('.');
+  const currentDays = paramsDay.split('-');
    const handleCurrentPage = ({ isActive }) => {
      return isActive ? css.isActive : '';
    };
 
-    useEffect(() => {
-    
-       navigate(`/calendar/day/${currentDay}`)
-       
-     },[currentDay,navigate])
+   
 // вірно
   let btnBack= true;
 
@@ -115,17 +107,11 @@ const tasks = [
   },
 ];
 
-  // const { currentDay } = useParams();
-  
-  // const dispatch = useDispatch();
-  
-  //   const {tasks} = useSelector(getTasks);
-
-  // dispatch(changeFilter(currentDay));
 
 
-  const toFiltredContacts = () => {
-    const currentDayArray = currentDay.split('.');
+
+    const toFiltredContacts = () => {
+    const currentDayArray = paramsDay.split('-');
 
     const month = Number(currentDayArray[1]) + 1;
 
@@ -143,36 +129,49 @@ const tasks = [
   };
 
   const filtredTasks = toFiltredContacts();
-
+  
   const toDoTasks = filtredTasks.filter(task => task.category === "To do");
   const inProgressTasks = filtredTasks.filter(task => task.category === "In progress");
   const doneTasks = filtredTasks.filter(task => task.category === "Done");
 
-    // useEffect(() => {
-    //   dispatch(getTasksThunk());
-    // }, [dispatch]);
+  if (year === null) { 
 
-    // const handleDelete = useCallback((evt) => {
-
-    //   dispatch(deleteTasksThunk({ id:evt.target.id } ))
-
-    // }, [dispatch]);
-  // const dispatch = useDispatch();
-  
-  // const handleChangMonthBack = () => {
-    // dispatch(currentTime(getTime(addDays(time, -1))));
-  //   dispatch(currentDay(getDate(addDays(time, -1))));
-
+    dispatch(currentTime(startTime));
+    dispatch(currentDay(dateFns.getDate(startTime)));
+    dispatch(currentMonth(dateFns.getMonth(startTime)));
+    dispatch(currentYear(dateFns.getYear(startTime)));
+      
+  }
    
+  const handleChangMonthBack = () => {
 
- // };
+    dispatch(currentTime(dateFns.getTime(dateFns.addDays(time, -1))));
+    dispatch(currentDay(dateFns.getDate(dateFns.addDays(time, -1))));
+    dispatch(currentMonth(dateFns.getMonth(dateFns.addDays(time, -1))));
+    dispatch(currentYear(dateFns.getYear(dateFns.addDays(time, -1))));
+    const date = new Date(time); 
+    //  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDay());
+      const currentStartDay = date.toISOString().slice(0,10);
+     navigate(`/calendar/day/${currentStartDay}`)
+  };
 
-  //const handleChangMonthForward = () => {
-  //  dispatch(currentTime(getTime(addDays(time, 1))));
-  //  dispatch(currentDay(getDate(addDays(time, 1))));
-  
+  const handleChangMonthForward = () => {
+    console.log(currentDay(dateFns.getDate(dateFns.addDays(time, 1))));
+    console.log(currentMonth(dateFns.getMonth(dateFns.addDays(time, 1))));
+    dispatch(currentTime(dateFns.getTime(dateFns.addDays(time, 1))));
+    dispatch(currentDay(dateFns.getDate(dateFns.addDays(time, 1))));
+    dispatch(currentMonth(dateFns.getMonth(dateFns.addDays(time, 1))));
+    dispatch(currentYear(dateFns.getYear(dateFns.addDays(time, 1))));
+    const date = new Date(time); 
+     console.log(date.getMonth()+ "month") 
+    console.log(date.getDay()+ "day") 
+    //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDay() + 2);
+    const currentStartDay = date.toISOString().slice(0, 10); 
+    console.log(currentStartDay);
+     navigate(`/calendar/day/${currentStartDay}`)
+  };
 
-  //};
+     
   const colordisable = btnBack?"#DCE3E5":"#616161"
   return (
     <>
@@ -183,11 +182,11 @@ const tasks = [
 
             <span className={css.dateToday}>
               
-              {currentDays[2]} {MONHTKEY[currentDays[1]]} {currentDays[0]}
+              {currentDays[2]} {MONTHKEY[month]} {currentDays[0]}
             </span>
             <div className={css.dayChange}>
               <button
-                // onClick={handleChangMonthBack}
+                 onClick={handleChangMonthBack}
                 type="button"
                 // disabled={btnBack}
                 className={css.btn_left}
@@ -195,7 +194,7 @@ const tasks = [
                 <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
               </button>
               <button
-                // onClick={handleChangMonthForward}
+                 onClick={handleChangMonthForward}
                 type="button"
                 className={css.btn_ringt}
               >
@@ -207,7 +206,7 @@ const tasks = [
           <ul className={css.viue}>
             <li className={css.viueLink}>
                <NavLink 
-               to={``}
+               to={`/calendar/month/${currentDays[0]}-${MONTHKEY[month]}-${currentDays[2]}`}
                className={data => handleCurrentPage(data) + ' ' + css.btn_changL} 
                > 
               Month
@@ -224,7 +223,7 @@ const tasks = [
           </ul>
         </div>
         {time !== null &&
-          <WeeksHeader CalendarDate={firstDay} />
+          <WeeksHeader CalendarDate={time}  />
         } 
         <TaskColumnsList toDoTasks={toDoTasks} inProgressTasks={inProgressTasks} doneTasks={doneTasks}/>
         

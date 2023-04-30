@@ -71,7 +71,7 @@ const ChooseMonth = () => {
             {dateFns.getMonth(date) === month ? (
               <NavLink
               className={css.link}
-                to={`/calendar/day/${year}-${month}-${dateFns.format(
+                to={`/calendar/month/${year}-${month}-${dateFns.format(
                   date,
                   formatOfDay
                 )}`}
