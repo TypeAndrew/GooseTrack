@@ -1,39 +1,45 @@
 import styled from 'styled-components';
 
-export const Backdrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  overflow-y: scroll;    
-  `
-  
 export const Overlay = styled.div`
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
-  justify-content: center;    
-`
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  z-index: 1000;
+`;
+
+export const ModalContainer = styled.div`
+  position: relative;
+  padding: 40px 18px;
+  width: fit-content;
+  height: fit-content;
   
-export const Inner = styled.div`  
-	position: absolute;
-		
-	top:50%;
-	left: 50%;
-	transform: translate(-50%,-50%);    
-			
-	background-color: var(--primary-bgc-color);
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-	border-radius: 8px; 
-	width: 30%;
-	height: 50%; 
-	text-align: center; 
-	border: 1px solid var(--auth-placeholder-color); 
-`
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background-color: var(--primary-bgc-color);
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px 4px rgba(17, 17, 17, 0.4);
+  @media screen and (min-width: 768px) {
+    padding: 40px 28px;
+  }
+`;
+
+export const CloseBtn = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  stroke: var(--primary-text-color);
+  fill: transparent;
+`;

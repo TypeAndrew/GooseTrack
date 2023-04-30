@@ -1,8 +1,12 @@
 import { useParams, NavLink,  useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import css from './ChooseDay.module.css';
-import { DayCalendarHead } from './DayCalendarHead/DayCalendarHead';
+//import { addDays, getDate, getTime } from 'date-fns';
+import * as dateFns from 'date-fns';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
+import { WeeksHeader } from './WeeksHeader/WeeksHeader';
+
 // розшиврофка місяців щоб число місяця перевести в текст
 const MONHTKEY = {
   0: 'January',
@@ -23,6 +27,12 @@ const ChooseDay = () => {
 // не з того компонента
   const navigate = useNavigate();
   const { currentDay } = useParams();
+  const time = useSelector(state => state.calendar.time);
+  
+  const firstDay = dateFns.startOfWeek(time+1);
+
+
+  
   const currentDays = currentDay.split('.');
    const handleCurrentPage = ({ isActive }) => {
      return isActive ? css.isActive : '';
@@ -147,14 +157,32 @@ const tasks = [
     //   dispatch(deleteTasksThunk({ id:evt.target.id } ))
 
     // }, [dispatch]);
+  // const dispatch = useDispatch();
+  
+  // const handleChangMonthBack = () => {
+    // dispatch(currentTime(getTime(addDays(time, -1))));
+  //   dispatch(currentDay(getDate(addDays(time, -1))));
+
+   
+
+ // };
+
+  //const handleChangMonthForward = () => {
+  //  dispatch(currentTime(getTime(addDays(time, 1))));
+  //  dispatch(currentDay(getDate(addDays(time, 1))));
+  
+
+  //};
   const colordisable = btnBack?"#DCE3E5":"#616161"
   return (
     <>
       <div>
+        
         <div className={css.selector}>
           <div className={css.periodPaginator}>
-            {' '}
+
             <span className={css.dateToday}>
+              
               {currentDays[2]} {MONHTKEY[currentDays[1]]} {currentDays[0]}
             </span>
             <div className={css.dayChange}>
@@ -175,6 +203,7 @@ const tasks = [
               </button>
             </div>
           </div>
+
           <ul className={css.viue}>
             <li className={css.viueLink}>
                <NavLink 
@@ -194,8 +223,9 @@ const tasks = [
             </li>
           </ul>
         </div>
-
-        <DayCalendarHead/>
+        {time !== null &&
+          <WeeksHeader CalendarDate={firstDay} />
+        } 
         <TaskColumnsList toDoTasks={toDoTasks} inProgressTasks={inProgressTasks} doneTasks={doneTasks}/>
         
       </div>
