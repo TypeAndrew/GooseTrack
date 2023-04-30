@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import {
-  mainTextFontFamily,
-  primaryAccentColor,
-  secondaryAccentColor,
-  primaryTextColor,
-} from '../../helpers/variables/globalStyles.styled';
+// import {
+//   mainTextFontFamily,
+//   primaryAccentColor,
+//   secondaryAccentColor,
+//   primaryTextColor,
+// } from '../../helpers/variables/globalStyles.styled';
 
 export const FlexedCalendar = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const BlockNumber = styled.h2`
   font-size: 80px;
   line-height: 100%;
   letter-spacing: -4px;
-  color: ${primaryAccentColor};
+  color: var(--accent-text-color);
   margin-bottom: 15px;
   direction: ltr;
 
@@ -77,8 +77,9 @@ export const CalendarButton = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   height: 56px;
-  background: ${secondaryAccentColor};
+  background: var(--disabled-btn-background);
   border-radius: 44px;
+  color: var(--accent-text-color);
 `;
 
 export const FlexedCalendarSecond = styled.div`
@@ -101,13 +102,13 @@ export const FlexedCalendarSecond = styled.div`
 `;
 
 export const ButtonLink = styled.a`
-  font-family: ${mainTextFontFamily};
+  font-family: var(--secondary-font);
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
   text-transform: uppercase;
-  color: ${primaryAccentColor};
+  color: var(--pri);
 
   @media (min-width: 768px) {
     font-size: 40px;
@@ -116,13 +117,13 @@ export const ButtonLink = styled.a`
 `;
 
 export const BlockTitle = styled.h2`
-  font-family: ${mainTextFontFamily};
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
   text-transform: uppercase;
-  color: ${primaryTextColor};
+  color: var(--primary-text-color);
   margin-top: 8px;
   margin-bottom: 14px;
 
@@ -155,12 +156,12 @@ export const WrapperBlocktext = styled.div`
 `;
 
 export const BlockText = styled.p`
-  font-family: ${mainTextFontFamily};
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  color: ${primaryTextColor};
+  color: var(--primary-text-color);
   margin-bottom: 40px;
 
   @media (min-width: 768px) {

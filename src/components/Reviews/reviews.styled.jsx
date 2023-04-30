@@ -1,22 +1,22 @@
-import styled from "styled-components";
-import {
-  mainTextFontFamily,
-  primaryAccentColor,
-  secondaryAccentColor,
-  ReviewTextColor,
-} from "../../helpers/variables/globalStyles.styled";
+import styled from 'styled-components';
+// import {
+//   mainTextFontFamily,
+//   primaryAccentColor,
+//   secondaryAccentColor,
+//   ReviewTextColor,
+// } from "../../helpers/variables/globalStyles.styled";
 
 export const ReviewsTitle = styled.h2`
   width: 129px;
   height: 32px;
   margin-top: 64px;
-  font-family: ${mainTextFontFamily};
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
   line-height: 32px;
   text-transform: uppercase;
-  color: ${primaryAccentColor};
+  color: var(--accent-text-color);
 
   @media (min-width: 768px) {
     width: 184px;
@@ -38,11 +38,11 @@ export const ReviewContainer = styled.div`
   align-items: flex-start;
   margin: 20px;
   max-width: 335px;
-  height: 150px;
+  height: auto;
   text-align: center;
-  border: 1px solid ${secondaryAccentColor};
+  border: 1px solid var(--disabled-btn-background);
   border-radius: 10px;
-  padding: 20px;
+  padding: 25px;
 
   @media (min-width: 768px) {
     max-width: 604px;
@@ -73,7 +73,7 @@ export const Rating = styled.div`
 export const Star = styled.span`
   margin: 0 5px;
   font-size: 15px;
-  color: ${(props) => (props.active ? "#FFC107" : "#E0E0E0")};
+  color: ${props => (props.active ? '#FFC107' : '#E0E0E0')};
   cursor: pointer;
 `;
 
@@ -81,12 +81,13 @@ export const ReviewText = styled.p`
   margin: 10px 0;
   width: 100%;
   height: 36px;
-  font-family: ${mainTextFontFamily};
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
-  color: ${ReviewTextColor};
+  color: var(--secondary-text-color);
+  margin-bottom: 20px;
 `;
 
 export const ButtonContainer = styled.div`
