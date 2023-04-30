@@ -47,7 +47,7 @@ export const MainLogo = styled.h1`
   font-weight: 400;
   font-size: 44px;
   line-height: 48px;
-  color: var(--accent-text-color);
+  color: var(--btn-text-color);
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
   font-weight: 800;
