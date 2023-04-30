@@ -6,6 +6,7 @@ import css from './ChooseDay.module.css';
 import * as dateFns from 'date-fns';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
+import { getTasks } from 'Redux/tasks/tasks.selectors';
 
 // розшиврофка місяців щоб число місяця перевести в текст
 const MONHTKEY = {
@@ -31,8 +32,6 @@ const ChooseDay = () => {
   
   const firstDay = dateFns.startOfWeek(time+1);
 
-
-  
   const currentDays = currentDay.split('.');
    const handleCurrentPage = ({ isActive }) => {
      return isActive ? css.isActive : '';
@@ -46,74 +45,74 @@ const ChooseDay = () => {
 // вірно
   let btnBack= true;
 
-const tasks = [
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test1',
-    priority: 'Low',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-30',
-    category: 'To do',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test2',
-    priority: 'Medium',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-30',
-    category: 'To do',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test3',
-    priority: 'Low',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-29',
-    category: 'To do',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test4',
-    priority: 'High',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-30',
-    category: 'Done',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test5',
-    priority: 'Low',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-29',
-    category: 'Done',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-  {
-    _id: '644ac5a7c3856b23c8b1b54e',
-    title: 'Test6',
-    priority: 'Low',
-    start: '09:00',
-    end: '09:30',
-    date: '2023-04-29',
-    category: 'In progress',
-    owner: '644797791e794314754f77ae',
-    __v: 0,
-  },
-];
+// const tasks = [
+//   {
+//     _id: '644ac5a7c3856b23c8b1b59e',
+//     title: 'Test1',
+//     priority: 'Low',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-30',
+//     category: 'To do',
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+//   {
+//     _id: '644ac5a7c3856b23c8b1b58e',
+//     title: 'Test2',
+//     priority: 'Medium',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-30',
+//     category: 'To do',
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+//   {
+//     _id: '644ac5a7c3856b23c8b1b57e',
+//     title: 'Test3',
+//     priority: 'Low',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-29',
+//     category: 'To do',
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+//   {
+//     _id: '644ac5a7c3856b23c8b1b56e',
+//     title: 'Test4',
+//     priority: 'High',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-30',
+//     category: 'Done',
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+//   {
+//     _id: '644ac5a7c3856b23c8b1b55e',
+//     title: 'Test5',
+//     priority: 'Low',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-29',
+//     category: 'Done',
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+//   {
+//     _id: '644ac5a7c3856b23c8b1b54e',
+//     title: 'Test6',
+//     priority: 'Low',
+//     start: '09:00',
+//     end: '09:30',
+//     date: '2023-04-29',
+//     category: 'In progress',  
+//     owner: '644ea5f8f40fdaafd6de1068',
+//     __v: 0,
+//   },
+// ];
 
   // const { currentDay } = useParams();
   
@@ -122,24 +121,23 @@ const tasks = [
   //   const {tasks} = useSelector(getTasks);
 
   // dispatch(changeFilter(currentDay));
-
+     const tasks = useSelector(getTasks);
 
   const toFiltredContacts = () => {
-    const currentDayArray = currentDay.split('.');
 
-    const month = Number(currentDayArray[1]) + 1;
+    // const currentDayArray = currentDay.split('.');
 
-     
+    // const month = Number(currentDayArray[1]);
 
-    let normalMonth = `${month}`;
-    if (month < 10) {
-      normalMonth = `0${month}`;
-    }
+    // let normalMonth = `${month}`;
+    // if (month < 10) {
+    //   normalMonth = `0${month}`;
+    // }
 
-    const normalizeDay =
-      `${currentDayArray[0]}-${normalMonth}-${currentDayArray[2]}`;
+    // const normalizeDay =
+    //   `${currentDayArray[0]}-${normalMonth}-${currentDayArray[2]}`;
 
-    return tasks.filter(task => task.date === normalizeDay);
+    return tasks.filter(task => task.date === currentDay);
   };
 
   const filtredTasks = toFiltredContacts();

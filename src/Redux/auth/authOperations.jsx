@@ -62,7 +62,10 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
+    // const isLoggedIn = state.auth.isLoggedIn;
+    // if (!isLoggedIn) {
+    //   persistedToken = null;
+    // }
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue('Unable to fetch user');
     }
