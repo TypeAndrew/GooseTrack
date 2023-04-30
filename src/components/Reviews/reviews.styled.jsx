@@ -1,10 +1,4 @@
 import styled from 'styled-components';
-// import {
-//   mainTextFontFamily,
-//   primaryAccentColor,
-//   secondaryAccentColor,
-//   ReviewTextColor,
-// } from "../../helpers/variables/globalStyles.styled";
 
 export const ReviewsTitle = styled.h2`
   width: 129px;
@@ -87,7 +81,8 @@ export const ReviewText = styled.p`
   font-size: 14px;
   line-height: 18px;
   color: var(--secondary-text-color);
-  margin-bottom: 20px;
+  height: auto;
+  text-align: start;
 `;
 
 export const ButtonContainer = styled.div`
