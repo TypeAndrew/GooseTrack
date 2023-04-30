@@ -19,9 +19,7 @@ const ChooseMonth = () => {
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
-
-//
-
+  const task = useSelector(state => state.taskbook.tasks);
   const { currentDate } = useParams();
   console.log(currentDate);
 
@@ -52,43 +50,47 @@ const ChooseMonth = () => {
     }
     return weeks;
   })(currentDate);*/
+  // Tasks add on calendar
+  const addTaskOnCalendar = date => {
+    console.log(date);
+    task?.map(el => {
+      const result = el.date.split('-');
+       if(result[2]== date){
+        console.log(el.title)
+        return<div>{el.title}</div>
+       }
+    });
+  };
 
+  
   return (
     <div className={css.container}>
-
-      
       <WeeksHeader CalendarDate={firstDay} />
-    <div
-        className={css.div_grid}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(7, 1fr)',
-        }}
-
-      >
+      <div className={css.div_grid_weeks}>
         {totalDate.map(date => (
           <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
-              className={css.link}
+                className={css.link}
                 to={`/calendar/day/${year}-${month}-${dateFns.format(
                   date,
                   formatOfDay
                 )}`}
-                >
+              >
                 <span className={css.date}>
                   {dateFns.format(date, formatOfDay)}
                 </span>
+                <div>{addTaskOnCalendar(dateFns.format(
+                  date,
+                  formatOfDay
+                ))}</div>
               </NavLink>
             ) : (
               <span className={css.link}></span>
-              )}
+            )}
           </div>
         ))}
       </div>
-
-        
-
     </div>
   );
 };
