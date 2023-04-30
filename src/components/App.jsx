@@ -32,26 +32,26 @@ export const App = () => {
     <BrowserRouter basename="GooseTrack">
       <Suspense fallback={<SpinnerGrid/>}>
         <Routes>
-          <Route path="" element={<PublicRoute />}>
+          <Route path="/" element={<PublicRoute />}>
             <Route index element={<Navigate to="/home" />} />
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="home" element={<HomePage />} />
+            <Route path="register" element={<RegisterPage />} />
+            <Route path="login" element={<LoginPage />} />
           </Route>
 
-          <Route path="" element={<PrivateRoute />}>
+          <Route path="/" element={<PrivateRoute />}>
             <Route index element={<Navigate to="/calendar/month/:currentDate" />} />
-            <Route path="/account" element={<AccountPage />} />
-            <Route path="/calendar" element={<CalendarPage />}>
+            <Route path="account" element={<AccountPage />} />
+            <Route path="calendar" element={<CalendarPage />}>
               <Route
                 index
                 element={<Navigate to="/calendar/month/:currentDate" />}
               />
               <Route
-                path="/calendar/month/:currentDate"
+                path="month/:currentDate"
                 element={<ChooseMonth />}
               />
-              <Route path="/calendar/day/:currentDay" element={<ChooseDay />} />
+              <Route path="day/:currentDay" element={<ChooseDay />} />
             </Route>
           </Route>
         </Routes>
