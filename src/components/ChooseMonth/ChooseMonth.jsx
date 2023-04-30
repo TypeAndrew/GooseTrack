@@ -53,48 +53,42 @@ const ChooseMonth = () => {
   return (
     <div className={css.container}>
       <div className={css.div_grid_weeks}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(7, 1fr)',
-          }}
-        >
-          {' '}
           {weeks.map(week => (
             <div className={css.weeks_iteam} key={week}>
               {dateFns.format(week, formatofWeek).substring(0, 3)}
             </div>
-          ))}{' '}
-        </div>
+          ))}
       </div>
 
+      
+
       <div
-        className={css.div_grid}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(7, 1fr)',
-        }}
+        className={css.div_grid_day}
+        
       >
         {totalDate.map(date => (
           <div className={css.container_link} key={date}>
             {dateFns.getMonth(date) === month ? (
               <NavLink
-                className={css.link}
-                to={`/calendar/day/${year}.${month}.${dateFns.format(
+              className={css.link}
+                to={`/calendar/day/${year}-${month}-${dateFns.format(
                   date,
                   formatOfDay
                 )}`}
-              >
+                >
                 <span className={css.date}>
                   {dateFns.format(date, formatOfDay)}
                 </span>
               </NavLink>
             ) : (
               <span className={css.link}></span>
-            )}
+              )}
           </div>
         ))}
       </div>
+
+        
+
     </div>
   );
 };
