@@ -14,10 +14,13 @@ import {
 
 
 
-const currentStartDay = `${getYear(Date.now())}.${getMonth(
+/*const currentStartDay = `${getYear(Date.now())}.${getMonth(
   Date.now()
-)}.${getDate(Date.now())}`;
-
+)}.${getDate(Date.now())}`; */
+  /*const startTime = Date.now(); // get start date of mounth
+  const date = new Date(startTime);
+  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+  const currentStartDay = startOfMonth.toISOString().slice(0,10);*/
 
 const CalendarSelector = props => {
 
@@ -29,13 +32,16 @@ const CalendarSelector = props => {
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time) ?? Date.now();
   
+  // get start date of mounth
+  const date = new Date(time); 
+  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+  const currentStartDay = startOfMonth.toISOString().slice(0,10);
+  
   useEffect(() => {
-    const date = new Date(time); // дата, для которой нужно получить начало месяца
-    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-    const formattedDate = startOfMonth.toISOString().slice(0,10);
-       navigate(`/calendar/month/${formattedDate}`)
+    
+       navigate(`/calendar/month/${currentStartDay}`)
        
-  },[time,navigate])
+  },[currentStartDay,navigate])
 
 
   let stopUpdateParamas = true

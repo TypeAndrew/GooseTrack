@@ -10,7 +10,7 @@ import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
 const formatofWeek = 'eeee';
-const formatOfDay = 'd';
+const formatOfDay = 'dd';
 
 const ChooseMonth = () => {
   // const navigate = useNavigate();
@@ -80,7 +80,7 @@ const ChooseMonth = () => {
             {dateFns.getMonth(date) === month ? (
               <NavLink
                 className={css.link}
-                to={`/calendar/day//${year}.${month}.${dateFns.format(
+                to={`/calendar/day/${year}.${month}.${dateFns.format(
                   date,
                   formatOfDay
                 )}`}
