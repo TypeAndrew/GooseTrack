@@ -44,7 +44,6 @@ export const Menu = styled.div`
 export const Title = styled.div`
     display: flex;
     flex-direction: row;
-    color: #3E85F3;
 
     font-family: var(--secondary-font);
     font-size: 16px;
@@ -57,10 +56,26 @@ export const Title = styled.div`
     font-size: 24px;
     line-height: 24px;
     }
+    @media (min-width: 768px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    @media (min-width: 1280px) {
+      font-size: 24px;
+      line-height: 24px;
+    }
 `;
 
 export const SpanSpecial = styled.p` 
     font-style: italic;
+    @media (min-width: 768px) {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    @media (min-width: 1280px) {
+      font-size: 24px;
+      line-height: 24px;
+    }
 `;
 
 export const CloseButton = styled.div` 

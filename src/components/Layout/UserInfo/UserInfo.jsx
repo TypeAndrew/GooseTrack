@@ -1,5 +1,5 @@
 import { useAuth } from 'Redux/auth/useAuth';
-import { UserName } from './UserInfo.styled';
+import { UserName} from './UserInfo.styled';
 
 export const UserInfo = () => {
     const {user} = useAuth();
