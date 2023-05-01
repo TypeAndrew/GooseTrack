@@ -52,7 +52,7 @@ const ChooseMonth = () => {
   })(currentDate);*/
   // Tasks add on calendar
 
-  const color ={Low:' red'}
+  const color = { Low: ' red' };
   const creatCalendar = date => {
     return (
       <div className={css.container_link} key={date}>
@@ -67,19 +67,24 @@ const ChooseMonth = () => {
             <span className={css.date}>
               {dateFns.format(date, formatOfDay)}
             </span>
-            <div>{task.map((el)=>{
-                 let span = ''
-                 if(el.date.split("-")[2]=== dateFns.format(date, formatOfDay)){
-                  span = <span key={el.id} >{el.title}</span> 
-                  
-                 }
+            <div>
+              {task.map(el => {
+                let span = '';
+                if (
+                  el.date.split('-')[2] === dateFns.format(date, formatOfDay)
+                ) {
+                  let counter = 1;
+                  if (counter <= 3) {
+                    counter++;
+                    span = <span key={el.id}>{el.title}</span>;
+                  } else {
+                    span = <span key={counter}>More... </span>
+                  }
+                }
 
-                 
-
-                 return span
-            })
-  
-  }</div>
+                return span;
+              })}
+            </div>
           </NavLink>
         ) : (
           <span className={css.link}></span>
