@@ -25,6 +25,11 @@ html{
   --error-validation-color: #DA1414;
   --correct-validation-color: #3CBC81;
   --form-text-color: #111111;
+  --btn-toggle-accent-background:#CAE8FF;
+  --btn-toggle-background:#e3f3ff;
+  --btn-arrow-accent-color:#616161;
+  --text-day-color:#343434;
+;
 
 
   /* Background colors */
@@ -54,6 +59,7 @@ html{
   --not-active-item-sidebar-text-color: #FFFFFF;
   --active-item-sidebar-background: #3e85f3;
   --auth-placeholder-color: #fafafa4d;
+  --text-day-color:#FFFFFF;
   
   /* background-colors */
   --secondary-bgc-color: #171820;
@@ -61,6 +67,9 @@ html{
   --sidebar-bgc-color: #13151a;
 
   --border-add-btn: none;
+  --btn-toggle-accent-background:#3E85F3;
+  --btn-toggle-background:#21222C;
+  --btn-arrow-accent-color: #FFFFFF;
 }
 
 body {

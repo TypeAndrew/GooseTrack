@@ -129,7 +129,7 @@ const CalendarSelector = props => {
                 fill="none"
               >
                 <path
-                  stroke="#616161"
+                  stroke="var(--btn-arrow-accent-color)"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1.5"

@@ -21,6 +21,7 @@ export const Container = styled.div`
   }
   @media (min-width: 1280px) {
     min-width: 1280px;
+    /* max-width: 1280px; */
   }
   /* @media (min-width: 1024px) {
     min-width: 1024px;
@@ -35,6 +36,6 @@ export const Wrapper = styled.div`
   display: block;
   width: 100%;
   @media (min-width: 1280px) {
-    margin-left: 289px;
+    padding-left: 289px;
   }
 `;
