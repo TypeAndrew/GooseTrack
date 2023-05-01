@@ -217,3 +217,57 @@ export const Btn = styled.button`
     height: 48px;
   }
  `;
+
+ export const DatePickerWrapper = styled.div`
+  & .react-datepicker {
+    background-color: #3E85F3;
+    color: #FFFFFF;
+    border-radius: 16px;
+  }
+
+  & .react-datepicker .react-datepicker__header {
+    background-color: #3E85F3;
+    color: #FFFFFF;
+    border-radius: 16px 16px 0 0;
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  & .react-datepicker__navigation-icon {
+    ::before {
+      border-color: #FFFFFF;
+    }
+  }
+
+  & .react-datepicker__current-month {
+    color: #FFFFFF;
+  }
+
+  & .react-datepicker__day {
+    background-color: #3E85F3;
+    color: #FFFFFF;
+    :hover,
+    :focus {
+      background-color: #DCEBF7;
+      color: #3E85F3;
+      border-radius: 24px;
+    }
+  }
+
+  & .react-datepicker__day-name {
+    color: #FFFFFF;
+  }
+
+  & .react-datepicker__day--selected {
+    background-color: #FFFFFF;
+    color: #3E85F3;
+    border-radius: 24px;
+  }
+
+  & .react-datepicker__day--weekend {
+    color: #FFFFFF;
+  }
+
+  & .react-datepicker__day--outside-month {
+    color: #3E85F3;
+  }
+`;
