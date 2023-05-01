@@ -114,11 +114,9 @@ const ChooseDay = () => {
 //     __v: 0,
 //   },
 // ];
-
-
-
-  // dispatch(changeFilter(currentDay));
-     const tasks = useSelector(getTasks);
+const tasks = useSelector(getTasks);  
+  const currentDayForTasks = useParams();
+ 
 
 
     const toFiltredContacts = () => {
@@ -137,7 +135,7 @@ const ChooseDay = () => {
     // const normalizeDay =
     //   `${currentDayArray[0]}-${normalMonth}-${currentDayArray[2]}`;
 
-    return tasks.filter(task => task.date === currentDay);
+    return tasks.filter(task => task.date === currentDayForTasks);
   };
 
   const filtredTasks = toFiltredContacts();
