@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/GooseTrack/static/css/main.f99e7d16.css",
-    "main.js": "/GooseTrack/static/js/main.8e9e359c.js",
+    "main.js": "/GooseTrack/static/js/main.c8292da0.js",
     "static/js/815.be746ce3.chunk.js": "/GooseTrack/static/js/815.be746ce3.chunk.js",
     "static/js/643.daeb45da.chunk.js": "/GooseTrack/static/js/643.daeb45da.chunk.js",
-    "static/js/521.8b36de34.chunk.js": "/GooseTrack/static/js/521.8b36de34.chunk.js",
+    "static/js/660.52144226.chunk.js": "/GooseTrack/static/js/660.52144226.chunk.js",
     "static/css/523.47141544.chunk.css": "/GooseTrack/static/css/523.47141544.chunk.css",
     "static/js/523.f648b847.chunk.js": "/GooseTrack/static/js/523.f648b847.chunk.js",
     "static/css/907.1611a983.chunk.css": "/GooseTrack/static/css/907.1611a983.chunk.css",
@@ -48,10 +48,10 @@
     "static/media/plus_white.svg": "/GooseTrack/static/media/plus_white.e48a1fe5631ecfeeae425127f16cadf0.svg",
     "static/media/plus-in-circle.svg": "/GooseTrack/static/media/plus-in-circle.1e224bb153c17979bc0d1804b4750d76.svg",
     "main.f99e7d16.css.map": "/GooseTrack/static/css/main.f99e7d16.css.map",
-    "main.8e9e359c.js.map": "/GooseTrack/static/js/main.8e9e359c.js.map",
+    "main.c8292da0.js.map": "/GooseTrack/static/js/main.c8292da0.js.map",
     "815.be746ce3.chunk.js.map": "/GooseTrack/static/js/815.be746ce3.chunk.js.map",
     "643.daeb45da.chunk.js.map": "/GooseTrack/static/js/643.daeb45da.chunk.js.map",
-    "521.8b36de34.chunk.js.map": "/GooseTrack/static/js/521.8b36de34.chunk.js.map",
+    "660.52144226.chunk.js.map": "/GooseTrack/static/js/660.52144226.chunk.js.map",
     "523.47141544.chunk.css.map": "/GooseTrack/static/css/523.47141544.chunk.css.map",
     "523.f648b847.chunk.js.map": "/GooseTrack/static/js/523.f648b847.chunk.js.map",
     "907.1611a983.chunk.css.map": "/GooseTrack/static/css/907.1611a983.chunk.css.map",
@@ -67,6 +67,6 @@
   },
   "entrypoints": [
     "static/css/main.f99e7d16.css",
-    "static/js/main.8e9e359c.js"
+    "static/js/main.c8292da0.js"
   ]
 }
