@@ -7,3 +7,5 @@ export const UserName = styled.p`
   line-height: 18px;
   color: var(--primary-text-color);
 `;
+export const UserAvatar = styled.div`
+`

@@ -18,6 +18,8 @@ import {
 
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
+import { useEffect } from 'react';
+import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 
 
 const ChooseDay = () => {
@@ -104,6 +106,7 @@ const ChooseDay = () => {
     navigate(`/calendar/day/${currentStartDay}`);
   };
 
+
   if (dateFns.getMonth(Date.now()) >= month && dateFns.getYear(Date.now()) >= year && dateFns.getDate(Date.now())>= day) {
     btnBack = true;
   } else {
@@ -112,6 +115,12 @@ const ChooseDay = () => {
 
 console.log("start",dateFns.getTime(startTime))
 console.log("time", time)
+
+   useEffect(() => {
+     dispatch(getTasksThunk(time));
+   }, [dispatch, time]);
+
+
   const colordisable = btnBack ? '#DCE3E5' : '#616161';
   return (
     <>
