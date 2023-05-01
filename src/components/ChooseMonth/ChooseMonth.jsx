@@ -51,7 +51,7 @@ const ChooseMonth = () => {
     return weeks;
   })(currentDate);*/
   // Tasks add on calendar
-
+ 
   const color = { Low: ' red' };
   const creatCalendar = date => {
     return (
@@ -70,16 +70,18 @@ const ChooseMonth = () => {
             <div className={css.task} >
               {task.map(el => {
                 let span = '';
+                let counter = 1;
                 if (
                   el.date.split('-')[2] === dateFns.format(date, formatOfDay)
                 ) {
-                  let counter = 1;
                   if (counter <= 3) {
                     counter++;
                     console.log(counter)
                     span = <span key={el.id}>{el.title}</span>;
                   } else {
                     span = <span key={counter}>More... </span>
+                   
+                    
                   }
                 }
 
