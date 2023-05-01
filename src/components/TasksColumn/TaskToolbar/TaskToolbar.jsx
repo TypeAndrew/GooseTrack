@@ -10,19 +10,13 @@ import { useState } from 'react';
 import { TaskModal } from 'components/TaskModal/TaskModal';
 import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { useDispatch, useSelector } from 'react-redux';
-<<<<<<< Updated upstream
-import {TaskMoveModal} from "../../TaskMoveModal/TaskMoveModal"
-=======
+
 import { ContextMenu } from 'components/ContextMenu/ContextMenu';
->>>>>>> Stashed changes
 
 export const TaskToolbar = ({ status, task }) => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
-<<<<<<< Updated upstream
-  const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
-=======
 
   const [showContextMenu, setShowContextMenu] = useState(false);
 
@@ -32,7 +26,7 @@ export const TaskToolbar = ({ status, task }) => {
   const handleCloseContextMenu = () => {
     setShowContextMenu(false);
   };
->>>>>>> Stashed changes
+
   const time = useSelector(state => state.calendar.time);
 
   const handleShowModal = () => {
@@ -42,15 +36,6 @@ export const TaskToolbar = ({ status, task }) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
-  const handleShowMoveModal = () => {
-    setIsMoveModalOpen(true);
-    console.log(status, task)
-  };
-
-  /*const handleCloseMoveModal = () => {
-    setIsMoveModalOpen(false);
-  };*/
 
   const handleDelete = async () => {
     await dispatch(deleteTasksThunk(task._id));
@@ -62,11 +47,9 @@ export const TaskToolbar = ({ status, task }) => {
     <>
       <Ul>
         <Li>
-<<<<<<< Updated upstream
-          <Button type="button" onClick={handleShowMoveModal}>
-=======
+
           <Button type="button" onClick={handleShowContextMenu}>
->>>>>>> Stashed changes
+
             <IconBtnMoveTask />
           </Button>
           {showContextMenu && (
@@ -95,12 +78,6 @@ export const TaskToolbar = ({ status, task }) => {
           status={status}
           taskFormData={task}
         />
-<<<<<<< Updated upstream
-      )}
-      {isMoveModalOpen && (
-        <TaskMoveModal/>
-=======
->>>>>>> Stashed changes
       )}
     </>
   );
