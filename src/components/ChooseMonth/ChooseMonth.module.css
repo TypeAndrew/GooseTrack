@@ -2,6 +2,21 @@
   margin: 0 20px 0 20px;
   padding: 16 px;
 }
+
+.selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
 .div_grid_weeks {
   border-radius: 8px;
   background: #ffffff;

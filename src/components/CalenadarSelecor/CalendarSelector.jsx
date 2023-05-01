@@ -34,8 +34,8 @@ const CalendarSelector = props => {
   
   // get start date of mounth
   const date = new Date(time); 
-  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-  const currentStartDay = startOfMonth.toISOString().slice(0,10);
+  //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+  const currentStartDay = date.toISOString().slice(0,10);
   
   useEffect(() => {
     
