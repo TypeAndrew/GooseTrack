@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import * as STC from './TaskForm.styled';
 import { ReactComponent as EditTask } from '../../images/icons/edit_white.svg';
 import { ReactComponent as Plus } from '../../images/icons/plus_white.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getTasksThunk, postTasksThunk } from '../../Redux/tasks/tasks.thunk';
 
 export const TaskForm = ({ taskFormData, status, onClose }) => {
@@ -20,6 +20,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
   };
 
   const { currentDay: date } = useParams();
+  const time = useSelector(state => state.calendar.time);
 
   const handleAdd = async values => {
     // console.log('values====>', values);
@@ -28,10 +29,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
 
    await dispatch(postTasksThunk(addData));  
 
-    const currentDayArray = date.split('-');
-    const month = Number(currentDayArray[1]);
-
-    await dispatch(getTasksThunk(month))
+    await dispatch(getTasksThunk(time))
   
     // console.log('add task done');
     onClose();

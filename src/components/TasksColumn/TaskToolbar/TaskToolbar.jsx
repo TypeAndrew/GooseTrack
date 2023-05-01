@@ -2,14 +2,13 @@ import { Ul, Li, Button, IconBtnMoveTask, IconBtnEditTask, IconBtnDeleteTask } f
 import { useState } from 'react';
 import { TaskModal } from 'components/TaskModal/TaskModal';
 import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const TaskToolbar = ({status, task}) => {
   const dispatch = useDispatch();
-  const { currentDay: date } = useParams();
 
   const [showModal, setShowModal] = useState(false);
+  const time = useSelector(state => state.calendar.time);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -23,10 +22,7 @@ export const TaskToolbar = ({status, task}) => {
   
      await dispatch(deleteTasksThunk(task._id));  
   
-      const currentDayArray = date.split('-');
-      const month = Number(currentDayArray[1]);
-  
-      await dispatch(getTasksThunk(month))
+      await dispatch(getTasksThunk(time));
     };
   
 

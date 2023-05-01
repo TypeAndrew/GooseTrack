@@ -25,6 +25,7 @@ const tasksSlice = createSlice({
 
         state.isLoading = false;
         state.error = null;
+        state.tasks = taskList
         state.tasks = taskList.filter(
           task => task.date.slice(0, 7) === timeNormalize(dateMonth)
         );
