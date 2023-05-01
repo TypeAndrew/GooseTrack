@@ -1,4 +1,4 @@
-import { Button, AddTask, Plus } from './AddTaskButton.styled';
+import { Button, AddTask, IconPlus } from './AddTaskButton.styled';
 import { TaskModal } from '../TaskModal/TaskModal';
 import { useState } from 'react';
 
@@ -18,7 +18,7 @@ export const AddTaskBtn = ({ status }) => {
   return (
     <>
       <Button type="button" onClick={handleShowModal}>
-        <Plus>+</Plus>
+        <IconPlus />
         <AddTask>Add task</AddTask>
       </Button>
 
