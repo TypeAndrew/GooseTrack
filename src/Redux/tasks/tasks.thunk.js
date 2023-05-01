@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { selectToken } from 'Redux/selectors';
-import { getTasks } from 'Redux/tasks/tasks.selectors';
+// import { getTasks } from 'Redux/tasks/tasks.selectors';
 import { privateApi, token } from '../../http/http';
 import axios from 'axios';
 
@@ -21,12 +21,12 @@ export const postTasksThunk = createAsyncThunk(
   'POST tasks',
   async (values, { getState }, rejectWithValue) => {
     const stateTocken = selectToken(getState());
-    const stateTasks = getTasks(getState());
-    const userExist = stateTasks.find(element => element.name === values.name);
-    if (userExist !== undefined) {
-      alert(`The ${values.name} is already in tasks`);
-      return rejectWithValue();
-    }
+    // const stateTasks = getTasks(getState());
+    // const userExist = stateTasks.find(element => element.name === values.name);
+    // if (userExist !== undefined) {
+    //   alert(`The ${values.name} is already in tasks`);
+    //   return rejectWithValue();
+    // }
 
     token.set(stateTocken);
     const { data } = await privateApi.post('tasks', values);
