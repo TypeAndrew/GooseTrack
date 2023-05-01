@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     width: 704px;
     height: 854px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 1087px;
     height: 752px;
   }
@@ -38,6 +38,7 @@ export const Forms = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 `;
 
 export const InputList = styled.div`
@@ -52,7 +53,7 @@ export const InputList = styled.div`
     min-height: 458px;
     justify-content: space-between;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 758px;
     min-height: 264px;
   }
@@ -106,19 +107,22 @@ export const ImgAvatar = styled.img`
   width: 72px;
   height: 72px;
   
+  
+  
   @media screen and (min-width: 768px) {
-    margin-top: 40px;
-    margin-bottom: 14px;
+    margin-top: 20px;
+    margin-bottom: 24px;
     width: 124px;
     height: 124px;
   }
-  @media screen and (min-width: 1440px) {
-    margin-top: 60px;
-    margin-bottom: 20px;
+  @media screen and (min-width: 1280px) {
+    /* margin-top: 60px;
+    margin-bottom: 20px; */
   }
 `;
 
 export const ImgBtn = styled.img`
+  cursor: pointer;
   width: 24px;
   height: 24px;
 `;
@@ -136,7 +140,35 @@ export const User = styled.p`
   }
    `;
 
-export const Container = styled.div``;
+export const ContainerAvatar = styled.div`
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: 2px solid rgb(62, 133, 243);
+  border-radius: 50%;
+  overflow: hidden;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    top: -36px;
+    left: 132px;
+    background-color: white;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    width: 124px;
+    height: 124px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    width: 124px;
+    height: 124px;
+  }`;
 
 export const LabelImg = styled.label`
   position: absolute;
@@ -146,7 +178,7 @@ export const LabelImg = styled.label`
     left: 200px;
     top: 143px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     left: 400px;
     top: 167px;
   }
@@ -177,7 +209,8 @@ export const Btn = styled.button`
   font-style: normal;
   :hover,
   :focus {
-    background: #DCEBF7;
+    background: #3E85F3;
+    color: rgb(255, 255, 255);
    }
   @media screen and (min-width: 768px) {
     width: 262px;
