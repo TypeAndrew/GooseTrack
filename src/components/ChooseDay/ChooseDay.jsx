@@ -22,7 +22,7 @@ import {
 import { MONTHKEY } from '../constants/MONTHKEY';
 
 const ChooseDay = () => {
-// не з того компонента
+// не з того компонента////
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const paramsDay = useParams().currentDay;
