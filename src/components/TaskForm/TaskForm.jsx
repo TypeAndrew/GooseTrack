@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import { isAfter, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 import * as STC from './TaskForm.styled';
+import { TextAdd } from './TaskForm.styled';
 import { ReactComponent as EditTask } from '../../images/icons/edit_white.svg';
 import { ReactComponent as Plus } from '../../images/icons/plus_white.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -164,7 +165,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
                   <>
                     <STC.Button type="submit">
                       <Plus/>
-                      Add
+                      <TextAdd>Add</TextAdd>
                     </STC.Button>
                     <STC.ButtonCancel
                       type="button"

@@ -91,6 +91,10 @@ export const Errors = styled.span`
   }
 `;
 
+export const TextAdd = styled.text`
+  color: white;
+`
+
 export const Button = styled.button`
   flex-grow: 1;
   height: 42px;

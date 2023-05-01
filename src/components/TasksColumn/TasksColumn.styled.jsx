@@ -15,12 +15,16 @@ export const Li = styled.li`
     min-width: 335px;
   }
   @media screen and (min-width: 768px) {
-    max-width: calc(100vw/2 - 30px);
-    min-width: calc(100vw/2 - 30px);
+    /* max-width: calc(100vw/2 - 30px);
+    min-width: calc(100vw/2 - 30px); */
     padding: 18px 20px 28px;
+    max-width: 344px;
+    min-width: 344px;
   }
   @media screen and (min-width: 1280px) {
     padding: 25px 20px 28px;
-    min-width: calc(100vw/3 - 176px);
+    /* min-width: calc(100vw/3 - 176px); */
+    max-width: 305px;
+    min-width: 305px;
   }
 `;

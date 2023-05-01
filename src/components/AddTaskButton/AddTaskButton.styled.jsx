@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as Plus } from '../../images/icons/plus.svg';
 
 export const Button = styled.button`
   display: flex;
@@ -27,9 +28,6 @@ export const AddTask = styled.span`
 
   color: var(--primary-text-color);
 `;
-export const Plus = styled(AddTask)`
-  margin-bottom: 4px;
-
-  font-weight: 300;
-  font-size: 32px;
+export const IconPlus = styled(Plus)`
+  stroke: var(--primary-text-color);
 `;
