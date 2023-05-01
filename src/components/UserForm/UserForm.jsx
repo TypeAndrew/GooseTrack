@@ -28,7 +28,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const { user } = useAuth();
   
-  const  pathAvatar = user.avatarURL !== "" ? "http://localhost:3001/" + user.avatarURL : ""; 
+  const  pathAvatar = user.avatarURL !== "" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/")
    
   const [birthday, setBirthday] = useState(user.birthday ?? '');  
