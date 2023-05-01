@@ -66,10 +66,10 @@
 }
 .container_link {
   height: 94px;
-  color: #343434;
+  color: var(--text-day-color);
   padding: 0;
   margin: 0;
-  background: #ffffff;
+  background: var(--primary-bgc-color);
   border: 1px solid rgba(220, 227, 229, 0.8);
   @media screen and(max-width:768px) {
     height: 144px;
@@ -85,7 +85,7 @@
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  color: #343434;
+  color: var(--text-day-color);
   line-height: 18px;
   position: absolute;
   @media screen and(max-width:768px) {

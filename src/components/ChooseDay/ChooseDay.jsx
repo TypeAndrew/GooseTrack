@@ -234,11 +234,12 @@ const ChooseDay = () => {
             </li>
           </ul>
         </div>
+        <div className={css.container}>
         {time !== null &&
           <WeeksHeader CalendarDate={time}  />
         } 
         <TaskColumnsList toDoTasks={toDoTasks} inProgressTasks={inProgressTasks} doneTasks={doneTasks}/>
-        
+        </div>
       </div>
     </>
   );

@@ -28,7 +28,7 @@ return (
         >
         {totalDate.map(week => (
           <div className={css.weeks_iteam} key={week}>
-            <div>
+            <div className={css.weeks_iteam_datename}>
               {dateFns.format(week, formatofWeek).substring(0, 3)}
             </div>
              <div>
