@@ -8,28 +8,17 @@ import { Outlet } from 'react-router-dom';
 
 
 export const Layout = () => {
-  const [isActivPage,setisActivPage]=useState(false)
   const [isMobalMenuOpen, setIsMobalMenuOpen] = useState(false);
-  
-  const changePageFalse =()=>{ 
-    setisActivPage(false)
-  }
-  const changePageTrue =()=>{ 
-    setisActivPage(true)
-  }
-
-  const activePage=[
-    changePageFalse,
-    changePageTrue
-  ]   
 
   return (
       <>
         <Container>
-          <SideBar  activePage={activePage} isMobalMenuOpen={isMobalMenuOpen}
-            closeMobalMenu={setIsMobalMenuOpen}/>
+          <SideBar  
+            isMobalMenuOpen={isMobalMenuOpen}
+            closeMobalMenu={setIsMobalMenuOpen}
+          />
           <Wrapper>
-            <Header isActivPage={isActivPage} openMenu={setIsMobalMenuOpen}/> 
+            <Header openMenu={setIsMobalMenuOpen}/> 
             <main>
                 <Outlet />
             </main>
