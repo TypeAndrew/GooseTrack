@@ -20,6 +20,7 @@ export const Button = styled.button`
   padding: 0;
 `;
 export const IconBtnMoveTask = styled(MoveTask)`
+position: relative;
   stroke: var(--primary-text-color);
   :hover {
     stroke: var(--accent-bgc-color);
