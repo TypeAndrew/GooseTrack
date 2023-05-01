@@ -32,9 +32,6 @@ const ChooseDay = () => {
   const year = useSelector(state => state.calendar.year);
   
 
-  const firstDay = dateFns.startOfWeek(time+1);
-
-  const currentDays = currentDay.split('.');
 
     // get start date of mounth
 
@@ -125,7 +122,7 @@ const ChooseDay = () => {
 
 
     const toFiltredContacts = () => {
-    const currentDayArray = paramsDay.split('-');
+
 
 
     // const currentDayArray = currentDay.split('.');
