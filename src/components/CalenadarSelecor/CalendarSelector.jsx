@@ -30,9 +30,10 @@ const CalendarSelector = props => {
   const time = useSelector(state => state.calendar.time) ?? Date.now();
 
   // get start date of mounth
-  const date = new Date(time);
-  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-  const currentStartDay = startOfMonth.toISOString().slice(0, 10);
+
+  const date = new Date(time); 
+  //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+  const currentStartDay = date.toISOString().slice(0,10);
 
   useEffect(() => {
     navigate(`/calendar/month/${currentStartDay}`);

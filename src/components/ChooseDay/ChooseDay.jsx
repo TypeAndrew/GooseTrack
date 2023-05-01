@@ -22,7 +22,7 @@ import {
 import { MONTHKEY } from '../constants/MONTHKEY';
 
 const ChooseDay = () => {
-// не з того компонента
+// не з того компонента////
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const paramsDay = useParams().currentDay;
@@ -148,7 +148,7 @@ const ChooseDay = () => {
 
   if (year === null) { 
 
-    dispatch(currentTime(startTime));
+    dispatch(currentTime(dateFns.getTime(startTime)));
     dispatch(currentDay(dateFns.getDate(startTime)));
     dispatch(currentMonth(dateFns.getMonth(startTime)));
     dispatch(currentYear(dateFns.getYear(startTime)));
@@ -162,24 +162,24 @@ const ChooseDay = () => {
     dispatch(currentMonth(dateFns.getMonth(dateFns.addDays(time, -1))));
     dispatch(currentYear(dateFns.getYear(dateFns.addDays(time, -1))));
     const date = new Date(time); 
-    //  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDay());
-      const currentStartDay = date.toISOString().slice(0,10);
+   
+    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDate()-1 ,date.getHours() ,date.getMinutes(),date.getSeconds());
+    const currentStartDay = startOfMonth.toISOString().slice(0, 10);
+  
      navigate(`/calendar/day/${currentStartDay}`)
   };
 
   const handleChangMonthForward = () => {
-    console.log(currentDay(dateFns.getDate(dateFns.addDays(time, 1))));
-    console.log(currentMonth(dateFns.getMonth(dateFns.addDays(time, 1))));
+
     dispatch(currentTime(dateFns.getTime(dateFns.addDays(time, 1))));
     dispatch(currentDay(dateFns.getDate(dateFns.addDays(time, 1))));
     dispatch(currentMonth(dateFns.getMonth(dateFns.addDays(time, 1))));
     dispatch(currentYear(dateFns.getYear(dateFns.addDays(time, 1))));
     const date = new Date(time); 
-     console.log(date.getMonth()+ "month") 
-    console.log(date.getDay()+ "day") 
-    //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDay() + 2);
-    const currentStartDay = date.toISOString().slice(0, 10); 
-    console.log(currentStartDay);
+
+    const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1 ,date.getHours() ,date.getMinutes(),date.getSeconds());
+    const currentStartDay = startOfMonth.toISOString().replace('.', '-').replace('.', '-').slice(0, 10);
+
      navigate(`/calendar/day/${currentStartDay}`)
   };
 
