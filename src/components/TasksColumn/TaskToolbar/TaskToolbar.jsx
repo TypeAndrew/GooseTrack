@@ -32,9 +32,9 @@ export const TaskToolbar = ({ status, task }) => {
     console.log(status, task)
   };
 
-  const handleCloseMoveModal = () => {
+  /*const handleCloseMoveModal = () => {
     setIsMoveModalOpen(false);
-  };
+  };*/
 
   const handleDelete = async () => {
     await dispatch(deleteTasksThunk(task._id));
