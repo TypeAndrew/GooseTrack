@@ -80,6 +80,24 @@
   right: 4px;
   top: 8px;
 }
+.date_curent{
+  display: block;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  background: #3E85F3;
+  border-radius: 6px;
+  color: #FFFFFF;
+  line-height: 18px;
+  position: absolute;
+  @media screen and(max-width:768px) {
+    right: 4px;
+    top: 6px;
+  }
+  right: 4px;
+  top: 8px;
+}
 .task {
   display: flex;
   flex-direction: column;
@@ -105,6 +123,9 @@
   color: #3E85F3;
   padding-left: 2px;
   padding-right: 2px;
+  @media screen and(min-width:768px) {
+    margin: 4px;
+  }
 }
 .Medium {
   font-family: 'Inter';
@@ -117,6 +138,9 @@
   color: #F3B249;
   padding-left: 2px;
   padding-right: 2px;
+  @media screen and(min-width:768px) {
+    margin: 4px;
+  }
 }
 .High {
   font-family: 'Inter';
@@ -129,6 +153,9 @@
   color: #EA3D65;
   padding-left: 2px;
   padding-right: 2px;
+  @media screen and(min-width:768px) {
+    margin: 4px;
+  }
 }
 .more {
   font-family: 'Inter';
@@ -140,4 +167,7 @@
   border-radius: 8px;
   padding-left: 2px;
   padding-right: 2px;
+  @media screen and(min-width:768px) {
+    margin: 4px;
+  }
 }

@@ -16,12 +16,13 @@ const formatOfDay = 'dd';
 const ChooseMonth = () => {
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
+  const day = useSelector(state=>state.calendar.day)
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
   const task = useSelector(state => state.taskbook.tasks);
   const { currentDate } = useParams();
-  console.log(currentDate);
+  console.log(day);
 
   const dispatch = useDispatch();
 
@@ -56,6 +57,13 @@ const ChooseMonth = () => {
 
   const creatCalendar = date => {
     let counter = 1;
+    // let ert = ''
+    // if(dateFns.format(date, formatOfDay)[0]==="0"){
+    //  if (dateFns.format(date, formatOfDay).substring(1)===day+""){
+    //   ert = dateFns.format(date, formatOfDay)===day?(css.date):(css.date_curent)
+    // }
+  // }
+   
     return (
       <div className={css.container_link} key={date}>
         {dateFns.getMonth(date) === month ? (
@@ -73,7 +81,6 @@ const ChooseMonth = () => {
               {task.map(el => {
                 let span = '';
                if(counter<=2){
-
                 if ((counter <= 1)) {
                   if (
                     el.date.split('-')[2] === dateFns.format(date, formatOfDay)
