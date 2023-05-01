@@ -81,3 +81,7 @@
   right: 4px;
   top: 8px;
 }
+.task{
+  display: flex;
+  flex-direction: column;
+}

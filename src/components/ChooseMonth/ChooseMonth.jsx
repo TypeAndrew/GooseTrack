@@ -67,7 +67,7 @@ const ChooseMonth = () => {
             <span className={css.date}>
               {dateFns.format(date, formatOfDay)}
             </span>
-            <div>
+            <div className={css.task} >
               {task.map(el => {
                 let span = '';
                 if (
@@ -76,6 +76,7 @@ const ChooseMonth = () => {
                   let counter = 1;
                   if (counter <= 3) {
                     counter++;
+                    console.log(counter)
                     span = <span key={el.id}>{el.title}</span>;
                   } else {
                     span = <span key={counter}>More... </span>
