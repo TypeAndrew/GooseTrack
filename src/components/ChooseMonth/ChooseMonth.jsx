@@ -22,7 +22,7 @@ const ChooseMonth = () => {
   const time = useSelector(state => state.calendar.time);
 
   const task = useSelector(state => state.taskbook.tasks);
-  const { currentDate } = useParams();
+  // const { currentDate } = useParams();
   console.log(day);
 
 
