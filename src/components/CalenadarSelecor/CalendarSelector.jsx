@@ -10,20 +10,17 @@ import {
   currentTime,
   currentYear,
 } from 'Redux/calendar/calendar.slice';
- import { useEffect } from 'react';
-
-
+import { useEffect } from 'react';
 
 /*const currentStartDay = `${getYear(Date.now())}.${getMonth(
   Date.now()
 )}.${getDate(Date.now())}`; */
-  /*const startTime = Date.now(); // get start date of mounth
+/*const startTime = Date.now(); // get start date of mounth
   const date = new Date(startTime);
   const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
   const currentStartDay = startOfMonth.toISOString().slice(0,10);*/
 
 const CalendarSelector = props => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const day = useSelector(state => state.calendar.day);
@@ -31,30 +28,27 @@ const CalendarSelector = props => {
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time) ?? Date.now();
-  
+
   // get start date of mounth
+
   const date = new Date(time); 
   //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
   const currentStartDay = date.toISOString().slice(0,10);
-  
+
   useEffect(() => {
-    
-       navigate(`/calendar/month/${currentStartDay}`)
-       
-  },[currentStartDay,navigate])
+    navigate(`/calendar/month/${currentStartDay}`);
+  }, [currentStartDay, navigate]);
 
-
-  let stopUpdateParamas = true
-  let btnBack= getYear(Date.now()) >= year && getMonth(Date.now()) >= month;
+  let stopUpdateParamas = true;
+  let btnBack = getYear(Date.now()) >= year && getMonth(Date.now()) >= month;
 
   const params = useParams();
 
-
   if (params.currentDate?.includes('.')) {
     const result = params.currentDate.split('.');
-    const asd =  Number(result[0]) === year && Number(result[1]) === month;
-    if (!asd&&stopUpdateParamas) {
-      stopUpdateParamas = false
+    const asd = Number(result[0]) === year && Number(result[1]) === month;
+    if (!asd && stopUpdateParamas) {
+      stopUpdateParamas = false;
       dispatch(currentMonth(Number(result[1])));
       dispatch(currentYear(Number(result[0])));
 
@@ -74,13 +68,12 @@ const CalendarSelector = props => {
     dispatch(currentYear(getYear(addMonths(time, -1))));
     stopUpdateParamas = false;
 
+
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       btnBack = true;
-
     } else {
       btnBack = false;
     }
-
   };
 
   const handleChangMonthForward = () => {
@@ -90,11 +83,11 @@ const CalendarSelector = props => {
     stopUpdateParamas = false;
 
   };
-  
+
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
   };
-  const colordisable = btnBack?"#DCE3E5":"#616161"
+  const colordisable = btnBack ? '#DCE3E5' : '#616161';
   return (
     <>
       <div className={css.calendar}>
@@ -109,14 +102,40 @@ const CalendarSelector = props => {
               disabled={btnBack}
               className={css.btn_left}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke={colordisable} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"  d="M5 9 1 5l4-4"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="6"
+                height="10"
+                fill="none"
+              >
+                <path
+                  stroke={colordisable}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="M5 9 1 5l4-4"
+                />
+              </svg>
             </button>
             <button
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" fill="none"><path stroke="#616161" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m1 9 4-4-4-4"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="6"
+                height="10"
+                fill="none"
+              >
+                <path
+                  stroke="#616161"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
             </button>
           </div>
         </div>
