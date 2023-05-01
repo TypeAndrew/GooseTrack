@@ -20,7 +20,7 @@ const ChooseMonth = () => {
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
-
+  
   const task = useSelector(state => state.taskbook.tasks);
   // const { currentDate } = useParams();
   console.log(day);
@@ -58,22 +58,17 @@ const ChooseMonth = () => {
   // Tasks add on calendar
 
   // const color = { Low: ' red', };
-
+  
   const creatCalendar = date => {
     let counter = 1;
-    // let ert = ''
-    // if(dateFns.format(date, formatOfDay)[0]==="0"){
-    //  if (dateFns.format(date, formatOfDay).substring(1)===day+""){
-    //   ert = dateFns.format(date, formatOfDay)===day?(css.date):(css.date_curent)
-    // }
-  // }
+   
    
     return (
       <div className={css.container_link} key={date}>
         {dateFns.getMonth(date) === month ? (
           <NavLink
             className={css.link}
-            to={`/calendar/day/${year}-${month}-${dateFns.format(
+            to={`/calendar/day/${year}-${((month+"").toString().length)===1 ? "0"+month : month }-${dateFns.format(
               date,
               formatOfDay
             )}`}
