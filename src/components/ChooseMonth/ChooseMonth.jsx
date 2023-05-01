@@ -72,21 +72,22 @@ const ChooseMonth = () => {
             <div className={css.task}>
               {task.map(el => {
                 let span = '';
-               if(counter<=3){
+               if(counter<=2){
 
-                if ((counter <= 2)) {
+                if ((counter <= 1)) {
                   if (
                     el.date.split('-')[2] === dateFns.format(date, formatOfDay)
                   ) {
                     counter++
-                    span = <span className={el.priority} key={el.id}>{el.title}</span>;
+                    span = <span className={css[el.priority]} key={el.id}>{el.title}</span>;
                   }
                 } else {
                   counter++
-                  span = <span key={counter}>More... </span>;
+                  span = <span className={css.more}  key={counter}>More... </span>;
                 }
                 return span;
                }
+               return ""
               })}
             </div>
           </NavLink>
