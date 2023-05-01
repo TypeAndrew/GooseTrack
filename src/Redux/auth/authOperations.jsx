@@ -85,9 +85,31 @@ export const refreshUser = createAsyncThunk(
 
 export const updateInfo = createAsyncThunk(
   'auth/update',
- async (user, thunkAPI) => {
+  async (user, thunkAPI) => {
+ 
     try {
-      const { data } = await axios.patch('/user/info', user);
+      const { data } = await axios.patch('/user/info',  user);
+   
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+export const updateAvatar = createAsyncThunk(
+  'auth/avatar',
+  async (avatarURL, thunkAPI) => {
+   const formData = new FormData();
+    formData.append('avatarURL', avatarURL); 
+    try {
+      const { data } = await axios.patch('/user/avatars',  formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+   
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
