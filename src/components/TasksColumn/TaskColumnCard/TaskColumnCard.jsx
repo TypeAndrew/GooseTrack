@@ -22,7 +22,7 @@ export const TaskColumnCard = ({ task }) => {
           <DivPriority variant={task.priority}>{task.priority}</DivPriority>
         </Div>
 
-        <TaskToolbar />
+        <TaskToolbar status={task.category} task={task}/>
       </DivWrap>
     </Li>
   );

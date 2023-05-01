@@ -7,7 +7,7 @@ export const ColumnsTasksList = ({ collection }) => {
   return (
     <Ul>
       {collection.map(task => (
-        <TaskColumnCard task={task}/>
+        <TaskColumnCard task={task} key={task._id}/>
       ))}
     </Ul>
   );

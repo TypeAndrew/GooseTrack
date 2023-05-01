@@ -1,4 +1,4 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import * as dateFns from 'date-fns';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,14 +20,18 @@ const ChooseMonth = () => {
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
 
-  const { currentDate } = useParams();
-  console.log(currentDate);
+
+
+  // const { currentDate } = useParams();
+  // console.log(currentDate);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+
     dispatch(getTasksThunk(time));
   }, [dispatch, time]);
+
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);

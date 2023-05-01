@@ -7,7 +7,7 @@ import * as STC from './TaskForm.styled';
 import { ReactComponent as EditTask } from '../../images/icons/edit_white.svg';
 import { ReactComponent as Plus } from '../../images/icons/plus_white.svg';
 import { useDispatch } from 'react-redux';
-import { getTasksThunk } from '../../Redux/tasks/tasks.thunk';
+import { getTasksThunk, postTasksThunk } from '../../Redux/tasks/tasks.thunk';
 
 export const TaskForm = ({ taskFormData, status, onClose }) => {
   const dispatch = useDispatch();
@@ -21,13 +21,19 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
 
   const { currentDay: date } = useParams();
 
-  const handleAdd = values => {
-    console.log('values====>', values);
-    const addData = { ...values, date, status: status.name };
-    console.log('addData====>', addData);
+  const handleAdd = async values => {
+    // console.log('values====>', values);
+    const addData = { ...values, date, category: status };
+    // console.log('addData====>', addData);
 
-    dispatch(getTasksThunk(addData));
-    console.log('add task done');
+   await dispatch(postTasksThunk(addData));  
+
+    const currentDayArray = date.split('-');
+    const month = Number(currentDayArray[1]);
+
+    await dispatch(getTasksThunk(month))
+  
+    // console.log('add task done');
     onClose();
   };
 
@@ -156,7 +162,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
 
             <STC.Wrapper>
               {
-                (taskFormData = 1 ? (
+                ((!taskFormData.title) ? (
                   <>
                     <STC.Button type="submit">
                       <Plus/>
