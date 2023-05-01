@@ -7,6 +7,7 @@ import css from './ChooseMonth.module.css';
 import { useEffect } from 'react';
 import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
+import { currentDay, currentMonth, currentTime, currentYear } from 'Redux/calendar/calendar.slice';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
@@ -59,6 +60,10 @@ const ChooseMonth = () => {
 
   // const color = { Low: ' red', };
   
+
+  
+
+
   const creatCalendar = date => {
     let counter = 1;
    
@@ -66,7 +71,7 @@ const ChooseMonth = () => {
     return (
       <div className={css.container_link} key={date}>
         {dateFns.getMonth(date) === month ? (
-          <NavLink
+          <NavLink 
             className={css.link}
             to={`/calendar/day/${year}-${((month+"").toString().length)===1 ? "0"+(month+1) : (month+1) }-${dateFns.format(
               date,
