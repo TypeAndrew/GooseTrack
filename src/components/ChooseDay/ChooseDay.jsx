@@ -19,11 +19,13 @@ import {
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
 
+
 const ChooseDay = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const paramsDay = useParams().currentDay;
   const startTime = new Date(Date.parse(paramsDay));
+  const day = useSelector(state=>state.calendar.day)
   const time = useSelector(state => state.calendar.time);
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
@@ -102,6 +104,14 @@ const ChooseDay = () => {
     navigate(`/calendar/day/${currentStartDay}`);
   };
 
+  if (dateFns.getMonth(Date.now()) >= month && dateFns.getYear(Date.now()) >= year && dateFns.getDate(Date.now())>= day) {
+    btnBack = true;
+  } else {
+    btnBack = false;
+  }
+
+console.log("start",dateFns.getTime(startTime))
+console.log("time", time)
   const colordisable = btnBack ? '#DCE3E5' : '#616161';
   return (
     <>
@@ -115,7 +125,7 @@ const ChooseDay = () => {
               <button
                 onClick={handleChangMonthBack}
                 type="button"
-                // disabled={btnBack}
+                disabled={btnBack}
                 className={css.btn_left}
               >
                 <svg
@@ -179,7 +189,7 @@ const ChooseDay = () => {
           </ul>
         </div>
         <div className={css.container}>
-          {time !== null && <WeeksHeader CalendarDate={time} />}
+          {time !== null && <WeeksHeader CalendarDate={ dateFns.getTime(startTime)||time } />}
           <TaskColumnsList
             toDoTasks={toDoTasks}
             inProgressTasks={inProgressTasks}
