@@ -175,8 +175,8 @@ const ChooseDay = () => {
     dispatch(currentDay(dateFns.getDate(dateFns.addDays(time, 1))));
     dispatch(currentMonth(dateFns.getMonth(dateFns.addDays(time, 1))));
     dispatch(currentYear(dateFns.getYear(dateFns.addDays(time, 1))));
+    
     const date = new Date(time); 
-
     const startOfMonth = new Date(date.getFullYear(), date.getMonth(), date.getDate()+1 ,date.getHours() ,date.getMinutes(),date.getSeconds());
     const currentStartDay = startOfMonth.toISOString().replace('.', '-').replace('.', '-').slice(0, 10);
 

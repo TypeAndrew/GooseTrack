@@ -12,10 +12,10 @@ export const calendarSlice = createSlice({
             return {...state, time:payload}
         },
         currentDay:(state,{payload})=>{
-            return {...state, day:payload}
+            return {...state, day: payload}
         },
         currentMonth:(state,{payload})=>{
-            return{...state, month:payload}
+            return{...state, month: payload}
         },
         currentYear:(state,{payload})=>{
        return {...state, year:payload}
