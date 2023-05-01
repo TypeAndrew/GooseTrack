@@ -2,12 +2,6 @@ import styled from 'styled-components';
 import svg from '../../images/homePage_images/Icon.svg';
 import img from '../../images/homePage_images/logo.svg';
 import { Link } from 'react-router-dom';
-// import {
-//   LogoFontFamily,
-//   mainTextFontFamily,
-//   primaryAccentColor,
-//   primaryBackgroundColor,
-// } from '../../helpers/variables/globalStyles.styled';
 
 export const FlexHeader = styled.div`
   display: flex;
@@ -51,7 +45,6 @@ export const MainLogo = styled.h1`
   text-shadow: 0px 47px 355px rgba(0, 0, 0, 0.07),
     0px 9.4px 57.6875px rgba(0, 0, 0, 0.035);
   font-weight: 800;
-  width: 219px;
   height: 48px;
   margin-bottom: 32px;
 
@@ -86,6 +79,7 @@ export const StyledButton = styled.button`
   border-radius: 16px;
   border: transparent;
   color: var(--accent-text-color);
+  background-color: var(--btn-text-color);
   direction: ltr;
   cursor: pointer;
 `;
@@ -98,13 +92,16 @@ export const LoginButtonLink = styled(Link)`
   color: var(--accent-text-color);
 `;
 
-export const StyledLogoIMG = styled.svg`
+export const FlexedIMG = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: -70px;
-  width: 299px;
+`;
+
+export const StyledLogoIMG = styled.svg`
+  margin-right: auto;
   height: 292px;
+  margin-left: -75px;
   background: url(${img});
   background-repeat: none;
 `;

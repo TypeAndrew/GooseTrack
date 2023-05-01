@@ -11,8 +11,9 @@ export const Ul = styled.ul`
   gap: 20px;
 
 @media screen and (min-width: 768px) {
-  padding-left: 32px;
-  padding-right: 32px;
+  margin-left: 32px;
+  margin-right: 32px;
+  gap: 16px;
   }
  
 `

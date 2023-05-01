@@ -37,6 +37,7 @@ const authSlice = createSlice({
     },
     [refreshUser.rejected](state) {
       state.isRefreshing = false;
+      state.token = null;
     },
     [updateInfo.fulfilled](state, action) {
       state.user = action.payload.user;

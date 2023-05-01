@@ -1,5 +1,5 @@
 import useSound from 'use-sound';
-import boopSfx from '../../Wellboy.mp3'
+import boopSfx from '../../Wellboy.mp3';
 import { useEffect } from 'react';
 import {
   FlexHeader,
@@ -11,22 +11,24 @@ import {
   StyledSignUpLink,
   TabletWrapper,
   LoginButtonLink,
+  FlexedIMG,
 } from './header.styled';
 
 export const Header = () => {
   const [play, { stop }] = useSound(boopSfx);
-  useEffect(()=> {
-  
+  useEffect(() => {
     play();
-     return () => {
+    return () => {
       stop();
     };
-  }, )
-  
+  });
+
   return (
     <>
       <FlexHeader>
-        <StyledLogoIMG />
+        <FlexedIMG>
+          <StyledLogoIMG />
+        </FlexedIMG>
         <MainLogo>
           G<SpanLogo>oo</SpanLogo>seTrack
         </MainLogo>

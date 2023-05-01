@@ -40,6 +40,10 @@ html{
   /* Shadow colors */
 
   --btn-shadow-color: rgba(136, 165, 191, 0.48);
+
+    /* Borders */
+
+  --border-add-btn: 1px dashed var(--accent-bgc-color);
 }
 
 .dark-theme {
@@ -56,7 +60,7 @@ html{
   --primary-bgc-color: #21222c;
   --sidebar-bgc-color: #13151a;
 
-
+  --border-add-btn: none;
 }
 
 body {

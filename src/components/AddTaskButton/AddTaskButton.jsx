@@ -13,7 +13,7 @@ export const AddTaskBtn = ({ status }) => {
     setShowModal(false);
   };
 
-  console.log('status ', status);
+  // console.log('status ', status);
 
   return (
     <>

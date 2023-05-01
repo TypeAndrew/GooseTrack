@@ -36,7 +36,7 @@ export const postTasksThunk = createAsyncThunk(
 
 export const deleteTasksThunk = createAsyncThunk(
   'DELETE tasks',
-  async ({ id }, { getState }) => {
+  async (id, { getState }) => {
     const stateTocken = selectToken(getState());
     token.set(stateTocken);
     const { data } = await privateApi.delete(`tasks/${id}`);

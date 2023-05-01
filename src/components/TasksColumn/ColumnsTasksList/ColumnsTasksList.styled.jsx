@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Ul = styled.div`
+export const Ul = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0px;
