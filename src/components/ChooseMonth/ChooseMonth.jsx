@@ -16,14 +16,15 @@ const formatOfDay = 'dd';
 const ChooseMonth = () => {
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
+  const day = useSelector(state=>state.calendar.day)
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
 
+  const task = useSelector(state => state.taskbook.tasks);
+  const { currentDate } = useParams();
+  console.log(day);
 
-
-  // const { currentDate } = useParams();
-  // console.log(currentDate);
 
   const dispatch = useDispatch();
 
@@ -54,38 +55,67 @@ const ChooseMonth = () => {
     }
     return weeks;
   })(currentDate);*/
+  // Tasks add on calendar
+
+  // const color = { Low: ' red', };
+
+  const creatCalendar = date => {
+    let counter = 1;
+    // let ert = ''
+    // if(dateFns.format(date, formatOfDay)[0]==="0"){
+    //  if (dateFns.format(date, formatOfDay).substring(1)===day+""){
+    //   ert = dateFns.format(date, formatOfDay)===day?(css.date):(css.date_curent)
+    // }
+  // }
+   
+    return (
+      <div className={css.container_link} key={date}>
+        {dateFns.getMonth(date) === month ? (
+          <NavLink
+            className={css.link}
+            to={`/calendar/day/${year}-${month}-${dateFns.format(
+              date,
+              formatOfDay
+            )}`}
+          >
+            <span className={css.date}>
+              {dateFns.format(date, formatOfDay)}
+            </span>
+            <div className={css.task}>
+              {task.map(el => {
+                let span = '';
+               if(counter<=2){
+                if ((counter <= 1)) {
+                  if (
+                    el.date.split('-')[2] === dateFns.format(date, formatOfDay)
+                  ) {
+                    counter++
+                    span = <span className={css[el.priority]} key={el.id}>{el.title}</span>;
+                  }
+                } else {
+                  counter++
+                  span = <span className={css.more}  key={counter}>More... </span>;
+                }
+                return span;
+               }
+               return ""
+              })}
+            </div>
+          </NavLink>
+        ) : (
+          <span className={css.link}></span>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div className={css.container}>
       <WeeksHeader CalendarDate={firstDay} />
-      <div
-        className={css.div_grid}
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(7, 1fr)',
-        }}
-      >
-        {totalDate.map(date => (
-          <div className={css.container_link} key={date}>
-            {dateFns.getMonth(date) === month ? (
-              <NavLink
 
-              className={css.link}
-                to={`/calendar/month/${year}-${month}-${dateFns.format(
+      <div className={css.div_grid_weeks}>
+        {totalDate.map(date => creatCalendar(date))}
 
-                  date,
-                  formatOfDay
-                )}`}
-              >
-                <span className={css.date}>
-                  {dateFns.format(date, formatOfDay)}
-                </span>
-              </NavLink>
-            ) : (
-              <span className={css.link}></span>
-            )}
-          </div>
-        ))}
       </div>
     </div>
   );

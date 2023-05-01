@@ -1,10 +1,16 @@
 .calendar {
-  display: flex;
+  /* display: flex; */
+  display: block;
   align-items: center;
   justify-content: space-between;
   margin-left: 32px;
   margin-right: 32px;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
+
 .month {
   font-family: 'Inter';
   font-style: normal;
@@ -27,6 +33,11 @@
 .selector {
   display: flex;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    margin-bottom: 18px;
+    justify-content: space-between;
+  }
 }
 .monhtchang {
   display: flex;
@@ -79,6 +90,6 @@
 .selected_limit {
   background: #cae8ff;
 }
-.isActive{
-  background-color: #CAE8FF;
+.isActive {
+  background-color: #cae8ff;
 }
