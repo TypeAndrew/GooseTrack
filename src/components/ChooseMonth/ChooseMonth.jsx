@@ -51,45 +51,48 @@ const ChooseMonth = () => {
     return weeks;
   })(currentDate);*/
   // Tasks add on calendar
-  const addTaskOnCalendar = date => {
-    console.log(date);
-    task?.map(el => {
-      const result = el.date.split('-');
-       if(result[2]== date){
-        console.log(el.title)
-        return<div>{el.title}</div>
-       }
-    });
+
+  const color ={Low:' red'}
+  const creatCalendar = date => {
+    return (
+      <div className={css.container_link} key={date}>
+        {dateFns.getMonth(date) === month ? (
+          <NavLink
+            className={css.link}
+            to={`/calendar/day/${year}-${month}-${dateFns.format(
+              date,
+              formatOfDay
+            )}`}
+          >
+            <span className={css.date}>
+              {dateFns.format(date, formatOfDay)}
+            </span>
+            <div>{task.map((el)=>{
+                 let span = ''
+                 if(el.date.split("-")[2]=== dateFns.format(date, formatOfDay)){
+                  span = <span key={el.id} >{el.title}</span> 
+                  
+                 }
+
+                 
+
+                 return span
+            })
+  
+  }</div>
+          </NavLink>
+        ) : (
+          <span className={css.link}></span>
+        )}
+      </div>
+    );
   };
 
-  
   return (
     <div className={css.container}>
       <WeeksHeader CalendarDate={firstDay} />
       <div className={css.div_grid_weeks}>
-        {totalDate.map(date => (
-          <div className={css.container_link} key={date}>
-            {dateFns.getMonth(date) === month ? (
-              <NavLink
-                className={css.link}
-                to={`/calendar/day/${year}-${month}-${dateFns.format(
-                  date,
-                  formatOfDay
-                )}`}
-              >
-                <span className={css.date}>
-                  {dateFns.format(date, formatOfDay)}
-                </span>
-                <div>{addTaskOnCalendar(dateFns.format(
-                  date,
-                  formatOfDay
-                ))}</div>
-              </NavLink>
-            ) : (
-              <span className={css.link}></span>
-            )}
-          </div>
-        ))}
+        {totalDate.map(date => creatCalendar(date))}
       </div>
     </div>
   );
