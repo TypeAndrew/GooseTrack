@@ -40,6 +40,7 @@ const ChooseDay = () => {
 
   const toFiltredContacts = () => {
     return tasks.filter(task => task.date === paramsDay);
+
   };
 
   const filtredTasks = toFiltredContacts();
