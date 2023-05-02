@@ -24,12 +24,20 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 4px;
-  font-family: 'Inter';
-  font-style: normal;
+    margin-bottom: 4px;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.3;
+    color: rgb(52, 52, 52);
+
+  @media screen and (max-width: 767px) {
+    margin-top: 59px;
+  }
   
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
+    
   }
 `;
 
@@ -65,9 +73,11 @@ export const Input = styled.input`
   padding-left: 18px;
   
   border-radius: 8px;
-  
   font-family: 'Inter';
   font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
   
   @media screen and (min-width: 768px) {
     width: 354px;
@@ -115,24 +125,37 @@ export const ImgAvatar = styled.img`
     width: 124px;
     height: 124px;
   }
-  @media screen and (min-width: 1440px) {
-    /* margin-top: 60px;
-    margin-bottom: 20px; */
-  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+    margin-bottom: 20px;
+
 `;
+
+export const ImgBtnWrapper = styled.div`
+ `;
 
 export const ImgBtn = styled.img`
   cursor: pointer;
-  width: 24px;
-  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
 export const User = styled.p`
   margin-bottom: 40px;
-  width: 28px;
-  height: 14px;
-  font-family: 'Inter';
-  font-style: normal;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+  color: rgb(97, 97, 97);
   
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -172,8 +195,8 @@ export const ContainerAvatar = styled.div`
 
 export const LabelImg = styled.label`
   position: absolute;
-  left: 188px;
-  top: 55px;
+    left: 177px;
+    top: 23px;
   @media screen and (min-width: 768px) {
     left: 200px;
     top: 143px;
@@ -185,12 +208,13 @@ export const LabelImg = styled.label`
 `;
 
 export const LabelBtn = styled.label`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 18px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    color: rgb(0, 0, 0);
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
     }

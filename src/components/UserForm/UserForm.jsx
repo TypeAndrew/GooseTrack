@@ -14,6 +14,7 @@ import {
   DatePick,
   InputFile,
   ImgAvatar,
+  ImgBtnWrapper,
   ImgBtn,
   User,
   ContainerAvatar,
@@ -110,9 +111,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
           )}
         </ContainerAvatar>
 
-        <LabelImg htmlFor="avatar">
+          <LabelImg htmlFor="avatar">
+            <ImgBtnWrapper>
           <ImgBtn src={plus} alt="user" />
-
+            </ImgBtnWrapper>
           <InputFile
             id="avatar"
             type="file"
