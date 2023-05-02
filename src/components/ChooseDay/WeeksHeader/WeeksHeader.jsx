@@ -9,7 +9,7 @@ export const WeeksHeader = (props) => {
   const { CalendarDate } = props;
   const formatofWeek = 'eeee';
   // const time = useSelector(state => state.calendar.time);
-  console.log("props",props)
+  
  const dispatch = useDispatch()
   dispatch(currentTime(dateFns.getTime(CalendarDate)))
   dispatch(currentDay(dateFns.getDate(CalendarDate)));
@@ -30,6 +30,13 @@ export const WeeksHeader = (props) => {
   } else {
     longWeeksString = 3;
   }
+  const curenttDayStyle = cureDayStyl => {
+    const dateNow = dateFns.formatISO(Date.now());
+    if (cureDayStyl.toISOString().slice(0, 10) === dateNow.slice(0, 10)) {
+      return css.weeks_iteam_curent;
+    }
+    return css.weeks_iteam_day;
+  };
 return (
       <div className={css.div_grid_weeks}>
         {totalDate.map(week => (
@@ -37,7 +44,7 @@ return (
             <div className={css.weeks_iteam_datename}>
               {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
             </div>
-             <div>
+             <div className={curenttDayStyle(week)} >
             {week.getDate()}
             </div>
           </div>
