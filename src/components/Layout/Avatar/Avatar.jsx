@@ -5,7 +5,7 @@ import { ReactComponent as AvatarSvg } from '../../../images/icons/userAvatar.sv
 export const Avatar = () => {
     const {user} = useAuth();
     const avatar = user.avatarURL;
-    const pathAvatar = avatar.substr(0,5) !== "https" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
+    const pathAvatar = avatar?.substr(0,5) !== "https" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
     const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
 
     return (
