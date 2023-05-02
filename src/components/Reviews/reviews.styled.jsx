@@ -42,7 +42,7 @@ export const ReviewContainer = styled.div`
     max-width: 604px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     max-width: 504px;
   }
 `;
@@ -114,7 +114,7 @@ export const WrapperReviewConteiner = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: flex;
     flex-direction: row;
   }

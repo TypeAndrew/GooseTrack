@@ -48,7 +48,7 @@ const ChooseMonth = () => {
 
   const curenttDayStyle = cureDayStyl => {
     const dateNow = formatISO(Date.now());
-    if (cureDayStyl.toISOString().slice(0, 10) === dateNow.slice(0, 10)) {
+    if (dateFns.formatISO(cureDayStyl).slice(0, 10) === dateNow.slice(0, 10)) {
       return css.date_curent;
     }
     return css.date;
@@ -73,6 +73,7 @@ const ChooseMonth = () => {
               {dateFns.format(date, formatOfDay)}
             </span>
             <div key={Math.random() + ''} className={css.task}>
+            
               {task.map(el => {
                 let span = '';
                 if (counter <= 3) {
