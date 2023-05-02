@@ -116,9 +116,9 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
           ) : (
             <ImgAvatar
               src={
-                user.avatarURL === null || user.avatarURL === 'null'
-                  ? avatarDefault
-                  : user.avatarURL
+                pathAvatarFormat === null || pathAvatarFormat=== 'null'
+                ? avatarDefault
+                : pathAvatarFormat
               }
               alt="avatar"
             />
