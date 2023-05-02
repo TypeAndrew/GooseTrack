@@ -30,6 +30,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const [isLoading, setIsLoading] = useState(false);
 
   const { user } = useAuth();
+
   const avatar = user.avatarURL;
   let bearthdate = user.birthday; 
   let formatBearthdate = (bearthdate !== undefined) ? bearthdate.slice(0, 10) : "";  
@@ -39,6 +40,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
    
 
   const [birthday, setBirthday] = useState(formatBearthdate ?? '');  
+
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
@@ -138,6 +140,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               name="name"
               id="name"
               onChange={handleChange}
+              placeholder='Enter your name'
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
             />
           </LabelBtn>
           <LabelBtn htmlFor="phone">
@@ -148,6 +154,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               id="phone"
               value={phone}
               onChange={handleChange}
+              placeholder='Enter your phone'
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
             ></Input>
             </LabelBtn>
             
@@ -162,7 +172,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               input={true}
               selected={birthday.toDate} 
               onChange={data => setBirthday(data)}
-              dateFormat="dd/MM/yyyy"
+              dateFormat="yyyy-MM-dd"
             />
             </LabelBtn>
           </DatePickerWrapper>
@@ -176,6 +186,9 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               placeholder="Add a skype number"
               value={skype}
               onChange={handleChange}
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
             />
           </LabelBtn>
 
