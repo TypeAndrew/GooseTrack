@@ -14,7 +14,7 @@ export const FlexedCalendar = styled.div`
     padding-right: 32px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     align-items: flex-start;
     flex-direction: row;
     padding-left: 205px;
@@ -37,7 +37,7 @@ export const AllTextWrapper = styled.div`
     direction: ltr;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -88,7 +88,7 @@ export const FlexedCalendarSecond = styled.div`
     align-items: flex-start;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1440px) {
     direction: rtl;
     display: flex;
     align-items: flex-start;
@@ -126,7 +126,7 @@ export const BlockTitle = styled.h2`
     line-height: 44px;
     margin-bottom: 24px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: flex;
     justify-content: flex-end;
   }
@@ -142,7 +142,7 @@ export const WrapperBlocktext = styled.div`
     width: 275px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: flex;
     justify-content: flex-start;
     direction: ltr;
@@ -162,7 +162,7 @@ export const BlockText = styled.p`
     margin-bottom: 48px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     display: flex;
     justify-content: flex-end;
   }
@@ -182,7 +182,7 @@ export const BlockPicture = styled.img`
     object-fit: cover;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     width: 604px;
     height: 700px;
     background-image: url(${props => props.imageUrlx2});

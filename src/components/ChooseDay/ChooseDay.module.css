@@ -1,13 +1,9 @@
-.container {
-  margin: 0 20px 0 20px;
-  padding: 16 px;
-}
+
 .selector {
   display: block;
   align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
+  
 }
 
 .dateToday {
@@ -40,8 +36,10 @@
   }
   .selector {
     display: flex;
-    padding-left: 32px;
-    padding-right: 32px;
+ 
+  }
+  .container {
+ 
   }
 }
 .periodPaginator {

@@ -15,7 +15,7 @@ export const Container = styled.div`
     width: 289px;
   }
 
-  @media (max-width: 1279px) {
+  @media (max-width: 1439px) {
     left: 0;
     transform: translateX(-100%);
     &.openMobalMenu {
@@ -60,7 +60,7 @@ export const Title = styled.div`
       font-size: 18px;
       line-height: 24px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: 1440px) {
       font-size: 24px;
       line-height: 24px;
     }
@@ -72,7 +72,7 @@ export const SpanSpecial = styled.p`
       font-size: 18px;
       line-height: 24px;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: 1440px) {
       font-size: 24px;
       line-height: 24px;
     }
@@ -83,7 +83,7 @@ export const CloseButton = styled.div`
     background: rgba(0, 0, 0, 0);
     cursor: pointer;
     padding: 0;
-    @media (min-width: 1280px) {
+    @media (min-width: 1440px) {
       display: none;
     }
 `;

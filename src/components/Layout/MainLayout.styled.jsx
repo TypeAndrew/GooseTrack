@@ -13,10 +13,15 @@ export const Wrapper = styled.div`
   display: block;
   width: 100%;
   padding: 20px;
+  height: 100vh;
   @media (min-width: 768px) {
     padding: 32px;
+    // width:704px;
   }
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     margin-left: 289px;
+    padding-left: auto;
+    padding-right: auto;
+    width:1087px
   }
 `;

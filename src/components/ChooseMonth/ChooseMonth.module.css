@@ -1,5 +1,5 @@
 .container {
-  margin: 0 20px 0 20px;
+  /* margin: 0 20px 0 20px; */
   /* height: 600px; */
 }
 
@@ -111,7 +111,7 @@
   font-size: 16px;
   background: #3e85f3;
   border-radius: 6px;
-  color: #22232d;
+  color: #22232D;
   line-height: 18px;
   position: absolute;
   right: 4px;
@@ -145,7 +145,7 @@
   @media screen and(min-width:768px) {
     margin: 4px;
     font-size: 14px;
-    line-height: 18px;
+line-height: 18px;
   }
 }
 .Medium {
@@ -157,11 +157,11 @@
   background: #fcf0d4;
   border-radius: 8px;
   color: #f3b249;
-
+  
   @media screen and(min-width:768px) {
     margin: 4px;
     font-size: 14px;
-    line-height: 18px;
+line-height: 18px;
   }
 }
 .High {
@@ -178,7 +178,7 @@
   @media screen and(min-width:768px) {
     margin: 4px;
     font-size: 14px;
-    line-height: 18px;
+line-height: 18px;
   }
 }
 .more {
@@ -193,7 +193,5 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
-    font-size: 14px;
-    line-height: 18px;
   }
 }
