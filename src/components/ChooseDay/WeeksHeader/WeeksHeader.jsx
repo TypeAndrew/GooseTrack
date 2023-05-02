@@ -3,15 +3,20 @@ import { useDispatch } from 'react-redux';
 import css from './WeeksHeader.module.css';
 // import {  useSelector } from 'react-redux';
 import * as dateFns from 'date-fns';
-import { currentDay, currentMonth, currentTime, currentYear } from 'Redux/calendar/calendar.slice';
+import {
+  currentDay,
+  currentMonth,
+  currentTime,
+  currentYear,
+} from 'Redux/calendar/calendar.slice';
 
-export const WeeksHeader = (props) => {
+export const WeeksHeader = props => {
   const { CalendarDate } = props;
   const formatofWeek = 'eeee';
   // const time = useSelector(state => state.calendar.time);
-  
- const dispatch = useDispatch()
-  dispatch(currentTime(dateFns.getTime(CalendarDate)))
+
+  const dispatch = useDispatch();
+  dispatch(currentTime(dateFns.getTime(CalendarDate)));
   dispatch(currentDay(dateFns.getDate(CalendarDate)));
   dispatch(currentMonth(dateFns.getMonth(CalendarDate)));
   dispatch(currentYear(dateFns.getYear(CalendarDate)));
@@ -23,7 +28,7 @@ export const WeeksHeader = (props) => {
   const totalDate = dateFns.eachDayOfInterval({
     start: startDate,
     end: endDate,
-  });  
+  });
   let longWeeksString;
   if (window.innerWidth <= 768) {
     longWeeksString = 1;
@@ -37,20 +42,16 @@ export const WeeksHeader = (props) => {
     }
     return css.weeks_iteam_day;
   };
-return (
-      <div className={css.div_grid_weeks}>
-        {totalDate.map(week => (
-          <div className={css.weeks_iteam} key={week}>
-            <div className={css.weeks_iteam_datename}>
-              {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
-            </div>
-             <div className={curenttDayStyle(week)} >
-            {week.getDate()}
-            </div>
+  return (
+    <div className={css.div_grid_weeks}>
+      {totalDate.map(week => (
+        <div className={css.weeks_iteam} key={week}>
+          <div className={css.weeks_iteam_datename}>
+            {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
           </div>
-        ))} 
-         
-      </div>
-    )  
-  }
- 
+          <div className={curenttDayStyle(week)}>{week.getDate()}</div>
+        </div>
+      ))}
+    </div>
+  );
+};

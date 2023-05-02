@@ -1,35 +1,23 @@
 import { NavLink } from 'react-router-dom';
 
 import * as dateFns from 'date-fns';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import css from './ChooseMonth.module.css';
-import { useEffect } from 'react';
-import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
 import { formatISO } from 'date-fns/esm';
-// import { currentDay, currentMonth, currentTime, currentYear } from 'Redux/calendar/calendar.slice';
 
-// const formatofYear = 'yyy';
-// const formatOfMonth = 'MMM';
 //const formatofWeek = 'eeee';
 const formatOfDay = 'dd';
 
 const ChooseMonth = () => {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
-
+ 
   const task = useSelector(state => state.taskbook.tasks);
   // const { currentDate } = useParams();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getTasksThunk(time));
-  }, [dispatch, time]);
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);
@@ -56,8 +44,7 @@ const ChooseMonth = () => {
 
   const creatCalendar = date => {
     let counter = 1;
-
-    return (
+    return  (
       <div className={css.container_link} key={date}>
         {dateFns.getMonth(date) === month ? (
           <NavLink
