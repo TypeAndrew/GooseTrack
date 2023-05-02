@@ -32,7 +32,7 @@ export const WeeksHeader = (props) => {
   }
   const curenttDayStyle = cureDayStyl => {
     const dateNow = dateFns.formatISO(Date.now());
-    if (cureDayStyl.toISOString().slice(0, 10) === dateNow.slice(0, 10)) {
+    if (dateFns.formatISO(cureDayStyl).slice(0, 10) === dateNow.slice(0, 10)) {
       return css.weeks_iteam_curent;
     }
     return css.weeks_iteam_day;

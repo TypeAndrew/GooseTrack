@@ -89,9 +89,9 @@
   height: 26px;
   font-weight: 700;
   font-size: 16px;
-  color: var(--text-day-color);
   line-height: 18px;
   position: absolute;
+  color: var(--text-day-color);
   @media screen and(max-width:768px) {
     right: 4px;
     top: 6px;
@@ -111,7 +111,7 @@
   font-size: 16px;
   background: #3e85f3;
   border-radius: 6px;
-  color: #ffffff;
+  color: #22232d;
   line-height: 18px;
   position: absolute;
   right: 4px;
@@ -144,6 +144,8 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 .Medium {
@@ -155,9 +157,11 @@
   background: #fcf0d4;
   border-radius: 8px;
   color: #f3b249;
-  
+
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 .High {
@@ -173,6 +177,8 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 .more {
@@ -187,5 +193,7 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
