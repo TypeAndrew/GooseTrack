@@ -2,8 +2,9 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import serverConnection from '../../components/constants/PARAMS'
 
-axios.defaults.baseURL = "https://goose-track-back.onrender.com";
+axios.defaults.baseURL = serverConnection;
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

@@ -4,6 +4,7 @@ import { useAuth } from '../../Redux/auth/useAuth';
 import { updateInfo, updateAvatar } from '../../Redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar/avatarDefault.png';
+import serverConnection from '../constants/PARAMS'
 import {
   Wrapper,
   Title,
@@ -29,7 +30,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const { user } = useAuth();
 
-  const pathAvatar = avatar?.substr(0,5) !== "https" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
+  const pathAvatar = user.avatarURL?.substr(0,5) !== "https" ? `${serverConnection}/` + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 

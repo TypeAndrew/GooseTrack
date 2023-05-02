@@ -1,4 +1,4 @@
-export const MONTHKEY = {
+ const MONTHKEY = {
     0:'January',
     1:"February",
     2:'March',
