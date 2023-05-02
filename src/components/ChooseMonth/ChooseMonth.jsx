@@ -7,6 +7,8 @@ import css from './ChooseMonth.module.css';
 import { useEffect } from 'react';
 import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
+import { formatISO } from 'date-fns/esm';
+// import { currentDay, currentMonth, currentTime, currentYear } from 'Redux/calendar/calendar.slice';
 
 // const formatofYear = 'yyy';
 // const formatOfMonth = 'MMM';
@@ -16,23 +18,18 @@ const formatOfDay = 'dd';
 const ChooseMonth = () => {
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
-  const day = useSelector(state=>state.calendar.day)
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time);
 
   const task = useSelector(state => state.taskbook.tasks);
   // const { currentDate } = useParams();
-  console.log(day);
-
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     dispatch(getTasksThunk(time));
   }, [dispatch, time]);
-
 
   //Find the first day of current Date
   const firstDay = dateFns.startOfMonth(time);
@@ -48,62 +45,68 @@ const ChooseMonth = () => {
     start: startDate,
     end: endDate,
   });
-  /*const weeks = (date => {
-    const weeks = [];
-    for (let day = 0; day <= 6; day++) {
-      weeks.push(totalDate[day]);
-    }
-    return weeks;
-  })(currentDate);*/
-  // Tasks add on calendar
 
-  // const color = { Low: ' red', };
+  const curenttDayStyle = cureDayStyl => {
+    const dateNow = formatISO(Date.now());
+    if (cureDayStyl.toISOString().slice(0, 10) === dateNow.slice(0, 10)) {
+      return css.date_curent;
+    }
+    return css.date;
+  };
 
   const creatCalendar = date => {
     let counter = 1;
-    // let ert = ''
-    // if(dateFns.format(date, formatOfDay)[0]==="0"){
-    //  if (dateFns.format(date, formatOfDay).substring(1)===day+""){
-    //   ert = dateFns.format(date, formatOfDay)===day?(css.date):(css.date_curent)
-    // }
-  // }
-   
+
     return (
       <div className={css.container_link} key={date}>
         {dateFns.getMonth(date) === month ? (
           <NavLink
+            key={dateFns.getTime(date)}
             className={css.link}
-            to={`/calendar/day/${year}-${month}-${dateFns.format(
-              date,
-              formatOfDay
-            )}`}
+            to={`/calendar/day/${year}-${
+              (month + '').toString().length === 1
+                ? '0' + (month + 1)
+                : month + 1
+            }-${dateFns.format(date, formatOfDay)}`}
           >
-            <span className={css.date}>
+            <span key={Math.random() + ''} className={curenttDayStyle(date)}>
               {dateFns.format(date, formatOfDay)}
             </span>
-            <div className={css.task}>
+            <div key={Math.random() + ''} className={css.task}>
               {task.map(el => {
                 let span = '';
-               if(counter<=2){
-                if ((counter <= 1)) {
-                  if (
-                    el.date.split('-')[2] === dateFns.format(date, formatOfDay)
-                  ) {
-                    counter++
-                    span = <span className={css[el.priority]} key={el.id}>{el.title}</span>;
+                if (counter <= 3) {
+                  if (counter <= 2) {
+                    if (
+                      el.date.split('-')[2] ===
+                      dateFns.format(date, formatOfDay)
+                    ) {
+                      counter++;
+                      span = (
+                        <span
+                          className={css[el.priority]}
+                          key={Math.random() + ''}
+                        >
+                          {el.title}
+                        </span>
+                      );
+                    }
+                  } else {
+                    counter++;
+                    span = (
+                      <span className={css.more} key={Math.random() + ''}>
+                        More...{' '}
+                      </span>
+                    );
                   }
-                } else {
-                  counter++
-                  span = <span className={css.more}  key={counter}>More... </span>;
+                  return span;
                 }
-                return span;
-               }
-               return ""
+                return '';
               })}
             </div>
           </NavLink>
         ) : (
-          <span className={css.link}></span>
+          <span key={Math.random() + ''} className={css.link}></span>
         )}
       </div>
     );
@@ -115,7 +118,6 @@ const ChooseMonth = () => {
 
       <div className={css.div_grid_weeks}>
         {totalDate.map(date => creatCalendar(date))}
-
       </div>
     </div>
   );

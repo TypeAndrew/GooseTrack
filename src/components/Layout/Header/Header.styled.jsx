@@ -1,22 +1,16 @@
 import styled from "styled-components";
 
 export const HeaderPage= styled.header `
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 24px;
-  margin-bottom: 64px;
-  @media (min-width: 768px) {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  @media (min-width: 1280px) {
-    padding-top: 40px;
-  }
-    color: var(--primary-text-color);
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 100%;
+padding-top: 4px;
+padding-bottom: 32px;
+@media (min-width: 1280px) {
+  min-height: 100px;
+  padding-top: 8px;
+}
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -24,16 +18,27 @@ export const Wrapper = styled.div`
   gap: 16px;
 `;
 
-export const Overlay = styled.div`
+export const ActivePage = styled.div`
   display: none;
   @media (min-width: 1280px) {
-    display: block;
+    display: flex;
+  }
+`;
+export const ActivePageName = styled.h2`
+  display: none;
+  @media (min-width: 1280px) {
+    display: flex;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 32px;
+    color: var(--primary-text-color);
+    margin-bottom: 8px;
   }
 `;
 export const MenuOpen = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: var(--calendar-digit-color);
   display: flex;
   cursor: pointer;
   @media (min-width: 768px) {

@@ -2,13 +2,14 @@
   margin: auto;
   
   border: 1px solid transparent;
-  background: #ffffff;
+  background: var(--primary-bgc-color);
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
   line-height: 18px;
-  text-transform: uppercase;
+  text-transform: uppercase;  
+  color: var(--btn-arrow-accent-color);
 }
 
 .div_grid_weeks :nth-child(6) {
@@ -19,7 +20,7 @@
 }
 .div_grid_weeks {
   border-radius: 8px;
-  background: #ffffff;
+  background: var(--primary-bgc-color);
   border: 0.5px solid rgba(220, 227, 229, 0.8);
   height: 50px;
   display: grid;

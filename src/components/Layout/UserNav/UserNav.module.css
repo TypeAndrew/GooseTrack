@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    font-family: 'Inter';
+    font-family: var(--primary-font);
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -14,12 +14,17 @@
 }
 
 .userTitle {
-    font-family: 'Inter';
-    font-style: normal;
+    margin-bottom: 24px;
+    font-family: var(--primary-font);
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: #7E7D82;
+    color: #7e7d82;
+    @media (min-width: 768px) {
+      margin-bottom: 32px;
+      font-size: 14px;
+      line-height: 17px;
+    }
 }
 
 
@@ -30,13 +35,14 @@
     justify-content: flex-start;
     align-items: center;
 
-    font-family: 'Inter';
+    font-family: var(--primary-font);
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
     text-decoration: none;
-    color: #7E7D82;
+    color: var(--not-active-item-sidebar-text-color);
+
 
     padding: 12px;
     gap: 8px;
@@ -48,7 +54,7 @@
         justify-content: flex-start;
         align-items: center;
     
-        font-family: 'Inter';
+        font-family: var(--primary-font);
         font-style: normal;
         font-weight: 600;
         font-size: 14px;
@@ -57,20 +63,10 @@
   
     padding: 12px;
     gap: 8px;
-    color: #3E85F3;
+    color: var(--accent-text-color);
 
 
-    background: #E3F3FF;
+    background: var(--active-item-sidebar-background);
     border-radius: 8px;
 }
 
-.iconlog {
-    margin-right: 10px;
-    color: red;
-}
-
-.activeIcon {
-
-    margin-right: 10px;
-    color: #3E85F3;
-}

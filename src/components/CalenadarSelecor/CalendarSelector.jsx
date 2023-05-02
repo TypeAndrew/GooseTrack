@@ -31,9 +31,9 @@ const CalendarSelector = props => {
 
   // get start date of mounth
 
-  const date = new Date(time); 
+  const date = new Date(time);
   //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-  const currentStartDay = date.toISOString().slice(0,10);
+  const currentStartDay = date.toISOString().slice(0, 10);
 
   useEffect(() => {
     navigate(`/calendar/month/${currentStartDay}`);
@@ -51,7 +51,6 @@ const CalendarSelector = props => {
       stopUpdateParamas = false;
       dispatch(currentMonth(Number(result[1])));
       dispatch(currentYear(Number(result[0])));
-
     }
   }
 
@@ -68,7 +67,6 @@ const CalendarSelector = props => {
     dispatch(currentYear(getYear(addMonths(time, -1))));
     stopUpdateParamas = false;
 
-
     if (getMonth(Date.now()) >= month && getYear(Date.now()) >= year) {
       btnBack = true;
     } else {
@@ -81,7 +79,6 @@ const CalendarSelector = props => {
     dispatch(currentMonth(getMonth(addMonths(time, 1))));
     dispatch(currentYear(getYear(addMonths(time, 1))));
     stopUpdateParamas = false;
-
   };
 
   const handleCurrentPage = ({ isActive }) => {
@@ -129,7 +126,7 @@ const CalendarSelector = props => {
                 fill="none"
               >
                 <path
-                  stroke="#616161"
+                  stroke="var(--btn-arrow-accent-color)"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1.5"
@@ -140,7 +137,7 @@ const CalendarSelector = props => {
           </div>
         </div>
         <ul className={css.viue}>
-          <li>
+          <li key={'left'}>
             <NavLink
               to={`month/${year}.${month}`}
               className={data => handleCurrentPage(data) + ' ' + css.btn_changL}
@@ -148,7 +145,7 @@ const CalendarSelector = props => {
               Month
             </NavLink>
           </li>
-          <li>
+          <li key={'riht'}>
             <NavLink
               to={`day/${currentStartDay}`}
               className={data => handleCurrentPage(data) + ' ' + css.btn_changR}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getTasksThunk, postTasksThunk, deleteTasksThunk } from './tasks.thunk';
+import { getTasksThunk, postTasksThunk, deleteTasksThunk, patchTasksThunk } from './tasks.thunk';
 
 const tasksInitialState = {
   tasks: [],
@@ -8,11 +8,8 @@ const tasksInitialState = {
 };
 
 const tasksSlice = createSlice({
-  // Ім'я слайсу
   name: 'taskbook',
-  // Початковий стан редюсера слайсу
   initialState: tasksInitialState,
-  // Об'єкт редюсерів
 
   extraReducers: builder => {
     builder
@@ -25,6 +22,7 @@ const tasksSlice = createSlice({
 
         state.isLoading = false;
         state.error = null;
+        state.tasks = taskList
         state.tasks = taskList.filter(
           task => task.date.slice(0, 7) === timeNormalize(dateMonth)
         );
@@ -42,13 +40,15 @@ const tasksSlice = createSlice({
         state.error = null;
 
         state.tasks = state.tasks.filter(el => el.id !== payload.id);
+      })
+      .addCase(patchTasksThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        const idx = state.tasks.indexOf(payload.id);
+        state.tasks = state.tasks.splice(idx, 1, payload);
       });
   },
 });
-
-//
-
-//export const { setContacts, deleteContacts } = contactsSlice.actions;
 
 function timeNormalize(value) {
   const date = new Date(value);

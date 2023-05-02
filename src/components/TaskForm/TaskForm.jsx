@@ -4,10 +4,15 @@ import { Formik } from 'formik';
 import { isAfter, isValid, parse } from 'date-fns';
 import * as Yup from 'yup';
 import * as STC from './TaskForm.styled';
+import { TextAdd } from './TaskForm.styled';
 import { ReactComponent as EditTask } from '../../images/icons/edit_white.svg';
 import { ReactComponent as Plus } from '../../images/icons/plus_white.svg';
-import { useDispatch } from 'react-redux';
-import { getTasksThunk, postTasksThunk } from '../../Redux/tasks/tasks.thunk';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getTasksThunk,
+  patchTasksThunk,
+  postTasksThunk,
+} from '../../Redux/tasks/tasks.thunk';
 
 export const TaskForm = ({ taskFormData, status, onClose }) => {
   const dispatch = useDispatch();
@@ -20,20 +25,19 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
   };
 
   const { currentDay: date } = useParams();
+  const time = useSelector(state => state.calendar.time);
 
   const handleAdd = async values => {
-    // console.log('values====>', values);
-    const addData = { ...values, date, category: status };
-    // console.log('addData====>', addData);
+    const data = { ...values, date, category: status };
+    if (!taskFormData.title) {
+      await dispatch(postTasksThunk(data));
+    } else {
+      const patchData = { data, id: taskFormData._id };
+      await dispatch(patchTasksThunk(patchData));
+    }
 
-   await dispatch(postTasksThunk(addData));  
+    await dispatch(getTasksThunk(time));
 
-    const currentDayArray = date.split('-');
-    const month = Number(currentDayArray[1]);
-
-    await dispatch(getTasksThunk(month))
-  
-    // console.log('add task done');
     onClose();
   };
 
@@ -49,7 +53,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
     end: Yup.string()
       .nullable()
       .test('valid-time', 'Invalid time format', value => {
-        if (!value) return true; 
+        if (!value) return true;
         return isValid(parse(value, 'HH:mm', new Date()));
       })
       .when('start', (start, schema) =>
@@ -88,7 +92,6 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
           handleSubmit,
           isSubmitting,
           setFieldValue,
-          
         }) => (
           <STC.Form onSubmit={handleSubmit}>
             <STC.Label htmlFor="title">
@@ -161,36 +164,28 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
             </STC.RadioButtonGroup>
 
             <STC.Wrapper>
-              {
-                ((!taskFormData.title) ? (
-                  <>
-                    <STC.Button type="submit">
-                      <Plus/>
-                      Add
-                    </STC.Button>
-                    <STC.ButtonCancel
-                      type="button"
-                      disabled={isSubmitting}
-                      onClick={() => {
-                        onClose();
-                      }}
-                    >
-                      Cancel
-                    </STC.ButtonCancel>
-                  </>
-                ) : (
-                  <STC.Button
-                    type="submit"
-                    onClick={() => {
-                      console.log('handleSubmit called');
-                    }}
-                    disabled={isSubmitting}
-                  >
-                    <EditTask/>
-                    Edit
+              {!taskFormData.title ? (
+                <>
+                  <STC.Button type="submit">
+                    <Plus />
+                    <TextAdd>Add</TextAdd>
                   </STC.Button>
-                ))
-              }
+                  <STC.ButtonCancel
+                    type="button"
+                    disabled={isSubmitting}
+                    onClick={() => {
+                      onClose();
+                    }}
+                  >
+                    Cancel
+                  </STC.ButtonCancel>
+                </>
+              ) : (
+                <STC.Button type="submit" disabled={isSubmitting}>
+                  <EditTask />
+                  Edit
+                </STC.Button>
+              )}
             </STC.Wrapper>
           </STC.Form>
         )}

@@ -13,13 +13,14 @@ export const Li = styled.li`
  
 `;
 export const Button = styled.button`
-border: none;
-background-color: inherit;
- width: 15px;
- height: 15px;
- padding: 0;
+  border: none;
+  background-color: inherit;
+  width: 15px;
+  height: 15px;
+  padding: 0;
 `;
 export const IconBtnMoveTask = styled(MoveTask)`
+position: relative;
   stroke: var(--primary-text-color);
   :hover {
     stroke: var(--accent-bgc-color);

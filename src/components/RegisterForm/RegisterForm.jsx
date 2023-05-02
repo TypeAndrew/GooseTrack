@@ -81,7 +81,7 @@ const RegisterForm = ({setIsLoading}) => {
           >
             {({ errors, touched, handleReset }) => (
               <Form title="Sign Up" noValidate="noValidate">
-                <Label>
+                <Label color={touched.name && errors.name && "var(--error-validation-color)"}>
                   Name
                   <Field
                     id="name"
@@ -89,12 +89,12 @@ const RegisterForm = ({setIsLoading}) => {
                     type="text"
                     autoComplete="off"
                     placeholder="Enter your name"
-                    
+                    border={touched.name && errors.name && "1px solid var(--error-validation-color)"}
                   />
                 </Label>
                 <ErrorMessage component={ErrorDiv} name="name" /> 
 
-                <Label>
+                <Label color={touched.email && errors.email && "var(--error-validation-color)"}>
                   Email
                   <Field
                     id="email"
@@ -102,11 +102,12 @@ const RegisterForm = ({setIsLoading}) => {
                     type="email"
                     autoComplete="username"
                     placeholder="Enter email"
-                    
-                  />
+                    border={touched.email && errors.email && "1px solid var(--error-validation-color)"}/>
+                   {/* {touched.email && errors.email && <div>{errors.email}</div>} */}
                 </Label>
                 <ErrorMessage component={ErrorDiv} name="email" />
-                <Label name="password" color={(touched && errors && `var(--error-validation-color)`) || (touched && !errors && `var(--correct-validation-color)`)}>
+                <Label name="password" 
+                color={touched.password && errors.password && "var(--error-validation-color)"}>
                   Password 
                   <DivWrap>
                     <Field
@@ -115,7 +116,8 @@ const RegisterForm = ({setIsLoading}) => {
                       type={toggleButton.typeInput}
                       autoComplete="current-password"
                       placeholder="Enter password"
-                      border={errors && '1px solid red'}
+                      border={touched.password && errors.password && "1px solid var(--error-validation-color)"}
+
                     />
                     <ButtonToggleIcon type="button" onClick={onClick}>
                       {toggleButton.toggleIcon}

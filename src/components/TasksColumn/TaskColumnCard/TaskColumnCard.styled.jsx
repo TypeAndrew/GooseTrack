@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 
 export const Li = styled.li`
+  position: relative;
   display: block;
   padding: 14px 12px 18px 16px;
   width: 100%;

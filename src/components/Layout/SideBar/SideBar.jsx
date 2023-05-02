@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 import { LogoutButton } from '../../Button/LogoutButton/LogoutButton'
 import GooseLogo from '../../../images/icons/goose-logo.png';
 import { ReactComponent as IconClose } from '../../../images/icons/icon-close.svg';
-import { Container, Title, SpanSpecial, LogoContainer, CloseButton, LogoImg, Menu, Overlay} from './SideBar.styled';
+import { Container, Title, SpanSpecial, LogoContainer, CloseButton, LogoImg, Menu} from './SideBar.styled';
 
-export const SideBar = ({activePage, isMobalMenuOpen, closeMobalMenu}) => {
+export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
 
   useEffect(() => {
     const close = e => {
@@ -41,11 +41,10 @@ export const SideBar = ({activePage, isMobalMenuOpen, closeMobalMenu}) => {
                   <IconClose/>
                 </CloseButton>
               </Menu>
-              <UserNav activePage={activePage} closeMobalMenu={closeMobalMenu}/>
+              <UserNav closeMobalMenu={closeMobalMenu}/>
             </div>
               <LogoutButton />   
       </Container>
-      {isMobalMenuOpen && <Overlay onClick={handleCloseMobalMenu} />}
     </>
   );
 };

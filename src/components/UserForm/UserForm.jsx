@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useAuth } from '../../Redux/auth/useAuth';
-import { updateInfo } from '../../Redux/auth/authOperations';
+import { updateInfo, updateAvatar } from '../../Redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar/avatarDefault.png';
 import {
@@ -28,14 +28,34 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const [isLoading, setIsLoading] = useState(false);
 
   const { user } = useAuth();
-    
+
+
+  
+  const  pathAvatar = user.avatarURL !== "" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
+  const pathAvatarFormat = pathAvatar.replace(/\\/g, "/")
+   
+
   const [birthday, setBirthday] = useState(user.birthday ?? '');  
-  const [avatarURL, setAvatarURL] = useState('');
+  const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
   const [email, setEmail] = useState(user.email ?? '');
   const [phone, setPhone] = useState(user.phone ?? '');
 
+   
+      /*const blob =  async function getAvatar() {
+        try {
+          const response = await fetch(pathAvatarFormat);
+          const data = await response.blob();
+          return data;
+          //console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      }*/
+     
+    
+    
   const dispatch = useDispatch();
 
   const handleChange = evt => {
@@ -75,10 +95,12 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
       avatarURL,
     };
     
-    setIsLoading(true);
-
+ 
+// <ImgAvatar src={URL.createObjectURL(blob)} alt="avatar" />
+    if (avatarURL) {
+      await dispatch(updateAvatar(newUser.avatarURL));
+    }
     await dispatch(updateInfo(newUser));
-
     setIsLoading(false);
   };
 
@@ -90,7 +112,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
                 
         <ContainerAvatar>
           {avatarURL ? (
-            <ImgAvatar src={URL.createObjectURL(avatarURL)} alt="avatar" />
+            <ImgAvatar src={pathAvatarFormat} alt="avatar" />
           ) : (
             <ImgAvatar
               src={
