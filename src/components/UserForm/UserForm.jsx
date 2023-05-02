@@ -30,12 +30,15 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const [isLoading, setIsLoading] = useState(false);
 
   const { user } = useAuth();
-
-  const pathAvatar = user.avatarURL?.substr(0,5) !== "https" ? `${serverConnection}/` + user.avatarURL : ""; 
+  const avatar = user.avatarURL;
+  let bearthdate = user.birthday; 
+  let formatBearthdate = (bearthdate !== undefined) ? bearthdate.slice(0, 10) : "";  
+  const pathAvatar = (avatar?.substr(0, 4) !== "http" &&
+                        avatar !== undefined ) ? `${serverConnection}/` + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
-  const [birthday, setBirthday] = useState(user.birthday ?? '');  
+  const [birthday, setBirthday] = useState(formatBearthdate ?? '');  
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
@@ -82,7 +85,6 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
     };
     
  
-// <ImgAvatar src={URL.createObjectURL(blob)} alt="avatar" />
     if (avatarURL) {
       await dispatch(updateAvatar(newUser.avatarURL));
     }
@@ -102,7 +104,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
           ) : (
             <ImgAvatar
               src={
-                pathAvatarFormat === null || pathAvatarFormat=== 'null'
+                pathAvatarFormat === "" 
                 ? avatarDefault
                 : pathAvatarFormat
               }
@@ -155,9 +157,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
             <DatePick
               name="birthday"
               id="date"
+              value={birthday}
               type="date"
               input={true}
-              selected={birthday.toDate} // ДОДАЛА toDate - бо не рендерило, помилка, що неможна рядок встановлювати
+              selected={birthday.toDate} 
               onChange={data => setBirthday(data)}
               dateFormat="dd/MM/yyyy"
             />
