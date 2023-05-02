@@ -127,8 +127,8 @@ export const ImgAvatar = styled.img`
   }
   @media screen and (min-width: 1280px) {
 
-    /* margin-top: 60px;
-    margin-bottom: 20px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
 
   }
 `;
