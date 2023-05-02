@@ -60,7 +60,7 @@ export const Title = styled.div`
       font-size: 18px;
       line-height: 24px;
     }
-    @media (min-width: 1440px) {
+    @media (min-width: 1280px) {
       font-size: 24px;
       line-height: 24px;
     }
@@ -72,7 +72,7 @@ export const SpanSpecial = styled.p`
       font-size: 18px;
       line-height: 24px;
     }
-    @media (min-width: 1440px) {
+    @media (min-width: 1280px) {
       font-size: 24px;
       line-height: 24px;
     }
@@ -83,7 +83,7 @@ export const CloseButton = styled.div`
     background: rgba(0, 0, 0, 0);
     cursor: pointer;
     padding: 0;
-    @media (min-width: 1440px) {
+    @media (min-width: 1280px) {
       display: none;
     }
 `;

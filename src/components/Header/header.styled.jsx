@@ -29,7 +29,7 @@ export const TabletWrapper = styled.div`
     direction: rtl;
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     margin-top: 55px;
     margin-bottom: 200px;
   }

@@ -16,7 +16,7 @@ export const Li = styled.li`
     padding: 18px 20px 28px;
     
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding: 25px 20px 28px;
     max-width: 305px;
     min-width: 305px;

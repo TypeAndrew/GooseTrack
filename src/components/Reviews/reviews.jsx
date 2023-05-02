@@ -81,7 +81,7 @@ export const Reviews = () => {
         {reviews
           .slice(
             currentReview,
-            currentReview + (window.innerWidth >= 1440 ? 2 : 1)
+            currentReview + (window.innerWidth >= 1280 ? 2 : 1)
           )
           .map(review => (
             <ReviewContainer key={review.id}>

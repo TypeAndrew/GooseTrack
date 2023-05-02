@@ -11,7 +11,7 @@ export const Div = styled.div`
   height: 100vh;
   background: var(--unlogined-background);
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     position: relative;
   }
 `;
@@ -19,7 +19,7 @@ export const Div = styled.div`
 export const Img = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 352.8px;
     display: block;
     position: absolute;
@@ -31,7 +31,7 @@ export const Img = styled.img`
 export const ImgText = styled.div`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 174px;
     transform: rotate(-27deg);
     display: block;
@@ -51,7 +51,7 @@ export const Span = styled.span`
 export const ImgBg = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 174px;
     display: block;
     position: absolute;
@@ -65,7 +65,7 @@ export const ImgBg = styled.img`
 export const ImgTextLogin = styled.div`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 177px;
     transform: rotate(18deg);
     display: block;
@@ -82,7 +82,7 @@ export const ImgTextLogin = styled.div`
 export const ImgBgLogin = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 177px;
     display: block;
     position: absolute;
@@ -96,7 +96,7 @@ export const ImgBgLogin = styled.img`
 export const ImgLogin = styled.img`
   display: none;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 379px;
     display: block;
     position: absolute;
