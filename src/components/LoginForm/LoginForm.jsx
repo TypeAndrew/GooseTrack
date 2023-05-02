@@ -20,7 +20,7 @@ import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
 import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
 
-const LoginForm = ({setIsLoading}) => {
+const LoginForm = ({ setIsLoading }) => {
   const [toggleButton, setToggleButton] = useState({
     typeInput: 'password',
     toggleIcon: <IconEyeHidden />,
@@ -45,72 +45,75 @@ const LoginForm = ({setIsLoading}) => {
       ),
   });
   return (
-        <>
-          <Formik
-            validationSchema={SignupSchema}
-            validateOnBlur={false}
-            validateOnChange={false}
-            initialValues={{
+    <>
+      <Formik
+        validationSchema={SignupSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        onSubmit={async (values, actions) => {
+          setIsLoading(true);
+          await dispatch(
+            logIn({
+              email: values.email,
+              password: values.password,
+            })
+          );
+          setIsLoading(false);
+
+          actions.resetForm({
+            values: {
               email: '',
               password: '',
-            }}
-            onSubmit={async (values, actions) => {
-              setIsLoading(true);
-              await dispatch(
-                logIn({
-                  email: values.email,
-                  password: values.password,
-                })
-              );
-              setIsLoading(false);
-
-              actions.resetForm({
-                values: {
-                  email: '',
-                  password: '',
-                },
-              });
-            }}
-          >
-            {({ errors, touched, handleReset }) => (
-              <Form title="Log In" noValidate="noValidate">
-                <Label>
-                  Email
-                  <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="username"
-                    placeholder="Enter email"
-                  />
-                </Label>
+            },
+          });
+        }}
+      >
+        {({ errors, touched, handleReset }) => (
+          <Form title="Log In" noValidate="noValidate">
+            <Label color={
+                touched.email && errors.email && 'var(--error-validation-color)'
+              }>
+              Email
+              <DivWrap>
+                <Field
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="username"
+                  placeholder="Enter email"
+                />
                 <ErrorMessage component={ErrorDiv} name="email" />
+              </DivWrap>
+            </Label>
 
-                <Label>
-                  Password
-                  <DivWrap>
-                    <Field
-                      id="password"
-                      name="password"
-                      type={toggleButton.typeInput}
-                      autoComplete="current-password"
-                      placeholder="Enter password"
-                    />
-                    <ButtonToggleIcon type="button" onClick={onClick}>
-                      {toggleButton.toggleIcon}
-                    </ButtonToggleIcon>
-                  </DivWrap>
-                </Label>
+            <Label color={
+                touched.password && errors.password && 'var(--error-validation-color)'}>
+              Password
+              <DivWrap>
+                <Field
+                  id="password"
+                  name="password"
+                  type={toggleButton.typeInput}
+                  autoComplete="current-password"
+                  placeholder="Enter password"
+                />
+                <ButtonToggleIcon type="button" onClick={onClick}>
+                  {toggleButton.toggleIcon}
+                </ButtonToggleIcon>
                 <ErrorMessage component={ErrorDiv} name="password" />
-                <Button type="submit">
-                  Log in <IconLogout />
-                </Button>
-              </Form>
-            )}
-          </Formik>
-          
-        </>
- 
+              </DivWrap>
+            </Label>
+            <Button type="submit">
+              Log in <IconLogout />
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 };
 

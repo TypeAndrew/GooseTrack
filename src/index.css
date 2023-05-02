@@ -22,7 +22,7 @@ html{
   --auth-placeholder-color: #dce3e5;
   --hover-btn-background: #2B78EF;
   --disabled-btn-background: #DCEBF7;
-  --error-validation-color: #DA1414;
+  --error-validation-color: #E74A3B;
   --correct-validation-color: #3CBC81;
   --form-text-color: #111111;
   --btn-toggle-accent-background:#CAE8FF;
@@ -135,7 +135,7 @@ p {
 
 input {  
   display: block;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
   margin-top: 8px;
   border: 1px solid #dce3e5;
   border-radius: 8px;
@@ -144,16 +144,9 @@ input {
   padding-left: 14px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 18px;
+    margin-bottom: 36px;
   }
 
   
 }
-/* input:invalid{
-  color: #E74A3B;
-  border-color: #E74A3B;
-}
-input:isValid{
-  color: #3CBC81;
-  border-color: #3CBC81;
-} */
+
