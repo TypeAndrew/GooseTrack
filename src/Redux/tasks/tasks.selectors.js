@@ -4,6 +4,8 @@ export const getTasks = state => state.taskbook.tasks
 
 export const getTask = state => state.taskbook;
 
+export const isLoading = state => state.taskbook.isLoading;
+
 export const getFilter = state => state.filter;
 
 export const selectFilteredTasks = createSelector(

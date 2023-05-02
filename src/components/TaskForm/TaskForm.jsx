@@ -183,7 +183,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
               ) : (
                 <STC.Button type="submit" disabled={isSubmitting}>
                   <EditTask />
-                  Edit
+                  Edit 
                 </STC.Button>
               )}
             </STC.Wrapper>

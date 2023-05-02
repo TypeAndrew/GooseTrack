@@ -33,7 +33,7 @@ export const ModalContainer = styled.div`
 
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
-  background-color: var(--secondary-bgc-color);
+  background-color: var(--context-menu-bgc-color);
   border-radius: 8px;
   @media screen and (min-width: 768px) {
     padding: 20px 24px;
@@ -51,7 +51,7 @@ export const Button = styled.button`
   font-size: 12px;
   line-height: 14px;
   color: var(--btn-arrow-accent-color);
-  background-color: var(--secondary-bgc-color);
+  background-color: var(--context-menu-bgc-color);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -60,6 +60,7 @@ export const Button = styled.button`
   }
 
   :hover {
+    color: var(--accent-bgc-color);
     stroke: var(--accent-bgc-color);
     transition: 200ms;
   }

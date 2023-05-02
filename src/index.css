@@ -41,6 +41,9 @@ html{
   --active-item-sidebar-background: #e3f3ff;
   --unlogined-background: #dcebf7;
   --form-bgc-color: #FFFFFF;
+  --context-menu-bgc-color: #FFFFFF;
+  --overflow-bcg-color:#F2F2F2;
+  --overflow-color: #E7E5E5;
 
   /* Shadow colors */
 
@@ -65,11 +68,14 @@ html{
   --secondary-bgc-color: #171820;
   --primary-bgc-color: #21222c;
   --sidebar-bgc-color: #13151a;
+  --context-menu-bgc-color: #171820;
 
   --border-add-btn: none;
   --btn-toggle-accent-background:#3E85F3;
   --btn-toggle-background:#21222C;
   --btn-arrow-accent-color: #FFFFFF;
+  --overflow-bcg-color:#2D3037;
+  --overflow-color: #171820;
 }
 
 body {
@@ -81,6 +87,25 @@ body {
 
 }
 
+
+*::-webkit-scrollbar {
+  margin-left: 3px;
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--overflow-bcg-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  /* background-color: var(--overflow-bcg-color); */
+  border-radius: 12px;
+  border: 4px solid var(--overflow-color);
+}
+
+*::-webkit-scrollbar-button {
+  height: 0px;
+  border: 1px solid var(--overflow-color);
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

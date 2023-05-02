@@ -20,7 +20,7 @@ const tasksSlice = createSlice({
         const taskList = payload.data.tasks;
         const dateMonth = payload.dateMonth;
 
-        state.isLoading = false;
+        state.isLoading = true;
         state.error = null;
         state.tasks = taskList
         state.tasks = taskList.filter(
