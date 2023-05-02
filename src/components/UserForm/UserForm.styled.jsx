@@ -125,10 +125,11 @@ export const ImgAvatar = styled.img`
     width: 124px;
     height: 124px;
   }
-
   @media screen and (min-width: 1280px) {
-    margin-top: 60px;
-    margin-bottom: 20px;
+
+    /* margin-top: 60px;
+    margin-bottom: 20px; */
+
   }
 `;
 
