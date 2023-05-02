@@ -11,11 +11,11 @@ export const Wrapper = styled.div`
   margin-right: auto;
   width: 335px;
   height: 653px;
-  
+  background: #FFFFFF;
   border-radius: 16px;
   @media screen and (min-width: 768px) {
     width: 704px;
-    height: 854px;
+    height: 920px;
   }
   @media screen and (min-width: 1280px) {
     width: 1087px;
@@ -207,9 +207,11 @@ export const Btn = styled.button`
   cursor: pointer;
   font-family: 'Inter';
   font-style: normal;
+  color: white;
+  background: #3E85F3;
   :hover,
   :focus {
-    background: #3E85F3;
+    background: #2B78EF;
     color: rgb(255, 255, 255);
    }
   @media screen and (min-width: 768px) {

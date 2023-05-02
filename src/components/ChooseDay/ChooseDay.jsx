@@ -113,9 +113,6 @@ const ChooseDay = () => {
     btnBack = false;
   }
 
-console.log("start",dateFns.getTime(startTime))
-console.log("time", time)
-
    useEffect(() => {
      dispatch(getTasksThunk(time));
    }, [dispatch, time]);

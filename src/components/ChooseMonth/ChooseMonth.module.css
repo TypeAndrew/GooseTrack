@@ -20,7 +20,7 @@
 .div_grid_weeks {
   border-radius: 8px;
   background: #ffffff;
-  border: 0.5px solid rgba(220, 227, 229, 0.8);
+  border: 1px solid rgba(220, 227, 229, 0.8);
   height: 50px;
   margin-top: 24px;
   margin-bottom: 32px;
@@ -80,9 +80,13 @@
   }
 }
 .date {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: 'Inter';
   font-style: normal;
+  width: 27px;
+  height: 26px;
   font-weight: 700;
   font-size: 16px;
   color: var(--text-day-color);
@@ -95,21 +99,21 @@
   right: 4px;
   top: 8px;
 }
-.date_curent{
-  display: block;
+.date_curent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 27px;
+  height: 26px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  background: #3E85F3;
+  background: #3e85f3;
   border-radius: 6px;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 18px;
   position: absolute;
-  @media screen and(max-width:768px) {
-    right: 4px;
-    top: 6px;
-  }
   right: 4px;
   top: 8px;
 }
@@ -135,7 +139,7 @@
   line-height: 14px;
   background: #ceeefd;
   border-radius: 8px;
-  color: #3E85F3;
+  color: #3e85f3;
   padding-left: 2px;
   padding-right: 2px;
   @media screen and(min-width:768px) {
@@ -150,9 +154,8 @@
   line-height: 14px;
   background: #fcf0d4;
   border-radius: 8px;
-  color: #F3B249;
-  padding-left: 2px;
-  padding-right: 2px;
+  color: #f3b249;
+  
   @media screen and(min-width:768px) {
     margin: 4px;
   }
@@ -165,7 +168,7 @@
   line-height: 14px;
   background: #ffd2dd;
   border-radius: 8px;
-  color: #EA3D65;
+  color: #ea3d65;
   padding-left: 2px;
   padding-right: 2px;
   @media screen and(min-width:768px) {

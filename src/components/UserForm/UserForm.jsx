@@ -28,10 +28,13 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const [isLoading, setIsLoading] = useState(false);
 
   const { user } = useAuth();
+
+
   
   const  pathAvatar = user.avatarURL !== "" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/")
    
+
   const [birthday, setBirthday] = useState(user.birthday ?? '');  
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
@@ -104,6 +107,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   return (
      <>{ isLoading ? <SpinnerGrid /> :
       (<Wrapper>
+        
         <Forms autoComplete="off" onSubmit={handleSubmit}>
                 
         <ContainerAvatar>
@@ -179,6 +183,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               type="text"
               name="skype"
               id="skype"
+              placeholder="Add a skype number"
               value={skype}
               onChange={handleChange}
             />
