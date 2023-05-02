@@ -25,9 +25,9 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const UserForm = () => {
 
-    const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-    const { user } = useAuth();
+  const { user } = useAuth();
     
   const [birthday, setBirthday] = useState(user.birthday ?? '');  
   const [avatarURL, setAvatarURL] = useState('');
@@ -85,6 +85,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   return (
      <>{ isLoading ? <SpinnerGrid /> :
       (<Wrapper>
+        
         <Forms autoComplete="off" onSubmit={handleSubmit}>
                 
         <ContainerAvatar>
@@ -160,6 +161,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               type="text"
               name="skype"
               id="skype"
+              placeholder="Add a skype number"
               value={skype}
               onChange={handleChange}
             />
