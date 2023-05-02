@@ -15,7 +15,7 @@ export const FlexedCalendar = styled.div`
   }
 
   @media (min-width: 1280px) {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     padding-left: 205px;
     padding-right: 128px;
@@ -39,6 +39,7 @@ export const AllTextWrapper = styled.div`
 
   @media (min-width: 1280px) {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     align-items: flex-end;
     direction: rtl;
