@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
     padding: 32px;
     // width:704px;
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 1280px) {
     margin-left: 289px;
     padding-left: auto;
     padding-right: auto;
