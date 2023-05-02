@@ -17,6 +17,8 @@ export const Li = styled.li`
 `;
 export const H3 = styled.h3`
   margin-bottom: 28px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: var(--primary-text-color);
   font-family: 'Inter';
