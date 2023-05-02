@@ -11,16 +11,13 @@ export const IconBtnMoveTask = styled(MoveTask)`
 `;
 
 export const Overlay = styled.div`
-  /* position: fixed; */
-  left: 0;
+  /* position: fixed; 
+   left: 0;
   top: 0;
   right: 0;
-  bottom: 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto; */
+  bottom: 0;  */
+  /* width: 100vw;
+  height: 100vh; */
   background-color: transparent;
   z-index: 1000;
 `;
@@ -39,7 +36,9 @@ export const ModalContainer = styled.div`
   background-color: var(--secondary-bgc-color);
   border-radius: 8px;
   @media screen and (min-width: 768px) {
-    padding: 40px 28px;
+    padding: 20px 24px;
+    width: 147px;
+    height: 90px;
   }
 `;
 export const Button = styled.button`
@@ -53,6 +52,17 @@ export const Button = styled.button`
   line-height: 14px;
   color: var(--btn-arrow-accent-color);
   background-color: var(--secondary-bgc-color);
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 18px;
+    width: 99px;
+  }
+
+  :hover {
+    stroke: var(--accent-bgc-color);
+    transition: 200ms;
+  }
 `;
 
 export const Li = styled.li`

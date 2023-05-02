@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
 import initialState from "../calendar/initialState"
 
-console.log(initialState)
+// console.log(initialState)
 
 export const calendarSlice = createSlice({
     name:"calendar",

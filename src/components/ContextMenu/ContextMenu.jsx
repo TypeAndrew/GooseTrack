@@ -29,8 +29,8 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
 
   function handleClose(evt) {
     const { target, currentTarget } = evt;
-    console.log('target', target);
-    console.log('currentTarget', currentTarget);
+    // console.log('target', target);
+    // console.log('currentTarget', currentTarget);
     if (target === currentTarget) {
       handleCloseModal();
     }
@@ -57,8 +57,8 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
   };
 
   return (
-    <Overlay onClick={handleClose}>
-      <ModalContainer>
+      <Overlay onClick={handleClose}>
+    <ModalContainer >
         <Ul>
           {status !== 'To do' && (
             <Li key="To do">
