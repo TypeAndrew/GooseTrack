@@ -6,7 +6,7 @@ export const Ul = styled.ul`
   padding: 0px;
   gap: 14px;
   margin-bottom: 14px;
-  overflow-y: none;
+  overflow-y: auto;
   max-height: 372px;
 
   ::-webkit-scrollbar {
