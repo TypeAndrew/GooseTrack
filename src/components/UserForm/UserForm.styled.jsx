@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   margin-right: auto;
   width: 335px;
   height: 653px;
-  background: #FFFFFF;
+  background:var(--primary-bgc-color);
   border-radius: 16px;
   @media screen and (min-width: 768px) {
     width: 704px;
@@ -27,12 +27,13 @@ export const Title = styled.h2`
     margin-bottom: 4px;
     font-family: Inter;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.3;
-    color: rgb(52, 52, 52);
+    color: var(--text-day-color);
 
   @media screen and (max-width: 767px) {
     margin-top: 59px;
+    font-size: 14px;
   }
   
   @media screen and (min-width: 768px) {
@@ -53,6 +54,7 @@ export const InputList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
   p {
     margin-bottom: 8px;
   }
@@ -71,7 +73,9 @@ export const Input = styled.input`
   width: 299px;
   height: 42px;
   padding-left: 18px;
-  
+  background: var(--primary-bgc-color);
+  border: var(--border-imput-color);
+  color: var(--primary-text-color);
   border-radius: 8px;
   font-family: 'Inter';
   font-style: normal;
@@ -89,12 +93,14 @@ export const DatePick = styled(DatePicker)`
   width: 299px;
   height: 42px;
   padding-left: 18px;
- 
   border-radius: 8px;
- 
+  border: var(--border-imput-color);
+  background: var(--primary-bgc-color);
+  color: var(--primary-text-color);
+  background: var(--primary-bgc-color);
   font-family: 'Inter';
   font-style: normal;
- 
+
   @media screen and (min-width: 768px) {
     width: 354px;
     height: 46px;
@@ -152,9 +158,9 @@ export const User = styled.p`
   margin-bottom: 40px;
   font-family: Inter;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.2;
-  color: rgb(97, 97, 97);
+  color: var(--text-user-color);
   
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -211,9 +217,9 @@ export const LabelBtn = styled.label`
     flex-direction: column;
     font-family: Inter;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.2;
-    color: rgb(0, 0, 0);
+    color: var(--text-name-color);
   @media screen and (min-width: 768px) {
     margin-bottom: 24px;
     }
