@@ -15,7 +15,7 @@ export const Container = styled.div`
     width: 289px;
   }
 
-  @media (max-width: 1439px) {
+  @media (max-width: 1279px) {
     left: 0;
     transform: translateX(-100%);
     &.openMobalMenu {
