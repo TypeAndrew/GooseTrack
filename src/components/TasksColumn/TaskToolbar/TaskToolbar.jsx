@@ -10,13 +10,23 @@ import { useState } from 'react';
 import { TaskModal } from 'components/TaskModal/TaskModal';
 import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { useDispatch, useSelector } from 'react-redux';
-import {TaskMoveModal} from "../../TaskMoveModal/TaskMoveModal"
+
+import { ContextMenu } from 'components/ContextMenu/ContextMenu';
 
 export const TaskToolbar = ({ status, task }) => {
   const dispatch = useDispatch();
 
   const [showModal, setShowModal] = useState(false);
-  const [isMoveModalOpen, setIsMoveModalOpen] = useState(false);
+
+  const [showContextMenu, setShowContextMenu] = useState(false);
+
+  const handleShowContextMenu = () => {
+    setShowContextMenu(true);
+  };
+  const handleCloseContextMenu = () => {
+    setShowContextMenu(false);
+  };
+
   const time = useSelector(state => state.calendar.time);
 
   const handleShowModal = () => {
@@ -26,15 +36,6 @@ export const TaskToolbar = ({ status, task }) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
-
-  const handleShowMoveModal = () => {
-    setIsMoveModalOpen(true);
-    console.log(status, task)
-  };
-
-  /*const handleCloseMoveModal = () => {
-    setIsMoveModalOpen(false);
-  };*/
 
   const handleDelete = async () => {
     await dispatch(deleteTasksThunk(task._id));
@@ -46,9 +47,18 @@ export const TaskToolbar = ({ status, task }) => {
     <>
       <Ul>
         <Li>
-          <Button type="button" onClick={handleShowMoveModal}>
+
+          <Button type="button" onClick={handleShowContextMenu}>
+
             <IconBtnMoveTask />
           </Button>
+          {showContextMenu && (
+            <ContextMenu
+              status={status}
+              handleCloseModal={handleCloseContextMenu}
+              taskFormData={task}
+            />
+          )}
         </Li>
         <Li>
           <Button type="button" onClick={handleShowModal}>
@@ -68,9 +78,6 @@ export const TaskToolbar = ({ status, task }) => {
           status={status}
           taskFormData={task}
         />
-      )}
-      {isMoveModalOpen && (
-        <TaskMoveModal/>
       )}
     </>
   );
