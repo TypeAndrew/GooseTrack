@@ -29,7 +29,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const { user } = useAuth();
 
-  const pathAvatar = avatar.substr(0,5) !== "https" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
+  const pathAvatar = avatar?.substr(0,5) !== "https" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
