@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     width: 704px;
     height: 920px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 1087px;
     height: 752px;
   }
@@ -61,7 +61,7 @@ export const InputList = styled.div`
     min-height: 458px;
     justify-content: space-between;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 758px;
     min-height: 264px;
   }
@@ -125,11 +125,10 @@ export const ImgAvatar = styled.img`
     width: 124px;
     height: 124px;
   }
-
   @media screen and (min-width: 1280px) {
-    margin-top: 60px;
-    margin-bottom: 20px;
-
+    /* margin-top: 60px;
+    margin-bottom: 20px; */
+  }
 `;
 
 export const ImgBtnWrapper = styled.div`
@@ -186,7 +185,7 @@ export const ContainerAvatar = styled.div`
     width: 124px;
     height: 124px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-top: 60px;
     margin-bottom: 20px;
     width: 124px;
@@ -201,7 +200,7 @@ export const LabelImg = styled.label`
     left: 200px;
     top: 143px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     left: 400px;
     top: 167px;
   }
