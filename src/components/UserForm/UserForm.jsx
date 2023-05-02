@@ -4,6 +4,7 @@ import { useAuth } from '../../Redux/auth/useAuth';
 import { updateInfo, updateAvatar } from '../../Redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
 import avatarDefault from '../../images/avatar/avatarDefault.png';
+import serverConnection from '../constants/PARAMS'
 import {
   Wrapper,
   Title,
@@ -30,10 +31,8 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const { user } = useAuth();
 
-
-  
-  const  pathAvatar = user.avatarURL !== "" ? "https://goose-track-back.onrender.com/" + user.avatarURL : ""; 
-  const pathAvatarFormat = pathAvatar.replace(/\\/g, "/")
+  const pathAvatar = user.avatarURL?.substr(0,5) !== "https" ? `${serverConnection}/` + user.avatarURL : ""; 
+  const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
   const [birthday, setBirthday] = useState(user.birthday ?? '');  
@@ -42,20 +41,6 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const [skype, setSkype] = useState(user.skype ?? '');
   const [email, setEmail] = useState(user.email ?? '');
   const [phone, setPhone] = useState(user.phone ?? '');
-
-   
-      /*const blob =  async function getAvatar() {
-        try {
-          const response = await fetch(pathAvatarFormat);
-          const data = await response.blob();
-          return data;
-          //console.log(data);
-        } catch (error) {
-          console.error(error);
-        }
-      }*/
-     
-    
     
   const dispatch = useDispatch();
 
@@ -117,9 +102,9 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
           ) : (
             <ImgAvatar
               src={
-                user.avatarURL === null || user.avatarURL === 'null'
-                  ? avatarDefault
-                  : user.avatarURL
+                pathAvatarFormat === null || pathAvatarFormat=== 'null'
+                ? avatarDefault
+                : pathAvatarFormat
               }
               alt="avatar"
             />

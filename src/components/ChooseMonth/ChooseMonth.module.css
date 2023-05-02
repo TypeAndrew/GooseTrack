@@ -1,5 +1,5 @@
 .container {
-  margin: 0 20px 0 20px;
+  /* margin: 0 20px 0 20px; */
   /* height: 600px; */
 }
 
@@ -89,9 +89,9 @@
   height: 26px;
   font-weight: 700;
   font-size: 16px;
-  color: var(--text-day-color);
   line-height: 18px;
   position: absolute;
+  color: var(--text-day-color);
   @media screen and(max-width:768px) {
     right: 4px;
     top: 6px;
@@ -111,7 +111,7 @@
   font-size: 16px;
   background: #3e85f3;
   border-radius: 6px;
-  color: #ffffff;
+  color: #22232D;
   line-height: 18px;
   position: absolute;
   right: 4px;
@@ -144,6 +144,8 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+line-height: 18px;
   }
 }
 .Medium {
@@ -158,6 +160,8 @@
   
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+line-height: 18px;
   }
 }
 .High {
@@ -173,6 +177,8 @@
   padding-right: 2px;
   @media screen and(min-width:768px) {
     margin: 4px;
+    font-size: 14px;
+line-height: 18px;
   }
 }
 .more {
