@@ -49,3 +49,19 @@ export const MenuOpen = styled.svg`
     display: none;
   }
 `;
+
+export const CalendarLogoImg = styled.img`
+
+`
+
+export const Text = styled.p`
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+`;
+
+export const SpanStyled = styled.span`
+  font-family: inherit;
+  color: var(--accent-text-color);
+`;
