@@ -4,10 +4,20 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 export const Avatar = styled.div`
-position: absolute; 
-top: 50%; left: 50%; 
-transform: translate(-50%, -50%);
- text-align: center;`
+  position: absolute; 
+  top: 35%; left: 50%; 
+  transform: translate(-50%, -50%);
+  text-align: center;
+  
+  @media screen and (min-width: 768px) {
+    top: 9%; left: 50%; 
+  }
+  @media screen and (min-width: 1280px) {
+
+    top: 15%; left: 50%;
+
+  }
+  `
 
 export const Wrapper = styled.div`
   display: flex;
@@ -120,16 +130,16 @@ export const InputFile = styled.input`
 
 export const ImgAvatar = styled.img`
   text-align: center;
-  width: 72px;
-  height: 72px;
+  width: 52px;
+  height: 52px;
   
   
   
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     margin-bottom: 24px;
-    width: 124px;
-    height: 124px;
+    width: 90px;
+    height: 90px;
   }
   @media screen and (min-width: 1280px) {
 

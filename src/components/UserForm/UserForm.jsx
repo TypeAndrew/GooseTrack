@@ -108,7 +108,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
                 <ImgAvatar
                   src={avatarDefault}
                   alt="avatar"
-                />  <Avatar>{user.name.substr(0, 2).toUpperCase()}</Avatar>
+                />  <Avatar>{user.name.substr(0, 1).toUpperCase()}</Avatar>
               </div>}
         </ContainerAvatar>
 
