@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Ul = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  padding: 0px;
+  padding: 0px 8px 0 0;
   gap: 14px;
   margin-bottom: 14px;
   overflow-y: auto;

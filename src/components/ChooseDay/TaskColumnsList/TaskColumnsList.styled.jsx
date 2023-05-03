@@ -6,6 +6,7 @@ export const Ul = styled.ul`
   align-items: flex-start;
   justify-content: space-between;
   overflow-x: auto;
+  width: 100%;
   /* margin-left: 20px;
   margin-right: 20px; */
   gap: 20px;

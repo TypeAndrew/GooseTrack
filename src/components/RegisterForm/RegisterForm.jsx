@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -16,7 +16,7 @@ import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
 import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
 
-const RegisterForm = ({setIsLoading}) => {
+const RegisterForm = ({ setIsLoading }) => {
   const [toggleButton, setToggleButton] = useState({
     typeInput: 'password',
     toggleIcon: <IconEyeHidden />,
@@ -46,95 +46,123 @@ const RegisterForm = ({setIsLoading}) => {
   });
 
   return (
-        <>
-          <Formik
-            validationSchema={SignupSchema}
-            validateOnBlur={false}
-            validateOnChange={false}
-            initialValues={{
+    <>
+      <Formik
+        validationSchema={SignupSchema}
+        validateOnBlur={false}
+        validateOnChange={false}
+        initialValues={{
+          email: '',
+          name: '',
+          password: '',
+        }}
+        onSubmit={async (values, actions) => {
+          setIsLoading(true);
+
+          await dispatch(
+            register({
+              name: values.name,
+              email: values.email,
+              password: values.password,
+            })
+          );
+
+          setIsLoading(false);
+
+          actions.resetForm({
+            values: {
               email: '',
               name: '',
               password: '',
-            }}
-            onSubmit={async (values, actions) => {
+            },
+          });
+        }}
+      >
+        {({ errors, touched, handleReset }) => (
+          <Form title="Sign Up" noValidate="noValidate">
+            <Label
+              color={
+                touched.name && errors.name && 'var(--error-validation-color)'
+              }
+            >
+              Name
+              <DivWrap>
+                <Field
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="off"
+                  placeholder="Enter your name"
+                  border={
+                    touched.name &&
+                    errors.name &&
+                    '1px solid var(--error-validation-color)'
+                  }
+                />
+                <ErrorMessage component={ErrorDiv} name="name" />{' '}
+              </DivWrap>
+            </Label>
 
-              setIsLoading(true);
-
-              await dispatch(
-                register({
-                  name: values.name,
-                  email: values.email,
-                  password: values.password,
-                })
-              );
-
-              setIsLoading(false);
-
-              actions.resetForm({
-                values: {
-                  email: '',
-                  name: '',
-                  password: '',
-                },
-              });
-            }}
-          >
-            {({ errors, touched, handleReset }) => (
-              <Form title="Sign Up" noValidate="noValidate">
-                <Label color={touched.name && errors.name && "var(--error-validation-color)"}>
-                  Name
-                  <Field
-                    id="name"
-                    name="name"
-                    type="text"
-                    autoComplete="off"
-                    placeholder="Enter your name"
-                    border={touched.name && errors.name && "1px solid var(--error-validation-color)"}
-                  />
-                </Label>
-                <ErrorMessage component={ErrorDiv} name="name" /> 
-
-                <Label color={touched.email && errors.email && "var(--error-validation-color)"}>
-                  Email
-                  <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="username"
-                    placeholder="Enter email"
-                    border={touched.email && errors.email && "1px solid var(--error-validation-color)"}/>
-                   {/* {touched.email && errors.email && <div>{errors.email}</div>} */}
-                </Label>
+            <Label
+              color={
+                touched.email && errors.email && 'var(--error-validation-color)'
+              }
+            >
+              Email
+              <DivWrap>
+                <Field
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="username"
+                  placeholder="Enter email"
+                  border={
+                    touched.email &&
+                    errors.email &&
+                    '1px solid var(--error-validation-color)'
+                  }
+                />
+                {/* {touched.email && errors.email && <div>{errors.email}</div>} */}
                 <ErrorMessage component={ErrorDiv} name="email" />
-                <Label name="password" 
-                color={touched.password && errors.password && "var(--error-validation-color)"}>
-                  Password 
-                  <DivWrap>
-                    <Field
-                      id="password"
-                      name="password"
-                      type={toggleButton.typeInput}
-                      autoComplete="current-password"
-                      placeholder="Enter password"
-                      border={touched.password && errors.password && "1px solid var(--error-validation-color)"}
-
-                    />
-                    <ButtonToggleIcon type="button" onClick={onClick}>
-                      {toggleButton.toggleIcon}
-                    </ButtonToggleIcon>
-                  </DivWrap>
-                </Label>
+              </DivWrap>
+            </Label>
+            <Label
+              name="password"
+              color={
+                touched.password &&
+                errors.password &&
+                'var(--error-validation-color)'
+              }
+            >
+              Password
+              <DivWrap>
+                <Field
+                  id="password"
+                  name="password"
+                  type={toggleButton.typeInput}
+                  autoComplete="current-password"
+                  placeholder="Enter password"
+                  border={
+                    touched.password &&
+                    errors.password &&
+                    '1px solid var(--error-validation-color)'
+                  }
+                />
+                <ButtonToggleIcon type="button" onClick={onClick}>
+                  {toggleButton.toggleIcon}
+                </ButtonToggleIcon>
                 <ErrorMessage component={ErrorDiv} name="password" />
-                <Button type="submit">
-                  Sign Up
-                  <IconLogout />
-                </Button>
-              </Form>
-            )}
-          </Formik>
-        </>
-      )
-
+              </DivWrap>
+            </Label>
+            <Button type="submit">
+              Sign Up
+              <IconLogout />
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </>
+  );
 };
 
 export default RegisterForm;
