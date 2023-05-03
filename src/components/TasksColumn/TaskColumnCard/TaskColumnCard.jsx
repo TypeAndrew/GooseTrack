@@ -1,3 +1,4 @@
+import { useAuth } from 'Redux/auth/useAuth';
 import { TaskToolbar } from '../TaskToolbar/TaskToolbar';
 import {
   Li,
@@ -6,11 +7,14 @@ import {
   Div,
   Img,
   DivPriority,
+  DefImg,
 } from './TaskColumnCard.styled';
-import { useAuth } from 'Redux/auth/useAuth';
+import { ReactComponent as AvatarSvg } from '../../../images/icons/userAvatar.svg';
+import serverConnection from '../../constants/PARAMS';
 
 export const TaskColumnCard = ({ task }) => {
   const { user } = useAuth();
+  const avatarSrc = `${serverConnection}/` + user.avatarURL;
 
   return (
     <Li>
@@ -18,8 +22,8 @@ export const TaskColumnCard = ({ task }) => {
 
       <DivWrap>
         <Div>
-          <Img alt="User avatar" src={user.avatar}></Img>
-          <DivPriority variant={task.priority}>{task.priority}</DivPriority>
+          {user.avatarURL ? <Img alt="User avatar" src={avatarSrc}></Img> : <DefImg><AvatarSvg/></DefImg>}
+          <DivPriority variant={task.priority}>{task.priority}</DivPriority>  
         </Div>
 
         <TaskToolbar status={task.category} task={task}/>

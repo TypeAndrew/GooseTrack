@@ -52,6 +52,15 @@ export const Img = styled.img`
   gap: 8px;
 `;
 
+export const DefImg = styled.div`
+  width: 32px;
+  height: 32px;
+  border: 1.8px solid #3e85f3;
+  border-radius: 32px;
+  gap: 8px;
+  padding: 5px;
+`;
+
 export const DivPriority = styled('div')(
   {
     padding: '4px 12px',

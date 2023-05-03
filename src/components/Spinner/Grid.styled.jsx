@@ -7,6 +7,7 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  height: 100%;
-  background: var(--unlogined-background);
+  height: calc(100vh - 250px);
+  margin-top: 32px;
+  background: var(--primary-bgc-color);
 `;
