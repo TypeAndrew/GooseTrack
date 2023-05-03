@@ -9,14 +9,16 @@ export const Button = styled.button`
   padding-bottom: 16px;
   gap: 8px;
   isolation: isolate;
-  cursor: pointer;
-
+  cursor: pointer;  
   width: 100%;
   height: 48px;
-
   background: var(--active-item-sidebar-background);
   border: var(--border-add-btn);
   border-radius: 8px;
+
+  &:hover {
+    background: var(--hover-btn-background);
+  }
 `;
 
 export const AddTask = styled.span`

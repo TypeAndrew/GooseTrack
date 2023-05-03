@@ -19,6 +19,7 @@ export const H3 = styled.h3`
   margin-bottom: 28px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 
   color: var(--primary-text-color);
   font-family: 'Inter';
