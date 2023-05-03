@@ -42,6 +42,7 @@ export const WeeksHeader = props => {
     }
     return css.weeks_iteam_day;
   };
+
   return (
     <div className={css.div_grid_weeks}>
       {totalDate.map(week => (
@@ -55,3 +56,4 @@ export const WeeksHeader = props => {
     </div>
   );
 };
+

@@ -35,12 +35,12 @@ export const Label = styled.label`
   line-height: 1.17;
 
   @media (min-width: 768px) {
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
   }
 `;
 
 export const Span = styled.span`
-  margin-bottom: 8px;
+  margin-top: 8px;
   font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
@@ -51,7 +51,7 @@ export const Span = styled.span`
 
 export const Input = styled.input`
   height: 42px;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   padding: 14px;
   width: 100%;
   outline: none;
@@ -77,8 +77,8 @@ export const Input = styled.input`
 
 export const Errors = styled.span`
   min-height: 14px;
-  margin-top: -14px;
-  margin-bottom: 2px;
+  margin-top: -6px;
+  // margin-bottom: 2px;
   color: red;
   font-family: var( --primary-font);
   font-style: normal;
@@ -119,6 +119,7 @@ export const Button = styled.button`
   &:hover,
   :focus {
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
@@ -149,6 +150,7 @@ export const ButtonCancel = styled.button`
   &:hover,
   :focus {
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
@@ -162,6 +164,7 @@ export const Svg = styled.svg`
   height: 18px;
   fill: none;
   stroke: var(--btn-text-color);
+  
 
   @media (min-width: 768px) {
     width: 20px;
