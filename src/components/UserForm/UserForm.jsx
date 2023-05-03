@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useAuth } from '../../Redux/auth/useAuth';
 import { updateInfo, updateAvatar } from '../../Redux/auth/authOperations';
 import plus from '../../images/icons/plusAvatar.svg';
-import avatarDefault from '../../images/avatar/avatarDefault.png';
+import avatarDefault from '../../images/icons/userAvatar.svg';
 import serverConnection from '../constants/PARAMS'
 import {
   Wrapper,
@@ -14,6 +14,7 @@ import {
   DatePick,
   InputFile,
   ImgAvatar,
+  ImgAvatarDefault,
   ImgBtnWrapper,
   ImgBtn,
   User,
@@ -22,7 +23,6 @@ import {
   LabelBtn,
   Btn,
   DatePickerWrapper,
-  Avatar
 } from './UserForm.styled';
 import { SpinnerGrid } from 'components/Spinner/Grid';
 
@@ -40,7 +40,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
-  const [birthday, setBirthday] = useState(formatBearthdate ?? '');  
+  const [birthday, setBirthday] = useState( '');  
 
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
@@ -105,10 +105,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
             {(avatarURL !== "" && pathAvatar !== `${serverConnection}/`)
               ? <ImgAvatar src={pathAvatarFormat} alt="avatar" /> :
               <div>
-                <ImgAvatar
+                <ImgAvatarDefault
                   src={avatarDefault}
                   alt="avatar"
-                />  <Avatar>{user.name.substr(0, 1).toUpperCase()}</Avatar>
+                />  
               </div>}
         </ContainerAvatar>
 
@@ -164,12 +164,12 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
             <DatePick
               name="birthday"
               id="date"
-              value={birthday}
+              value={formatBearthdate}
               type="date"
               input={true}
               selected={birthday.toDate} 
-              onChange={data => setBirthday(data)}
-              dateFormat="yyyy-MM-dd"
+              onChange={setBirthday}
+              dateFormat="YYYY-MM-DD"
             />
             </LabelBtn>
           </DatePickerWrapper>

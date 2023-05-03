@@ -3,23 +3,6 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export const Avatar = styled.div`
-  position: absolute; 
-  top: 35%; left: 50%; 
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-weight: bold;
-
-  @media screen and (min-width: 768px) {
-    top: 9%; left: 50%; 
-  }
-  @media screen and (min-width: 1280px) {
-
-    top: 15%; left: 50%;
-
-  }
-  `
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -135,18 +118,18 @@ export const InputFile = styled.input`
   margin: 0;
 `;
 
-export const ImgAvatar = styled.img`
+export const ImgAvatarDefault = styled.img`
   text-align: center;
-  width: 52px;
-  height: 52px;
+  width: 39px;
+  height: 37px;
   
   
   
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     margin-bottom: 24px;
-    width: 90px;
-    height: 90px;
+    width: 52px;
+    height: 50px;
   }
   @media screen and (min-width: 1280px) {
 
@@ -155,6 +138,28 @@ export const ImgAvatar = styled.img`
 
   }
 `;
+
+export const ImgAvatar = styled.img`
+  text-align: center;
+  width: 124px;
+  height: 124px;
+  
+  
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    width: 124px;
+    height: 124px;
+  }
+  @media screen and (min-width: 1280px) {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+`;
+
 
 export const ImgBtnWrapper = styled.div`
  `;
