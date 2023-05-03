@@ -8,7 +8,8 @@ export const Avatar = styled.div`
   top: 35%; left: 50%; 
   transform: translate(-50%, -50%);
   text-align: center;
-  
+  font-weight: bold;
+
   @media screen and (min-width: 768px) {
     top: 9%; left: 50%; 
   }

@@ -1,4 +1,6 @@
-import React from 'react';
+import useSound from 'use-sound';
+import boopSfx from '../../SoundGoose.mp3';
+import { useCallback } from 'react';
 import { useParams } from 'react-router';
 import { Formik } from 'formik';
 import { isAfter, isValid, parse } from 'date-fns';
@@ -71,7 +73,16 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
       .oneOf(['Low', 'Medium', 'High'], 'Invalid priority'),
   });
 
-  return (
+  const [play, { stop }] = useSound(boopSfx);
+  
+  const playSound = useCallback(() =>{
+    play();
+    return () => {
+      stop();
+    };
+  },[play,stop]);
+
+ return (
     <>
       <Formik
         initialValues={initialValues}
@@ -81,6 +92,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
         onSubmit={(values, { setSubmitting }) => {
           handleAdd(values);
           setSubmitting(false);
+          playSound();
         }}
       >
         {({
@@ -175,6 +187,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
                     disabled={isSubmitting}
                     onClick={() => {
                       onClose();
+                  
                     }}
                   >
                     Cancel
