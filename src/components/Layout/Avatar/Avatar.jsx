@@ -12,7 +12,7 @@ export const Avatar = () => {
 
     return (
         <>
-            {pathAvatar !== ""
+            {(pathAvatar !== "" && pathAvatar !== `${serverConnection}/`)
                 ? (<UserAvatar src={pathAvatar} alt={'avatar'}/>) 
                 : (<UserAvatarSvg>
                      <AvatarSvg/>

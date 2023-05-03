@@ -3,6 +3,12 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
+export const Avatar = styled.div`
+position: absolute; 
+top: 50%; left: 50%; 
+transform: translate(-50%, -50%);
+ text-align: center;`
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;

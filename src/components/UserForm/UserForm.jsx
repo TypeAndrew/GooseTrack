@@ -22,6 +22,7 @@ import {
   LabelBtn,
   Btn,
   DatePickerWrapper,
+  Avatar
 } from './UserForm.styled';
 import { SpinnerGrid } from 'components/Spinner/Grid';
 
@@ -101,18 +102,14 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
         <Forms autoComplete="off" onSubmit={handleSubmit}>
                 
         <ContainerAvatar>
-          {avatarURL ? (
-            <ImgAvatar src={pathAvatarFormat} alt="avatar" />
-          ) : (
-            <ImgAvatar
-              src={
-                pathAvatarFormat === "" 
-                ? avatarDefault
-                : pathAvatarFormat
-              }
-              alt="avatar"
-            />
-          )}
+            {(avatarURL !== "" && pathAvatar !== `${serverConnection}/`)
+              ? <ImgAvatar src={pathAvatarFormat} alt="avatar" /> :
+              <div>
+                <ImgAvatar
+                  src={avatarDefault}
+                  alt="avatar"
+                />  <Avatar>{user.name.substr(0, 2).toUpperCase()}</Avatar>
+              </div>}
         </ContainerAvatar>
 
           <LabelImg htmlFor="avatar">
