@@ -7,7 +7,6 @@ import css from './ChooseMonth.module.css';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
 import { formatISO } from 'date-fns/esm';
 
-//const formatofWeek = 'eeee';
 const formatOfDay = 'dd';
 
 const ChooseMonth = () => {

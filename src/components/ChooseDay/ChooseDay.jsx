@@ -1,8 +1,8 @@
 import { useParams, NavLink, useNavigate } from 'react-router-dom';
-// import { useEffect } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux';
 import css from './ChooseDay.module.css';
-//import { addDays, getDate, getTime } from 'date-fns';
+
 import * as dateFns from 'date-fns';
 import { TaskColumnsList } from './TaskColumnsList/TaskColumnsList';
 import { WeeksHeader } from './WeeksHeader/WeeksHeader';
@@ -18,8 +18,6 @@ import {
 
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
-// import { useEffect } from 'react';
-// import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 
 const ChooseDay = () => {
   const navigate = useNavigate();
@@ -113,10 +111,6 @@ const ChooseDay = () => {
   } else {
     btnBack = false;
   }
-
-  // useEffect(() => {
-  //   dispatch(getTasksThunk(time));
-  // }, [dispatch, time]);
 
   const colordisable = btnBack ? '#DCE3E5' : '#616161';
   return (

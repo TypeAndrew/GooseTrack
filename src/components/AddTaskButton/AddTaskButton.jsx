@@ -13,8 +13,6 @@ export const AddTaskBtn = ({ status }) => {
     setShowModal(false);
   };
 
-  // console.log('status ', status);
-
   return (
     <>
       <Button type="button" onClick={handleShowModal}>

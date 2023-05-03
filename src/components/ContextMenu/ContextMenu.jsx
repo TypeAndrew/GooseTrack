@@ -30,8 +30,7 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
 
   function handleClose(evt) {
     const { target, currentTarget } = evt;
-    // console.log('target', target);
-    // console.log('currentTarget', currentTarget);
+
     if (target === currentTarget) {
       handleCloseModal();
     }

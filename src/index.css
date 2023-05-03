@@ -99,7 +99,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  /* background-color: var(--overflow-bcg-color); */
+
   border-radius: 12px;
   border: 4px solid var(--overflow-color);
 }
@@ -126,7 +126,6 @@ form {
 }
 
 
-
 li {
   display: flex;
   justify-content: center;
@@ -138,10 +137,7 @@ li {
   padding: 10px 10px;
 }
 
-/* .Toastify {
-  margin-top: 40px;
 
-} */
 
 h1,
 h2,

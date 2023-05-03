@@ -1,6 +1,5 @@
 import { Tasks } from '../../components/Tasks/Tasks';
 import { TasksForm } from '../../components/TaskForm/TasksForm';
-//import { Filter } from '../../components/Filter/Filter';
 
 
 const TasksPage = () => {

@@ -7,7 +7,6 @@ export const Div = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  /* width: 100vw; */
   height: 100vh;
   background: var(--unlogined-background);
 

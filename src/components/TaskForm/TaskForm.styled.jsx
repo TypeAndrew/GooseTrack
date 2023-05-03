@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  /* display: flex;
-  flex-direction: column; */
-  /* padding: 40px 18px; */
-  /* width: 303px; */
-  /* width: 100%; */
-  /* background-color: var(--primary-bgc-color); */
-  /* border: 1px solid rgba(220, 227, 229, 0.8);
-  border-radius: 8px;
-  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1); */
+
 
   font-family: var(--primary-font);
   font-style: normal;
@@ -28,7 +20,6 @@ export const Form = styled.form`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 8px; */
   color: var(--label-color);
   font-weight: 500;
   font-size: 12px;
@@ -67,7 +58,7 @@ export const Input = styled.input`
 
   @media (min-width: 768px) {
     height: 46px;
-    /* margin-bottom: 18px; */
+
   }
 
   &::placeholder {
@@ -124,15 +115,13 @@ export const Button = styled.button`
   }
 
   @media (min-width: 768px) {
-    /* width: 400px; */
+
     height: 48px;
   }
 `;
 
 export const ButtonCancel = styled.button`
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+ 
   flex-grow: 0.73;
   height: 42px;
   padding: 12px;
@@ -155,7 +144,7 @@ export const ButtonCancel = styled.button`
   }
 
   @media (min-width: 768px) {
-    /* width: 400px; */
+
     height: 48px;
   }
 `;
@@ -246,8 +235,6 @@ export const RadioButtonInput = styled.input`
     position: absolute;
     height: 10px;
     width: 10px;
-    /* border-radius: 50%; */
-
-    outline: 2px solid;
+     outline: 2px solid;
   }
 `;

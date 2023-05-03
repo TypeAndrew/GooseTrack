@@ -1,15 +1,10 @@
-// import {WEEKSKEY} from '../../constants/WEEKSKEY'
 import css from './WeeksHeader.module.css';
-// import {  useSelector } from 'react-redux';
+
 import * as dateFns from 'date-fns';
 export const WeeksHeader = props => {
   const { CalendarDate } = props;
   const formatofWeek = 'eeee';
   
-  // const time = useSelector(state => state.calendar.time);
-
-
-
   const startDate = dateFns.startOfWeek(CalendarDate, { weekStartsOn: 1 });
   //Find the last day of week of lastDay
   const endDate = dateFns.lastDayOfWeek(CalendarDate, { weekStartsOn: 1 });

@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   height: 100vh;
   @media (min-width: 768px) {
     padding: 32px;
-    // width:704px;
+    
   }
   @media (min-width: 1280px) {
     margin-left: 289px;

@@ -6,8 +6,7 @@ export const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-    flex-grow: 1;
-  /* width: 100vw; */
+  flex-grow: 1;
   height: 100%;
   background: var(--unlogined-background);
 `;

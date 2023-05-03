@@ -1,7 +1,6 @@
-// import {WEEKSKEY} from '../../constants/WEEKSKEY'
 import { useDispatch } from 'react-redux';
 import css from './WeeksHeader.module.css';
-// import {  useSelector } from 'react-redux';
+
 import * as dateFns from 'date-fns';
 import {
   currentDay,
@@ -13,7 +12,6 @@ import {
 export const WeeksHeader = props => {
   const { CalendarDate } = props;
   const formatofWeek = 'eeee';
-  // const time = useSelector(state => state.calendar.time);
 
   const dispatch = useDispatch();
   dispatch(currentTime(dateFns.getTime(CalendarDate)));
