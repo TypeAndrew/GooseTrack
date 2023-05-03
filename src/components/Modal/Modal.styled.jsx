@@ -19,9 +19,9 @@ export const ModalContainer = styled.div`
   position: relative;
   padding: 40px 18px;
   min-width: 303px;
-  
+  max-width: 303px;
   min-height: 336px;
-  
+  max-height: 336px;
   
   border: 1px solid rgba(220, 227, 229, 0.8);
   background-color: var(--primary-bgc-color);
@@ -30,9 +30,9 @@ export const ModalContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding: 40px 28px;
     min-width: 396px;
-    
+    max-width: 396px;
     min-height: 360px;
-    
+    max-height: 360px;
   }
 `;
 
