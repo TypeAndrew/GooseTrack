@@ -22,6 +22,7 @@ import {
   LabelBtn,
   Btn,
   DatePickerWrapper,
+  Avatar
 } from './UserForm.styled';
 import { SpinnerGrid } from 'components/Spinner/Grid';
 
@@ -31,10 +32,16 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
 
   const { user } = useAuth();
 
-  const pathAvatar = user.avatarURL?.substr(0,5) !== "https" ? `${serverConnection}/` + user.avatarURL : ''; 
+  const avatar = user.avatarURL;
+  let bearthdate = user.birthday; 
+  let formatBearthdate = (bearthdate !== undefined) ? bearthdate.slice(0, 10) : "";  
+  const pathAvatar = (avatar?.substr(0, 4) !== "http" &&
+                        avatar !== undefined ) ? `${serverConnection}/` + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
-  const [birthday, setBirthday] = useState(user.birthday ?? '');  
+
+  const [birthday, setBirthday] = useState(formatBearthdate ?? '');  
+
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
   const [skype, setSkype] = useState(user.skype ?? '');
@@ -81,7 +88,6 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
     };
     
  
-// <ImgAvatar src={URL.createObjectURL(blob)} alt="avatar" />
     if (avatarURL) {
       await dispatch(updateAvatar(newUser.avatarURL));
     }
@@ -96,18 +102,14 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
         <Forms autoComplete="off" onSubmit={handleSubmit}>
                 
         <ContainerAvatar>
-          {avatarURL ? (
-            <ImgAvatar src={pathAvatarFormat} alt="avatar" />
-          ) : (
-            <ImgAvatar
-              src={
-                pathAvatarFormat === null || pathAvatarFormat=== 'null'
-                ? avatarDefault
-                : pathAvatarFormat
-              }
-              alt="avatar"
-            />
-          )}
+            {(avatarURL !== "" && pathAvatar !== `${serverConnection}/`)
+              ? <ImgAvatar src={pathAvatarFormat} alt="avatar" /> :
+              <div>
+                <ImgAvatar
+                  src={avatarDefault}
+                  alt="avatar"
+                />  <Avatar>{user.name.substr(0, 1).toUpperCase()}</Avatar>
+              </div>}
         </ContainerAvatar>
 
           <LabelImg htmlFor="avatar">
@@ -162,9 +164,10 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
             <DatePick
               name="birthday"
               id="date"
+              value={birthday}
               type="date"
               input={true}
-              selected={birthday.toDate}
+              selected={birthday.toDate} 
               onChange={data => setBirthday(data)}
               dateFormat="yyyy-MM-dd"
             />

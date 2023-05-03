@@ -2,12 +2,10 @@ import { Header } from '../../components/Header/header';
 import { MainPart } from '../../components/MainPart/mainPart';
 import { Reviews } from '../../components/Reviews/reviews';
 
-// import img_1 from "../src/Images/image_1.png";
 import img_1x2 from '../../images/homePage_images/image_1x2.png';
-// import img_2 from "../src/Images/image_2.png";
 import img_2x2 from '../../images/homePage_images/image_2x2.png';
-// import img_3 from "../src/Images/image_3.png";
 import img_3x2 from '../../images/homePage_images/image_3x2.png';
+
 import { FlexedCalendarSecond } from '../../components/MainPart/mainPart.styled';
 
 const HomePage = () => {

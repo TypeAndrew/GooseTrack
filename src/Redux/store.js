@@ -30,7 +30,7 @@ export const rootReducer = combineReducers({
     calendar: calendarReduser
 })
 
-//[...getGetDefaultMiddleware(), logger]
+
 export const store = configureStore({
   devtools: true,
   reducer: rootReducer,  
@@ -45,9 +45,4 @@ export const store = configureStore({
 );
 
 export const persistor = persistStore(store);
-/*export const store = configureStore({
-  reducer: {
-    phonebook: contactsReduser,
-    filter: filterReduser,
-  },
-});*/
+

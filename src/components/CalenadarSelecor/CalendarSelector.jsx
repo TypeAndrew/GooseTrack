@@ -1,4 +1,4 @@
-import { addMonths, getDate, getMonth, getTime, getYear } from 'date-fns';
+import { addMonths, formatISO, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
 // import React, { useRef } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
@@ -12,19 +12,10 @@ import {
 } from 'Redux/calendar/calendar.slice';
 import { useEffect } from 'react';
 
-/*const currentStartDay = `${getYear(Date.now())}.${getMonth(
-  Date.now()
-)}.${getDate(Date.now())}`; */
-/*const startTime = Date.now(); // get start date of mounth
-  const date = new Date(startTime);
-  const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-  const currentStartDay = startOfMonth.toISOString().slice(0,10);*/
-
 const CalendarSelector = props => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const day = useSelector(state => state.calendar.day);
-  //const currentDay1 = Date.now();
+
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
   const time = useSelector(state => state.calendar.time) ?? Date.now();
@@ -32,9 +23,9 @@ const CalendarSelector = props => {
   // get start date of mounth
 
   const date = new Date(time);
-  //const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
+ 
   const currentStartDay = date.toISOString().slice(0, 10);
-
+  const dayNow =  formatISO(Date.now()).slice(0, 10)
   useEffect(() => {
     navigate(`/calendar/month/${currentStartDay}`);
   }, [currentStartDay, navigate]);
@@ -147,7 +138,7 @@ const CalendarSelector = props => {
           </li>
           <li key={'riht'}>
             <NavLink
-              to={`day/${currentStartDay}`}
+              to={`day/${dayNow}`}
               className={data => handleCurrentPage(data) + ' ' + css.btn_changR}
             >
               Day

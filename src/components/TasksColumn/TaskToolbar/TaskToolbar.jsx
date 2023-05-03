@@ -6,7 +6,7 @@ import {
   IconBtnEditTask,
   IconBtnDeleteTask,
 } from './TaskToolbar.styled';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TaskModal } from 'components/TaskModal/TaskModal';
 import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,12 +20,35 @@ export const TaskToolbar = ({ status, task }) => {
 
   const [showContextMenu, setShowContextMenu] = useState(false);
 
-  const handleShowContextMenu = () => {
-    setShowContextMenu(true);
+  const toggleShowContextMenu = () => {
+    setShowContextMenu(!showContextMenu);
   };
   const handleCloseContextMenu = () => {
     setShowContextMenu(false);
   };
+
+  const node = useRef();
+
+  const useOnClickOutside = (ref, handler) => {
+    useEffect(() => {
+      const listener = event => {
+        if (!ref.current || ref.current.contains(event.target)) {
+          return;
+        }
+        handler(event);
+      };
+      document.addEventListener('mousedown', listener);
+      return () => {
+        document.removeEventListener('mousedown', listener);
+      };
+    }, [ref, handler]);
+  };
+
+  useOnClickOutside(node, () => {
+    if (showContextMenu) {
+      toggleShowContextMenu();
+    }
+  });
 
   const time = useSelector(state => state.calendar.time);
 
@@ -45,10 +68,10 @@ export const TaskToolbar = ({ status, task }) => {
 
   return (
     <>
-      <Ul>
+      <Ul ref={node}>
         <Li>
 
-          <Button type="button" onClick={handleShowContextMenu}>
+          <Button type="button" onClick={toggleShowContextMenu}>
 
             <IconBtnMoveTask />
           </Button>

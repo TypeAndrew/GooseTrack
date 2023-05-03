@@ -11,13 +11,7 @@ export const IconBtnMoveTask = styled(MoveTask)`
 `;
 
 export const Overlay = styled.div`
-  /* position: fixed; 
-   left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;  */
-  /* width: 100vw;
-  height: 100vh; */
+
   background-color: transparent;
   z-index: 1000;
 `;
@@ -33,15 +27,16 @@ export const ModalContainer = styled.div`
 
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
-  background-color: var(--secondary-bgc-color);
+  background-color: var(--context-menu-bgc-color);
   border-radius: 8px;
   @media screen and (min-width: 768px) {
-    padding: 20px 24px;
+    padding: 20px 20px;
     width: 147px;
     height: 90px;
   }
 `;
 export const Button = styled.button`
+cursor: pointer;
   width: 90px;
   display: flex;
   justify-content: space-between;
@@ -51,15 +46,21 @@ export const Button = styled.button`
   font-size: 12px;
   line-height: 14px;
   color: var(--btn-arrow-accent-color);
-  background-color: var(--secondary-bgc-color);
+  background-color: var(--context-menu-bgc-color);
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 18px;
-    width: 99px;
+    width: 102px;
   }
 
-  :hover {
+    :hover>span {
+    color: var(--accent-bgc-color);
+    stroke: var(--accent-bgc-color);
+    transition: 200ms;
+  }
+  :hover>svg {
+    color: var(--accent-bgc-color);
     stroke: var(--accent-bgc-color);
     transition: 200ms;
   }
@@ -74,3 +75,7 @@ export const Ul = styled.ul`
 
   gap: 6px;
 `;
+
+export const Span = styled.span`
+  :hover {color: var(--accent-bgc-color);}
+`

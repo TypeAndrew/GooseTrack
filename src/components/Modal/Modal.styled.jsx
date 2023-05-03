@@ -18,8 +18,10 @@ export const Overlay = styled.div`
 export const ModalContainer = styled.div`
   position: relative;
   padding: 40px 18px;
-  width: fit-content;
-  height: fit-content;
+  min-width: 303px;
+  
+  min-height: 336px;
+  
   
   border: 1px solid rgba(220, 227, 229, 0.8);
   background-color: var(--primary-bgc-color);
@@ -27,6 +29,10 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 0px 16px 4px rgba(17, 17, 17, 0.4);
   @media screen and (min-width: 768px) {
     padding: 40px 28px;
+    min-width: 396px;
+    
+    min-height: 360px;
+    
   }
 `;
 

@@ -1,9 +1,9 @@
 .weeks_iteam {
+  height: 68px;
   padding-left: auto;
   padding-right: auto;
   padding-top: 10px;
   padding-bottom: 14px;
-  /* margin-top: 14px; */
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -12,6 +12,7 @@
   text-transform: uppercase;
   border: 1px solid transparent;
   background: var(--primary-bgc-color);
+  border-radius: 8px;
   color: var(--btn-arrow-accent-color);
 }
 .weeks_iteam_day{
@@ -22,9 +23,10 @@
   border-radius: 6px;
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   line-height: 18px;
+  color: var(--text-day-color);
 }
 .weeks_iteam_curent {
   display: inline-block;
@@ -33,7 +35,7 @@
   padding: 5px;
   background: #3e85f3;
   border-radius: 6px;
-  color: #22232D;
+  color: #fff;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
@@ -58,6 +60,5 @@
   color: #3e85f3;
 }
 .weeks_iteam_datename {
-  margin-bottom: 8px;
-
+  margin-bottom: 4px;
 }

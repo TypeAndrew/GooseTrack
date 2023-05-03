@@ -1,15 +1,7 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  /* display: flex;
-  flex-direction: column; */
-  /* padding: 40px 18px; */
-  /* width: 303px; */
-  /* width: 100%; */
-  /* background-color: var(--primary-bgc-color); */
-  /* border: 1px solid rgba(220, 227, 229, 0.8);
-  border-radius: 8px;
-  box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1); */
+
 
   font-family: var(--primary-font);
   font-style: normal;
@@ -28,30 +20,29 @@ export const Form = styled.form`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 8px; */
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--label-color);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
 
   @media (min-width: 768px) {
-    margin-bottom: 8px;
+    // margin-bottom: 8px;
   }
 `;
 
 export const Span = styled.span`
-  margin-bottom: 8px;
+  margin-top: 8px;
   font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--label-color);
 `;
 
 export const Input = styled.input`
   height: 42px;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   padding: 14px;
   width: 100%;
   outline: none;
@@ -59,7 +50,7 @@ export const Input = styled.input`
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
   font-family: var(--primary-font);
-  color: #616161;
+  color: var( --btn-arrow-accent-color);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -67,18 +58,19 @@ export const Input = styled.input`
 
   @media (min-width: 768px) {
     height: 46px;
-    /* margin-bottom: 18px; */
+
   }
 
   &::placeholder {
-    color: var(--secondary-text-color);
+    
+    color: var(--btn-arrow-accent-color);
   }
 `;
 
 export const Errors = styled.span`
   min-height: 14px;
-  margin-top: -14px;
-  margin-bottom: 2px;
+  margin-top: -6px;
+  // margin-bottom: 2px;
   color: red;
   font-family: var( --primary-font);
   font-style: normal;
@@ -119,18 +111,17 @@ export const Button = styled.button`
   &:hover,
   :focus {
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
-    /* width: 400px; */
+
     height: 48px;
   }
 `;
 
 export const ButtonCancel = styled.button`
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
+ 
   flex-grow: 0.73;
   height: 42px;
   padding: 12px;
@@ -149,10 +140,11 @@ export const ButtonCancel = styled.button`
   &:hover,
   :focus {
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 1);
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
-    /* width: 400px; */
+
     height: 48px;
   }
 `;
@@ -162,6 +154,7 @@ export const Svg = styled.svg`
   height: 18px;
   fill: none;
   stroke: var(--btn-text-color);
+  
 
   @media (min-width: 768px) {
     width: 20px;
@@ -180,6 +173,7 @@ export const RadioButtonGroup = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 32px;
+  
 
   @media (min-width: 768px) {
     margin-top: 10px;
@@ -188,14 +182,15 @@ export const RadioButtonGroup = styled.div`
 
 export const RadioButtonLabel = styled.label`
   padding-left: 20px;
-
+  
   font-family: var(--primary-font);
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.17;
-  color: var(--secondary-text-color);
+  color: var( --btn-arrow-accent-color);
   cursor: pointer;
+  
 
   &:not(:last-child) {
     margin-right: 16px;
@@ -207,6 +202,8 @@ export const RadioButtonInput = styled.input`
   position: absolute;
   height: 0;
   width: 0;
+  border: none;
+  
 
   &::before {
     content: '';
@@ -218,6 +215,7 @@ export const RadioButtonInput = styled.input`
     height: 10px;
     width: 10px;
     border: 1px solid var(--btn-text-color);
+    
     ${({ value }) => {
       switch (value) {
         case 'Low':
@@ -237,8 +235,6 @@ export const RadioButtonInput = styled.input`
     position: absolute;
     height: 10px;
     width: 10px;
-    /* border-radius: 50%; */
-
-    outline: 2px solid;
+     outline: 2px solid;
   }
 `;
