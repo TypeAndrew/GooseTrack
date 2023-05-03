@@ -16,7 +16,7 @@
 
   color: var(--btn-text-color);
   background: var(--accent-bgc-color);
- 
+
   border-radius: 8px;
   font-family: 'Inter';
   font-style: normal;
@@ -36,19 +36,16 @@
   }
   .selector {
     display: flex;
- 
   }
   .container {
- 
+
   }
 }
 .periodPaginator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
   gap: 8px;
- 
 }
 
 .viue {

@@ -44,13 +44,12 @@ return (
             <div className={css.weeks_iteam_datename}>
               {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
             </div>
-             <div className={curenttDayStyle(week)} >
+            <div className={curenttDayStyle(week)} >
             {week.getDate()}
             </div>
           </div>
         ))} 
-         
+        
       </div>
     )  
   }
- 
