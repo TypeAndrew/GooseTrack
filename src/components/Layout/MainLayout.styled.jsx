@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: relative;
+  height: 100vh;
   display: flex;
   margin: 0 auto;
   background-color: var(--secondary-bgc-color);

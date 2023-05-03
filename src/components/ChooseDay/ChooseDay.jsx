@@ -18,16 +18,15 @@ import {
 
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
-import { useEffect } from 'react';
-import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
-
+// import { useEffect } from 'react';
+// import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 
 const ChooseDay = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const paramsDay = useParams().currentDay;
   const startTime = new Date(Date.parse(paramsDay));
-  const day = useSelector(state=>state.calendar.day)
+  const day = useSelector(state => state.calendar.day);
   const time = useSelector(state => state.calendar.time);
   const month = useSelector(state => state.calendar.month);
   const year = useSelector(state => state.calendar.year);
@@ -44,7 +43,6 @@ const ChooseDay = () => {
 
   const toFiltredContacts = () => {
     return tasks.filter(task => task.date === paramsDay);
-
   };
 
   const filtredTasks = toFiltredContacts();
@@ -106,17 +104,19 @@ const ChooseDay = () => {
     navigate(`/calendar/day/${currentStartDay}`);
   };
 
-
-  if (dateFns.getMonth(Date.now()) >= month && dateFns.getYear(Date.now()) >= year && dateFns.getDate(Date.now())>= day) {
+  if (
+    dateFns.getMonth(Date.now()) >= month &&
+    dateFns.getYear(Date.now()) >= year &&
+    dateFns.getDate(Date.now()) >= day
+  ) {
     btnBack = true;
   } else {
     btnBack = false;
   }
 
-   useEffect(() => {
-     dispatch(getTasksThunk(time));
-   }, [dispatch, time]);
-
+  // useEffect(() => {
+  //   dispatch(getTasksThunk(time));
+  // }, [dispatch, time]);
 
   const colordisable = btnBack ? '#DCE3E5' : '#616161';
   return (
@@ -195,7 +195,9 @@ const ChooseDay = () => {
           </ul>
         </div>
         <div className={css.container}>
-          {time !== null && <WeeksHeader CalendarDate={ dateFns.getTime(startTime)||time } />}
+          {time !== null && (
+            <WeeksHeader CalendarDate={dateFns.getTime(startTime) || time} />
+          )}
           <TaskColumnsList
             toDoTasks={toDoTasks}
             inProgressTasks={inProgressTasks}
