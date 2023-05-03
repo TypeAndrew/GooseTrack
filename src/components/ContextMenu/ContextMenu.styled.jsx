@@ -36,12 +36,13 @@ export const ModalContainer = styled.div`
   background-color: var(--context-menu-bgc-color);
   border-radius: 8px;
   @media screen and (min-width: 768px) {
-    padding: 20px 24px;
+    padding: 20px 20px;
     width: 147px;
     height: 90px;
   }
 `;
 export const Button = styled.button`
+cursor: pointer;
   width: 90px;
   display: flex;
   justify-content: space-between;
@@ -56,10 +57,15 @@ export const Button = styled.button`
   @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 18px;
-    width: 99px;
+    width: 102px;
   }
 
-  :hover {
+    :hover>span {
+    color: var(--accent-bgc-color);
+    stroke: var(--accent-bgc-color);
+    transition: 200ms;
+  }
+  :hover>svg {
     color: var(--accent-bgc-color);
     stroke: var(--accent-bgc-color);
     transition: 200ms;
@@ -75,3 +81,7 @@ export const Ul = styled.ul`
 
   gap: 6px;
 `;
+
+export const Span = styled.span`
+  :hover {color: var(--accent-bgc-color);}
+`

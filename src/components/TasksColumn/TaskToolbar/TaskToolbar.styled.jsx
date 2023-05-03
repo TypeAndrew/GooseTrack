@@ -6,13 +6,12 @@ import { ReactComponent as DeleteTask } from '../../../images/icons/delete-task.
 
 export const Ul = styled.ul`
   padding: 0px;
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 `;
-export const Li = styled.li`
- 
-`;
+export const Li = styled.li``;
 export const Button = styled.button`
+  cursor: pointer;
   border: none;
   background-color: inherit;
   width: 15px;
@@ -20,7 +19,7 @@ export const Button = styled.button`
   padding: 0;
 `;
 export const IconBtnMoveTask = styled(MoveTask)`
-position: relative;
+  position: relative;
   stroke: var(--primary-text-color);
   :hover {
     stroke: var(--accent-bgc-color);
@@ -33,11 +32,11 @@ export const IconBtnEditTask = styled(EditTask)`
     stroke: var(--accent-bgc-color);
     transition: 200ms;
   }
-`
+`;
 export const IconBtnDeleteTask = styled(DeleteTask)`
   stroke: var(--primary-text-color);
   :hover {
     stroke: var(--accent-bgc-color);
     transition: 200ms;
   }
-`
+`;

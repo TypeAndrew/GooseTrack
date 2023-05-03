@@ -26,6 +26,7 @@ export const H2 = styled.h2`
 `;
 
 export const IconBtn = styled(AddTask)`
+cursor: pointer;
   stroke: var(--primary-text-color);
   :hover {
     stroke: var(--accent-bgc-color);

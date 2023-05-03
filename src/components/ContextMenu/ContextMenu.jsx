@@ -6,6 +6,7 @@ import {
   Li,
   ModalContainer,
   Overlay,
+  Span,
   Ul,
 } from './ContextMenu.styled';
 import { useCallback, useEffect } from 'react';
@@ -68,7 +69,7 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
                   handleChangeCategiry(taskFormData, 'To do');
                 }}
               >
-                <span>To do</span> <IconBtnMoveTask />
+                <Span>To do</Span> <IconBtnMoveTask />
               </Button>
             </Li>
           )}
@@ -80,7 +81,7 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
                   handleChangeCategiry(taskFormData, 'In progress');
                 }}
               >
-                <span>In progress</span> <IconBtnMoveTask />
+                <Span>In progress</Span> <IconBtnMoveTask />
               </Button>
             </Li>
           )}
@@ -92,7 +93,7 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
                   handleChangeCategiry(taskFormData, 'Done');
                 }}
               >
-                <span>Done</span> <IconBtnMoveTask />
+                <Span>Done</Span> <IconBtnMoveTask />
               </Button>
             </Li>
           )}

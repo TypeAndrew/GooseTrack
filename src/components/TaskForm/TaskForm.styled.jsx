@@ -29,7 +29,7 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   /* margin-bottom: 8px; */
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--label-color);
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
@@ -46,7 +46,7 @@ export const Span = styled.span`
   font-weight: 500;
   font-size: 12px;
   line-height: 1.17;
-  color: rgba(52, 52, 52, 0.8);
+  color: var(--label-color);
 `;
 
 export const Input = styled.input`
@@ -59,7 +59,7 @@ export const Input = styled.input`
   border: 1px solid rgba(220, 227, 229, 0.6);
   border-radius: 8px;
   font-family: var(--primary-font);
-  color: #616161;
+  color: var( --btn-arrow-accent-color);
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
@@ -71,7 +71,8 @@ export const Input = styled.input`
   }
 
   &::placeholder {
-    color: var(--secondary-text-color);
+    
+    color: var(--btn-arrow-accent-color);
   }
 `;
 
@@ -183,6 +184,7 @@ export const RadioButtonGroup = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 32px;
+  
 
   @media (min-width: 768px) {
     margin-top: 10px;
@@ -191,14 +193,15 @@ export const RadioButtonGroup = styled.div`
 
 export const RadioButtonLabel = styled.label`
   padding-left: 20px;
-
+  
   font-family: var(--primary-font);
   font-style: normal;
   font-weight: 600;
   font-size: 12px;
   line-height: 1.17;
-  color: var(--secondary-text-color);
+  color: var( --btn-arrow-accent-color);
   cursor: pointer;
+  
 
   &:not(:last-child) {
     margin-right: 16px;
@@ -210,6 +213,8 @@ export const RadioButtonInput = styled.input`
   position: absolute;
   height: 0;
   width: 0;
+  border: none;
+  
 
   &::before {
     content: '';
@@ -221,6 +226,7 @@ export const RadioButtonInput = styled.input`
     height: 10px;
     width: 10px;
     border: 1px solid var(--btn-text-color);
+    
     ${({ value }) => {
       switch (value) {
         case 'Low':
