@@ -1,4 +1,4 @@
-import { addMonths, format, formatISO, getDate, getMonth, getTime, getYear } from 'date-fns';
+import { addMonths, formatISO, getDate, getMonth, getTime, getYear } from 'date-fns';
 import css from './CalendarSelector.module.css';
 // import React, { useRef } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';

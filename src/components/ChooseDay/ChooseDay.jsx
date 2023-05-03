@@ -18,8 +18,8 @@ import {
 
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
-import { useEffect } from 'react';
-import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
+// import { useEffect } from 'react';
+// import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 
 const ChooseDay = () => {
   const navigate = useNavigate();
