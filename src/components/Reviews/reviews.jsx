@@ -16,8 +16,6 @@ import {
   WrapperReviewConteiner,
 } from '../Reviews/reviews.styled';
 
-// import Andrey from '../../images/team/Andrey.png';
-
 const reviews = [
   {
     id: 1,
@@ -29,74 +27,65 @@ const reviews = [
   {
     id: 2,
     name: 'Alex',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6jHgKUFki1ejVCkQvpB5UT1Ct6T_VuZyHlg&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Alex.png',
     rating: 5,
     text: 'I used GooseTrack on my last trip and was really pleased with its functionality and ease of use.',
   },
   {
     id: 3,
     name: 'Sofia',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKSLlP6BbLuqDsbb5bV-qK60yVrlfrU67pcw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Sofia.png',
     rating: 4,
     text: 'I have been searching for an app that allows me to easily keep track of my travel routes and memories, and GooseTrack has been a real find.',
   },
   {
     id: 4,
     name: 'Vadym',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtoSLARc6dijlXHOXkMa9crfPlR_pm21bcEw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Vadym.png',
     rating: 4,
     text: "GooseTrack has a very useful expense tracking feature, which makes it easy to keep track of what you're spending your money on during your travels.",
   },
   {
     id: 5,
     name: 'Dima',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Dima.png',
     rating: 5,
     text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
   },
   {
     id: 6,
     name: 'Artur',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Artur.png',
     rating: 4,
-    text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
+    text: 'GooseTrack has a very useful expense tracking feature I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
   },
   {
     id: 7,
     name: 'Evgen',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Evgen.png',
     rating: 5,
     text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
   },
   {
     id: 8,
     name: 'Dmytro K.',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Dmytro K..png',
     rating: 5,
-    text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
+    text: 'I highly recommend GooseTrack to anyone! I used GooseTrack on my last trip and was really pleased',
   },
   {
     id: 9,
     name: 'Kristina',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Kristina.png',
     rating: 4,
-    text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
+    text: 'I used GooseTrack on my last trip and was really pleased and keep their travel data in order.',
   },
   {
     id: 10,
     name: 'Volodymyr',
-    avatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx1HcH-ObV1mr5Geoh1Pt7mcteU_uuOxYRLw&usqp=CAU',
+    avatar: 'http://goose-track-back.onrender.com/images/team/Vova.png',
     rating: 5,
-    text: 'I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
+    text: 'I used GooseTrack on my last trip and was really pleased with its functionality and ease of use.',
   },
 ];
 
