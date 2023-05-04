@@ -10,6 +10,8 @@ import { ReactComponent as Burger } from '../../../images/icons/menu.svg';
 
 
 export const Header = ({openMenu}) => {
+
+  
   const location = useLocation();
 
   let isActivePage = location.pathname.split('/')[1];
@@ -34,7 +36,7 @@ export const Header = ({openMenu}) => {
   }
 
   return (
-    <HeaderPage> 
+    <HeaderPage > 
       <ActivePage> 
       {haveTasksToday() && <CalendarLogoImg src={GooseLogo} alt="Goose" />}         
           <div>

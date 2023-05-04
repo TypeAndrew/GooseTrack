@@ -1,3 +1,11 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { TaskModal } from 'components/TaskModal/TaskModal';
+import { ContextMenu } from 'components/ContextMenu/ContextMenu';
+
+import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
+
 import {
   Ul,
   Li,
@@ -10,14 +18,10 @@ import {
   ModalBtn,
   ModalText,
 } from './TaskToolbar.styled';
-import { useEffect, useRef, useState } from 'react';
-import { TaskModal } from 'components/TaskModal/TaskModal';
-import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
-import { useDispatch, useSelector } from 'react-redux';
 
-import { ContextMenu } from 'components/ContextMenu/ContextMenu';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 export const TaskToolbar = ({ status, task }) => {
   const dispatch = useDispatch();
@@ -25,36 +29,25 @@ export const TaskToolbar = ({ status, task }) => {
   const [showModal, setShowModal] = useState(false);
 
   const [showContextMenu, setShowContextMenu] = useState(false);
+  const [x, setX] = useState(null);
+  const [y, setY] = useState(null);
 
-  const toggleShowContextMenu = () => {
+  const getCoord = e => {
+    const parent = document.body.getBoundingClientRect();
+    const element = e.target.getBoundingClientRect();
+    setX(element.left - parent.left);
+    setY(element.top - parent.top + 20);
+  };
+
+  const toggleShowContextMenu = e => {
+    if (!showContextMenu) {
+      getCoord(e);
+    }
     setShowContextMenu(!showContextMenu);
   };
   const handleCloseContextMenu = () => {
     setShowContextMenu(false);
   };
-
-  const node = useRef();
-
-  const useOnClickOutside = (ref, handler) => {
-    useEffect(() => {
-      const listener = event => {
-        if (!ref.current || ref.current.contains(event.target)) {
-          return;
-        }
-        handler(event);
-      };
-      document.addEventListener('mousedown', listener);
-      return () => {
-        document.removeEventListener('mousedown', listener);
-      };
-    }, [ref, handler]);
-  };
-
-  useOnClickOutside(node, () => {
-    if (showContextMenu) {
-      toggleShowContextMenu();
-    }
-  });
 
   const time = useSelector(state => state.calendar.time);
 
@@ -98,7 +91,7 @@ export const TaskToolbar = ({ status, task }) => {
 
   return (
     <>
-      <Ul ref={node}>
+      <Ul>
         <Li>
           <Button type="button" onClick={toggleShowContextMenu}>
             <IconBtnMoveTask />
@@ -108,6 +101,9 @@ export const TaskToolbar = ({ status, task }) => {
               status={status}
               handleCloseModal={handleCloseContextMenu}
               taskFormData={task}
+              open={showContextMenu}
+              left={x}
+              top={y}
             />
           )}
         </Li>

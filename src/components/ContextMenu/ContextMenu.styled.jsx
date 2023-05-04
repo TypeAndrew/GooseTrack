@@ -11,15 +11,17 @@ export const IconBtnMoveTask = styled(MoveTask)`
 `;
 
 export const Overlay = styled.div`
-
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-color: transparent;
   z-index: 1000;
 `;
 
 export const ModalContainer = styled.div`
   position: absolute;
-  bottom: -68px;
-  right: 0;
   z-index: 1001;
   padding: 14px;
   width: 115px;
@@ -29,6 +31,9 @@ export const ModalContainer = styled.div`
   box-shadow: 0px 4px 16px rgba(17, 17, 17, 0.1);
   background-color: var(--context-menu-bgc-color);
   border-radius: 8px;
+
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
   @media screen and (min-width: 768px) {
     padding: 20px 20px;
     width: 147px;
@@ -36,7 +41,7 @@ export const ModalContainer = styled.div`
   }
 `;
 export const Button = styled.button`
-cursor: pointer;
+  cursor: pointer;
   width: 90px;
   display: flex;
   justify-content: space-between;
@@ -54,12 +59,12 @@ cursor: pointer;
     width: 102px;
   }
 
-    :hover>span {
+  :hover > span {
     color: var(--accent-bgc-color);
     stroke: var(--accent-bgc-color);
     transition: 200ms;
   }
-  :hover>svg {
+  :hover > svg {
     color: var(--accent-bgc-color);
     stroke: var(--accent-bgc-color);
     transition: 200ms;
@@ -77,5 +82,7 @@ export const Ul = styled.ul`
 `;
 
 export const Span = styled.span`
-  :hover {color: var(--accent-bgc-color);}
-`
+  :hover {
+    color: var(--accent-bgc-color);
+  }
+`;

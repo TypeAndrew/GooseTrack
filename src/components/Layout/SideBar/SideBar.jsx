@@ -4,8 +4,31 @@ import { LogoutButton } from '../../Button/LogoutButton/LogoutButton'
 import GooseLogo from '../../../images/icons/goose-logo.png';
 import { ReactComponent as IconClose } from '../../../images/icons/icon-close.svg';
 import { Container, Title, SpanSpecial, LogoContainer, CloseButton, LogoImg, Menu} from './SideBar.styled';
+import { useRef } from 'react';
 
 export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
+  const node = useRef();
+
+  const useOnClickOutside = (ref, handler) => {
+    useEffect(() => {
+      const listener = event => {
+        if (!ref.current || ref.current.contains(event.target)) {
+          return;
+        }
+        handler(event);
+      };
+      document.addEventListener('mousedown', listener);
+      return () => {
+        document.removeEventListener('mousedown', listener);
+      };
+    }, [ref, handler]);
+  };
+
+  useOnClickOutside(node, () => {
+    if (isMobalMenuOpen) {
+      closeMobalMenu();
+    }
+  });
 
   useEffect(() => {
     const close = e => {
@@ -21,8 +44,8 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
 
   return (
     <>
-      <Container className={isMobalMenuOpen && 'openMobalMenu'} >
-              <div>
+      <Container className={isMobalMenuOpen && 'openMobalMenu'} ref={node}>
+            <div>
               <Menu>
                 <LogoContainer>
                   <LogoImg src={`${GooseLogo}`}/>
