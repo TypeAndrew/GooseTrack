@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const HeaderPage= styled.header `
 display: flex;
 align-items: center;
@@ -36,15 +37,18 @@ export const ActivePageName = styled.h2`
     margin-bottom: 8px;
   }
 `;
-export const MenuOpen = styled.svg`
-  width: 24px;
-  height: 24px;
+export const MenuOpen = styled.button`
+  width: 34px;
+  height: 34px;
+  stroke: var(--close-button-color);
   display: flex;
+  border: none;
+  background: rgba(0, 0, 0, 0);
   cursor: pointer;
-  @media (min-width: 768px) {
-    width: 34px;
-    height: 34px;
-  }
+  // @media (min-width: 768px) {
+  //   width: 34px;
+  //   height: 34px;
+  // }
   @media (min-width: 1280px) {
     display: none;
   }
@@ -59,9 +63,10 @@ export const Text = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
+  color: var(--primary-text-color);
 `;
 
 export const SpanStyled = styled.span`
   font-family: inherit;
-  color: var(--accent-text-color);
+  color: #3E85F3;
 `;
