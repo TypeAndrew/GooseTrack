@@ -22,6 +22,10 @@ export const FlexedCalendar = styled.div`
     gap: 157px;
     margin-top: 64px;
   }
+
+  @media (min-width: 1440px) {
+    gap: 280px;
+  }
 `;
 
 export const AllTextWrapper = styled.div`
