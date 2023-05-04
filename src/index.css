@@ -51,7 +51,7 @@ html {
   --overflow-color: #e7e5e5;
 
   --btn-disable: #dce3e5;
-
+  --accent-selected: #343434;
   /* Shadow colors */
   --btn-shadow-color: rgba(136, 165, 191, 0.48);
 
@@ -88,6 +88,7 @@ html {
   --label-color: rgba(250, 250, 250, 0.3);
   --btn-disable: rgba(255, 255, 255, 0.15);
   --close-button-color: #FFFFFF;
+  --accent-selected: #ffffff;
 }
 
 body {
