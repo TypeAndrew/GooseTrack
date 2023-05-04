@@ -41,8 +41,6 @@ export const WeeksHeader = props => {
     return css.weeks_iteam_day;
   };
 const selectedDay = (dayWeeks)=>{
-console.log( dateFns.formatISO(dayWeeks).slice(0,10))
-console.log(dateFns.formatISO(time).slice(0,10))
 if (dateFns.formatISO(dayWeeks).slice(0,10)===dateFns.formatISO(time).slice(0,10)) {
   return css.selectedDay
 }
