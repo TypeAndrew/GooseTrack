@@ -40,7 +40,13 @@ const ChooseMonth = () => {
     }
     return css.date;
   };
+const dayMonthForm = (day)=>{
+if(day[0]==='0'){
+  return day[1]
+}
 
+  return day
+}
   const creatCalendar = date => {
     let counter = 1;
     return  (
@@ -56,7 +62,7 @@ const ChooseMonth = () => {
             }-${dateFns.format(date, formatOfDay)}`}
           >
             <span key={Math.random() + ''} className={curenttDayStyle(date)}>
-              {dateFns.format(date, formatOfDay)}
+              {dayMonthForm(dateFns.format(date, formatOfDay))}
             </span>
             <div key={Math.random() + ''} className={css.task}>
             
