@@ -21,7 +21,7 @@ const reviews = [
     id: 1,
     name: 'Andrey',
     avatar: 'http://goose-track-back.onrender.com/images/team/Andrey.png',
-    rating: 4,
+    rating: 5,
     text: 'GooseTrack is impressive, the calendar view and filter options make it easy to stay organized and focused. Highly recommended.',
   },
   {
@@ -35,14 +35,14 @@ const reviews = [
     id: 3,
     name: 'Sofia',
     avatar: 'http://goose-track-back.onrender.com/images/team/Sofia.png',
-    rating: 4,
+    rating: 5,
     text: 'I have been searching for an app that allows me to easily keep track of my travel routes and memories, and GooseTrack has been a real find.',
   },
   {
     id: 4,
     name: 'Vadym',
     avatar: 'http://goose-track-back.onrender.com/images/team/Vadym.png',
-    rating: 4,
+    rating: 5,
     text: "GooseTrack has a very useful expense tracking feature, which makes it easy to keep track of what you're spending your money on during your travels.",
   },
   {
@@ -56,7 +56,7 @@ const reviews = [
     id: 6,
     name: 'Artur',
     avatar: 'http://goose-track-back.onrender.com/images/team/Artur.png',
-    rating: 4,
+    rating: 5,
     text: 'GooseTrack has a very useful expense tracking feature I highly recommend GooseTrack to anyone who wants to be organized and keep their travel data in order.',
   },
   {
@@ -77,7 +77,7 @@ const reviews = [
     id: 9,
     name: 'Kristina',
     avatar: 'http://goose-track-back.onrender.com/images/team/Kristina.png',
-    rating: 4,
+    rating: 5,
     text: 'I used GooseTrack on my last trip and was really pleased and keep their travel data in order.',
   },
   {
