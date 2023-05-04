@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './WeeksHeader.module.css';
 
 import * as dateFns from 'date-fns';
@@ -12,7 +12,7 @@ import {
 export const WeeksHeader = props => {
   const { CalendarDate } = props;
   const formatofWeek = 'eeee';
-
+  const time = useSelector(state => state.calendar.time);
   const dispatch = useDispatch();
   dispatch(currentTime(dateFns.getTime(CalendarDate)));
   dispatch(currentDay(dateFns.getDate(CalendarDate)));
@@ -40,15 +40,21 @@ export const WeeksHeader = props => {
     }
     return css.weeks_iteam_day;
   };
-
+const selectedDay = (dayWeeks)=>{
+if (dateFns.formatISO(dayWeeks).slice(0,10)===dateFns.formatISO(time).slice(0,10)) {
+  return css.selectedDay
+}
+}
   return (
     <div className={css.div_grid_weeks}>
       {totalDate.map(week => (
         <div className={css.weeks_iteam} key={week}>
+          <div className={selectedDay(week) }>
           <div className={css.weeks_iteam_datename}>
             {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
           </div>
           <div className={curenttDayStyle(week)}>{week.getDate()}</div>
+          </div>
         </div>
       ))}
     </div>

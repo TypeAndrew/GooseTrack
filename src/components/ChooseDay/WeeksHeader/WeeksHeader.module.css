@@ -62,3 +62,8 @@
 .weeks_iteam_datename {
   margin-bottom: 4px;
 }
+.selectedDay{
+ display: inline-block;
+  border: 2px solid var(--accent-text-color);
+  border-radius: 8px;
+}
