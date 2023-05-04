@@ -40,7 +40,7 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
-  const [birthday, setBirthday] = useState( '');  
+  const [birthday, setBirthday] = useState('');  
 
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');

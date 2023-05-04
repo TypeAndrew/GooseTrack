@@ -84,7 +84,7 @@ export const Errors = styled.span`
   }
 `;
 
-export const TextAdd = styled.text`
+export const TextAdd = styled.span`
   color: white;
 `
 

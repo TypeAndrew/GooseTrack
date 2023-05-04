@@ -10,6 +10,8 @@ import {
   Ul,
 } from './ContextMenu.styled';
 import { useCallback, useEffect } from 'react';
+import {columnArray} from '../constants/columnArray';
+import { useAuth } from 'Redux/auth/useAuth';
 
 export const ContextMenu = ({
   status,
@@ -46,7 +48,12 @@ export const ContextMenu = ({
   const dispatch = useDispatch();
   const time = useSelector(state => state.calendar.time);
 
-  const handleChangeCategiry = async (taskFormData, newCategory) => {
+  const { user } = useAuth();
+  const columns = user.columns
+  const columnList = columns ?  columns.map(item => item.name) : columnArray;
+    // const columnList = columns.map(item => item.name);
+
+  const handleChangeCategory = async (taskFormData, newCategory) => {
     const data = {
       ...taskFormData,
       category: newCategory,
@@ -63,20 +70,20 @@ export const ContextMenu = ({
     handleCloseModal();
   };
 
-  const categoryNames = ['To do', 'In progress', 'Done'];
 
   return (
     <Overlay onClick={handleClose}>
       <ModalContainer open={open} style={{ left: left, top: top }}>
         <Ul>
-          {categoryNames.map(
+          {columnList.map(
             item =>
               status !== item && (
                 <Li key={item}>
                   <Button
+                    aria-label={`To category ${item}`}
                     type="button"
                     onClick={() => {
-                      handleChangeCategiry(taskFormData, item);
+                      handleChangeCategory(taskFormData, item);
                     }}
                   >
                     <Span>{item}</Span> <IconBtnMoveTask />

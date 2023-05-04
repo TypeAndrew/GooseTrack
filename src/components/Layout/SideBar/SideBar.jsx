@@ -53,7 +53,7 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
                     G<SpanSpecial>oo</SpanSpecial>seTrack
                   </Title>
                 </LogoContainer>
-                <CloseButton onClick={handleCloseMobalMenu}>
+                <CloseButton onClick={handleCloseMobalMenu} aria-label='Close menu'>
                   <IconClose stroke={'var(--close-button-color)'}/>
                 </CloseButton>
               </Menu>

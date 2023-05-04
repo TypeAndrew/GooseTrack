@@ -15,13 +15,13 @@ export const AddTaskBtn = ({ status }) => {
 
   return (
     <>
-      <Button type="button" onClick={handleShowModal}>
+      <Button type="button" onClick={handleShowModal} aria-label='Add task'>
         <IconPlus />
         <AddTask>Add task</AddTask>
       </Button>
 
       {showModal && (
-        <TaskModal handleCloseModal={handleCloseModal} status={status} />
+        <TaskModal handleCloseModal={handleCloseModal} status={status} aria-label='Modal window is open'/>
       )}
     </>
   );

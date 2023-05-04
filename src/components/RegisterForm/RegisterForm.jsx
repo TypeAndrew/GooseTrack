@@ -148,13 +148,13 @@ const RegisterForm = ({ setIsLoading }) => {
                     '1px solid var(--error-validation-color)'
                   }
                 />
-                <ButtonToggleIcon type="button" onClick={onClick}>
+                <ButtonToggleIcon type="button" onClick={onClick} aria-label='See password'>
                   {toggleButton.toggleIcon}
                 </ButtonToggleIcon>
                 <ErrorMessage component={ErrorDiv} name="password" />
               </DivWrap>
             </Label>
-            <Button type="submit">
+            <Button type="submit" aria-label='Submit form'>
               Sign Up
               <IconLogout />
             </Button>
