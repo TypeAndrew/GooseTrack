@@ -26,7 +26,7 @@ export const Container = styled.div`
     }
   }
   &.openMobalMenu {
-    display: block;
+    // display: block;
 `;
 
 export const LogoContainer = styled.h1`

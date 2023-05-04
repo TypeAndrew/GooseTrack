@@ -22,6 +22,7 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
   return (
     <>
       <Container className={isMobalMenuOpen && 'openMobalMenu'} >
+              <div>
               <Menu>
                 <LogoContainer>
                   <LogoImg src={`${GooseLogo}`}/>
@@ -34,6 +35,7 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
                 </CloseButton>
               </Menu>
               <UserNav closeMobalMenu={closeMobalMenu}/>
+              </div>
               <LogoutButton />   
       </Container>
     </>

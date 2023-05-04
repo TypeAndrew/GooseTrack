@@ -69,7 +69,7 @@ export const MenuOpen = styled.button`
 //   display: none;
 // }
 // `
-export const CalendarLogoImg = styled.svg`
+export const CalendarLogoImg = styled.img`
 
 `
 
