@@ -4,6 +4,9 @@
   align-items: center;
   justify-content: center;
 
+  position: absolute;
+  bottom: 24px;
+
   width: 134px;
   padding: 14px;
 

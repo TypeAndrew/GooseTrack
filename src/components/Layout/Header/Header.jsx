@@ -1,12 +1,13 @@
 import { ThemeToggler } from 'components/ThemeToggler/ThemeToggler';
 import { Avatar } from '../Avatar/Avatar';
 import { UserInfo } from 'components/Layout/UserInfo/UserInfo'
-import { HeaderPage, Wrapper, MenuOpen, ActivePage, ActivePageName, CalendarLogoImg, Text, SpanStyled } from './Header.styled';
-import { ReactComponent as Burger } from '../../../images/icons/menu.svg';
+import { HeaderPage, Wrapper, MenuOpen, ActivePage, ActivePageName, CalendarLogoImg, Text, SpanStyled} from './Header.styled';
 import { useLocation, useParams } from 'react-router-dom';
 import { getTasks } from 'Redux/tasks/tasks.selectors';
 import { useSelector } from 'react-redux';
 import GooseLogo from '../../../images/icons/calendar-logo.png';
+import { ReactComponent as Burger } from '../../../images/icons/menu.svg';
+
 
 export const Header = ({openMenu}) => {
   const location = useLocation();

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const HeaderPage= styled.header `
 display: flex;
 align-items: center;
@@ -36,21 +37,39 @@ export const ActivePageName = styled.h2`
     margin-bottom: 8px;
   }
 `;
-export const MenuOpen = styled.svg`
-  width: 24px;
-  height: 24px;
+export const MenuOpen = styled.button`
+  width: 34px;
+  height: 34px;
+  stroke: var(--close-button-color);
   display: flex;
+  border: none;
+  background: rgba(0, 0, 0, 0);
   cursor: pointer;
-  @media (min-width: 768px) {
-    width: 34px;
-    height: 34px;
-  }
+  // @media (min-width: 768px) {
+  //   width: 34px;
+  //   height: 34px;
+  // }
   @media (min-width: 1280px) {
     display: none;
   }
 `;
 
-export const CalendarLogoImg = styled.img`
+// export const Burger = styled.svg`
+// width: 24px;
+// height: 24px;
+// stroke: #343434;
+// display: flex;
+// cursor: pointer;
+// transition: stroke var(--animation);
+// @media (min-width: 768px) {
+//   width: 34px;
+//   height: 34px;
+// }
+// @media (min-width: 1280px) {
+//   display: none;
+// }
+// `
+export const CalendarLogoImg = styled.svg`
 
 `
 

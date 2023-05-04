@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,6 +13,7 @@ export const Container = styled.div`
   height: 100vh;
   z-index: 2;
   @media (min-width: 768px) {
+    padding: 32px;
     width: 289px;
   }
 
@@ -23,6 +25,8 @@ export const Container = styled.div`
       transform: translateX(0%);
     }
   }
+  &.openMobalMenu {
+    display: block;
 `;
 
 export const LogoContainer = styled.h1`
@@ -78,15 +82,24 @@ export const SpanSpecial = styled.p`
     }
 `;
 
-export const CloseButton = styled.div` 
-    border: none;
-    background: rgba(0, 0, 0, 0);
-    cursor: pointer;
-    padding: 0;
-    @media (min-width: 1280px) {
+export const CloseButton = styled.button` 
+width: 24px;
+height: 24px;
+stroke={'var(--close-button-color)'}
+border: none;
+background: rgba(0, 0, 0, 0);
+cursor: pointer;
+padding: 0;
+z-index: 4;
+@media (min-width: 768px) {
+  width: 33px;
+  height: 33px;
+}
+@media (min-width: 1280px) {
       display: none;
     }
 `;
+
 
 export const LogoImg = styled.img`
     margin-right: 6px;
@@ -97,14 +110,4 @@ export const LogoImg = styled.img`
     width: 60px;
     height: 58px;
     }
-`;
-
-export const Overlay = styled.div`
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: transparent;
-  z-index: 1;
 `;
