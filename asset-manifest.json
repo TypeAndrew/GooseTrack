@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/GooseTrack/static/css/main.828ba41d.css",
-    "main.js": "/GooseTrack/static/js/main.bc995651.js",
+    "main.css": "/GooseTrack/static/css/main.454b036e.css",
+    "main.js": "/GooseTrack/static/js/main.01968ca7.js",
     "static/js/815.d2190698.chunk.js": "/GooseTrack/static/js/815.d2190698.chunk.js",
     "static/js/643.8ce72367.chunk.js": "/GooseTrack/static/js/643.8ce72367.chunk.js",
     "static/js/131.67df34b9.chunk.js": "/GooseTrack/static/js/131.67df34b9.chunk.js",
     "static/css/263.cfaafd9a.chunk.css": "/GooseTrack/static/css/263.cfaafd9a.chunk.css",
-    "static/js/263.2cb50aca.chunk.js": "/GooseTrack/static/js/263.2cb50aca.chunk.js",
-    "static/css/907.aa39a8a0.chunk.css": "/GooseTrack/static/css/907.aa39a8a0.chunk.css",
-    "static/js/907.7f25ade5.chunk.js": "/GooseTrack/static/js/907.7f25ade5.chunk.js",
-    "static/css/624.2a150f47.chunk.css": "/GooseTrack/static/css/624.2a150f47.chunk.css",
-    "static/js/624.a9f913e7.chunk.js": "/GooseTrack/static/js/624.a9f913e7.chunk.js",
+    "static/js/263.8aeecb01.chunk.js": "/GooseTrack/static/js/263.8aeecb01.chunk.js",
+    "static/css/907.e0c3a756.chunk.css": "/GooseTrack/static/css/907.e0c3a756.chunk.css",
+    "static/js/907.21443c0a.chunk.js": "/GooseTrack/static/js/907.21443c0a.chunk.js",
+    "static/css/624.698edd73.chunk.css": "/GooseTrack/static/css/624.698edd73.chunk.css",
+    "static/js/624.e12b378e.chunk.js": "/GooseTrack/static/js/624.e12b378e.chunk.js",
     "static/js/553.eb0903e2.chunk.js": "/GooseTrack/static/js/553.eb0903e2.chunk.js",
     "static/js/845.49a42fcc.chunk.js": "/GooseTrack/static/js/845.49a42fcc.chunk.js",
     "static/js/568.a2ea89e0.chunk.js": "/GooseTrack/static/js/568.a2ea89e0.chunk.js",
@@ -51,17 +51,17 @@
     "static/media/plus_white.svg": "/GooseTrack/static/media/plus_white.e48a1fe5631ecfeeae425127f16cadf0.svg",
     "static/media/plus-in-circle.svg": "/GooseTrack/static/media/plus-in-circle.1e224bb153c17979bc0d1804b4750d76.svg",
     "static/media/plus.svg": "/GooseTrack/static/media/plus.ab1a75f13c21b929d099d3c1ff808d6b.svg",
-    "main.828ba41d.css.map": "/GooseTrack/static/css/main.828ba41d.css.map",
-    "main.bc995651.js.map": "/GooseTrack/static/js/main.bc995651.js.map",
+    "main.454b036e.css.map": "/GooseTrack/static/css/main.454b036e.css.map",
+    "main.01968ca7.js.map": "/GooseTrack/static/js/main.01968ca7.js.map",
     "815.d2190698.chunk.js.map": "/GooseTrack/static/js/815.d2190698.chunk.js.map",
     "643.8ce72367.chunk.js.map": "/GooseTrack/static/js/643.8ce72367.chunk.js.map",
     "131.67df34b9.chunk.js.map": "/GooseTrack/static/js/131.67df34b9.chunk.js.map",
     "263.cfaafd9a.chunk.css.map": "/GooseTrack/static/css/263.cfaafd9a.chunk.css.map",
-    "263.2cb50aca.chunk.js.map": "/GooseTrack/static/js/263.2cb50aca.chunk.js.map",
-    "907.aa39a8a0.chunk.css.map": "/GooseTrack/static/css/907.aa39a8a0.chunk.css.map",
-    "907.7f25ade5.chunk.js.map": "/GooseTrack/static/js/907.7f25ade5.chunk.js.map",
-    "624.2a150f47.chunk.css.map": "/GooseTrack/static/css/624.2a150f47.chunk.css.map",
-    "624.a9f913e7.chunk.js.map": "/GooseTrack/static/js/624.a9f913e7.chunk.js.map",
+    "263.8aeecb01.chunk.js.map": "/GooseTrack/static/js/263.8aeecb01.chunk.js.map",
+    "907.e0c3a756.chunk.css.map": "/GooseTrack/static/css/907.e0c3a756.chunk.css.map",
+    "907.21443c0a.chunk.js.map": "/GooseTrack/static/js/907.21443c0a.chunk.js.map",
+    "624.698edd73.chunk.css.map": "/GooseTrack/static/css/624.698edd73.chunk.css.map",
+    "624.e12b378e.chunk.js.map": "/GooseTrack/static/js/624.e12b378e.chunk.js.map",
     "553.eb0903e2.chunk.js.map": "/GooseTrack/static/js/553.eb0903e2.chunk.js.map",
     "845.49a42fcc.chunk.js.map": "/GooseTrack/static/js/845.49a42fcc.chunk.js.map",
     "568.a2ea89e0.chunk.js.map": "/GooseTrack/static/js/568.a2ea89e0.chunk.js.map",
@@ -71,7 +71,7 @@
     "44.90d4a042.chunk.js.map": "/GooseTrack/static/js/44.90d4a042.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.828ba41d.css",
-    "static/js/main.bc995651.js"
+    "static/css/main.454b036e.css",
+    "static/js/main.01968ca7.js"
   ]
 }
