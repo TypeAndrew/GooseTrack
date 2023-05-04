@@ -18,7 +18,7 @@ import {
 } from '../RegisterForm/RegisterForm.styled';
 import { ReactComponent as IconEyeHidden } from '../../images/icons/hide-eye.svg';
 import { ReactComponent as IconLogout } from '../../images/icons/icon-logout.svg';
-import { togglePasswordView } from '../../Helpers/togglePasswordView/togglePasswordView';
+import { togglePasswordView } from '../../helpers/togglePasswordView/togglePasswordView';
 
 const LoginForm = ({ setIsLoading }) => {
   const [toggleButton, setToggleButton] = useState({
