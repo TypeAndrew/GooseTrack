@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const ErrorDiv = styled.div`
   position: absolute;
-  bottom: -18px;
-left:16px;
+  top: 54px;
+  left: 16px;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
