@@ -54,21 +54,6 @@ export const MenuOpen = styled.button`
   }
 `;
 
-// export const Burger = styled.svg`
-// width: 24px;
-// height: 24px;
-// stroke: #343434;
-// display: flex;
-// cursor: pointer;
-// transition: stroke var(--animation);
-// @media (min-width: 768px) {
-//   width: 34px;
-//   height: 34px;
-// }
-// @media (min-width: 1280px) {
-//   display: none;
-// }
-// `
 export const CalendarLogoImg = styled.img`
 
 `
@@ -78,9 +63,10 @@ export const Text = styled.p`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px;
+  color: var(--primary-text-color);
 `;
 
 export const SpanStyled = styled.span`
   font-family: inherit;
-  color: var(--accent-text-color);
+  color: #3E85F3;
 `;
