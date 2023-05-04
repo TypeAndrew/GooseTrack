@@ -112,7 +112,7 @@ const ChooseDay = () => {
     btnBack = false;
   }
 
-  const colordisable = btnBack ? '#DCE3E5' : '#616161';
+  const colordisable = btnBack ? 'var(---btn-disable)' : 'var(--btn-arrow-accent-color)';
   return (
     <>
       <div>
@@ -155,7 +155,7 @@ const ChooseDay = () => {
                   fill="none"
                 >
                   <path
-                    stroke="#616161"
+                    stroke="var(--btn-arrow-accent-color)"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="1.5"

@@ -75,7 +75,7 @@ const CalendarSelector = props => {
   const handleCurrentPage = ({ isActive }) => {
     return isActive ? css.isActive : '';
   };
-  const colordisable = btnBack ? '#DCE3E5' : '#616161';
+  const colordisable = btnBack ? 'var(--btn-disable)' : 'var(--btn-arrow-accent-color)';
   return (
     <>
       <div className={css.calendar}>

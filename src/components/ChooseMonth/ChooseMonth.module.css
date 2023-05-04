@@ -26,6 +26,7 @@
   margin-bottom: 32px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  height: 100%;
 }
 .div_grid_day {
   background: #ffffff;
@@ -35,16 +36,16 @@
 
   text-overflow: ellipsis;
 }
-.div_grid_day :first-child {
+.container_link:first-child {
   border-radius: 8px 0 0 0;
 }
-.div_grid_day :nth-child(7) {
+.container_link:nth-child(7) {
   border-radius: 0 8px 0 0;
 }
-.div_grid_day :last-child {
+.container_link:last-child {
   border-radius: 0 0 8px 0;
 }
-.div_grid_day :nth-last-child(7) {
+.container_link:nth-last-child(7) {
   border-radius: 0 0 0 8px;
 }
 .weeks_iteam {
