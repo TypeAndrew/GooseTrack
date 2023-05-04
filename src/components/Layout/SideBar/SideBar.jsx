@@ -42,16 +42,9 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
     closeMobalMenu(false);
   };
 
-  const divStyle = {
-    display:'flex',
-   flexDirection:'column',
-   justifyContent:'space-between',
-   height:'100vh',
-  };
-
   return (
     <>
-      <Container className={isMobalMenuOpen && 'openMobalMenu'} style={divStyle}  ref={node}>
+      <Container className={isMobalMenuOpen && 'openMobalMenu'} ref={node}>
             <div>
               <Menu>
                 <LogoContainer>
@@ -61,11 +54,11 @@ export const SideBar = ({isMobalMenuOpen, closeMobalMenu}) => {
                   </Title>
                 </LogoContainer>
                 <CloseButton onClick={handleCloseMobalMenu}>
-                  <IconClose/>
+                  <IconClose stroke={'var(--close-button-color)'}/>
                 </CloseButton>
               </Menu>
               <UserNav closeMobalMenu={closeMobalMenu}/>
-            </div>
+              </div>
               <LogoutButton />   
       </Container>
     </>

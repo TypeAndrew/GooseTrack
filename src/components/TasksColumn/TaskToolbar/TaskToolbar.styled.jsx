@@ -40,3 +40,37 @@ export const IconBtnDeleteTask = styled(DeleteTask)`
     transition: 200ms;
   }
 `;
+
+export const ModalWrapper = styled.div`
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
+`;
+
+export const BtnWrapper = styled.div`
+  display: flex;
+  gap: 26px;
+`;
+
+export const ModalBtn = styled.button`
+  display: block;
+  background-color: #3e85f3;
+  color: #ffffff;
+  border: none;
+  width: 100px;
+  height: 34px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  :hover {
+    background-color: #61a0ffa6;
+    box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
+  }
+`;
+
+export const ModalText = styled.p`
+  margin: 12px 0px;
+`;
