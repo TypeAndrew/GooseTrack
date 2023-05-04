@@ -5,6 +5,10 @@ import {
   IconBtnMoveTask,
   IconBtnEditTask,
   IconBtnDeleteTask,
+  ModalWrapper,
+  BtnWrapper,
+  ModalBtn,
+  ModalText,
 } from './TaskToolbar.styled';
 import { useEffect, useRef, useState } from 'react';
 import { TaskModal } from 'components/TaskModal/TaskModal';
@@ -12,6 +16,8 @@ import { deleteTasksThunk, getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ContextMenu } from 'components/ContextMenu/ContextMenu';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 export const TaskToolbar = ({ status, task }) => {
   const dispatch = useDispatch();
@@ -66,13 +72,35 @@ export const TaskToolbar = ({ status, task }) => {
     await dispatch(getTasksThunk(time));
   };
 
+  const confirmation = () => {
+    confirmAlert({
+      customUI: ({ onClose }) => {
+        return (
+          <ModalWrapper>
+            <h1>Are you sure?</h1>
+            <ModalText>You really want delete it?</ModalText>
+            <BtnWrapper>
+              <ModalBtn onClick={onClose}>No</ModalBtn>
+              <ModalBtn
+                onClick={() => {
+                  handleDelete();
+                  onClose();
+                }}
+              >
+                Yes
+              </ModalBtn>
+            </BtnWrapper>
+          </ModalWrapper>
+        );
+      },
+    });
+  };
+
   return (
     <>
       <Ul ref={node}>
         <Li>
-
           <Button type="button" onClick={toggleShowContextMenu}>
-
             <IconBtnMoveTask />
           </Button>
           {showContextMenu && (
@@ -89,7 +117,7 @@ export const TaskToolbar = ({ status, task }) => {
           </Button>
         </Li>
         <Li>
-          <Button type="button" onClick={handleDelete}>
+          <Button type="button" onClick={confirmation}>
             <IconBtnDeleteTask />
           </Button>
         </Li>
