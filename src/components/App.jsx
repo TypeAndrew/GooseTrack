@@ -27,11 +27,18 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <Container><SpinnerGrid/></Container>
+    <Container>
+      <SpinnerGrid />
+    </Container>
   ) : (
-
     <BrowserRouter basename="GooseTrack">
-      <Suspense fallback={<Container><SpinnerGrid/></Container>}>
+      <Suspense
+        fallback={
+          <Container>
+            <SpinnerGrid />
+          </Container>
+        }
+      >
         <Routes>
           <Route path="/" element={<PublicRoute />}>
             <Route index element={<Navigate to="/home" />} />
@@ -41,17 +48,17 @@ export const App = () => {
           </Route>
 
           <Route path="/" element={<PrivateRoute />}>
-            <Route index element={<Navigate to="/calendar/month/:currentDate" />} />
+            <Route
+              index
+              element={<Navigate to="/calendar/month/:currentDate" />}
+            />
             <Route path="account" element={<AccountPage />} />
             <Route path="calendar" element={<CalendarPage />}>
               <Route
                 index
                 element={<Navigate to="/calendar/month/:currentDate" />}
               />
-              <Route
-                path="month/:currentDate"
-                element={<ChooseMonth />}
-              />
+              <Route path="month/:currentDate" element={<ChooseMonth />} />
               <Route path="day/:currentDay" element={<ChooseDay />} />
             </Route>
           </Route>
@@ -59,5 +66,4 @@ export const App = () => {
       </Suspense>
     </BrowserRouter>
   );
-
 };

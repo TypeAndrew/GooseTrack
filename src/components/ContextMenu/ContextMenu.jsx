@@ -11,7 +11,14 @@ import {
 } from './ContextMenu.styled';
 import { useCallback, useEffect } from 'react';
 
-export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
+export const ContextMenu = ({
+  status,
+  handleCloseModal,
+  taskFormData,
+  open,
+  left,
+  top,
+}) => {
   const memoKeyClose = useCallback(handleKeyClose, [handleKeyClose]);
 
   useEffect(() => {
@@ -56,45 +63,26 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
     handleCloseModal();
   };
 
+  const categoryNames = ['To do', 'In progress', 'Done'];
+
   return (
-      <Overlay onClick={handleClose}>
-    <ModalContainer >
+    <Overlay onClick={handleClose}>
+      <ModalContainer open={open} style={{ left: left, top: top }}>
         <Ul>
-          {status !== 'To do' && (
-            <Li key="To do">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'To do');
-                }}
-              >
-                <Span>To do</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
-          )}
-          {status !== 'In progress' && (
-            <Li key="In progress">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'In progress');
-                }}
-              >
-                <Span>In progress</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
-          )}
-          {status !== 'Done' && (
-            <Li key="Done">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'Done');
-                }}
-              >
-                <Span>Done</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
+          {categoryNames.map(
+            item =>
+              status !== item && (
+                <Li key={item}>
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      handleChangeCategiry(taskFormData, item);
+                    }}
+                  >
+                    <Span>{item}</Span> <IconBtnMoveTask />
+                  </Button>
+                </Li>
+              )
           )}
         </Ul>
       </ModalContainer>

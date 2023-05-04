@@ -9,6 +9,8 @@ import { useSelector } from 'react-redux';
 import GooseLogo from '../../../images/icons/calendar-logo.png';
 
 export const Header = ({openMenu}) => {
+
+  
   const location = useLocation();
 
   let isActivePage = location.pathname.split('/')[1];
@@ -33,7 +35,7 @@ export const Header = ({openMenu}) => {
   }
 
   return (
-    <HeaderPage> 
+    <HeaderPage > 
       <ActivePage> 
       {haveTasksToday() && <CalendarLogoImg src={GooseLogo} alt="Goose" />}         
           <div>

@@ -112,7 +112,9 @@ const ChooseDay = () => {
     btnBack = false;
   }
 
-  const colordisable = btnBack ? 'var(--btn-disable)' : 'var(--btn-arrow-accent-color)';
+  const colordisable = btnBack
+    ? 'var(--btn-disable)'
+    : 'var(--btn-arrow-accent-color)';
   return (
     <>
       <div>
