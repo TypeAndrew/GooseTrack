@@ -75,6 +75,7 @@
   border-radius: 8px 0px 0px 8px;
   background: var(--btn-toggle-background);
   color: var(--accent-btn-background);
+  cursor: pointer;
 }
 
 .btn_changR {
@@ -90,6 +91,8 @@
   border-radius: 0px 8px 8px 0px;
   background: var(--btn-toggle-accent-background);
   color: var(--accent-text-color);
+  cursor: pointer;
+
 }
 
 .btn_left {
@@ -98,6 +101,8 @@
   background: var(--primary-bgc-color);
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px 0 0 8px;
+  cursor: pointer;
+
 }
 
 .btn_ringt {
@@ -106,4 +111,6 @@
   background: var(--primary-bgc-color);
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 0 8px 8px 0;
+  cursor: pointer;
+
 }

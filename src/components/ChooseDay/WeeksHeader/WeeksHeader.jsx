@@ -49,10 +49,10 @@ if (dateFns.formatISO(dayWeeks).slice(0,10)===dateFns.formatISO(time).slice(0,10
     <div className={css.div_grid_weeks}>
       {totalDate.map(week => (
         <div className={css.weeks_iteam} key={week}>
-          <div className={selectedDay(week) }>
           <div className={css.weeks_iteam_datename}>
             {dateFns.format(week, formatofWeek).substring(0, longWeeksString)}
           </div>
+          <div className={selectedDay(week) }>
           <div className={curenttDayStyle(week)}>{week.getDate()}</div>
           </div>
         </div>

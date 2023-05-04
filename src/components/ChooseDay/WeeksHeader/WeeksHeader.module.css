@@ -65,6 +65,6 @@
 }
 .selectedDay{
  display: inline-block;
-  border: 2px solid var(--accent-text-color);
-  border-radius: 8px;
+  outline: 2px solid var(--accent-selected);
+   border-radius: 8px;
 }
