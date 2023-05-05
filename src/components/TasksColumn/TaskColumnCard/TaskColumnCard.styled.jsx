@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { variant } from 'styled-system';
 
 export const Li = styled.li`
-  position: relative;
   display: block;
   padding: 14px 12px 18px 16px;
   width: 100%;
@@ -44,13 +43,22 @@ export const Div = styled.div`
   align-items: flex-end;
 `;
 
-export const Img = styled.img`
-  width: 32px;
-  height: 32px;
-  border: 1.8px solid #3e85f3;
-  border-radius: 32px;
-  gap: 8px;
-`;
+// export const Img = styled.img`
+//   width: 32px;
+//   height: 32px;
+//   border: 1.8px solid #3e85f3;
+//   border-radius: 32px;
+//   gap: 8px;
+// `;
+
+// export const DefImg = styled.div`
+//   width: 32px;
+//   height: 32px;
+//   border: 1.8px solid #3e85f3;
+//   border-radius: 32px;
+//   gap: 8px;
+//   padding: 5px;
+// `;
 
 export const DivPriority = styled('div')(
   {

@@ -1,6 +1,7 @@
 import { getTasksThunk } from 'Redux/tasks/tasks.thunk';
 import CalendarSelector from 'components/CalenadarSelecor/CalendarSelector';
 import { SpinnerGrid } from 'components/Spinner/Grid';
+import { Div } from 'components/Spinner/Grid.styled';
 import { Suspense, useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,8 +21,8 @@ const CalendarPage = () => {
   return (
     <>
       {params.currentDate && <CalendarSelector />}
-      <Suspense fallback={<SpinnerGrid />}>
-     {params.currentDate?  (isLoading? <SpinnerGrid />: <Outlet />):<Outlet />}     
+      <Suspense fallback={<Div><SpinnerGrid /></Div>}>
+     {params.currentDate?  (isLoading? <Div><SpinnerGrid /></Div>: <Outlet />):<Outlet />}     
       </Suspense>
     </>
   );

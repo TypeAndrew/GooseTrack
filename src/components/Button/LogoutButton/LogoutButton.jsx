@@ -24,11 +24,12 @@ export const LogoutButton = () => {
             <h1>Are you sure?</h1>
             <p className={styles.modalText}>You really want out?</p>
             <div className={styles.btnWrapper}>
-              <button className={styles.modalBtn} onClick={onClose}>
+              <button className={styles.modalBtn} onClick={onClose} aria-label='Don`t out'>
                 No
               </button>
               <button
                 className={styles.modalBtn}
+                aria-label='Out'
                 onClick={() => {
                   onClick();
                   onClose();
@@ -50,6 +51,7 @@ export const LogoutButton = () => {
         onClick={confirmation}
         className={styles.logButton}
         disabled={isLoading}
+        aria-label='Log out'
       >
         Log out
         <IconLogout className={styles.logButton_icon} />

@@ -3,40 +3,26 @@ import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export const Avatar = styled.div`
-  position: absolute; 
-  top: 35%; left: 50%; 
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-weight: bold;
-
-  @media screen and (min-width: 768px) {
-    top: 9%; left: 50%; 
-  }
-  @media screen and (min-width: 1280px) {
-
-    top: 15%; left: 50%;
-
-  }
-  `
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 80px;
   width: 335px;
-  height: 653px;
+  /* height: 653px; */
   background:var(--primary-bgc-color);
   border-radius: 16px;
   @media screen and (min-width: 768px) {
+    margin-top: 50px;
     width: 704px;
-    height: 920px;
+    /* height: 920px; */
   }
   @media screen and (min-width: 1280px) {
+    margin-top: 38px;
     width: 1087px;
-    height: 752px;
+    /* height: 752px; */
   }
 `;
 
@@ -90,6 +76,7 @@ export const Input = styled.input`
   width: 299px;
   height: 42px;
   padding-left: 18px;
+  margin-bottom: 24px;
   background: var(--primary-bgc-color);
   border: var(--border-imput-color);
   color: var(--primary-text-color);
@@ -110,6 +97,7 @@ export const DatePick = styled(DatePicker)`
   width: 299px;
   height: 42px;
   padding-left: 18px;
+  margin-bottom: 24px;
   border-radius: 8px;
   border: var(--border-imput-color);
   background: var(--primary-bgc-color);
@@ -135,18 +123,18 @@ export const InputFile = styled.input`
   margin: 0;
 `;
 
-export const ImgAvatar = styled.img`
+export const ImgAvatarDefault = styled.img`
   text-align: center;
-  width: 52px;
-  height: 52px;
+  width: 39px;
+  height: 37px;
   
   
   
   @media screen and (min-width: 768px) {
     margin-top: 20px;
     margin-bottom: 24px;
-    width: 90px;
-    height: 90px;
+    width: 52px;
+    height: 50px;
   }
   @media screen and (min-width: 1280px) {
 
@@ -155,6 +143,28 @@ export const ImgAvatar = styled.img`
 
   }
 `;
+
+export const ImgAvatar = styled.img`
+  text-align: center;
+  width: 124px;
+  height: 124px;
+  
+  
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    width: 124px;
+    height: 124px;
+  }
+  @media screen and (min-width: 1280px) {
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+`;
+
 
 export const ImgBtnWrapper = styled.div`
  `;
@@ -240,13 +250,15 @@ export const LabelBtn = styled.label`
     line-height: 1.2;
     color: var(--text-name-color);
   @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     }
 `;
 
 export const Btn = styled.button`
   margin-left: auto;
   margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
   padding: 0;
   width: 195px;
   height: 46px;
@@ -265,6 +277,10 @@ export const Btn = styled.button`
   @media screen and (min-width: 768px) {
     width: 262px;
     height: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 88px;
+    margin-bottom: 60px;
   }
  `;
 

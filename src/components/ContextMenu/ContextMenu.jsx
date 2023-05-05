@@ -10,8 +10,17 @@ import {
   Ul,
 } from './ContextMenu.styled';
 import { useCallback, useEffect } from 'react';
+import {columnArray} from '../constants/columnArray';
+import { useAuth } from 'Redux/auth/useAuth';
 
-export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
+export const ContextMenu = ({
+  status,
+  handleCloseModal,
+  taskFormData,
+  open,
+  left,
+  top,
+}) => {
   const memoKeyClose = useCallback(handleKeyClose, [handleKeyClose]);
 
   useEffect(() => {
@@ -39,7 +48,12 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
   const dispatch = useDispatch();
   const time = useSelector(state => state.calendar.time);
 
-  const handleChangeCategiry = async (taskFormData, newCategory) => {
+  const { user } = useAuth();
+  const columns = user.columns
+  const columnList = columns ?  columns.map(item => item.name) : columnArray;
+    // const columnList = columns.map(item => item.name);
+
+  const handleChangeCategory = async (taskFormData, newCategory) => {
     const data = {
       ...taskFormData,
       category: newCategory,
@@ -56,45 +70,26 @@ export const ContextMenu = ({ status, handleCloseModal, taskFormData }) => {
     handleCloseModal();
   };
 
+
   return (
-      <Overlay onClick={handleClose}>
-    <ModalContainer >
+    <Overlay onClick={handleClose}>
+      <ModalContainer open={open} style={{ left: left, top: top }}>
         <Ul>
-          {status !== 'To do' && (
-            <Li key="To do">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'To do');
-                }}
-              >
-                <Span>To do</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
-          )}
-          {status !== 'In progress' && (
-            <Li key="In progress">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'In progress');
-                }}
-              >
-                <Span>In progress</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
-          )}
-          {status !== 'Done' && (
-            <Li key="Done">
-              <Button
-                type="button"
-                onClick={() => {
-                  handleChangeCategiry(taskFormData, 'Done');
-                }}
-              >
-                <Span>Done</Span> <IconBtnMoveTask />
-              </Button>
-            </Li>
+          {columnList.map(
+            item =>
+              status !== item && (
+                <Li key={item}>
+                  <Button
+                    aria-label={`To category ${item}`}
+                    type="button"
+                    onClick={() => {
+                      handleChangeCategory(taskFormData, item);
+                    }}
+                  >
+                    <Span>{item}</Span> <IconBtnMoveTask />
+                  </Button>
+                </Li>
+              )
           )}
         </Ul>
       </ModalContainer>

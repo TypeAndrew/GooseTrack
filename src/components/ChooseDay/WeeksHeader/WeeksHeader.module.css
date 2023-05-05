@@ -1,7 +1,5 @@
 .weeks_iteam {
   height: 68px;
-  padding-left: auto;
-  padding-right: auto;
   padding-top: 10px;
   padding-bottom: 14px;
   font-family: 'Inter';
@@ -19,7 +17,7 @@
   display: inline-block;
   width: 27px;
   height: 26px;
-  padding: 5px;
+  padding: 3px;
   border-radius: 6px;
   font-family: 'Inter';
   font-style: normal;
@@ -61,4 +59,12 @@
 }
 .weeks_iteam_datename {
   margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.selectedDay{
+ display: inline-block;
+  outline: 2px solid var(--accent-selected);
+   border-radius: 8px;
 }

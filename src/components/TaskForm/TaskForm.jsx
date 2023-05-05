@@ -178,11 +178,12 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
             <STC.Wrapper>
               {!taskFormData.title ? (
                 <>
-                  <STC.Button type="submit">
+                  <STC.Button type="submit" aria-label='Button add'>
                     <Plus />
                     <TextAdd>Add</TextAdd>
                   </STC.Button>
                   <STC.ButtonCancel
+                    aria-label='Button cancel'
                     type="button"
                     disabled={isSubmitting}
                     onClick={() => {
@@ -194,7 +195,7 @@ export const TaskForm = ({ taskFormData, status, onClose }) => {
                   </STC.ButtonCancel>
                 </>
               ) : (
-                <STC.Button type="submit" disabled={isSubmitting}>
+                <STC.Button type="submit" disabled={isSubmitting} aria-label='Button edit'>
                   <EditTask />
                   Edit 
                 </STC.Button>

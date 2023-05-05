@@ -19,6 +19,7 @@ export const Form = styled.form`
 
 export const Label = styled.label`
   display: flex;
+  width: 100%;
   flex-direction: column;
   color: var(--label-color);
   font-weight: 500;
@@ -31,7 +32,7 @@ export const Label = styled.label`
 `;
 
 export const Span = styled.span`
-  margin-top: 8px;
+  margin-top: 4px;
   font-family: var(--primary-font);
   font-style: normal;
   font-weight: 500;
@@ -83,7 +84,7 @@ export const Errors = styled.span`
   }
 `;
 
-export const TextAdd = styled.text`
+export const TextAdd = styled.span`
   color: white;
 `
 
@@ -175,9 +176,7 @@ export const RadioButtonGroup = styled.div`
   margin-bottom: 32px;
   
 
-  @media (min-width: 768px) {
-    margin-top: 10px;
-  }
+  
 `;
 
 export const RadioButtonLabel = styled.label`

@@ -11,7 +11,7 @@ export const TasksColumn = ({ title, collection }) => {
 
       {collection.length > 0 && <ColumnsTasksList collection={collection}/>}
 
-      <AddTaskBtn status={title}/>
+      <AddTaskBtn status={title} aria-label='Add task'/>
     </Li>
   );
 };

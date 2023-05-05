@@ -101,13 +101,13 @@ const LoginForm = ({ setIsLoading }) => {
                   autoComplete="current-password"
                   placeholder="Enter password"
                 />
-                <ButtonToggleIcon type="button" onClick={onClick}>
+                <ButtonToggleIcon type="button" onClick={onClick} aria-label='See password'>
                   {toggleButton.toggleIcon}
                 </ButtonToggleIcon>
                 <ErrorMessage component={ErrorDiv} name="password" />
               </DivWrap>
             </Label>
-            <Button type="submit">
+            <Button type="submit" aria-label='Submit form'>
               Log in <IconLogout />
             </Button>
           </Form>

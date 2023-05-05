@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useAuth } from 'Redux/auth/useAuth';
 import { refreshUser } from 'Redux/auth/authOperations';
 import { SpinnerGrid } from './Spinner/Grid';
+import { Container } from './Container/Container';
 
 const RegisterPage = lazy(() => import('../pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
@@ -26,11 +27,18 @@ export const App = () => {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <SpinnerGrid/>
+    <Container>
+      <SpinnerGrid />
+    </Container>
   ) : (
-
     <BrowserRouter basename="GooseTrack">
-      <Suspense fallback={<SpinnerGrid/>}>
+      <Suspense
+        fallback={
+          <Container>
+            <SpinnerGrid />
+          </Container>
+        }
+      >
         <Routes>
           <Route path="/" element={<PublicRoute />}>
             <Route index element={<Navigate to="/home" />} />
@@ -40,17 +48,17 @@ export const App = () => {
           </Route>
 
           <Route path="/" element={<PrivateRoute />}>
-            <Route index element={<Navigate to="/calendar/month/:currentDate" />} />
+            <Route
+              index
+              element={<Navigate to="/calendar/month/:currentDate" />}
+            />
             <Route path="account" element={<AccountPage />} />
             <Route path="calendar" element={<CalendarPage />}>
               <Route
                 index
                 element={<Navigate to="/calendar/month/:currentDate" />}
               />
-              <Route
-                path="month/:currentDate"
-                element={<ChooseMonth />}
-              />
+              <Route path="month/:currentDate" element={<ChooseMonth />} />
               <Route path="day/:currentDay" element={<ChooseDay />} />
             </Route>
           </Route>
@@ -58,5 +66,4 @@ export const App = () => {
       </Suspense>
     </BrowserRouter>
   );
-
 };

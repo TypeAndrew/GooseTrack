@@ -1,9 +1,8 @@
-import { Container } from 'components/Container/Container';
 import { Grid } from 'react-loader-spinner';
 
-export const SpinnerGrid = ({ children }) => {
+export const SpinnerGrid = () => {
   return (
-    <Container><Grid
+    <><Grid
     height="80"
     width="80"
     color="var(--accent-btn-background)"
@@ -13,6 +12,6 @@ export const SpinnerGrid = ({ children }) => {
     wrapperClass=""
     visible={true}
     margin='auto'
-  /></Container>
+  /></>
   );
 };

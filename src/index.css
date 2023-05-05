@@ -1,78 +1,77 @@
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 
-html{
+html {
   box-sizing: border-box;
 }
-*, *:after, *:before {
-  box-sizing: inherit ;
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
 }
 
 :root {
   /* Fonts */
   --primary-font: 'Inter', sans-serif;
   --secondary-font: 'Coolvetica', sans-serif;
-  
+
   /* Text-color */
   --primary-text-color: #111111;
   --secondary-text-color: #616161;
   --accent-text-color: #3e85f3;
   --accent-btn-background: #3e85f3;
-  --btn-text-color: #FFFFFF;
+  --btn-text-color: #ffffff;
   --not-active-item-sidebar-text-color: #84828a;
   --auth-placeholder-color: #dce3e5;
-  --hover-btn-background: #2B78EF;
-  --disabled-btn-background: #DCEBF7;
-  --error-validation-color: #E74A3B;
-  --correct-validation-color: #3CBC81;
+  --hover-btn-background: #2b78ef;
+  --disabled-btn-background: #dcebf7;
+  --error-validation-color: #e74a3b;
+  --correct-validation-color: #3cbc81;
   --form-text-color: #111111;
-  --btn-toggle-accent-background:#CAE8FF;
-  --btn-toggle-background:#e3f3ff;
-  --btn-arrow-accent-color:#616161;
-  --text-day-color:#343434;
+  --btn-toggle-accent-background: #cae8ff;
+  --btn-toggle-background: #e3f3ff;
+  --btn-arrow-accent-color: #616161;
+  --text-day-color: #343434;
   --text-user-color: #343434;
   --text-name-color: #111111;
   --label-color: rgba(52, 52, 52, 0.8);
-
-;
-
+  --close-button-color: #343434;
 
   /* Background colors */
 
-  --primary-bgc-color: #FFFFFF;
-  --secondary-bgc-color: #F7F6F9;
-  --sidebar-bgc-color: #FFFFFF;
+  --primary-bgc-color: #ffffff;
+  --secondary-bgc-color: #f7f6f9;
+  --sidebar-bgc-color: #ffffff;
   --accent-bgc-color: #3e85f3;
   --active-item-sidebar-background: #e3f3ff;
   --unlogined-background: #dcebf7;
-  --form-bgc-color: #FFFFFF;
-  
+  --form-bgc-color: #ffffff;
 
-  --context-menu-bgc-color: #FFFFFF;
-  --overflow-bcg-color:#F2F2F2;
-  --overflow-color: #E7E5E5;
+  --context-menu-bgc-color: #ffffff;
+  --overflow-bcg-color: #f2f2f2;
+  --overflow-color: #e7e5e5;
 
+  --btn-disable: #dce3e5;
+  --accent-selected: #343434;
   /* Shadow colors */
-
   --btn-shadow-color: rgba(136, 165, 191, 0.48);
 
-    /* Borders */
+  /* Borders */
 
   --border-add-btn: 1px dashed var(--accent-bgc-color);
   --border-imput-color: 1px solid rgba(17, 17, 17, 0.15);
 }
 
 .dark-theme {
-  
   /* text-color */
-  --primary-text-color: #FFFFFF;
-  --accent-text-color: #FFFFFF;
-  --not-active-item-sidebar-text-color: #FFFFFF;
+  --primary-text-color: #ffffff;
+  --accent-text-color: #ffffff;
+  --not-active-item-sidebar-text-color: #ffffff;
   --active-item-sidebar-background: #3e85f3;
   --auth-placeholder-color: #fafafa4d;
-  --text-day-color:#FFFFFF;
+  --text-day-color: #ffffff;
   --text-user-color: rgba(250, 250, 250, 0.3);
   --text-name-color: rgba(250, 250, 250, 0.3);
-  
+
   /* background-colors */
   --secondary-bgc-color: #171820;
   --primary-bgc-color: #21222c;
@@ -81,12 +80,15 @@ html{
 
   --border-imput-color: 1px solid rgba(255, 255, 255, 0.15);
   --border-add-btn: none;
-  --btn-toggle-accent-background:#3E85F3;
-  --btn-toggle-background:#21222C;
-  --btn-arrow-accent-color: #FFFFFF;
-  --overflow-bcg-color:#2D3037;
+  --btn-toggle-accent-background: #3e85f3;
+  --btn-toggle-background: #21222c;
+  --btn-arrow-accent-color: #ffffff;
+  --overflow-bcg-color: #2d3037;
   --overflow-color: #171820;
   --label-color: rgba(250, 250, 250, 0.3);
+  --btn-disable: rgba(255, 255, 255, 0.15);
+  --close-button-color: #FFFFFF;
+  --accent-selected: #ffffff;
 }
 
 body {
@@ -95,9 +97,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  overflow-x: hidden;
 }
-
 
 *::-webkit-scrollbar {
   margin-left: 3px;
@@ -108,7 +109,6 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-
   border-radius: 12px;
   border: 4px solid var(--overflow-color);
 }
@@ -123,7 +123,6 @@ code {
     monospace;
 }
 
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -133,7 +132,6 @@ ul {
 form {
   font-size: 20px;
 }
-
 
 li {
   display: flex;
@@ -145,8 +143,6 @@ li {
   border: solid;
   padding: 10px 10px;
 }
-
-
 
 h1,
 h2,
@@ -161,8 +157,7 @@ p {
   margin: 0;
 }
 
-
-input {  
+input {
   display: block;
   margin-bottom: 36px;
   margin-top: 8px;
@@ -173,9 +168,6 @@ input {
   padding-left: 14px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 36px;
+    margin-bottom: 56px;
   }
-
-  
 }
-
