@@ -9,6 +9,8 @@ import { WeeksHeader } from './WeeksHeader/WeeksHeader';
 
 import { getTasks } from 'Redux/tasks/tasks.selectors';
 
+import { columnArray } from '../constants/columnArray';
+
 import {
   currentDay,
   currentTime,
@@ -18,6 +20,7 @@ import {
 
 // розшиврофка місяців щоб число місяця перевести в текст
 import { MONTHKEY } from '../constants/MONTHKEY';
+import { useAuth } from 'Redux/auth/useAuth';
 
 const ChooseDay = () => {
   const navigate = useNavigate();
@@ -45,11 +48,41 @@ const ChooseDay = () => {
 
   const filtredTasks = toFiltredContacts();
 
-  const toDoTasks = filtredTasks.filter(task => task.category === 'To do');
-  const inProgressTasks = filtredTasks.filter(
-    task => task.category === 'In progress'
-  );
-  const doneTasks = filtredTasks.filter(task => task.category === 'Done');
+  // Функція для визначення кількості унікальних колонок, якщо їх буде нефіксована кількість
+
+  // const unicCategories = filtredTasks.reduce(
+  //   (acc, task) =>
+  //     acc.map[task.category]
+  //       ? acc
+  //       : ((acc.map[task.category] = true),
+  //         acc.unicCategories.push(task.category),
+  //         acc),
+  //   {
+  //     map: {},
+  //     unicCategories: [],
+  //   }
+  // ).unicCategories;
+
+  // console.log(unicCategories);
+
+  const { user } = useAuth();
+  const columns = user.columns
+  const columnList = columns ?  columns.map(item => item.name) : columnArray;
+  // const columnList = columns.map(item => item.name);
+
+  let sortedTasks = [];
+
+  for (const i of columnList) {
+   
+    const tasksForCategories = filtredTasks.filter(
+      task => task.category === i
+    );
+    sortedTasks.push({
+      columnName: i,
+      tasks: tasksForCategories,
+    });
+  }
+
 
   if (year === null) {
     dispatch(currentTime(dateFns.getTime(startTime)));
@@ -129,6 +162,7 @@ const ChooseDay = () => {
                 type="button"
                 disabled={btnBack}
                 className={css.btn_left}
+                aria-label='Previous day'
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -149,6 +183,7 @@ const ChooseDay = () => {
                 onClick={handleChangMonthForward}
                 type="button"
                 className={css.btn_ringt}
+                aria-label='Next day'
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -195,9 +230,7 @@ const ChooseDay = () => {
             <WeeksHeader CalendarDate={dateFns.getTime(startTime) || time} />
           )}
           <TaskColumnsList
-            toDoTasks={toDoTasks}
-            inProgressTasks={inProgressTasks}
-            doneTasks={doneTasks}
+            sortedTasks={sortedTasks}
           />
         </div>
       </div>

@@ -89,6 +89,7 @@ const CalendarSelector = props => {
               type="button"
               disabled={btnBack}
               className={css.btn_left}
+              aria-label='Previous month'
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +110,7 @@ const CalendarSelector = props => {
               onClick={handleChangMonthForward}
               type="button"
               className={css.btn_ringt}
+              aria-label='Next month'
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

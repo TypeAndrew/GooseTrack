@@ -1,9 +1,7 @@
-
 .selector {
   display: block;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 .dateToday {
@@ -24,21 +22,17 @@
   font-size: 14px;
   line-height: 18px;
   text-transform: uppercase;
-
-  
 }
 @media screen and (min-width: 768px) {
   .dateToday {
-  height: 34px;
-  font-size: 16px;}
-  .periodPaginator {
-    margin-bottom: 0;
+    height: 34px;
+    font-size: 16px;
   }
+
   .selector {
     display: flex;
   }
   .container {
-
   }
 }
 .periodPaginator {
@@ -46,6 +40,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  margin-bottom: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
 .viue {
@@ -92,7 +91,6 @@
   background: var(--btn-toggle-accent-background);
   color: var(--accent-text-color);
   cursor: pointer;
-
 }
 
 .btn_left {
@@ -102,7 +100,6 @@
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 8px 0 0 8px;
   cursor: pointer;
-
 }
 
 .btn_ringt {
@@ -112,5 +109,4 @@
   border: 1px solid rgba(220, 227, 229, 0.8);
   border-radius: 0 8px 8px 0;
   cursor: pointer;
-
 }

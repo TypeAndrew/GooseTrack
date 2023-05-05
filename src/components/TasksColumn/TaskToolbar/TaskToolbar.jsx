@@ -93,7 +93,7 @@ export const TaskToolbar = ({ status, task }) => {
     <>
       <Ul>
         <Li>
-          <Button type="button" onClick={toggleShowContextMenu}>
+          <Button type="button" onClick={toggleShowContextMenu} aria-label='Move task'>
             <IconBtnMoveTask />
           </Button>
           {showContextMenu && (
@@ -108,12 +108,12 @@ export const TaskToolbar = ({ status, task }) => {
           )}
         </Li>
         <Li>
-          <Button type="button" onClick={handleShowModal}>
+          <Button type="button" onClick={handleShowModal} aria-label='Edit task'>
             <IconBtnEditTask />
           </Button>
         </Li>
         <Li>
-          <Button type="button" onClick={confirmation}>
+          <Button type="button" onClick={confirmation} aria-label='Delete task'>
             <IconBtnDeleteTask />
           </Button>
         </Li>
