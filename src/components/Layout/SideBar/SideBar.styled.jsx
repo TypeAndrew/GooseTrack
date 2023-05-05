@@ -27,6 +27,7 @@ export const Container = styled.div`
   }
   &.openMobalMenu {
     // display: block;
+  }
 `;
 
 export const LogoContainer = styled.h1`
@@ -85,7 +86,7 @@ export const SpanSpecial = styled.p`
 export const CloseButton = styled.button` 
 width: 24px;
 height: 24px;
-stroke={'var(--close-button-color)'}
+stroke: var(--close-button-color);
 border: none;
 background: rgba(0, 0, 0, 0);
 cursor: pointer;
