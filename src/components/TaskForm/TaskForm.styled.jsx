@@ -91,7 +91,7 @@ export const TextAdd = styled.span`
 export const Button = styled.button`
   flex-grow: 1;
   height: 42px;
-
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@ export const Button = styled.button`
 `;
 
 export const ButtonCancel = styled.button`
- 
+  cursor: pointer;
   flex-grow: 0.73;
   height: 42px;
   padding: 12px;

@@ -48,4 +48,5 @@ export const CloseBtn = styled.svg`
   border: none;
   stroke: var(--primary-text-color);
   fill: transparent;
+  cursor: pointer;
 `;
