@@ -33,14 +33,15 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
   const { user } = useAuth();
 
   const avatar = user.avatarURL;
-  let bearthdate = user.birthday; 
-  let formatBearthdate = (bearthdate !== undefined) ? bearthdate.slice(0, 10) : "";  
+  // let bearthdate = user.birthday; 
+  // let formatBearthdate = (bearthdate !== undefined) ? bearthdate.slice(0, 10) : "";  
   const pathAvatar = (avatar?.substr(0, 4) !== "http" &&
                         avatar !== undefined ) ? `${serverConnection}/` + user.avatarURL : ""; 
   const pathAvatarFormat = pathAvatar.replace(/\\/g, "/");
    
 
-  const [birthday, setBirthday] = useState('');  
+  // const [birthday, setBirthday] = useState(formatBearthdate ?? '');
+  const[birthday, setBirthday] = useState(new Date());  
 
   const [avatarURL, setAvatarURL] = useState( pathAvatarFormat ?? '');
   const [name, setName] = useState(user.name ?? '');
@@ -152,9 +153,9 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
               value={phone}
               onChange={handleChange}
               placeholder='Enter your phone'
-              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-              required
+              // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              // title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              // required
             ></Input>
             </LabelBtn>
             
@@ -164,12 +165,12 @@ import { SpinnerGrid } from 'components/Spinner/Grid';
             <DatePick
               name="birthday"
               id="date"
-              value={formatBearthdate}
+              value={birthday}
               type="date"
               input={true}
-              selected={birthday.toDate} 
-              onChange={setBirthday}
-              dateFormat="YYYY-MM-DD"
+              selected={birthday} 
+              onChange={(data) => setBirthday(data)}
+              dateFormat="yyyy-MM-dd"
             />
             </LabelBtn>
           </DatePickerWrapper>

@@ -146,8 +146,8 @@ export const ImgAvatarDefault = styled.img`
 
 export const ImgAvatar = styled.img`
   text-align: center;
-  width: 124px;
-  height: 124px;
+  width: 72px;
+  height: 72px;
   
   
   
