@@ -67,7 +67,7 @@ const ChooseDay = () => {
 
   const { user } = useAuth();
   const columns = user.columns
-  const columnList = columns ?  columns.map(item => item) : columnArray;
+  const columnList = columns ?  columns.map(item => item.name) : columnArray;
   // const columnList = columns.map(item => item.name);
 
   let sortedTasks = [];
